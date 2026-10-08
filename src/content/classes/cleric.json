@@ -1,0 +1,16 @@
+{
+  "name": {
+    "pt": "Clérigo",
+    "en": "Cleric"
+  },
+  "order": 7,
+  "status": "draft",
+  "archetype": {
+    "pt": "Curandeiro",
+    "en": "Healer"
+  },
+  "summary": {
+    "pt": "Build em pesquisa. A página abre quando as skills, os Stigmas e a rotação tiverem fonte.",
+    "en": "Build under research. The page opens once skills, Stigmas and rotation are sourced."
+  }
+}

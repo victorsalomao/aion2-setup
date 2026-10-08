@@ -1,0 +1,25 @@
+---
+import { getCollection } from 'astro:content';
+import Base from '../../../layouts/Base.astro';
+import ClassCard from '../../../components/ClassCard.astro';
+import { langParams, t, type Lang } from '../../../i18n';
+
+export function getStaticPaths() {
+  return langParams();
+}
+interface Props { lang: Lang }
+const { lang } = Astro.props;
+const tt = t(lang);
+const classes = (await getCollection('classes')).sort((a, b) => a.data.order - b.data.order);
+---
+<Base lang={lang} title={tt('classes.title')} description={tt('classes.lead')}>
+  <section class="block">
+    <h1>{tt('classes.title')}</h1>
+    <p class="lead">{tt('classes.lead')}</p>
+    <div class="grid">
+      {classes.map((c) => (
+        <ClassCard lang={lang} slug={c.id} name={c.data.name} archetype={c.data.archetype} status={c.data.status} />
+      ))}
+    </div>
+  </section>
+</Base>

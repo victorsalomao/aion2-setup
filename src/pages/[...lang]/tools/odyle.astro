@@ -1,0 +1,26 @@
+---
+import Base from '../../../layouts/Base.astro';
+import OdyleCalculator from '../../../components/OdyleCalculator.astro';
+import { langParams, t, type Lang } from '../../../i18n';
+
+export function getStaticPaths() {
+  return langParams();
+}
+interface Props { lang: Lang }
+const { lang } = Astro.props;
+const tt = t(lang);
+const notes = {
+  pt: ['A Energia Odyle regenera 15 a cada 3 horas e não zera no reset semanal.', 'Abrir 2 cubos na mesma run custa o dobro: o gasto por cubo é o mesmo.', 'Os itens de Odyle ficam guardados à parte e não contam para o teto.'],
+  en: ['Odyle Energy regenerates 15 every 3 hours and does not reset weekly.', 'Opening 2 cubes in one run costs double: the cost per cube is the same.', 'Odyle items are stored separately and do not count toward the cap.'],
+}[lang];
+---
+<Base lang={lang} title={tt('tools.odyle.title')} description={tt('tools.odyle.desc')}>
+  <section class="block">
+    <h1>{tt('tools.odyle.title')}</h1>
+    <p class="lead">{tt('tools.odyle.desc')}</p>
+  </section>
+  <OdyleCalculator lang={lang} />
+  <section class="block">
+    <ul class="prose">{notes.map((n) => <li>{n}</li>)}</ul>
+  </section>
+</Base>

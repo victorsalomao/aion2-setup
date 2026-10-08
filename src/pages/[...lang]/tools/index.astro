@@ -1,0 +1,30 @@
+---
+import Base from '../../../layouts/Base.astro';
+import { href, langParams, t, type Lang } from '../../../i18n';
+
+export function getStaticPaths() {
+  return langParams();
+}
+interface Props { lang: Lang }
+const { lang } = Astro.props;
+const tt = t(lang);
+const tools = [
+  { to: '/tools/odyle/', title: tt('tools.odyle.title'), desc: tt('tools.odyle.desc') },
+  { to: '/tools/rite/', title: tt('tools.rite.title'), desc: tt('tools.rite.desc') },
+  { to: '/tools/enhance/', title: tt('tools.enhance.title'), desc: tt('tools.enhance.desc') },
+];
+---
+<Base lang={lang} title={tt('tools.title')} description={tt('tools.lead')}>
+  <section class="block">
+    <h1>{tt('tools.title')}</h1>
+    <p class="lead">{tt('tools.lead')}</p>
+    <div class="grid">
+      {tools.map((x) => (
+        <a class="card" href={href(lang, x.to)}>
+          <h3>{x.title}</h3>
+          <span class="muted small">{x.desc}</span>
+        </a>
+      ))}
+    </div>
+  </section>
+</Base>

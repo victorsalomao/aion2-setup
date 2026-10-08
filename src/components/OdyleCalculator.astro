@@ -1,0 +1,222 @@
+---
+/**
+ * Calculadora de Odyle.
+ * A conta mora em src/lib/odyle.ts (função pura, testada). Este componente só liga
+ * formulário -> função -> tela. Os textos vão como JSON para o script não precisar
+ * saber de idioma.
+ */
+import type { Lang } from '../i18n';
+
+interface Props { lang: Lang }
+const { lang } = Astro.props;
+
+const copy = {
+  pt: {
+    locale: 'pt-BR',
+    have: 'O que você tem', energy: 'Energia Odyle agora', small: 'Itens pequenos, de 10', big: 'Itens grandes, de 40',
+    member: 'Tenho assinatura (teto de 840; sem ela, 560)', regen: 'Regeneração por dia',
+    regenHint: 'Preenche 120 com assinatura e 80 sem. Ajuste se o seu jogo mostrar outro valor.',
+    want: 'A recompensa que você quer', goal: 'Cubos para a recompensa', done: 'Cubos já abertos nessa contagem', cost: 'Custo de cada cubo',
+    limits: 'Limites opcionais', reserve: 'Odyle reservada por dia para a Transcendência (40 por cubo)',
+    reserveDone: 'Já fiz a Transcendência de hoje', limit: 'Limitar também pelo contador de entradas da masmorra',
+    count: 'Cubos que o contador libera agora', refill: 'Cubos que ele devolve por dia',
+    limitHint: 'Sem marcar nada aqui, a conta olha só a energia.',
+    result: 'Resultado', thDay: 'Dia', thCubes: 'Cubos', thCount: 'Contagem', thLeft: 'Odyle que sobra', today: 'Hoje',
+    fTotal: 'Energia total agora, com os itens', fPays: 'Cubos que ela paga', fNeed: 'Cubos que faltam', fAsks: 'Energia que esses cubos pedem',
+    fShort: 'Falta juntar', fSpare: 'Sobra no estoque', fReserved: 'Reserva até fechar',
+    vClosed: 'Você já fechou essa contagem. Pegue a recompensa.',
+    vShort: 'Faltam <b>{short}</b> de Odyle. Os {need} pedem {asks} e você tem {total}, que paga {stock}.',
+    vRegen: ' A regeneração repõe isso em cerca de {time}.', vNoRegen: ' Sem regeneração, isso só vem de item.',
+    vEnough: '<b>A energia já paga tudo</b>: os {need} pedem {asks} e você tem {total}.',
+    wToday: 'Dá para fechar <b>hoje</b>.', wNever: 'Com esses limites <b>não fecha</b>: o que entra por dia não cobre o que sai.',
+    wWhen: 'Fecha em <b>{days}</b>, {date}. Hoje dá para abrir {today}.',
+    wCounter: ' Quem segura é o contador de entradas, não a energia.', wReserved: ' Já desconta {reserved} de reserva.',
+    cube: ['cubo', 'cubos'], day: ['dia', 'dias'], hour: ['hora', 'horas'], byEnergy: 'energia', byCounter: 'contador', none: 'Nada a abrir.',
+  },
+  en: {
+    locale: 'en',
+    have: 'What you have', energy: 'Odyle Energy now', small: 'Small items (10 each)', big: 'Large items (40 each)',
+    member: 'I have membership (cap 840; 560 without)', regen: 'Regeneration per day',
+    regenHint: 'Fills 120 with membership and 80 without. Adjust if your game shows another value.',
+    want: 'The reward you want', goal: 'Cubes for the reward', done: 'Cubes already opened in this count', cost: 'Cost per cube',
+    limits: 'Optional limits', reserve: 'Odyle reserved per day for Transcendence (40 per cube)',
+    reserveDone: "I already did today's Transcendence", limit: "Also limit by the dungeon's entry counter",
+    count: 'Cubes the counter allows now', refill: 'Cubes it gives back per day',
+    limitHint: 'With nothing ticked here, the math looks at energy only.',
+    result: 'Result', thDay: 'Day', thCubes: 'Cubes', thCount: 'Count', thLeft: 'Odyle left', today: 'Today',
+    fTotal: 'Total energy now, items included', fPays: 'Cubes it pays for', fNeed: 'Cubes still needed', fAsks: 'Energy those cubes cost',
+    fShort: 'Still to gather', fSpare: 'Left over in stock', fReserved: 'Reserved until done',
+    vClosed: 'You already completed this count. Claim the reward.',
+    vShort: 'You are <b>{short}</b> Odyle short. The {need} cost {asks} and you have {total}, which pays for {stock}.',
+    vRegen: ' Regeneration covers that in about {time}.', vNoRegen: ' With no regeneration, that only comes from items.',
+    vEnough: '<b>Your energy already covers it</b>: the {need} cost {asks} and you have {total}.',
+    wToday: 'You can finish <b>today</b>.', wNever: 'With these limits it <b>never completes</b>: daily income does not cover daily spending.',
+    wWhen: 'Done in <b>{days}</b>, {date}. Today you can open {today}.',
+    wCounter: ' The entry counter is the bottleneck, not energy.', wReserved: ' That already sets aside {reserved} in reserve.',
+    cube: ['cube', 'cubes'], day: ['day', 'days'], hour: ['hour', 'hours'], byEnergy: 'energy', byCounter: 'counter', none: 'Nothing to open.',
+  },
+}[lang];
+---
+<div class="two" data-odyle>
+  <script type="application/json" data-copy set:html={JSON.stringify(copy)} />
+  <div class="panel">
+    <div class="fgrid">
+      <h3>{copy.have}</h3>
+      <label for="od-energy">{copy.energy}</label>
+      <input type="number" id="od-energy" data-k="energy" min="0" max="2840" value="240" inputmode="numeric" />
+      <label for="od-small">{copy.small}</label>
+      <input type="number" id="od-small" data-k="small" min="0" max="999" value="0" inputmode="numeric" />
+      <label for="od-big">{copy.big}</label>
+      <input type="number" id="od-big" data-k="big" min="0" max="999" value="0" inputmode="numeric" />
+      <div class="full"><input type="checkbox" id="od-member" data-k="member" checked /><label for="od-member">{copy.member}</label></div>
+      <label for="od-regen">{copy.regen}</label>
+      <input type="number" id="od-regen" data-k="regen" min="0" max="999" value="120" inputmode="numeric" />
+      <p class="hint">{copy.regenHint}</p>
+
+      <h3>{copy.want}</h3>
+      <label for="od-goal">{copy.goal}</label>
+      <select id="od-goal" data-k="goal">
+        {[3, 7, 14, 18, 21, 28].map((n) => <option value={n} selected={n === 21}>{n}</option>)}
+      </select>
+      <label for="od-done">{copy.done}</label>
+      <input type="number" id="od-done" data-k="done" min="0" max="28" value="0" inputmode="numeric" />
+      <label for="od-cost">{copy.cost}</label>
+      <select id="od-cost" data-k="cost">
+        {[20, 30, 40].map((n) => <option value={n} selected={n === 40}>{n}</option>)}
+      </select>
+
+      <h3>{copy.limits}</h3>
+      <label for="od-reserve">{copy.reserve}</label>
+      <select id="od-reserve" data-k="reserve">
+        {[0, 40, 80].map((n) => <option value={n}>{n}</option>)}
+      </select>
+      <div class="full"><input type="checkbox" id="od-reserve-done" data-k="reserveDoneToday" /><label for="od-reserve-done">{copy.reserveDone}</label></div>
+      <div class="full"><input type="checkbox" id="od-limit" data-k="limit" /><label for="od-limit">{copy.limit}</label></div>
+      <label for="od-count">{copy.count}</label>
+      <input type="number" id="od-count" data-k="count" min="0" max="21" value="3" inputmode="numeric" />
+      <label for="od-refill">{copy.refill}</label>
+      <input type="number" id="od-refill" data-k="refill" min="0" max="21" value="3" inputmode="numeric" />
+      <p class="hint">{copy.limitHint}</p>
+    </div>
+  </div>
+  <div class="panel">
+    <h3>{copy.result}</h3>
+    <p class="result" data-out="verdict" aria-live="polite"></p>
+    <p data-out="when"></p>
+    <dl class="facts" data-out="facts"></dl>
+    <div class="tablewrap">
+      <table>
+        <thead><tr><th>{copy.thDay}</th><th>{copy.thCubes}</th><th>{copy.thCount}</th><th>{copy.thLeft}</th></tr></thead>
+        <tbody data-out="rows"></tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<script>
+  import { planOdyle, type OdyleInput } from '../lib/odyle';
+
+  type Copy = Record<string, string> & { cube: string[]; day: string[]; hour: string[] };
+  const KEY = 'rota.odyle.v1';
+
+  document.querySelectorAll<HTMLElement>('[data-odyle]').forEach((root) => {
+    const copy = JSON.parse(root.querySelector('[data-copy]')!.textContent || '{}') as Copy;
+    const fields = [...root.querySelectorAll<HTMLInputElement | HTMLSelectElement>('[data-k]')];
+    const out = (name: string) => root.querySelector<HTMLElement>(`[data-out="${name}"]`)!;
+    const fmt = (n: number) => n.toLocaleString(copy.locale);
+    const plural = (n: number, forms: string[]) => `${fmt(n)} ${n === 1 ? forms[0] : forms[1]}`;
+    const fill = (tpl: string, vars: Record<string, string>) => tpl.replace(/\{(\w+)\}/g, (_, k) => vars[k] ?? '');
+
+    function read(): Record<string, number | boolean> {
+      const v: Record<string, number | boolean> = {};
+      for (const f of fields) {
+        const k = f.dataset.k!;
+        v[k] = f instanceof HTMLInputElement && f.type === 'checkbox'
+          ? f.checked
+          : Math.max(0, Math.floor(Number(f.value) || 0));
+      }
+      return v;
+    }
+
+    function render() {
+      const v = read();
+      const goal = (v.goal as number) || 21;
+      const input: OdyleInput = {
+        energy: v.energy as number, small: v.small as number, big: v.big as number,
+        cap: v.member ? 840 : 560, regen: v.regen as number, cost: (v.cost as number) || 40,
+        goal, done: Math.min(v.done as number, goal),
+        reserve: v.reserve as number, reserveDoneToday: !!v.reserveDoneToday,
+        limit: !!v.limit, count: Math.min(v.count as number, 21), refill: Math.min(v.refill as number, 21),
+      };
+      for (const id of ['od-count', 'od-refill']) (root.querySelector(`#${id}`) as HTMLInputElement).disabled = !input.limit;
+      (root.querySelector('#od-reserve-done') as HTMLInputElement).disabled = !input.reserve;
+
+      const plan = planOdyle(input);
+      const asks = plan.need * input.cost;
+      const vars = {
+        short: fmt(plan.shortfall), need: plural(plan.need, copy.cube), asks: fmt(asks),
+        total: fmt(plan.totalEnergy), stock: fmt(plan.stockCubes), reserved: fmt(plan.reserved),
+      };
+
+      let verdict: string;
+      if (plan.need === 0) verdict = copy.vClosed;
+      else if (plan.shortfall > 0) {
+        const hours = input.regen ? (plan.shortfall / input.regen) * 24 : 0;
+        const time = hours <= 36 ? plural(Math.max(1, Math.ceil(hours)), copy.hour) : plural(Math.ceil(hours / 24), copy.day);
+        verdict = fill(copy.vShort, vars) + (input.regen ? fill(copy.vRegen, { time }) : copy.vNoRegen);
+      } else verdict = fill(copy.vEnough, vars);
+      out('verdict').innerHTML = verdict;
+
+      let when = '';
+      if (plan.need > 0) {
+        if (plan.days === 0) when = copy.wToday;
+        else if (plan.days === null) when = copy.wNever;
+        else {
+          const date = new Date();
+          date.setDate(date.getDate() + plan.days);
+          when = fill(copy.wWhen, {
+            days: plural(plan.days, copy.day),
+            date: date.toLocaleDateString(copy.locale, { weekday: 'long', day: 'numeric', month: 'long' }),
+            today: plural(plan.rows[0]?.opened ?? 0, copy.cube),
+          });
+        }
+        if (plan.hitCounter) when += copy.wCounter;
+        if (input.reserve && plan.days !== null) when += fill(copy.wReserved, vars);
+      }
+      out('when').innerHTML = when;
+
+      const fact = (label: string, value: string) => `<dt>${label}</dt><dd>${value}</dd>`;
+      out('facts').innerHTML =
+        fact(copy.fTotal, fmt(plan.totalEnergy)) + fact(copy.fPays, fmt(plan.stockCubes)) +
+        fact(copy.fNeed, fmt(plan.need)) + fact(copy.fAsks, fmt(asks)) +
+        (plan.shortfall ? fact(copy.fShort, fmt(plan.shortfall)) : fact(copy.fSpare, fmt(plan.totalEnergy - asks))) +
+        (input.reserve && plan.days !== null ? fact(copy.fReserved, fmt(plan.reserved)) : '');
+
+      const rows = plan.days === null ? plan.rows.slice(0, 4) : plan.rows.slice(0, 30);
+      out('rows').innerHTML = rows.map((r) => {
+        const why = r.limitedBy ? ` <span class="muted small">(${r.limitedBy === 'counter' ? copy.byCounter : copy.byEnergy})</span>` : '';
+        return `<tr><td>${r.day === 0 ? copy.today : '+' + r.day}</td><td class="num">${r.opened}${why}</td><td class="num">${r.total}/${goal}</td><td class="num">${fmt(r.energyLeft)}</td></tr>`;
+      }).join('') || `<tr><td colspan="4" class="muted">${copy.none}</td></tr>`;
+
+      try { localStorage.setItem(KEY, JSON.stringify(v)); } catch { /* sem storage, segue sem lembrar */ }
+    }
+
+    try {
+      const saved = JSON.parse(localStorage.getItem(KEY) || 'null');
+      if (saved) for (const f of fields) {
+        const val = saved[f.dataset.k!];
+        if (val === undefined) continue;
+        if (f instanceof HTMLInputElement && f.type === 'checkbox') f.checked = !!val; else f.value = String(val);
+      }
+    } catch { /* idem */ }
+
+    root.querySelector<HTMLInputElement>('#od-member')!.addEventListener('change', (e) => {
+      (root.querySelector('#od-regen') as HTMLInputElement).value = (e.target as HTMLInputElement).checked ? '120' : '80';
+    });
+    for (const f of fields) {
+      f.addEventListener('input', render);
+      f.addEventListener('change', render);
+    }
+    render();
+  });
+</script>

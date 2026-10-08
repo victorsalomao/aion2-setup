@@ -1,0 +1,27 @@
+---
+import { getCollection } from 'astro:content';
+import Base from '../../../layouts/Base.astro';
+import { href, langParams, t, type Lang } from '../../../i18n';
+
+export function getStaticPaths() {
+  return langParams();
+}
+interface Props { lang: Lang }
+const { lang } = Astro.props;
+const tt = t(lang);
+const guides = (await getCollection('guides', (g) => g.data.lang === lang)).sort((a, b) => a.data.order - b.data.order);
+---
+<Base lang={lang} title={tt('guides.title')} description={tt('guides.lead')}>
+  <section class="block">
+    <h1>{tt('guides.title')}</h1>
+    <p class="lead">{tt('guides.lead')}</p>
+    <div class="grid">
+      {guides.map((g) => (
+        <a class="card" href={href(lang, `/guides/${g.data.key}/`)}>
+          <h3>{g.data.title}</h3>
+          <span class="muted small">{g.data.description}</span>
+        </a>
+      ))}
+    </div>
+  </section>
+</Base>

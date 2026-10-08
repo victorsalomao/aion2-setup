@@ -1,0 +1,31 @@
+---
+/** Um guia = um arquivo markdown por idioma, ligados pelo campo `key` do frontmatter. */
+import { getCollection, render, type CollectionEntry } from 'astro:content';
+import Base from '../../../layouts/Base.astro';
+import AdSlot from '../../../components/AdSlot.astro';
+import { DEFAULT_LANG, t, type Lang } from '../../../i18n';
+
+export async function getStaticPaths() {
+  const guides = await getCollection('guides');
+  return guides.map((entry) => ({
+    params: { lang: entry.data.lang === DEFAULT_LANG ? undefined : entry.data.lang, key: entry.data.key },
+    props: {
+      lang: entry.data.lang,
+      entry,
+      hasTranslation: guides.some((g) => g.data.key === entry.data.key && g.data.lang !== entry.data.lang),
+    },
+  }));
+}
+interface Props { lang: Lang; entry: CollectionEntry<'guides'>; hasTranslation: boolean }
+const { lang, entry, hasTranslation } = Astro.props;
+const { Content } = await render(entry);
+---
+<Base lang={lang} title={entry.data.title} description={entry.data.description} hasTranslation={hasTranslation}>
+  <article class="block">
+    <h1>{entry.data.title}</h1>
+    <p class="lead">{entry.data.description}</p>
+    <p class="muted small">{t(lang)('guide.updated')} <span class="num">{entry.data.updated}</span></p>
+    <AdSlot lang={lang} name="topo do guia" slot={import.meta.env.PUBLIC_ADSENSE_SLOT_INCONTENT} />
+    <div class="prose"><Content /></div>
+  </article>
+</Base>

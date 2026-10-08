@@ -1,0 +1,26 @@
+---
+/**
+ * Espaço de anúncio.
+ * - Sem PUBLIC_ADSENSE_CLIENT: não renderiza nada (ou uma caixa tracejada em dev).
+ * - Com ele: renderiza o bloco do AdSense. O script global é carregado uma vez no layout.
+ * `slot` é o ID do bloco criado no painel do AdSense.
+ */
+import { SITE } from '../config/site';
+import { t, type Lang } from '../i18n';
+
+interface Props { lang: Lang; slot?: string; name: string }
+const { lang, slot = '', name } = Astro.props;
+const live = SITE.adsenseClient && slot;
+---
+{live ? (
+  <aside class="ad" aria-label={t(lang)('ad.label')}>
+    <span class="ad-label">{t(lang)('ad.label')}</span>
+    <ins class="adsbygoogle" style="display:block" data-ad-client={SITE.adsenseClient} data-ad-slot={slot} data-ad-format="auto" data-full-width-responsive="true"></ins>
+    <script is:inline>(window.adsbygoogle = window.adsbygoogle || []).push({});</script>
+  </aside>
+) : SITE.showAdPlaceholders ? (
+  <aside class="ad" aria-hidden="true">
+    <span class="ad-label">{t(lang)('ad.label')}</span>
+    <div class="ad-placeholder">{name}</div>
+  </aside>
+) : null}

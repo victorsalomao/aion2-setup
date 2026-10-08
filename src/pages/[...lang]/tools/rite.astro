@@ -1,0 +1,67 @@
+---
+import Base from '../../../layouts/Base.astro';
+import RiteCalculator from '../../../components/RiteCalculator.astro';
+import { RITE_DIFFICULTIES, CRYSTAL_MILESTONES, secondsNeeded, formatClock } from '../../../lib/rite';
+import { formatNumber, langParams, t, type Lang } from '../../../i18n';
+
+export function getStaticPaths() {
+  return langParams();
+}
+interface Props { lang: Lang }
+const { lang } = Astro.props;
+const tt = t(lang);
+const hard = RITE_DIFFICULTIES.find((d) => d.id === 'hard')!;
+const c = {
+  pt: {
+    formula: `No Hard, a pontuação é ${formatNumber(hard.base!, 'pt')} por terminar sem morrer, mais ${hard.perSecond} pontos por segundo que sobrar no relógio. A conquista conta a melhor run, não a soma.`,
+    thScore: 'Marco', thTime: 'Tempo que precisa sobrar', thCrystal: 'Cristais acumulados', always: 'qualquer clear sem morte',
+    diffs: 'Dificuldades', thDiff: 'Dificuldade', thGs: 'Gear score', thDeaths: 'Limite de mortes',
+    caveat: 'A fórmula vem de relatos da versão coreana e só tem números para o Hard. Confira o resumo no fim da sua run.',
+  },
+  en: {
+    formula: `On Hard, the score is ${formatNumber(hard.base!, 'en')} for a deathless clear, plus ${hard.perSecond} points per second left on the clock. The achievement counts your best run, not the sum.`,
+    thScore: 'Milestone', thTime: 'Time that must be left', thCrystal: 'Crystals so far', always: 'any deathless clear',
+    diffs: 'Difficulties', thDiff: 'Difficulty', thGs: 'Gear score', thDeaths: 'Death limit',
+    caveat: 'The formula comes from Korean-version reports and only has numbers for Hard. Check the summary at the end of your run.',
+  },
+}[lang];
+const rows = CRYSTAL_MILESTONES.map((target, i) => {
+  const s = secondsNeeded(target, hard.base!, hard.perSecond!);
+  return { target, time: s === 0 ? c.always : formatClock(s), crystals: i + 1 };
+});
+---
+<Base lang={lang} title={tt('tools.rite.title')} description={tt('tools.rite.desc')}>
+  <section class="block">
+    <h1>{tt('tools.rite.title')}</h1>
+    <p class="lead">{c.formula}</p>
+  </section>
+  <div class="two">
+    <div class="panel">
+      <div class="tablewrap">
+        <table>
+          <thead><tr><th class="num">{c.thScore}</th><th>{c.thTime}</th><th class="num">{c.thCrystal}</th></tr></thead>
+          <tbody>
+            {rows.map((r) => (
+              <tr><td class="num">{formatNumber(r.target, lang)}</td><td class="num">{r.time}</td><td class="num">{r.crystals}</td></tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <RiteCalculator lang={lang} />
+  </div>
+  <section class="block">
+    <h2>{c.diffs}</h2>
+    <div class="tablewrap">
+      <table>
+        <thead><tr><th>{c.thDiff}</th><th class="num">{c.thGs}</th><th class="num">{c.thDeaths}</th></tr></thead>
+        <tbody>
+          {RITE_DIFFICULTIES.map((d) => (
+            <tr><td style="text-transform:capitalize">{d.id}</td><td class="num">{formatNumber(d.gearScore, lang)}</td><td class="num">{d.deathLimit}</td></tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+    <p class="muted small">{c.caveat}</p>
+  </section>
+</Base>

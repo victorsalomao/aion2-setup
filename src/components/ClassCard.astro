@@ -1,0 +1,14 @@
+---
+import { href, t, tr, type Lang, type L10n } from '../i18n';
+
+interface Props { lang: Lang; slug: string; name: L10n; archetype: L10n; status: 'published' | 'draft' }
+const { lang, slug, name, archetype, status } = Astro.props;
+const tt = t(lang);
+---
+<a class="card" href={href(lang, `/classes/${slug}/`)}>
+  <div class="card-top">
+    <h3>{tr(name, lang)}</h3>
+    <span class:list={['pill', status === 'published' ? 'ok' : 'lock']}>{tt(status === 'published' ? 'class.published' : 'class.draft')}</span>
+  </div>
+  <span class="muted small">{tr(archetype, lang)}</span>
+</a>

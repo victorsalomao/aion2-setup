@@ -1,0 +1,16 @@
+{
+  "name": {
+    "pt": "Caçador",
+    "en": "Ranger"
+  },
+  "order": 4,
+  "status": "draft",
+  "archetype": {
+    "pt": "Dano à distância",
+    "en": "Ranged damage"
+  },
+  "summary": {
+    "pt": "Build em pesquisa. A página abre quando as skills, os Stigmas e a rotação tiverem fonte.",
+    "en": "Build under research. The page opens once skills, Stigmas and rotation are sourced."
+  }
+}

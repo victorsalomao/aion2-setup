@@ -1,0 +1,119 @@
+---
+/**
+ * Página de classe. Tudo que aparece vem do arquivo em src/content/classes.
+ * Adicionar uma classe = adicionar um JSON; este arquivo não muda.
+ */
+import { getCollection, type CollectionEntry } from 'astro:content';
+import Base from '../../../layouts/Base.astro';
+import SkillCard from '../../../components/SkillCard.astro';
+import AdSlot from '../../../components/AdSlot.astro';
+import { emphasize } from '../../../lib/markup';
+import { langParams, t, tr, type Lang } from '../../../i18n';
+
+export async function getStaticPaths() {
+  const classes = await getCollection('classes');
+  return langParams().flatMap(({ params, props }) =>
+    classes.map((entry) => ({ params: { ...params, slug: entry.id }, props: { ...props, entry } })),
+  );
+}
+interface Props { lang: Lang; entry: CollectionEntry<'classes'> }
+const { lang, entry } = Astro.props;
+const c = entry.data;
+const tt = t(lang);
+const draft = c.status !== 'published';
+const name = tr(c.name, lang);
+const title = lang === 'pt' ? `Build de ${name}` : `${name} build`;
+const stigmaById = new Map(c.stigmas.map((s) => [s.id, s]));
+const activeById = new Map(c.actives.map((s) => [s.id, s]));
+const categories = ['damage', 'control', 'heal', 'move', 'aura'] as const;
+---
+<Base lang={lang} title={title} description={tr(c.summary, lang)} noindex={draft}>
+  <section class="block">
+    <p class="eyebrow">{tr(c.archetype, lang)}</p>
+    <h1>{title}</h1>
+    <p class="lead">{tr(c.summary, lang)}</p>
+    {c.updated && <p class="muted small">{tt('guide.updated')} <span class="num">{c.updated}</span></p>}
+  </section>
+
+  {draft ? (
+    <section class="block">
+      <div class="note">
+        <p><strong>{tt('class.draft')}.</strong> {tt('class.draft.body')}</p>
+      </div>
+    </section>
+  ) : (
+    <>
+      <section class="block">
+        <h2>{tt('class.actives')}</h2>
+        <p class="muted small">{tt('class.namesNote')}</p>
+        <div class="legend">
+          {categories.map((cat) => (
+            <span class={`cat-${cat}`} style="background:none"><i></i>{tt(`cat.${cat}`)}</span>
+          ))}
+        </div>
+        <div class="skills">
+          {c.actives.map((s) => <SkillCard lang={lang} {...s} />)}
+        </div>
+      </section>
+
+      <AdSlot lang={lang} name="meio da página de classe" slot={import.meta.env.PUBLIC_ADSENSE_SLOT_INCONTENT} />
+
+      <section class="block">
+        <h2>{tt('class.passives')}</h2>
+        <div class="skills">
+          {c.passives.map((s) => <SkillCard lang={lang} {...s} />)}
+        </div>
+      </section>
+
+      <section class="block">
+        <h2>{tt('class.modes')}</h2>
+        {c.modes.map((m) => (
+          <div class="panel" id={m.id}>
+            <h3>{tr(m.name, lang)}</h3>
+            <p class="muted">{tr(m.lead, lang)}</p>
+
+            <h3>{tt('class.stigmas')}</h3>
+            <div class="skills">
+              {m.fixed.map((id) => stigmaById.get(id)).filter((s) => s !== undefined).map((s) => (
+                <SkillCard lang={lang} name={s.name} mono={s.mono} category={s.category} level={tr(s.level, lang)} spec={{ pt: tt('class.fixed'), en: tt('class.fixed') }} role={s.description} />
+              ))}
+              {m.flex.map((f) => ({ f, s: stigmaById.get(f.stigma) })).filter((x) => x.s !== undefined).map(({ f, s }) => (
+                <SkillCard lang={lang} name={s!.name} mono={s!.mono} category={s!.category} level={tr(s!.level, lang)} spec={{ pt: `${tt('class.flex')}: ${f.when.pt}`, en: `${tt('class.flex')}: ${f.when.en}` }} role={s!.description} />
+              ))}
+            </div>
+
+            {m.overrides.length > 0 && (
+              <>
+                <h3>{tt('class.changed')}</h3>
+                <div class="skills">
+                  {m.overrides.map((o) => ({ o, s: activeById.get(o.skill) })).filter((x) => x.s !== undefined).map(({ o, s }) => (
+                    <SkillCard lang={lang} name={s!.name} mono={s!.mono} category={s!.category} level={o.level} spec={o.spec} role={o.why} changed />
+                  ))}
+                </div>
+              </>
+            )}
+
+            <h3>{tt('class.rotation')}</h3>
+            <ol class="seq">
+              {m.rotation.map((step) => <li><span set:html={emphasize(tr(step, lang))} /></li>)}
+            </ol>
+            {m.rotationNote && <p class="muted small">{tr(m.rotationNote, lang)}</p>}
+
+            <h3>{tt('class.stats')}</h3>
+            <p>{tr(m.stats, lang)}</p>
+            {m.note && <p class="muted small">{tr(m.note, lang)}</p>}
+          </div>
+        ))}
+      </section>
+
+      {c.sources.length > 0 && (
+        <section class="block">
+          <h2>{tt('class.sources')}</h2>
+          <ul class="prose">
+            {c.sources.map((s) => <li><a href={s.url} rel="noopener">{s.title}</a></li>)}
+          </ul>
+        </section>
+      )}
+    </>
+  )}
+</Base>

@@ -1,0 +1,62 @@
+---
+import { getCollection } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+import GsLadder from '../../components/GsLadder.astro';
+import ClassCard from '../../components/ClassCard.astro';
+import { href, langParams, t, type Lang } from '../../i18n';
+
+export function getStaticPaths() {
+  return langParams();
+}
+interface Props { lang: Lang }
+const { lang } = Astro.props;
+const tt = t(lang);
+const classes = (await getCollection('classes')).sort((a, b) => a.data.order - b.data.order);
+const guides = (await getCollection('guides', (g) => g.data.lang === lang)).sort((a, b) => a.data.order - b.data.order);
+const tools = [
+  { to: '/tools/odyle/', title: tt('tools.odyle.title'), desc: tt('tools.odyle.desc') },
+  { to: '/tools/rite/', title: tt('tools.rite.title'), desc: tt('tools.rite.desc') },
+  { to: '/tools/enhance/', title: tt('tools.enhance.title'), desc: tt('tools.enhance.desc') },
+];
+---
+<Base lang={lang} title={tt('home.title')} description={tt('site.description')}>
+  <section class="block">
+    <p class="eyebrow">{tt('site.tagline')}</p>
+    <h1>{tt('home.title')}</h1>
+    <p class="lead">{tt('home.lead')}</p>
+    <GsLadder lang={lang} />
+  </section>
+
+  <section class="block">
+    <h2>{tt('home.classes')}</h2>
+    <div class="grid">
+      {classes.map((c) => (
+        <ClassCard lang={lang} slug={c.id} name={c.data.name} archetype={c.data.archetype} status={c.data.status} />
+      ))}
+    </div>
+  </section>
+
+  <section class="block">
+    <h2>{tt('home.tools')}</h2>
+    <div class="grid">
+      {tools.map((x) => (
+        <a class="card" href={href(lang, x.to)}>
+          <h3>{x.title}</h3>
+          <span class="muted small">{x.desc}</span>
+        </a>
+      ))}
+    </div>
+  </section>
+
+  <section class="block">
+    <h2>{tt('home.guides')}</h2>
+    <div class="grid">
+      {guides.map((g) => (
+        <a class="card" href={href(lang, `/guides/${g.data.key}/`)}>
+          <h3>{g.data.title}</h3>
+          <span class="muted small">{g.data.description}</span>
+        </a>
+      ))}
+    </div>
+  </section>
+</Base>

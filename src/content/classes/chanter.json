@@ -1,0 +1,736 @@
+{
+  "name": {
+    "pt": "Chanter",
+    "en": "Chanter"
+  },
+  "order": 8,
+  "status": "published",
+  "archetype": {
+    "pt": "Suporte que bate",
+    "en": "Support that hits"
+  },
+  "summary": {
+    "pt": "Build de nível 45 para o global: Dark Crush, Spinning Strike e Onslaught como dano, Recuperation como cura e Undefeated Mantra como o Stigma que nunca sai.",
+    "en": "Level 45 build for global: Dark Crush, Spinning Strike and Onslaught for damage, Recuperation for healing, and Undefeated Mantra as the Stigma that never comes off."
+  },
+  "updated": "2026-10-07",
+  "actives": [
+    {
+      "id": "dc",
+      "name": "Dark Crush",
+      "mono": "DC",
+      "category": "damage",
+      "level": 10,
+      "role": {
+        "pt": "Dano principal. Alvo único a 20 m, recarga de 5 s.",
+        "en": "Main damage. Single target at 20 m, 5 s cooldown."
+      },
+      "spec": {
+        "pt": "Acerto crítico garantido",
+        "en": "Guaranteed critical hit"
+      }
+    },
+    {
+      "id": "ss",
+      "name": "Spinning Strike",
+      "mono": "SS",
+      "category": "damage",
+      "level": 10,
+      "role": {
+        "pt": "Libera o Dark Crush e dá +15% de dano crítico por 30 s.",
+        "en": "Unlocks Dark Crush and gives +15% critical damage for 30 s."
+      },
+      "spec": {
+        "pt": "−5 s de recarga",
+        "en": "−5 s cooldown"
+      }
+    },
+    {
+      "id": "ib",
+      "name": "Incandescent Blow",
+      "mono": "IB",
+      "category": "damage",
+      "level": 10,
+      "role": {
+        "pt": "Ataque do botão direito, sem recarga.",
+        "en": "Right-click attack, no cooldown."
+      },
+      "spec": {
+        "pt": "−20% de MP consumido",
+        "en": "−20% MP cost"
+      }
+    },
+    {
+      "id": "re",
+      "name": "Recuperation",
+      "mono": "Re",
+      "category": "heal",
+      "level": 10,
+      "role": {
+        "pt": "Cura o grupo a 40 m e remove um debuff.",
+        "en": "Heals the party at 40 m and removes one debuff."
+      },
+      "spec": {
+        "pt": "+1 uso consecutivo",
+        "en": "+1 consecutive use"
+      }
+    },
+    {
+      "id": "rs",
+      "name": "Rushing Smash",
+      "mono": "RS",
+      "category": "move",
+      "level": 9,
+      "role": {
+        "pt": "Avanço até o alvo.",
+        "en": "Dash to the target."
+      },
+      "spec": {
+        "pt": "Vira skill de carga",
+        "en": "Becomes a charge skill"
+      }
+    },
+    {
+      "id": "on",
+      "name": "Onslaught",
+      "mono": "On",
+      "category": "damage",
+      "level": 8,
+      "role": {
+        "pt": "Ataque do botão esquerdo. Recupera MP a cada acerto.",
+        "en": "Left-click attack. Restores MP on every hit."
+      },
+      "spec": {
+        "pt": "+20% de MP restaurado",
+        "en": "+20% MP restored"
+      }
+    },
+    {
+      "id": "ic",
+      "name": "Impactful Crush",
+      "mono": "IC",
+      "category": "control",
+      "level": 8,
+      "role": {
+        "pt": "Atordoa e libera o Dark Crush.",
+        "en": "Stuns and unlocks Dark Crush."
+      },
+      "spec": {
+        "pt": "Vira dano em área",
+        "en": "Becomes area damage"
+      }
+    },
+    {
+      "id": "tc",
+      "name": "Tremor Crush",
+      "mono": "TC",
+      "category": "move",
+      "level": 8,
+      "role": {
+        "pt": "Reposicionamento.",
+        "en": "Repositioning."
+      },
+      "spec": {
+        "pt": "+10 m de alcance",
+        "en": "+10 m range"
+      }
+    },
+    {
+      "id": "hw",
+      "name": "Heat Wave Blow",
+      "mono": "HW",
+      "category": "damage",
+      "level": 7,
+      "role": {
+        "pt": "Dano em área.",
+        "en": "Area damage."
+      },
+      "spec": {
+        "pt": "Até +20% de dano com mais alvos",
+        "en": "Up to +20% damage with more targets"
+      }
+    },
+    {
+      "id": "df",
+      "name": "Defiance",
+      "mono": "De",
+      "category": "heal",
+      "level": 7,
+      "role": {
+        "pt": "Remove controle de grupo de você.",
+        "en": "Removes crowd control from yourself."
+      },
+      "spec": {
+        "pt": "Restaura 10% do HP",
+        "en": "Restores 10% HP"
+      }
+    },
+    {
+      "id": "gr",
+      "name": "Gust Rampage",
+      "mono": "GR",
+      "category": "damage",
+      "level": 1,
+      "role": {
+        "pt": "Só acerta alvo em Stagger. Suba apenas se for focar chefes.",
+        "en": "Only hits a staggered target. Level it only if you focus bosses."
+      }
+    },
+    {
+      "id": "wb",
+      "name": "Wave Blow",
+      "mono": "WB",
+      "category": "control",
+      "level": 1,
+      "role": {
+        "pt": "Derrubada. Vale em PvP.",
+        "en": "Knockdown. Worth it in PvP."
+      }
+    }
+  ],
+  "passives": [
+    {
+      "id": "ap",
+      "name": "Attack Preparation",
+      "mono": "AP",
+      "category": "passive",
+      "level": 10,
+      "role": {
+        "pt": "Dano em PvE, Defesa e Precisão.",
+        "en": "PvE damage, Defense and Accuracy."
+      }
+    },
+    {
+      "id": "wp",
+      "name": "Wind's Promise",
+      "mono": "WP",
+      "category": "passive",
+      "level": 10,
+      "role": {
+        "pt": "Dano crítico.",
+        "en": "Critical damage."
+      }
+    },
+    {
+      "id": "is",
+      "name": "Inspiring Spell",
+      "mono": "IS",
+      "category": "passive",
+      "level": 10,
+      "role": {
+        "pt": "Acerto crítico e chance de Perfeito.",
+        "en": "Critical hit and Perfect chance."
+      }
+    },
+    {
+      "id": "bl",
+      "name": "Blessing of Life",
+      "mono": "BL",
+      "category": "passive",
+      "level": 10,
+      "role": {
+        "pt": "HP e bônus de cura.",
+        "en": "HP and healing bonus."
+      }
+    },
+    {
+      "id": "ep",
+      "name": "Earth's Promise",
+      "mono": "EP",
+      "category": "passive",
+      "level": 3,
+      "role": {
+        "pt": "Reduz a tolerância a dano do alvo.",
+        "en": "Lowers the target's damage tolerance."
+      }
+    },
+    {
+      "id": "ih",
+      "name": "Impact Hit",
+      "mono": "IH",
+      "category": "passive",
+      "level": 1,
+      "role": {
+        "pt": "Passiva de PvP. Suba se sobrar ponto.",
+        "en": "PvP passive. Level it with spare points."
+      }
+    },
+    {
+      "id": "cg",
+      "name": "Crossguard",
+      "mono": "Cg",
+      "category": "passive",
+      "level": 1,
+      "role": {
+        "pt": "Baixa prioridade num 45 novo.",
+        "en": "Low priority on a fresh 45."
+      }
+    },
+    {
+      "id": "pc",
+      "name": "Protection Circle",
+      "mono": "PC",
+      "category": "passive",
+      "level": 1,
+      "role": {
+        "pt": "Escudo de grupo. Baixa prioridade.",
+        "en": "Party shield. Low priority."
+      }
+    },
+    {
+      "id": "rg",
+      "name": "Raging Spell",
+      "mono": "RS",
+      "category": "passive",
+      "level": 1,
+      "role": {
+        "pt": "Só vale junto com Gust Rampage, em chefe.",
+        "en": "Only worth it with Gust Rampage, on bosses."
+      }
+    },
+    {
+      "id": "sw",
+      "name": "Survival Willpower",
+      "mono": "SW",
+      "category": "passive",
+      "level": 1,
+      "role": {
+        "pt": "Tolerância a dano quando você sofre controle.",
+        "en": "Damage tolerance while crowd controlled."
+      }
+    }
+  ],
+  "stigmas": [
+    {
+      "id": "um",
+      "name": "Undefeated Mantra",
+      "mono": "UM",
+      "category": "aura",
+      "level": {
+        "pt": "o mais alto possível",
+        "en": "as high as possible"
+      },
+      "description": {
+        "pt": "Aura ligada: dano e tolerância a dano para você e o grupo. No nível 5 dá +100 de acerto crítico, no 10 dá +100 de precisão.",
+        "en": "Toggle aura: damage and damage tolerance for you and the party. +100 critical hit at level 5, +100 accuracy at level 10."
+      }
+    },
+    {
+      "id": "ps",
+      "name": "Power of the Storm",
+      "mono": "PS",
+      "category": "aura",
+      "level": {
+        "pt": "5",
+        "en": "5"
+      },
+      "description": {
+        "pt": "Por 10 s: +20% de velocidade de combate e −20% de recarga para você; +20% e −10% para o grupo. No nível 5 a recarga cai 30 s.",
+        "en": "For 10 s: +20% combat speed and −20% cooldown for you; +20% and −10% for the party. At level 5 its cooldown drops by 30 s."
+      }
+    },
+    {
+      "id": "sm",
+      "name": "Sprint Mantra",
+      "mono": "SM",
+      "category": "aura",
+      "level": {
+        "pt": "5",
+        "en": "5"
+      },
+      "description": {
+        "pt": "+10,5% de velocidade de movimento e 15% de chance de curar ao acertar, para o grupo.",
+        "en": "+10.5% movement speed and a 15% chance to heal on hit, for the party."
+      }
+    },
+    {
+      "id": "gb",
+      "name": "Guardian Blessing",
+      "mono": "GB",
+      "category": "heal",
+      "level": {
+        "pt": "1 a 5",
+        "en": "1 to 5"
+      },
+      "description": {
+        "pt": "+5,4% de HP máximo por 120 s e cura instantânea, só em você. No nível 5 dá +10% de resistência a efeitos.",
+        "en": "+5.4% max HP for 120 s and an instant heal, self only. +10% status resistance at level 5."
+      }
+    },
+    {
+      "id": "ht",
+      "name": "Healing Touch",
+      "mono": "HT",
+      "category": "heal",
+      "level": {
+        "pt": "1 a 5",
+        "en": "1 to 5"
+      },
+      "description": {
+        "pt": "Cura você e o grupo a 40 m.",
+        "en": "Heals you and the party at 40 m."
+      }
+    },
+    {
+      "id": "ob",
+      "name": "Obliterate",
+      "mono": "Ob",
+      "category": "control",
+      "level": {
+        "pt": "1",
+        "en": "1"
+      },
+      "description": {
+        "pt": "50 de dano na barra de Stagger e chance de derrubar. Fica no nível 1 mesmo.",
+        "en": "50 Stagger damage and a chance to knock down. Leave it at level 1."
+      }
+    },
+    {
+      "id": "mw",
+      "name": "Marchutan's Wrath",
+      "mono": "MW",
+      "category": "damage",
+      "level": {
+        "pt": "5",
+        "en": "5"
+      },
+      "description": {
+        "pt": "Acerta até 4 alvos a 20 m e libera o Dark Crush por 3 s. No nível 10, 50% de chance de atordoar.",
+        "en": "Hits up to 4 targets at 20 m and unlocks Dark Crush for 3 s. 50% stun chance at level 10."
+      }
+    },
+    {
+      "id": "fb",
+      "name": "Fracturing Blow",
+      "mono": "FB",
+      "category": "move",
+      "level": {
+        "pt": "5",
+        "en": "5"
+      },
+      "description": {
+        "pt": "Avança 20 m no alvo e reduz a Defesa dele em 30% por 5 s. No nível 5 a recarga cai 15 s.",
+        "en": "Dashes 20 m to the target and lowers its Defense by 30% for 5 s. Cooldown drops 15 s at level 5."
+      }
+    },
+    {
+      "id": "as",
+      "name": "Assault Shock",
+      "mono": "AS",
+      "category": "control",
+      "level": {
+        "pt": "1 a 5",
+        "en": "1 to 5"
+      },
+      "description": {
+        "pt": "Ataque com atordoamento para iniciar o duelo.",
+        "en": "Stun attack to open a duel."
+      }
+    }
+  ],
+  "modes": [
+    {
+      "id": "pve",
+      "name": {
+        "pt": "PvE",
+        "en": "PvE"
+      },
+      "lead": {
+        "pt": "Suporte que bate: três Stigmas fixos de grupo e um quarto slot que muda conforme o conteúdo.",
+        "en": "A support that hits: three fixed party Stigmas and a fourth slot that changes with the content."
+      },
+      "fixed": [
+        "um",
+        "ps",
+        "sm"
+      ],
+      "flex": [
+        {
+          "stigma": "gb",
+          "when": {
+            "pt": "Padrão",
+            "en": "Default"
+          }
+        },
+        {
+          "stigma": "ht",
+          "when": {
+            "pt": "Sem Clérigo no grupo",
+            "en": "No Cleric in the party"
+          }
+        },
+        {
+          "stigma": "ob",
+          "when": {
+            "pt": "Chefe com Stagger",
+            "en": "Boss with a Stagger bar"
+          }
+        },
+        {
+          "stigma": "mw",
+          "when": {
+            "pt": "Solo e farm",
+            "en": "Solo and farming"
+          }
+        }
+      ],
+      "rotation": [
+        {
+          "pt": "Ligue as auras antes da luta.",
+          "en": "Turn the auras on before the fight."
+        },
+        {
+          "pt": "**Spinning Strike** e **Dark Crush** logo em seguida. A janela dura cerca de 2 s.",
+          "en": "**Spinning Strike**, then **Dark Crush** right after. The window lasts about 2 s."
+        },
+        {
+          "pt": "**Impactful Crush** e **Dark Crush** de novo.",
+          "en": "**Impactful Crush**, then **Dark Crush** again."
+        },
+        {
+          "pt": "**Marchutan's Wrath**, se estiver equipado, e mais um **Dark Crush**.",
+          "en": "**Marchutan's Wrath**, if equipped, and one more **Dark Crush**."
+        },
+        {
+          "pt": "Entre as recargas, **Onslaught** e **Incandescent Blow**. O Onslaught é o que devolve MP.",
+          "en": "Between cooldowns, **Onslaught** and **Incandescent Blow**. Onslaught is what restores MP."
+        },
+        {
+          "pt": "**Power of the Storm** quando o grupo for concentrar dano.",
+          "en": "**Power of the Storm** when the party is about to burst."
+        },
+        {
+          "pt": "**Recuperation** quando alguém precisar de cura ou tiver debuff removível.",
+          "en": "**Recuperation** when someone needs healing or has a removable debuff."
+        }
+      ],
+      "stats": {
+        "pt": "Precisão, Ataque, Acerto crítico, Dano crítico.",
+        "en": "Accuracy, Attack, Critical Hit, Critical Damage."
+      },
+      "note": {
+        "pt": "A Undefeated Mantra não acumula com o buff equivalente do Clérigo: combinem quem usa qual. Ordem dos fragmentos: os quatro Stigmas ao nível 5, depois Undefeated Mantra ao 10 e ao 20, e só então Power of the Storm.",
+        "en": "Undefeated Mantra does not stack with the Cleric's equivalent buff: agree on who uses which. Shard order: all four Stigmas to level 5, then Undefeated Mantra to 10 and 20, and only then Power of the Storm."
+      }
+    },
+    {
+      "id": "pvp",
+      "name": {
+        "pt": "PvP em grupo",
+        "en": "Group PvP"
+      },
+      "lead": {
+        "pt": "Para o Abismo com amigos. As auras fortalecem o grupo e o quarto slot decide entre controle e sobrevivência.",
+        "en": "For the Abyss with friends. The auras strengthen the party and the fourth slot picks between control and survival."
+      },
+      "fixed": [
+        "um",
+        "ps",
+        "sm"
+      ],
+      "flex": [
+        {
+          "stigma": "mw",
+          "when": {
+            "pt": "Controle à distância",
+            "en": "Ranged control"
+          }
+        },
+        {
+          "stigma": "gb",
+          "when": {
+            "pt": "Você é o alvo focado",
+            "en": "You are the focus target"
+          }
+        }
+      ],
+      "overrides": [
+        {
+          "skill": "ic",
+          "level": 8,
+          "spec": {
+            "pt": "+1 s de atordoamento",
+            "en": "+1 s stun"
+          },
+          "why": {
+            "pt": "Abre a cadeia de controle.",
+            "en": "Opens the control chain."
+          }
+        },
+        {
+          "skill": "wb",
+          "level": 8,
+          "spec": {
+            "pt": "+1 s de derrubada",
+            "en": "+1 s knockdown"
+          },
+          "why": {
+            "pt": "Segundo controle da cadeia.",
+            "en": "Second control in the chain."
+          }
+        },
+        {
+          "skill": "hw",
+          "level": 1,
+          "why": {
+            "pt": "Dano em área não importa em duelo.",
+            "en": "Area damage does not matter in a duel."
+          }
+        },
+        {
+          "skill": "rs",
+          "level": 8,
+          "spec": {
+            "pt": "Vira skill de carga",
+            "en": "Becomes a charge skill"
+          },
+          "why": {
+            "pt": "Mantém a especialização e libera pontos.",
+            "en": "Keeps the specialization and frees points."
+          }
+        }
+      ],
+      "rotation": [
+        {
+          "pt": "Entre com **Rushing Smash**.",
+          "en": "Open with **Rushing Smash**."
+        },
+        {
+          "pt": "**Impactful Crush** para atordoar e **Dark Crush** na janela.",
+          "en": "**Impactful Crush** to stun and **Dark Crush** in the window."
+        },
+        {
+          "pt": "**Wave Blow** para derrubar quando a condição dela estiver ativa, e mais dano.",
+          "en": "**Wave Blow** to knock down when its condition is active, then more damage."
+        },
+        {
+          "pt": "**Onslaught** para manter pressão e MP.",
+          "en": "**Onslaught** to keep pressure and MP."
+        },
+        {
+          "pt": "Guarde **Defiance** para o controle grande do inimigo. Não gaste em efeito pequeno.",
+          "en": "Save **Defiance** for the enemy's big control. Do not spend it on a small effect."
+        },
+        {
+          "pt": "**Recuperation** quando o inimigo já gastou o burst.",
+          "en": "**Recuperation** once the enemy has spent their burst."
+        }
+      ],
+      "rotationNote": {
+        "pt": "Em PvP nada disso vai em macro. Controle, defesa e cura são todos manuais.",
+        "en": "None of this goes in a macro in PvP. Control, defense and healing are all manual."
+      },
+      "stats": {
+        "pt": "Precisão, HP, Dano e Tolerância em PvP, Resistência a efeitos.",
+        "en": "Accuracy, HP, PvP Damage and Tolerance, Status Resistance."
+      }
+    },
+    {
+      "id": "arena",
+      "name": {
+        "pt": "Arena 1x1",
+        "en": "1v1 Arena"
+      },
+      "lead": {
+        "pt": "Sozinho, as auras de grupo valem menos. Ficam Undefeated Mantra e Power of the Storm, e os outros dois slots viram ferramentas de duelo.",
+        "en": "Alone, party auras are worth less. Undefeated Mantra and Power of the Storm stay, and the other two slots become duel tools."
+      },
+      "fixed": [
+        "um",
+        "ps",
+        "fb",
+        "as"
+      ],
+      "overrides": [
+        {
+          "skill": "ic",
+          "level": 8,
+          "spec": {
+            "pt": "+1 s de atordoamento",
+            "en": "+1 s stun"
+          },
+          "why": {
+            "pt": "Abre a cadeia de controle.",
+            "en": "Opens the control chain."
+          }
+        },
+        {
+          "skill": "wb",
+          "level": 8,
+          "spec": {
+            "pt": "+1 s de derrubada",
+            "en": "+1 s knockdown"
+          },
+          "why": {
+            "pt": "Segundo controle da cadeia.",
+            "en": "Second control in the chain."
+          }
+        },
+        {
+          "skill": "hw",
+          "level": 1,
+          "why": {
+            "pt": "Dano em área não importa em duelo.",
+            "en": "Area damage does not matter in a duel."
+          }
+        },
+        {
+          "skill": "rs",
+          "level": 8,
+          "spec": {
+            "pt": "Vira skill de carga",
+            "en": "Becomes a charge skill"
+          },
+          "why": {
+            "pt": "Mantém a especialização e libera pontos.",
+            "en": "Keeps the specialization and frees points."
+          }
+        }
+      ],
+      "rotation": [
+        {
+          "pt": "Entre com **Fracturing Blow**: ele encurta a distância e reduz a Defesa do alvo.",
+          "en": "Open with **Fracturing Blow**: it closes the gap and lowers the target's Defense."
+        },
+        {
+          "pt": "**Impactful Crush** para atordoar e **Dark Crush** na janela.",
+          "en": "**Impactful Crush** to stun and **Dark Crush** in the window."
+        },
+        {
+          "pt": "**Wave Blow** para derrubar quando a condição dela estiver ativa, e mais dano.",
+          "en": "**Wave Blow** to knock down when its condition is active, then more damage."
+        },
+        {
+          "pt": "**Onslaught** para manter pressão e MP.",
+          "en": "**Onslaught** to keep pressure and MP."
+        },
+        {
+          "pt": "Guarde **Defiance** para o controle grande do inimigo.",
+          "en": "Save **Defiance** for the enemy's big control."
+        },
+        {
+          "pt": "**Recuperation** quando o inimigo já gastou o burst.",
+          "en": "**Recuperation** once the enemy has spent their burst."
+        }
+      ],
+      "rotationNote": {
+        "pt": "Contra classe à distância, não gaste todo o movimento de uma vez: quem fica sem avanço fica exposto.",
+        "en": "Against a ranged class, do not spend all your movement at once: with no dash left you are exposed."
+      },
+      "stats": {
+        "pt": "Precisão, HP, Dano e Tolerância em PvP, Resistência a efeitos.",
+        "en": "Accuracy, HP, PvP Damage and Tolerance, Status Resistance."
+      }
+    }
+  ],
+  "sources": [
+    {
+      "title": "ExpCarry: AION 2 dungeons guide",
+      "url": "https://expcarry.com/aion-2-dungeons-guide"
+    },
+    {
+      "title": "Metabot: Arcana guide",
+      "url": "https://metabot.gg/en/aion-2/guides/arcana-guide"
+    }
+  ]
+}

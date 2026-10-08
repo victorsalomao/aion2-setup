@@ -1,0 +1,85 @@
+---
+/**
+ * Casca de toda página: <head> com SEO, cabeçalho, rodapé e os espaços de anúncio.
+ * Uma página só precisa dizer título, descrição e idioma.
+ */
+import '../styles/global.css';
+import { SITE } from '../config/site';
+import AdSlot from '../components/AdSlot.astro';
+import { LOCALES, HTML_LANG, href, stripLang, t, type Lang } from '../i18n';
+
+interface Props {
+  lang: Lang;
+  title: string;
+  description: string;
+  /** rascunhos e páginas finas saem com noindex */
+  noindex?: boolean;
+  /** false quando a página só existe em um idioma */
+  hasTranslation?: boolean;
+}
+const { lang, title, description, noindex = false, hasTranslation = true } = Astro.props;
+const tt = t(lang);
+const path = stripLang(Astro.url.pathname);
+const canonical = new URL(Astro.url.pathname, Astro.site);
+const other: Lang = lang === 'pt' ? 'en' : 'pt';
+const fullTitle = `${title} · ${SITE.name}`;
+const nav = [
+  { key: 'nav.home', to: '/' },
+  { key: 'nav.classes', to: '/classes/' },
+  { key: 'nav.tools', to: '/tools/' },
+  { key: 'nav.guides', to: '/guides/' },
+] as const;
+const isCurrent = (to: string) => (to === '/' ? path === '/' : path.startsWith(to));
+---
+<!doctype html>
+<html lang={HTML_LANG[lang]}>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{fullTitle}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+    {noindex && <meta name="robots" content="noindex, follow" />}
+    {hasTranslation && LOCALES.map((l) => (
+      <link rel="alternate" hreflang={HTML_LANG[l]} href={new URL(href(l, path), Astro.site)} />
+    ))}
+    {hasTranslation && <link rel="alternate" hreflang="x-default" href={new URL(href('pt', path), Astro.site)} />}
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content={SITE.name} />
+    <meta property="og:title" content={fullTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:locale" content={lang === 'pt' ? 'pt_BR' : 'en_US'} />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="sitemap" href="/sitemap-index.xml" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700&family=JetBrains+Mono:wght@500;700&family=Marcellus&display=swap" />
+    {SITE.adsenseClient && (
+      <script is:inline async src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${SITE.adsenseClient}`} crossorigin="anonymous"></script>
+    )}
+  </head>
+  <body>
+    <header class="site-head">
+      <div class="wrap">
+        <a class="brand" href={href(lang, '/')}>Rota <span>Daeva</span></a>
+        <nav class="nav" aria-label={lang === 'pt' ? 'Principal' : 'Main'}>
+          {nav.map((n) => (
+            <a href={href(lang, n.to)} aria-current={isCurrent(n.to) ? 'page' : undefined}>{tt(n.key)}</a>
+          ))}
+          {hasTranslation && <a class="lang" href={href(other, path)} hreflang={HTML_LANG[other]} lang={HTML_LANG[other]}>{tt('nav.switch')}</a>}
+        </nav>
+      </div>
+    </header>
+    <main class="wrap">
+      <slot />
+      <AdSlot lang={lang} name="rodapé do conteúdo" slot={import.meta.env.PUBLIC_ADSENSE_SLOT_FOOTER} />
+    </main>
+    <footer class="site-foot">
+      <div class="wrap">
+        <p>{tt('footer.disclaimer')}</p>
+        <p>{tt('footer.data')} <span class="num">{SITE.dataCheckedAt}</span>. {tt('footer.verify')}</p>
+      </div>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,47 @@
+---
+import Base from '../../../layouts/Base.astro';
+import { RISKY_STEPS, PITY, expectedAttempts, worstCaseAttempts } from '../../../lib/enhance';
+import { HTML_LANG, langParams, t, type Lang } from '../../../i18n';
+
+export function getStaticPaths() {
+  return langParams();
+}
+interface Props { lang: Lang }
+const { lang } = Astro.props;
+const tt = t(lang);
+const pct = (v: number) => `${Math.round(v * 100)}%`;
+const c = {
+  pt: {
+    lead: `De +1 a +10 o sucesso é garantido. De +11 a +15 é por chance, e cada falha soma +${pct(PITY)} na próxima tentativa do mesmo nível.`,
+    thStep: 'Passo', thBase: 'Chance base', thAvg: 'Tentativas em média', thWorst: 'No pior caso',
+    notes: ['Falhar só gasta Kina e pedras. A peça não quebra e não desce de nível.', 'Quando passa, o nível seguinte recomeça na chance base.', 'As médias são calculadas a partir da chance base e do bônus por falha.'],
+  },
+  en: {
+    lead: `From +1 to +10 success is guaranteed. From +11 to +15 it is chance-based, and each failure adds +${pct(PITY)} to the next attempt at that level.`,
+    thStep: 'Step', thBase: 'Base rate', thAvg: 'Average attempts', thWorst: 'Worst case',
+    notes: ['Failing only costs Kinah and stones. The item does not break or lose a level.', 'Once it succeeds, the next level starts back at its base rate.', 'Averages are computed from the base rate and the per-failure bonus.'],
+  },
+}[lang];
+---
+<Base lang={lang} title={tt('tools.enhance.title')} description={tt('tools.enhance.desc')}>
+  <section class="block">
+    <h1>{tt('tools.enhance.title')}</h1>
+    <p class="lead">{c.lead}</p>
+    <div class="tablewrap">
+      <table>
+        <thead><tr><th>{c.thStep}</th><th class="num">{c.thBase}</th><th class="num">{c.thAvg}</th><th class="num">{c.thWorst}</th></tr></thead>
+        <tbody>
+          {RISKY_STEPS.map((s) => (
+            <tr>
+              <td class="num">+{s.from} → +{s.to}</td>
+              <td class="num">{pct(s.baseRate)}</td>
+              <td class="num">{expectedAttempts(s.baseRate).toLocaleString(HTML_LANG[lang], { minimumFractionDigits: 1, maximumFractionDigits: 1 })}</td>
+              <td class="num">{worstCaseAttempts(s.baseRate)}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+    <ul class="prose">{c.notes.map((n) => <li>{n}</li>)}</ul>
+  </section>
+</Base>

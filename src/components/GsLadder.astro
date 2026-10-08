@@ -1,0 +1,68 @@
+---
+/**
+ * Régua de barreiras. O servidor já entrega a lista pronta (boa para SEO e para quem
+ * está sem JavaScript); o script só repinta os estados quando o número muda.
+ */
+import { GATES } from '../lib/progression';
+import { formatNumber, t, tr, type Lang } from '../i18n';
+
+interface Props { lang: Lang }
+const { lang } = Astro.props;
+const tt = t(lang);
+const labels = {
+  open: tt('home.gs.open'), locked: tt('home.gs.locked'), next: tt('home.gs.next'),
+  left: lang === 'pt' ? 'faltam {n}' : '{n} to go', done: tt('home.gs.done'), locale: lang === 'pt' ? 'pt-BR' : 'en',
+};
+---
+<div class="panel" data-gs-ladder data-labels={JSON.stringify(labels)}>
+  <div class="field">
+    <label for="gs-input">{tt('home.gs.label')}</label>
+    <input type="number" id="gs-input" min="0" max="5000" step="1" value="1600" inputmode="numeric" />
+  </div>
+  <p class="result" data-gs-next aria-live="polite"></p>
+  <div class="gates">
+    {GATES.map((g) => (
+      <div class="gate" data-gate={g.gs}>
+        <span class="gate-gs">{formatNumber(g.gs, lang)}</span>
+        <span>{tr(g.what, lang)}</span>
+        <span class="pill lock" data-gate-pill>{labels.locked}</span>
+      </div>
+    ))}
+  </div>
+</div>
+
+<script>
+  const KEY = 'rota.gs';
+  document.querySelectorAll<HTMLElement>('[data-gs-ladder]').forEach((root) => {
+    const labels = JSON.parse(root.dataset.labels || '{}');
+    const input = root.querySelector<HTMLInputElement>('#gs-input')!;
+    const nextEl = root.querySelector<HTMLElement>('[data-gs-next]')!;
+    const gates = [...root.querySelectorAll<HTMLElement>('[data-gate]')];
+    const fmt = (n: number) => n.toLocaleString(labels.locale);
+
+    function paint() {
+      const gs = Math.max(0, Math.floor(Number(input.value) || 0));
+      let next: number | null = null;
+      for (const el of gates) {
+        const gate = Number(el.dataset.gate);
+        const pill = el.querySelector<HTMLElement>('[data-gate-pill]')!;
+        const open = gs >= gate;
+        if (!open && next === null) next = gate;
+        const isNext = gate === next;
+        pill.className = 'pill ' + (open ? 'ok' : isNext ? 'next' : 'lock');
+        pill.textContent = open ? labels.open : isNext ? labels.next : labels.locked;
+      }
+      nextEl.innerHTML = next === null
+        ? labels.done
+        : `${labels.next}: <b>${fmt(next)}</b> · ${labels.left.replace('{n}', fmt(next - gs))}`;
+      try { localStorage.setItem(KEY, String(gs)); } catch { /* sem storage, segue sem lembrar */ }
+    }
+
+    try {
+      const saved = localStorage.getItem(KEY);
+      if (saved) input.value = saved;
+    } catch { /* idem */ }
+    input.addEventListener('input', paint);
+    paint();
+  });
+</script>
