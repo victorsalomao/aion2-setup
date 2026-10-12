@@ -1,0 +1,264 @@
+---
+/**
+ * Menu de craft no estilo do jogo: lista de receitas à esquerda, detalhe à direita
+ * e uma lista de materiais que soma várias receitas.
+ * Os dados vêm de src/data/dragon-lord.json; as contas, de src/lib/craft.ts.
+ * Os ícones são carregados direto do banco de dados de origem (ver README).
+ */
+import data from '../data/dragon-lord.json';
+import type { Lang } from '../i18n';
+
+interface Props { lang: Lang }
+const { lang } = Astro.props;
+
+const copy = {
+  pt: {
+    locale: 'pt-BR', faction: 'Facção', elyos: 'Elyos', asmodian: 'Asmodiano',
+    craft: 'Fabricar', add: 'Adicionar à lista', have: 'Tenho', need: 'Preciso', missing: 'Falta', done: 'Completo',
+    list: 'Lista de materiais', listEmpty: 'A lista está vazia. Escolha uma receita e toque em Adicionar à lista.',
+    clear: 'Limpar lista', remove: 'Remover', itemLevel: 'Nível do item', unique: 'Única', mastery: 'Maestria',
+    masteryUnknown: 'não informada', profession: 'Profissão', materials: 'Materiais',
+    combo: 'Combo de 25%: sai a versão Splendent, de nível {il}.',
+    splendentNote: 'Esta versão sai no combo (25%) ao fabricar {name}. O banco de dados lista uma receita própria para ela, com os materiais abaixo, mas a função dessa receita não está confirmada.',
+    needsBase: 'Pede 1 {name}, que só sai no combo ao fabricar a versão de Artesão.',
+    seeBase: 'Ver receita da base', back: 'Voltar',
+    baseNote: 'Fabrique {recipe} (maestria {m}). Em 25% das vezes sai a versão Splendent, que é a que a receita Dragon Lord pede: em média 4 fabricações por base.',
+    recipePage: 'Receita no banco de dados', baseSource: 'Combo de 25% ao fabricar a versão de Artesão.',
+    total: 'Total', crafts: 'fabricações', base: 'Base',
+  },
+  en: {
+    locale: 'en', faction: 'Faction', elyos: 'Elyos', asmodian: 'Asmodian',
+    craft: 'Craft', add: 'Add to list', have: 'Have', need: 'Need', missing: 'Missing', done: 'Done',
+    list: 'Material list', listEmpty: 'The list is empty. Pick a recipe and tap Add to list.',
+    clear: 'Clear list', remove: 'Remove', itemLevel: 'Item level', unique: 'Unique', mastery: 'Mastery',
+    masteryUnknown: 'not listed', profession: 'Profession', materials: 'Materials',
+    combo: '25% combo: yields the Splendent version, item level {il}.',
+    splendentNote: 'This version comes from the combo (25%) when crafting {name}. The database lists a recipe of its own with the materials below, but what that recipe does is not confirmed.',
+    needsBase: 'Needs 1 {name}, which only comes from a combo when crafting the Artisan version.',
+    seeBase: 'See base recipe', back: 'Back',
+    baseNote: 'Craft {recipe} (mastery {m}). 25% of the time it comes out Splendent, which is what the Dragon Lord recipe needs: 4 crafts per base on average.',
+    recipePage: 'Recipe in the database', baseSource: '25% combo when crafting the Artisan version.',
+    total: 'Total', crafts: 'crafts', base: 'Base',
+  },
+}[lang];
+const payload = { copy, data, lang };
+---
+<div class="craft" data-craft>
+  <script type="application/json" data-payload set:html={JSON.stringify(payload)} />
+  <div class="craft-bar">
+    <div class="seg" role="group" aria-label={copy.faction} data-faction>
+      <button type="button" data-v="elyos" aria-pressed="true">{copy.elyos}</button>
+      <button type="button" data-v="asmodian" aria-pressed="false">{copy.asmodian}</button>
+    </div>
+    <div class="seg" role="group" data-slots></div>
+  </div>
+  <div class="craft-grid">
+    <nav class="craft-list" aria-label={copy.materials} data-list></nav>
+    <section class="craft-detail panel" data-detail aria-live="polite"></section>
+  </div>
+  <section class="panel craft-plan" data-plan></section>
+</div>
+
+<script>
+  import { aggregate, progress } from '../lib/craft';
+
+  type Ref = { id: string; qty: number };
+  type Mat = { name: string; icon: string | null; url: string | null; source: { pt: string; en: string } | null };
+  type Tier = {
+    tier: string; splendent: boolean; names: { elyos: string; asmodian: string }; itemLevel: number;
+    icon: string | null; itemUrl: string | null; recipeUrl: string | null; asmodianRecipeUrl: string | null;
+    mastery: number | null; materials: Ref[];
+  };
+  type Item = {
+    slot: string; name: { pt: string; en: string }; profession: { pt: string; en: string };
+    base: { material: string; itemUrl: string; recipe: { name: string; recipeUrl: string; mastery: number; materials: Ref[] } };
+    tiers: Tier[];
+  };
+  type PlanEntry = { slot: string; tier: number; count: number }; // tier -1 = base
+  type State = { faction: 'elyos' | 'asmodian'; slot: string; tier: number; view: 'tier' | 'base'; count: number; have: Record<string, number>; plan: PlanEntry[] };
+
+  const KEY = 'rota.craft.v1';
+  const esc = (s: string) => s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+
+  document.querySelectorAll<HTMLElement>('[data-craft]').forEach((root) => {
+    const { copy, data, lang } = JSON.parse(root.querySelector('[data-payload]')!.textContent || '{}') as {
+      copy: Record<string, string>; data: { checkedAt: string; materials: Record<string, Mat>; items: Item[] }; lang: 'pt' | 'en';
+    };
+    const items = data.items;
+    const mats = data.materials;
+    const fmt = (n: number) => n.toLocaleString(copy.locale);
+    const fill = (tpl: string, v: Record<string, string | number>) => tpl.replace(/\{(\w+)\}/g, (_, k) => String(v[k] ?? ''));
+
+    let state: State = { faction: 'elyos', slot: 'staff', tier: 4, view: 'tier', count: 1, have: {}, plan: [] };
+    try { state = { ...state, ...JSON.parse(localStorage.getItem(KEY) || '{}') }; } catch { /* sem storage */ }
+    const save = () => { try { localStorage.setItem(KEY, JSON.stringify(state)); } catch { /* idem */ } };
+
+    const itemOf = (slot: string) => items.find((i) => i.slot === slot)!;
+    const tierName = (t: Tier) => t.names[state.faction];
+    const mono = (name: string) => name.replace(/[^A-Za-z ]/g, '').split(' ').filter(Boolean).slice(-2).map((w) => w[0]).join('').toUpperCase();
+
+    /** ícone com reserva: se a imagem não carregar, fica a sigla por baixo */
+    function icon(src: string | null, name: string, size: number, gold = false): string {
+      const img = src ? `<img src="${esc(src)}" alt="" width="${size}" height="${size}" loading="lazy" decoding="async" referrerpolicy="no-referrer" onerror="this.remove()">` : '';
+      return `<span class="ic${gold ? ' gold' : ''}" style="--s:${size}px" aria-hidden="true"><b>${esc(mono(name))}</b>${img}</span>`;
+    }
+
+    function recipeOf(entry: { slot: string; tier: number }): { title: string; materials: Ref[] } {
+      const it = itemOf(entry.slot);
+      if (entry.tier < 0) return { title: it.base.recipe.name, materials: it.base.recipe.materials };
+      const t = it.tiers[entry.tier];
+      return { title: tierName(t), materials: t.materials };
+    }
+
+    /* ---------- barra de cima ---------- */
+    const slotsEl = root.querySelector<HTMLElement>('[data-slots]')!;
+    function renderBar() {
+      root.querySelectorAll<HTMLButtonElement>('[data-faction] button').forEach((b) => b.setAttribute('aria-pressed', String(b.dataset.v === state.faction)));
+      slotsEl.innerHTML = items.map((it) =>
+        `<button type="button" data-slot="${it.slot}" aria-pressed="${it.slot === state.slot}">${icon(it.tiers[4].icon, it.tiers[4].names.elyos, 22, true)}${esc(it.name[lang])}</button>`).join('');
+    }
+
+    /* ---------- lista de receitas ---------- */
+    const listEl = root.querySelector<HTMLElement>('[data-list]')!;
+    function renderList() {
+      const it = itemOf(state.slot);
+      listEl.innerHTML = it.tiers.map((t, i) => {
+        const on = state.view === 'tier' && state.tier === i;
+        return `<button type="button" class="craft-row${t.splendent ? ' splendent' : ''}" data-tier="${i}" aria-current="${on}">
+          ${icon(t.icon, t.names.elyos, 40, true)}
+          <span class="craft-row-text"><span class="craft-row-name">${esc(tierName(t))}</span>
+          <span class="muted small">${copy.itemLevel} <span class="num">${t.itemLevel}</span></span></span></button>`;
+      }).join('') + `<button type="button" class="craft-row base" data-tier="-1" aria-current="${state.view === 'base'}">
+          ${icon(mats[it.base.material]?.icon ?? null, it.base.material, 40)}
+          <span class="craft-row-text"><span class="craft-row-name">${copy.base}: ${esc(mats[it.base.material]?.name ?? '')}</span>
+          <span class="muted small">${copy.mastery} <span class="num">${it.base.recipe.mastery}</span></span></span></button>`;
+    }
+
+    /* ---------- detalhe ---------- */
+    const detailEl = root.querySelector<HTMLElement>('[data-detail]')!;
+    function matRow(r: Ref, times: number): string {
+      const m = mats[r.id];
+      const need = r.qty * times;
+      const have = state.have[r.id] ?? 0;
+      const p = progress(need, have);
+      const src = r.id.startsWith('artisans-splendent') ? copy.baseSource : m?.source?.[lang] ?? '';
+      return `<li class="mat" data-mat="${r.id}" data-need="${need}">
+        <span class="mat-icon">${icon(m?.icon ?? null, m?.name ?? r.id, 44)}<span class="qty num">${fmt(need)}</span></span>
+        <span class="mat-body">
+          <a href="${esc(m?.url ?? '#')}" target="_blank" rel="noopener" class="mat-name">${esc(m?.name ?? r.id)}</a>
+          ${src ? `<span class="muted small">${esc(src)}</span>` : ''}
+          <span class="bar"><i style="width:${(p * 100).toFixed(0)}%"${p >= 1 ? ' class="ok"' : ''}></i></span>
+        </span>
+        <label class="mat-have"><span class="small muted">${copy.have}</span>
+          <input type="number" min="0" inputmode="numeric" value="${have}" data-have="${r.id}"></label>
+      </li>`;
+    }
+
+    function renderDetail() {
+      const it = itemOf(state.slot);
+      const times = Math.max(1, state.count);
+      let head: string, body: string, refs: Ref[];
+      if (state.view === 'base') {
+        const b = it.base.recipe;
+        const baseMat = mats[it.base.material];
+        refs = b.materials;
+        head = `<div class="craft-head">${icon(baseMat?.icon ?? null, baseMat?.name ?? '', 64)}
+          <div><h3>${esc(baseMat?.name ?? '')}</h3>
+          <p class="muted small">${copy.profession}: ${esc(it.profession[lang])} · ${copy.mastery} <span class="num">${b.mastery}</span></p></div></div>`;
+        body = `<p class="note small">${fill(copy.baseNote, { recipe: esc(b.name), m: b.mastery })}</p>
+          <p class="small"><a href="${esc(b.recipeUrl)}" target="_blank" rel="noopener">${copy.recipePage}</a> · <button type="button" class="linkish" data-back>${copy.back}</button></p>`;
+      } else {
+        const t = it.tiers[state.tier];
+        const normal = t.splendent ? it.tiers[state.tier - 1] : null;
+        const next = !t.splendent ? it.tiers[state.tier + 1] : null;
+        refs = t.materials;
+        const recipeUrl = state.faction === 'asmodian' && t.asmodianRecipeUrl ? t.asmodianRecipeUrl : t.recipeUrl;
+        head = `<div class="craft-head">${icon(t.icon, t.names.elyos, 64, true)}
+          <div><h3>${esc(tierName(t))}</h3>
+          <p class="muted small"><span class="gold-t">${copy.unique}</span> · ${copy.itemLevel} <span class="num">${t.itemLevel}</span> · ${esc(it.profession[lang])} · ${copy.mastery} ${t.mastery ? `<span class="num">${t.mastery}</span>` : copy.masteryUnknown}</p></div></div>`;
+        body = (t.splendent
+          ? `<p class="note small">${fill(copy.splendentNote, { name: esc(normal ? tierName(normal) : '') })}</p>`
+          : `<p class="small">${fill(copy.combo, { il: next?.itemLevel ?? '' })}</p>
+             <p class="note small">${fill(copy.needsBase, { name: esc(mats[it.base.material]?.name ?? '') })} <button type="button" class="linkish" data-see-base>${copy.seeBase}</button></p>`)
+          + (recipeUrl ? `<p class="small"><a href="${esc(recipeUrl)}" target="_blank" rel="noopener">${copy.recipePage}</a></p>` : '');
+      }
+      detailEl.innerHTML = `${head}${body}
+        <div class="craft-actions">
+          <label class="field">${copy.craft} ×<input type="number" min="1" max="99" value="${times}" data-count inputmode="numeric"></label>
+          <button type="button" class="btn" data-add>${copy.add}</button>
+        </div>
+        <h3>${copy.materials}</h3>
+        <ul class="mats">${refs.map((r) => matRow(r, times)).join('')}</ul>`;
+    }
+
+    /* ---------- lista somada ---------- */
+    const planEl = root.querySelector<HTMLElement>('[data-plan]')!;
+    function renderPlan() {
+      if (!state.plan.length) {
+        planEl.innerHTML = `<h3>${copy.list}</h3><p class="muted">${copy.listEmpty}</p>`;
+        return;
+      }
+      const lines = state.plan.map((p) => ({ ...p, ...recipeOf(p) }));
+      const total = aggregate(lines);
+      const ids = Object.keys(total);
+      planEl.innerHTML = `<div class="panel-head"><h3>${copy.list}</h3><button type="button" class="ghost" data-clear>${copy.clear}</button></div>
+        <ul class="plan-lines">${lines.map((l, i) => `<li><span>${esc(l.title)} <span class="num muted">×${l.count}</span></span><button type="button" class="ghost" data-remove="${i}">${copy.remove}</button></li>`).join('')}</ul>
+        <ul class="mats">${ids.map((id) => matRow({ id, qty: total[id] }, 1)).join('')}</ul>`;
+    }
+
+    /** atualiza barras de progresso e campos "tenho" sem redesenhar (não perde o foco) */
+    function refreshProgress(changed: string, source: HTMLInputElement) {
+      root.querySelectorAll<HTMLElement>(`[data-mat="${changed}"]`).forEach((row) => {
+        const need = Number(row.dataset.need);
+        const p = progress(need, state.have[changed] ?? 0);
+        const bar = row.querySelector<HTMLElement>('.bar i')!;
+        bar.style.width = `${(p * 100).toFixed(0)}%`;
+        bar.classList.toggle('ok', p >= 1);
+        const input = row.querySelector<HTMLInputElement>('[data-have]')!;
+        if (input !== source) input.value = String(state.have[changed] ?? 0);
+      });
+    }
+
+    function renderAll() { renderBar(); renderList(); renderDetail(); renderPlan(); save(); }
+
+    root.addEventListener('click', (ev) => {
+      const el = (ev.target as HTMLElement).closest<HTMLElement>('button');
+      if (!el) return;
+      if (el.closest('[data-faction]') && el.dataset.v) { state.faction = el.dataset.v as State['faction']; renderAll(); }
+      else if (el.dataset.slot) { state.slot = el.dataset.slot; state.view = 'tier'; renderAll(); }
+      else if (el.dataset.tier !== undefined) {
+        const i = Number(el.dataset.tier);
+        if (i < 0) state.view = 'base'; else { state.view = 'tier'; state.tier = i; }
+        renderAll();
+      } else if (el.hasAttribute('data-see-base')) { state.view = 'base'; renderAll(); }
+      else if (el.hasAttribute('data-back')) { state.view = 'tier'; renderAll(); }
+      else if (el.hasAttribute('data-add')) {
+        const tier = state.view === 'base' ? -1 : state.tier;
+        const found = state.plan.find((p) => p.slot === state.slot && p.tier === tier);
+        if (found) found.count += state.count; else state.plan.push({ slot: state.slot, tier, count: state.count });
+        renderPlan(); save();
+      } else if (el.dataset.remove !== undefined) { state.plan.splice(Number(el.dataset.remove), 1); renderPlan(); save(); }
+      else if (el.hasAttribute('data-clear')) { state.plan = []; renderPlan(); save(); }
+    });
+
+    root.addEventListener('input', (ev) => {
+      const el = ev.target as HTMLInputElement;
+      if (el.dataset.have) {
+        state.have[el.dataset.have] = Math.max(0, Math.floor(Number(el.value) || 0));
+        refreshProgress(el.dataset.have, el);
+        save();
+      } else if (el.hasAttribute('data-count')) {
+        state.count = Math.min(99, Math.max(1, Math.floor(Number(el.value) || 1)));
+        const ul = detailEl.querySelector('.mats');
+        if (ul) {
+          const it = itemOf(state.slot);
+          const refs = state.view === 'base' ? it.base.recipe.materials : it.tiers[state.tier].materials;
+          ul.innerHTML = refs.map((r) => matRow(r, state.count)).join('');
+        }
+        save();
+      }
+    });
+
+    renderAll();
+  });
+</script>

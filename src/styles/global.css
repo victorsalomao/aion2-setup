@@ -150,3 +150,50 @@ td.num, th.num { white-space: nowrap; }
   .nav { margin-left: 0; width: 100%; }
 }
 @media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
+
+/* menu de craft */
+.seg { display: inline-flex; flex-wrap: wrap; border: 1px solid var(--line); border-radius: 8px; padding: 3px; gap: 3px; background: var(--surface); }
+.seg button { display: inline-flex; align-items: center; gap: 6px; background: none; border: 0; border-radius: 6px; padding: 6px 12px; cursor: pointer; font-weight: 600; color: var(--muted); }
+.seg button[aria-pressed="true"] { background: var(--aether); color: var(--aether-ink); }
+.craft { display: flex; flex-direction: column; gap: 14px; }
+.craft-bar { display: flex; flex-wrap: wrap; gap: 10px; }
+.craft-grid { display: grid; grid-template-columns: minmax(0, 300px) minmax(0, 1fr); gap: 14px; align-items: start; }
+.craft-list { display: flex; flex-direction: column; gap: 6px; }
+.craft-row { display: grid; grid-template-columns: 40px 1fr; gap: 10px; align-items: center; text-align: left; padding: 8px; border: 1px solid var(--line); border-radius: 10px; background: var(--surface); color: var(--fg); cursor: pointer; }
+.craft-row:hover { border-color: var(--muted); }
+.craft-row[aria-current="true"] { border-color: var(--gold); background: var(--gold-soft); }
+.craft-row.splendent .craft-row-name::after { content: " ✦"; color: var(--gold); }
+.craft-row.base { border-style: dashed; }
+.craft-row-text { display: flex; flex-direction: column; min-width: 0; }
+.craft-row-name { font-weight: 600; font-size: 0.92rem; line-height: 1.3; }
+.ic { position: relative; width: var(--s); height: var(--s); flex: none; display: inline-flex; align-items: center; justify-content: center; border-radius: 8px; background: var(--raised); border: 1px solid var(--line); overflow: hidden; }
+.ic.gold { border-color: var(--gold); box-shadow: inset 0 0 0 1px var(--gold-soft); }
+.ic b { font-family: var(--font-num); font-size: calc(var(--s) * 0.3); color: var(--muted); }
+.ic img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.craft-head { display: flex; gap: 14px; align-items: center; }
+.craft-head h3 { font-family: var(--font-body); font-weight: 700; font-size: 1.1rem; }
+.gold-t { color: var(--gold); font-weight: 600; }
+.craft-actions { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; }
+.btn { background: var(--aether); color: var(--aether-ink); border: 0; border-radius: 6px; padding: 8px 14px; font-weight: 700; cursor: pointer; }
+.ghost { background: transparent; border: 1px solid var(--line); border-radius: 6px; padding: 5px 10px; cursor: pointer; font-size: 0.84rem; font-weight: 600; color: var(--muted); }
+.linkish { background: none; border: 0; padding: 0; color: var(--aether); text-decoration: underline; text-underline-offset: 3px; cursor: pointer; font: inherit; }
+.mats { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; }
+.mat { display: grid; grid-template-columns: 44px 1fr auto; gap: 12px; align-items: center; padding: 9px 0; border-top: 1px solid var(--line); }
+.mat:first-child { border-top: 0; }
+.mat-icon { position: relative; }
+.mat-icon .qty { position: absolute; right: -4px; bottom: -4px; background: var(--bg); border: 1px solid var(--line); border-radius: 6px; padding: 0 4px; font-size: 0.72rem; font-weight: 700; }
+.mat-body { display: flex; flex-direction: column; gap: 3px; min-width: 0; }
+.mat-name { font-weight: 600; color: var(--fg); text-decoration: none; }
+.mat-name:hover { color: var(--aether); }
+.bar { height: 5px; border-radius: 3px; background: var(--raised); overflow: hidden; }
+.bar i { display: block; height: 100%; background: var(--gold); }
+.bar i.ok { background: var(--ok); }
+.mat-have { display: flex; flex-direction: column; align-items: flex-end; gap: 2px; }
+.mat-have input, .craft-actions input { width: 5.2em; background: var(--raised); border: 1px solid var(--line); border-radius: 6px; padding: 6px 8px; font-family: var(--font-num); }
+.panel-head { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; justify-content: space-between; }
+.plan-lines { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 6px; }
+.plan-lines li { display: flex; justify-content: space-between; align-items: center; gap: 10px; }
+@media (max-width: 760px) {
+  .craft-grid { grid-template-columns: minmax(0, 1fr); }
+  .craft-list { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(240px, 100%), 1fr)); }
+}

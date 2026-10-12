@@ -1,0 +1,980 @@
+{
+  "checkedAt": "2026-10-12",
+  "source": "https://aion2.th.gl",
+  "materials": {
+    "artisans-splendent-yggdrasil-staff": {
+      "name": "Artisan's Splendent Yggdrasil Staff",
+      "icon": "https://cdn.th.gl/aion2/icons/db/a2659ab2.webp",
+      "url": "https://aion2.th.gl/db/inventory/it_110830013",
+      "source": null
+    },
+    "artisans-ultimate-refining-stone": {
+      "name": "Artisan's Ultimate Refining Stone",
+      "icon": "https://cdn.th.gl/aion2/icons/db/c448c338.webp",
+      "url": "https://aion2.th.gl/db/inventory/it_610530010",
+      "source": null
+    },
+    "enhanced-thick-balaur-scale": {
+      "name": "Enhanced Thick Balaur Scale",
+      "icon": "https://cdn.th.gl/aion2/icons/db/48ac2dc7.webp",
+      "url": "https://aion2.th.gl/db/inventory/it_610730022",
+      "source": {
+        "pt": "Fabricada no Artesanato com Essência Balaur (2 por escama) e Endurecedor de Escama de Dragão.",
+        "en": "Crafted with Handicrafting from Balaur's Essence (2 each) and a Lesser Dragon Scale Hardener."
+      }
+    },
+    "wrathful-mind": {
+      "name": "Wrathful Mind",
+      "icon": "https://cdn.th.gl/aion2/icons/db/412066c9.webp",
+      "url": "https://aion2.th.gl/db/inventory/it_610511013",
+      "source": {
+        "pt": "Chefe Bakarma Transcendente (Draupnir) com 67,9%, outras masmorras e a raide Ludra.",
+        "en": "Transcendent Bakarma (Draupnir) at 67.9%, other dungeons and the Ludra raid."
+      }
+    },
+    "radiant-yggdrasil-log": {
+      "name": "Radiant Yggdrasil Log",
+      "icon": "https://cdn.th.gl/aion2/icons/db/d424898d.webp",
+      "url": "https://aion2.th.gl/db/inventory/it_610650017",
+      "source": null
+    },
+    "radiant-odyle": {
+      "name": "Radiant Odyle",
+      "icon": "https://cdn.th.gl/aion2/icons/db/ebc3be7f.webp",
+      "url": "https://aion2.th.gl/db/inventory/it_610610016",
+      "source": {
+        "pt": "Coleta: nós de Odyle, Odyle Splendent e Odyle Misteriosa.",
+        "en": "Gathered from Odyle, Splendent Odyle and Mysterious Odyle nodes."
+      }
+    },
+    "enhanced-hard-balaur-scale": {
+      "name": "Enhanced Hard Balaur Scale",
+      "icon": "https://cdn.th.gl/aion2/icons/db/eddbc35f.webp",
+      "url": "https://aion2.th.gl/db/inventory/it_610730023",
+      "source": {
+        "pt": "Fabricada no Artesanato com Essência Balaur (2 por escama) e Endurecedor de Escama de Dragão.",
+        "en": "Crafted with Handicrafting from Balaur's Essence (2 each) and a Lesser Dragon Scale Hardener."
+      }
+    },
+    "wrathful-will": {
+      "name": "Wrathful Will",
+      "icon": "https://cdn.th.gl/aion2/icons/db/504d2ee2.webp",
+      "url": "https://aion2.th.gl/db/inventory/it_610511014",
+      "source": {
+        "pt": "Raide Ludra (10%) e campo: Divine Auldor e Vakron (3,6%).",
+        "en": "Ludra raid (10%) and field: Divine Auldor and Vakron (3.6%)."
+      }
+    },
+    "enhanced-durable-balaur-scale": {
+      "name": "Enhanced Durable Balaur Scale",
+      "icon": "https://cdn.th.gl/aion2/icons/db/b03f8691.webp",
+      "url": "https://aion2.th.gl/db/inventory/it_610730024",
+      "source": {
+        "pt": "Fabricada no Artesanato com Essência Balaur (2 por escama) e Endurecedor de Escama de Dragão.",
+        "en": "Crafted with Handicrafting from Balaur's Essence (2 each) and a Lesser Dragon Scale Hardener."
+      }
+    },
+    "wrathful-ego": {
+      "name": "Wrathful Ego",
+      "icon": "https://cdn.th.gl/aion2/icons/db/a5889cd8.webp",
+      "url": "https://aion2.th.gl/db/inventory/it_610511015",
+      "source": {
+        "pt": "Raide Ludra (10%), Kromede na Fire Temple e Nuakum na Ferocious Horn Den (3,6%). Loja da temporada: 8.750 Moedas do Juramento, até 10 por conta até 16/12/2026.",
+        "en": "Ludra raid (10%), Kromede in Fire Temple and Nuakum in Ferocious Horn Den (3.6%). Season Shop: 8,750 Oath Coin, up to 10 per account until 2026-12-16."
+      }
+    },
+    "experts-splendent-yggdrasil-staff": {
+      "name": "Expert's Splendent Yggdrasil Staff",
+      "icon": "https://cdn.th.gl/aion2/icons/db/b04ae515.webp",
+      "url": "https://aion2.th.gl/db/inventory/it_110840012",
+      "source": null
+    },
+    "artisans-refining-stone": {
+      "name": "Artisan's Refining Stone",
+      "icon": "https://cdn.th.gl/aion2/icons/db/a61d9f4f.webp",
+      "url": "https://aion2.th.gl/db/inventory/it_610530008",
+      "source": null
+    },
+    "pure-yggdrasil-log": {
+      "name": "Pure Yggdrasil Log",
+      "icon": "https://cdn.th.gl/aion2/icons/db/8ac6a03c.webp",
+      "url": "https://aion2.th.gl/db/inventory/it_610650015",
+      "source": null
+    },
+    "pure-odyle": {
+      "name": "Pure Odyle",
+      "icon": "https://cdn.th.gl/aion2/icons/db/d89c02dc.webp",
+      "url": "https://aion2.th.gl/db/inventory/it_610610015",
+      "source": null
+    },
+    "artisans-splendent-sapphire-ring": {
+      "name": "Artisan's Splendent Sapphire Ring",
+      "icon": "https://cdn.th.gl/aion2/icons/db/7ded6bf1.webp",
+      "url": "https://aion2.th.gl/db/inventory/it_310330013",
+      "source": null
+    },
+    "radiant-sapphire-gemstone": {
+      "name": "Radiant Sapphire Gemstone",
+      "icon": "https://cdn.th.gl/aion2/icons/db/7ab10940.webp",
+      "url": "https://aion2.th.gl/db/inventory/it_610660034",
+      "source": null
+    },
+    "experts-splendent-sapphire-ring": {
+      "name": "Expert's Splendent Sapphire Ring",
+      "icon": "https://cdn.th.gl/aion2/icons/db/396f091d.webp",
+      "url": "https://aion2.th.gl/db/inventory/it_310340012",
+      "source": null
+    },
+    "pure-sapphire-gemstone": {
+      "name": "Pure Sapphire Gemstone",
+      "icon": "https://cdn.th.gl/aion2/icons/db/e241a505.webp",
+      "url": "https://aion2.th.gl/db/inventory/it_610660031",
+      "source": null
+    },
+    "artisans-splendent-orichalcum-guard": {
+      "name": "Artisan's Splendent Orichalcum Guard",
+      "icon": "https://cdn.th.gl/aion2/icons/db/caab6bb7.webp",
+      "url": "https://aion2.th.gl/db/inventory/it_115030013",
+      "source": null
+    },
+    "fine-thick-balaur-horn": {
+      "name": "Fine Thick Balaur Horn",
+      "icon": "https://cdn.th.gl/aion2/icons/db/bcf47617.webp",
+      "url": "https://aion2.th.gl/db/inventory/it_610710006",
+      "source": {
+        "pt": "Fabricado na Ferraria com Essência Balaur.",
+        "en": "Crafted with Blacksmithing from Balaur's Essence."
+      }
+    },
+    "radiant-orichalcum-ore": {
+      "name": "Radiant Orichalcum Ore",
+      "icon": "https://cdn.th.gl/aion2/icons/db/5410f8ff.webp",
+      "url": "https://aion2.th.gl/db/inventory/it_610620016",
+      "source": null
+    },
+    "fine-hard-balaur-horn": {
+      "name": "Fine Hard Balaur Horn",
+      "icon": "https://cdn.th.gl/aion2/icons/db/ce2e5328.webp",
+      "url": "https://aion2.th.gl/db/inventory/it_610710007",
+      "source": {
+        "pt": "Fabricado na Ferraria com Essência Balaur.",
+        "en": "Crafted with Blacksmithing from Balaur's Essence."
+      }
+    },
+    "fine-durable-balaur-horn": {
+      "name": "Fine Durable Balaur Horn",
+      "icon": "https://cdn.th.gl/aion2/icons/db/c4a277f2.webp",
+      "url": "https://aion2.th.gl/db/inventory/it_610710008",
+      "source": {
+        "pt": "Fabricado na Ferraria com Essência Balaur.",
+        "en": "Crafted with Blacksmithing from Balaur's Essence."
+      }
+    },
+    "experts-splendent-orichalcum-guard": {
+      "name": "Expert's Splendent Orichalcum Guard",
+      "icon": "https://cdn.th.gl/aion2/icons/db/0a8305b1.webp",
+      "url": "https://aion2.th.gl/db/inventory/it_115040012",
+      "source": null
+    },
+    "pure-orichalcum-ore": {
+      "name": "Pure Orichalcum Ore",
+      "icon": "https://cdn.th.gl/aion2/icons/db/9bc60c05.webp",
+      "url": "https://aion2.th.gl/db/inventory/it_610620015",
+      "source": null
+    }
+  },
+  "items": [
+    {
+      "slot": "staff",
+      "name": {
+        "pt": "Cajado",
+        "en": "Staff"
+      },
+      "profession": {
+        "pt": "Artesanato",
+        "en": "Handicrafting"
+      },
+      "base": {
+        "material": "artisans-splendent-yggdrasil-staff",
+        "itemUrl": "https://aion2.th.gl/db/inventory/it_110830013",
+        "recipe": {
+          "name": "Artisan's Yggdrasil Staff",
+          "recipeUrl": "https://aion2.th.gl/db/recipes/r_211104001",
+          "mastery": 30,
+          "materials": [
+            {
+              "id": "experts-splendent-yggdrasil-staff",
+              "qty": 1
+            },
+            {
+              "id": "artisans-refining-stone",
+              "qty": 5
+            },
+            {
+              "id": "pure-yggdrasil-log",
+              "qty": 8
+            },
+            {
+              "id": "pure-odyle",
+              "qty": 4
+            }
+          ]
+        }
+      },
+      "tiers": [
+        {
+          "tier": "True",
+          "splendent": false,
+          "names": {
+            "elyos": "True Dragon Lord Staff",
+            "asmodian": "Star Dragon Lord Staff"
+          },
+          "itemLevel": 62,
+          "icon": "https://cdn.th.gl/aion2/icons/db/8df6a2d0.webp",
+          "itemUrl": "https://aion2.th.gl/db/inventory/it_110830015",
+          "recipeUrl": "https://aion2.th.gl/db/recipes/r_211103001",
+          "asmodianRecipeUrl": "https://aion2.th.gl/db/recipes/r_221103001",
+          "mastery": 55,
+          "materials": [
+            {
+              "id": "artisans-splendent-yggdrasil-staff",
+              "qty": 1
+            },
+            {
+              "id": "artisans-ultimate-refining-stone",
+              "qty": 4
+            },
+            {
+              "id": "enhanced-thick-balaur-scale",
+              "qty": 22
+            },
+            {
+              "id": "wrathful-mind",
+              "qty": 10
+            },
+            {
+              "id": "radiant-yggdrasil-log",
+              "qty": 9
+            },
+            {
+              "id": "radiant-odyle",
+              "qty": 5
+            }
+          ]
+        },
+        {
+          "tier": "Splendent True",
+          "splendent": true,
+          "names": {
+            "elyos": "Splendent True Dragon Lord Staff",
+            "asmodian": "Splendent Star Dragon Lord Staff"
+          },
+          "itemLevel": 70,
+          "icon": "https://cdn.th.gl/aion2/icons/db/8df6a2d0.webp",
+          "itemUrl": "https://aion2.th.gl/db/inventory/it_110830017",
+          "recipeUrl": "https://aion2.th.gl/db/recipes/r_211103011",
+          "asmodianRecipeUrl": "https://aion2.th.gl/db/recipes/r_221103011",
+          "mastery": null,
+          "materials": [
+            {
+              "id": "enhanced-thick-balaur-scale",
+              "qty": 11
+            },
+            {
+              "id": "wrathful-mind",
+              "qty": 4
+            }
+          ]
+        },
+        {
+          "tier": "White",
+          "splendent": false,
+          "names": {
+            "elyos": "White Dragon Lord Staff",
+            "asmodian": "Dark Dragon Lord Staff"
+          },
+          "itemLevel": 78,
+          "icon": "https://cdn.th.gl/aion2/icons/db/2e624c37.webp",
+          "itemUrl": "https://aion2.th.gl/db/inventory/it_110830016",
+          "recipeUrl": "https://aion2.th.gl/db/recipes/r_211103012",
+          "asmodianRecipeUrl": "https://aion2.th.gl/db/recipes/r_221103012",
+          "mastery": null,
+          "materials": [
+            {
+              "id": "artisans-splendent-yggdrasil-staff",
+              "qty": 1
+            },
+            {
+              "id": "artisans-ultimate-refining-stone",
+              "qty": 5
+            },
+            {
+              "id": "enhanced-hard-balaur-scale",
+              "qty": 29
+            },
+            {
+              "id": "wrathful-mind",
+              "qty": 3
+            },
+            {
+              "id": "wrathful-will",
+              "qty": 15
+            },
+            {
+              "id": "radiant-yggdrasil-log",
+              "qty": 12
+            },
+            {
+              "id": "radiant-odyle",
+              "qty": 7
+            }
+          ]
+        },
+        {
+          "tier": "Splendent White",
+          "splendent": true,
+          "names": {
+            "elyos": "Splendent White Dragon Lord Staff",
+            "asmodian": "Splendent Dark Dragon Lord Staff"
+          },
+          "itemLevel": 86,
+          "icon": "https://cdn.th.gl/aion2/icons/db/2e624c37.webp",
+          "itemUrl": "https://aion2.th.gl/db/inventory/it_110830018",
+          "recipeUrl": "https://aion2.th.gl/db/recipes/r_211103013",
+          "asmodianRecipeUrl": "https://aion2.th.gl/db/recipes/r_221103013",
+          "mastery": null,
+          "materials": [
+            {
+              "id": "enhanced-hard-balaur-scale",
+              "qty": 15
+            },
+            {
+              "id": "wrathful-will",
+              "qty": 5
+            },
+            {
+              "id": "radiant-yggdrasil-log",
+              "qty": 1
+            },
+            {
+              "id": "radiant-odyle",
+              "qty": 2
+            }
+          ]
+        },
+        {
+          "tier": "Wise",
+          "splendent": false,
+          "names": {
+            "elyos": "Wise Dragon Lord Staff",
+            "asmodian": "Ebony Dragon Lord Staff"
+          },
+          "itemLevel": 94,
+          "icon": "https://cdn.th.gl/aion2/icons/db/e2b4369f.webp",
+          "itemUrl": "https://aion2.th.gl/db/inventory/it_110830023",
+          "recipeUrl": "https://aion2.th.gl/db/recipes/r_211103014",
+          "asmodianRecipeUrl": "https://aion2.th.gl/db/recipes/r_221103014",
+          "mastery": null,
+          "materials": [
+            {
+              "id": "artisans-splendent-yggdrasil-staff",
+              "qty": 1
+            },
+            {
+              "id": "artisans-ultimate-refining-stone",
+              "qty": 6
+            },
+            {
+              "id": "enhanced-durable-balaur-scale",
+              "qty": 41
+            },
+            {
+              "id": "wrathful-mind",
+              "qty": 3
+            },
+            {
+              "id": "wrathful-will",
+              "qty": 3
+            },
+            {
+              "id": "wrathful-ego",
+              "qty": 20
+            },
+            {
+              "id": "radiant-yggdrasil-log",
+              "qty": 15
+            },
+            {
+              "id": "radiant-odyle",
+              "qty": 9
+            }
+          ]
+        },
+        {
+          "tier": "Splendent Wise",
+          "splendent": true,
+          "names": {
+            "elyos": "Splendent Wise Dragon Lord Staff",
+            "asmodian": "Splendent Ebony Dragon Lord Staff"
+          },
+          "itemLevel": 102,
+          "icon": "https://cdn.th.gl/aion2/icons/db/e2b4369f.webp",
+          "itemUrl": "https://aion2.th.gl/db/inventory/it_110830045",
+          "recipeUrl": "https://aion2.th.gl/db/recipes/r_211103015",
+          "asmodianRecipeUrl": "https://aion2.th.gl/db/recipes/r_221103015",
+          "mastery": null,
+          "materials": [
+            {
+              "id": "artisans-ultimate-refining-stone",
+              "qty": 2
+            },
+            {
+              "id": "enhanced-durable-balaur-scale",
+              "qty": 21
+            },
+            {
+              "id": "wrathful-ego",
+              "qty": 7
+            },
+            {
+              "id": "radiant-yggdrasil-log",
+              "qty": 2
+            },
+            {
+              "id": "radiant-odyle",
+              "qty": 3
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "slot": "ring",
+      "name": {
+        "pt": "Anel",
+        "en": "Ring"
+      },
+      "profession": {
+        "pt": "Artesanato",
+        "en": "Handicrafting"
+      },
+      "base": {
+        "material": "artisans-splendent-sapphire-ring",
+        "itemUrl": "https://aion2.th.gl/db/inventory/it_310330013",
+        "recipe": {
+          "name": "Artisan's Sapphire Ring",
+          "recipeUrl": "https://aion2.th.gl/db/recipes/r_213034001",
+          "mastery": 30,
+          "materials": [
+            {
+              "id": "experts-splendent-sapphire-ring",
+              "qty": 1
+            },
+            {
+              "id": "artisans-refining-stone",
+              "qty": 2
+            },
+            {
+              "id": "pure-sapphire-gemstone",
+              "qty": 3
+            },
+            {
+              "id": "pure-odyle",
+              "qty": 1
+            }
+          ]
+        }
+      },
+      "tiers": [
+        {
+          "tier": "True",
+          "splendent": false,
+          "names": {
+            "elyos": "True Dragon Lord Ring",
+            "asmodian": "Star Dragon Lord Ring"
+          },
+          "itemLevel": 62,
+          "icon": "https://cdn.th.gl/aion2/icons/db/6697cac4.webp",
+          "itemUrl": "https://aion2.th.gl/db/inventory/it_310330015",
+          "recipeUrl": "https://aion2.th.gl/db/recipes/r_213033001",
+          "asmodianRecipeUrl": "https://aion2.th.gl/db/recipes/r_223033001",
+          "mastery": 55,
+          "materials": [
+            {
+              "id": "artisans-splendent-sapphire-ring",
+              "qty": 1
+            },
+            {
+              "id": "artisans-ultimate-refining-stone",
+              "qty": 2
+            },
+            {
+              "id": "enhanced-thick-balaur-scale",
+              "qty": 8
+            },
+            {
+              "id": "wrathful-mind",
+              "qty": 4
+            },
+            {
+              "id": "radiant-sapphire-gemstone",
+              "qty": 3
+            },
+            {
+              "id": "radiant-odyle",
+              "qty": 2
+            }
+          ]
+        },
+        {
+          "tier": "Splendent True",
+          "splendent": true,
+          "names": {
+            "elyos": "Splendent True Dragon Lord Ring",
+            "asmodian": "Splendent Star Dragon Lord Ring"
+          },
+          "itemLevel": 70,
+          "icon": "https://cdn.th.gl/aion2/icons/db/6697cac4.webp",
+          "itemUrl": "https://aion2.th.gl/db/inventory/it_310330017",
+          "recipeUrl": "https://aion2.th.gl/db/recipes/r_213033011",
+          "asmodianRecipeUrl": "https://aion2.th.gl/db/recipes/r_223033011",
+          "mastery": null,
+          "materials": [
+            {
+              "id": "enhanced-thick-balaur-scale",
+              "qty": 4
+            },
+            {
+              "id": "wrathful-mind",
+              "qty": 2
+            }
+          ]
+        },
+        {
+          "tier": "White",
+          "splendent": false,
+          "names": {
+            "elyos": "White Dragon Lord Ring",
+            "asmodian": "Dark Dragon Lord Ring"
+          },
+          "itemLevel": 78,
+          "icon": "https://cdn.th.gl/aion2/icons/db/29bfc651.webp",
+          "itemUrl": "https://aion2.th.gl/db/inventory/it_310330016",
+          "recipeUrl": "https://aion2.th.gl/db/recipes/r_213033012",
+          "asmodianRecipeUrl": "https://aion2.th.gl/db/recipes/r_223033012",
+          "mastery": null,
+          "materials": [
+            {
+              "id": "artisans-splendent-sapphire-ring",
+              "qty": 1
+            },
+            {
+              "id": "artisans-ultimate-refining-stone",
+              "qty": 2
+            },
+            {
+              "id": "enhanced-hard-balaur-scale",
+              "qty": 11
+            },
+            {
+              "id": "wrathful-mind",
+              "qty": 2
+            },
+            {
+              "id": "wrathful-will",
+              "qty": 6
+            },
+            {
+              "id": "radiant-sapphire-gemstone",
+              "qty": 5
+            },
+            {
+              "id": "radiant-odyle",
+              "qty": 3
+            }
+          ]
+        },
+        {
+          "tier": "Splendent White",
+          "splendent": true,
+          "names": {
+            "elyos": "Splendent White Dragon Lord Ring",
+            "asmodian": "Splendent Dark Dragon Lord Ring"
+          },
+          "itemLevel": 86,
+          "icon": "https://cdn.th.gl/aion2/icons/db/29bfc651.webp",
+          "itemUrl": "https://aion2.th.gl/db/inventory/it_310330018",
+          "recipeUrl": "https://aion2.th.gl/db/recipes/r_213033013",
+          "asmodianRecipeUrl": "https://aion2.th.gl/db/recipes/r_223033013",
+          "mastery": null,
+          "materials": [
+            {
+              "id": "enhanced-hard-balaur-scale",
+              "qty": 6
+            },
+            {
+              "id": "wrathful-will",
+              "qty": 2
+            },
+            {
+              "id": "radiant-sapphire-gemstone",
+              "qty": 1
+            },
+            {
+              "id": "radiant-odyle",
+              "qty": 1
+            }
+          ]
+        },
+        {
+          "tier": "Wise",
+          "splendent": false,
+          "names": {
+            "elyos": "Wise Dragon Lord Ring",
+            "asmodian": "Ebony Dragon Lord Ring"
+          },
+          "itemLevel": 94,
+          "icon": "https://cdn.th.gl/aion2/icons/db/9cbbc8a3.webp",
+          "itemUrl": "https://aion2.th.gl/db/inventory/it_310330023",
+          "recipeUrl": "https://aion2.th.gl/db/recipes/r_213033014",
+          "asmodianRecipeUrl": "https://aion2.th.gl/db/recipes/r_223033014",
+          "mastery": null,
+          "materials": [
+            {
+              "id": "artisans-splendent-sapphire-ring",
+              "qty": 1
+            },
+            {
+              "id": "artisans-ultimate-refining-stone",
+              "qty": 2
+            },
+            {
+              "id": "enhanced-durable-balaur-scale",
+              "qty": 16
+            },
+            {
+              "id": "wrathful-mind",
+              "qty": 2
+            },
+            {
+              "id": "wrathful-will",
+              "qty": 2
+            },
+            {
+              "id": "wrathful-ego",
+              "qty": 8
+            },
+            {
+              "id": "radiant-sapphire-gemstone",
+              "qty": 5
+            },
+            {
+              "id": "radiant-odyle",
+              "qty": 3
+            }
+          ]
+        },
+        {
+          "tier": "Splendent Wise",
+          "splendent": true,
+          "names": {
+            "elyos": "Splendent Wise Dragon Lord Ring",
+            "asmodian": "Splendent Ebony Dragon Lord Ring"
+          },
+          "itemLevel": 102,
+          "icon": "https://cdn.th.gl/aion2/icons/db/9cbbc8a3.webp",
+          "itemUrl": "https://aion2.th.gl/db/inventory/it_310330040",
+          "recipeUrl": "https://aion2.th.gl/db/recipes/r_213033015",
+          "asmodianRecipeUrl": "https://aion2.th.gl/db/recipes/r_223033015",
+          "mastery": null,
+          "materials": [
+            {
+              "id": "artisans-ultimate-refining-stone",
+              "qty": 1
+            },
+            {
+              "id": "enhanced-durable-balaur-scale",
+              "qty": 8
+            },
+            {
+              "id": "wrathful-ego",
+              "qty": 3
+            },
+            {
+              "id": "radiant-sapphire-gemstone",
+              "qty": 2
+            },
+            {
+              "id": "radiant-odyle",
+              "qty": 2
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "slot": "guard",
+      "name": {
+        "pt": "Guarda",
+        "en": "Guard"
+      },
+      "profession": {
+        "pt": "Ferraria",
+        "en": "Blacksmithing"
+      },
+      "base": {
+        "material": "artisans-splendent-orichalcum-guard",
+        "itemUrl": "https://aion2.th.gl/db/inventory/it_115030013",
+        "recipe": {
+          "name": "Artisan's Orichalcum Guard",
+          "recipeUrl": "https://aion2.th.gl/db/recipes/r_111084001",
+          "mastery": 35,
+          "materials": [
+            {
+              "id": "experts-splendent-orichalcum-guard",
+              "qty": 1
+            },
+            {
+              "id": "artisans-refining-stone",
+              "qty": 5
+            },
+            {
+              "id": "pure-orichalcum-ore",
+              "qty": 8
+            },
+            {
+              "id": "pure-odyle",
+              "qty": 4
+            }
+          ]
+        }
+      },
+      "tiers": [
+        {
+          "tier": "True",
+          "splendent": false,
+          "names": {
+            "elyos": "True Dragon Lord Guard",
+            "asmodian": "Star Dragon Lord Guard"
+          },
+          "itemLevel": 62,
+          "icon": "https://cdn.th.gl/aion2/icons/db/d7dd6ef7.webp",
+          "itemUrl": "https://aion2.th.gl/db/inventory/it_115030015",
+          "recipeUrl": "https://aion2.th.gl/db/recipes/r_111083001",
+          "asmodianRecipeUrl": "https://aion2.th.gl/db/recipes/r_121083001",
+          "mastery": 60,
+          "materials": [
+            {
+              "id": "artisans-splendent-orichalcum-guard",
+              "qty": 1
+            },
+            {
+              "id": "artisans-ultimate-refining-stone",
+              "qty": 4
+            },
+            {
+              "id": "fine-thick-balaur-horn",
+              "qty": 22
+            },
+            {
+              "id": "wrathful-mind",
+              "qty": 10
+            },
+            {
+              "id": "radiant-orichalcum-ore",
+              "qty": 9
+            },
+            {
+              "id": "radiant-odyle",
+              "qty": 5
+            }
+          ]
+        },
+        {
+          "tier": "Splendent True",
+          "splendent": true,
+          "names": {
+            "elyos": "Splendent True Dragon Lord Guard",
+            "asmodian": "Splendent Star Dragon Lord Guard"
+          },
+          "itemLevel": 70,
+          "icon": "https://cdn.th.gl/aion2/icons/db/d7dd6ef7.webp",
+          "itemUrl": "https://aion2.th.gl/db/inventory/it_115030017",
+          "recipeUrl": "https://aion2.th.gl/db/recipes/r_111083011",
+          "asmodianRecipeUrl": "https://aion2.th.gl/db/recipes/r_121083011",
+          "mastery": null,
+          "materials": [
+            {
+              "id": "fine-thick-balaur-horn",
+              "qty": 11
+            },
+            {
+              "id": "wrathful-mind",
+              "qty": 4
+            }
+          ]
+        },
+        {
+          "tier": "White",
+          "splendent": false,
+          "names": {
+            "elyos": "White Dragon Lord Guard",
+            "asmodian": "Dark Dragon Lord Guard"
+          },
+          "itemLevel": 78,
+          "icon": "https://cdn.th.gl/aion2/icons/db/4c231ca5.webp",
+          "itemUrl": "https://aion2.th.gl/db/inventory/it_115030016",
+          "recipeUrl": "https://aion2.th.gl/db/recipes/r_111083012",
+          "asmodianRecipeUrl": "https://aion2.th.gl/db/recipes/r_121083012",
+          "mastery": null,
+          "materials": [
+            {
+              "id": "artisans-splendent-orichalcum-guard",
+              "qty": 1
+            },
+            {
+              "id": "artisans-ultimate-refining-stone",
+              "qty": 5
+            },
+            {
+              "id": "fine-hard-balaur-horn",
+              "qty": 29
+            },
+            {
+              "id": "wrathful-mind",
+              "qty": 3
+            },
+            {
+              "id": "wrathful-will",
+              "qty": 15
+            },
+            {
+              "id": "radiant-orichalcum-ore",
+              "qty": 12
+            },
+            {
+              "id": "radiant-odyle",
+              "qty": 7
+            }
+          ]
+        },
+        {
+          "tier": "Splendent White",
+          "splendent": true,
+          "names": {
+            "elyos": "Splendent White Dragon Lord Guard",
+            "asmodian": "Splendent Dark Dragon Lord Guard"
+          },
+          "itemLevel": 86,
+          "icon": "https://cdn.th.gl/aion2/icons/db/4c231ca5.webp",
+          "itemUrl": "https://aion2.th.gl/db/inventory/it_115030018",
+          "recipeUrl": "https://aion2.th.gl/db/recipes/r_111083013",
+          "asmodianRecipeUrl": "https://aion2.th.gl/db/recipes/r_121083013",
+          "mastery": null,
+          "materials": [
+            {
+              "id": "fine-hard-balaur-horn",
+              "qty": 15
+            },
+            {
+              "id": "wrathful-will",
+              "qty": 5
+            },
+            {
+              "id": "radiant-orichalcum-ore",
+              "qty": 1
+            },
+            {
+              "id": "radiant-odyle",
+              "qty": 2
+            }
+          ]
+        },
+        {
+          "tier": "Wise",
+          "splendent": false,
+          "names": {
+            "elyos": "Wise Dragon Lord Guard",
+            "asmodian": "Ebony Dragon Lord Guard"
+          },
+          "itemLevel": 94,
+          "icon": "https://cdn.th.gl/aion2/icons/db/25f5245e.webp",
+          "itemUrl": "https://aion2.th.gl/db/inventory/it_115030023",
+          "recipeUrl": "https://aion2.th.gl/db/recipes/r_111083014",
+          "asmodianRecipeUrl": "https://aion2.th.gl/db/recipes/r_121083014",
+          "mastery": null,
+          "materials": [
+            {
+              "id": "artisans-splendent-orichalcum-guard",
+              "qty": 1
+            },
+            {
+              "id": "artisans-ultimate-refining-stone",
+              "qty": 6
+            },
+            {
+              "id": "fine-durable-balaur-horn",
+              "qty": 41
+            },
+            {
+              "id": "wrathful-mind",
+              "qty": 3
+            },
+            {
+              "id": "wrathful-will",
+              "qty": 3
+            },
+            {
+              "id": "wrathful-ego",
+              "qty": 20
+            },
+            {
+              "id": "radiant-orichalcum-ore",
+              "qty": 15
+            },
+            {
+              "id": "radiant-odyle",
+              "qty": 9
+            }
+          ]
+        },
+        {
+          "tier": "Splendent Wise",
+          "splendent": true,
+          "names": {
+            "elyos": "Splendent Wise Dragon Lord Guard",
+            "asmodian": "Splendent Ebony Dragon Lord Guard"
+          },
+          "itemLevel": 102,
+          "icon": "https://cdn.th.gl/aion2/icons/db/25f5245e.webp",
+          "itemUrl": "https://aion2.th.gl/db/inventory/it_115030045",
+          "recipeUrl": "https://aion2.th.gl/db/recipes/r_111083015",
+          "asmodianRecipeUrl": "https://aion2.th.gl/db/recipes/r_121083015",
+          "mastery": null,
+          "materials": [
+            {
+              "id": "artisans-ultimate-refining-stone",
+              "qty": 2
+            },
+            {
+              "id": "fine-durable-balaur-horn",
+              "qty": 21
+            },
+            {
+              "id": "wrathful-ego",
+              "qty": 7
+            },
+            {
+              "id": "radiant-orichalcum-ore",
+              "qty": 2
+            },
+            {
+              "id": "radiant-odyle",
+              "qty": 3
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
