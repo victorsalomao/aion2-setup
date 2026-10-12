@@ -2,7 +2,7 @@
 import Base from '../../../layouts/Base.astro';
 import CraftMenu from '../../../components/CraftMenu.astro';
 import data from '../../../data/dragon-lord.json';
-import { langParams, t, type Lang } from '../../../i18n';
+import { href, langParams, t, type Lang } from '../../../i18n';
 
 export function getStaticPaths() {
   return langParams();
@@ -13,31 +13,33 @@ const tt = t(lang);
 const c = {
   pt: {
     lead: 'O melhor equipamento do jogo é fabricado. Este guia cobre o cajado, o anel e a guarda da linha Dragon Lord. Escolha a receita no menu, diga quanto você já tem de cada material e monte a lista do que falta.',
+    more: 'Procurando outra receita? O <a href="{href}">banco de receitas</a> tem todas as profissões, com "usado em" e a árvore de materiais.',
     howTitle: 'Como funciona',
     steps: [
       '<b>Profissão.</b> Cajado e anel saem do Artesanato; a guarda sai da Ferraria. A mesa fica na Base da Legião da Aurora ou na Vila Zumion, em Verteron (lado Elyos).',
       '<b>Maestria.</b> A versão de Artesão pede 30 (guarda: 35). O Dragon Lord pede 55 no cajado e no anel e 60 na guarda. A maestria trava em 50 até você fazer a missão de avanço da profissão.',
       '<b>A base.</b> Toda receita Dragon Lord consome 1 peça "Artisan\'s Splendent". Ela só sai no combo, em 25% das vezes que você fabrica a versão de Artesão: em média 4 fabricações por base.',
-      '<b>Os degraus.</b> True (62), White (78) e Wise (94) são fabricados direto da base, sem precisar do degrau anterior. Cada um tem 25% de combo para sair Splendent, com 8 níveis a mais.',
+      '<b>Os degraus.</b> O True (62) sai da base. O White (78) é uma evolução: consome 1 Splendent True e mais 1 base. O Wise (94) consome 1 Splendent White e mais 1 base. Cada degrau tem 25% de combo para sair Splendent, com 8 níveis a mais, e a versão Splendent também tem receita de evolução a partir da peça comum. Guarde todo Splendent: ele é a entrada do degrau seguinte.',
       '<b>Qual mirar.</b> O White (78) perde para a Fire Temple (86), e só o Splendent White empata. O Wise (94) já passa, e o Splendent Wise (102) é o topo. A meta é o Wise; até lá, Fire Temple.',
       '<b>O gargalo.</b> O Wise pede 20 Wrathful Ego no cajado e na guarda. Ele cai da Kromede e da Nuakum (3,6%) e da raide Ludra (10%), e a loja da temporada vende por 8.750 Moedas do Juramento, até 10 por conta até 16/12. As escamas e chifres Durable pedem maestria 80 para fabricar.',
     ],
-    caveats: 'O banco de dados não mostra a maestria dos degraus White e Wise, nem a chance de combo do anel e da guarda. As versões Splendent aparecem lá com uma receita própria, mas o que ela faz não está confirmado. Nomes dos itens em inglês, como no banco de dados.',
+    caveats: 'Receitas de evolução não pedem maestria; por isso White, Wise e as versões Splendent aparecem sem esse número. A lista de materiais de uma evolução não inclui a peça que está sendo evoluída. O banco de dados não mostra a chance de combo do anel e da guarda. Nomes dos itens em inglês, como no banco de dados. Fonte da cadeia de evolução: guia de crafting da MetaBot.GG.',
     tableTitle: 'Todas as receitas',
     thItem: 'Item', thIl: 'Nível', thMats: 'Materiais',
   },
   en: {
     lead: 'The best gear in the game is crafted. This guide covers the Dragon Lord staff, ring and guard. Pick a recipe in the menu, enter how much of each material you have, and build the list of what is missing.',
+    more: 'Looking for another recipe? The <a href="{href}">recipe database</a> has every profession, with "used in" and the material tree.',
     howTitle: 'How it works',
     steps: [
       '<b>Profession.</b> Staff and ring come from Handicrafting; the guard from Blacksmithing. The table is in Dawn Legion Base or Zumion Village, Verteron (Elyos side).',
       '<b>Mastery.</b> The Artisan version needs 30 (guard: 35). Dragon Lord needs 55 for staff and ring and 60 for the guard. Mastery stops at 50 until you complete the profession upgrade quest.',
       '<b>The base.</b> Every Dragon Lord recipe consumes 1 "Artisan\'s Splendent" piece. It only comes from the combo, 25% of the times you craft the Artisan version: 4 crafts per base on average.',
-      '<b>The tiers.</b> True (62), White (78) and Wise (94) are crafted straight from the base, without the previous tier. Each has a 25% combo to come out Splendent, 8 item levels higher.',
+      '<b>The tiers.</b> True (62) comes from the base. White (78) is an upgrade: it consumes 1 Splendent True plus 1 more base. Wise (94) consumes 1 Splendent White plus 1 more base. Each tier has a 25% combo to come out Splendent, 8 item levels higher, and the Splendent version also has an upgrade recipe from the regular piece. Keep every Splendent: it feeds the next tier.',
       '<b>What to aim for.</b> White (78) loses to Fire Temple (86), and only Splendent White ties. Wise (94) beats it, and Splendent Wise (102) is the top. Aim for Wise; use Fire Temple until then.',
       '<b>The bottleneck.</b> Wise needs 20 Wrathful Ego for the staff and guard. It drops from Kromede and Nuakum (3.6%) and the Ludra raid (10%), and the Season Shop sells it for 8,750 Oath Coin, up to 10 per account until 2026-12-16. Durable scales and horns need mastery 80 to craft.',
     ],
-    caveats: 'The database does not show mastery for the White and Wise tiers, nor the combo chance for the ring and guard. Splendent versions are listed with a recipe of their own, but what it does is not confirmed.',
+    caveats: 'Upgrade recipes need no mastery, which is why White, Wise and the Splendent versions show none. The material list of an upgrade leaves out the piece being upgraded. The database does not show the combo chance for the ring and guard. Upgrade chain source: MetaBot.GG crafting guide.',
     tableTitle: 'All recipes',
     thItem: 'Item', thIl: 'Level', thMats: 'Materials',
   },
@@ -48,6 +50,7 @@ const mats = data.materials as Record<string, { name: string }>;
   <section class="block">
     <h1>{tt('tools.craft.title')}</h1>
     <p class="lead">{c.lead}</p>
+    <p class="small" set:html={c.more.replace('{href}', href(lang, '/tools/recipes/'))} />
   </section>
 
   <CraftMenu lang={lang} />

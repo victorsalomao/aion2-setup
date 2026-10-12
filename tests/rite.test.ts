@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { formatClock, highestDifficulty, riteScore, secondsNeeded } from '../src/lib/rite';
+import { formatClock, hardCrystals, highestDifficulty, riteScore, secondsNeeded } from '../src/lib/rite';
 
 describe('pontuação do Rito no Hard', () => {
   it('reproduz o exemplo da fonte: 11:04 de sobra dá 4.092', () => {
@@ -20,5 +20,11 @@ describe('pontuação do Rito no Hard', () => {
     expect(highestDifficulty(2036)?.id).toBe('hard');
     expect(highestDifficulty(2500)?.id).toBe('challenge');
     expect(highestDifficulty(900)).toBeUndefined();
+  });
+
+  it('no Hard conta no máximo 3 cristais, mesmo com pontuação alta', () => {
+    expect(hardCrystals(2100)).toBe(1);
+    expect(hardCrystals(riteScore(2100, 3, 11 * 60 + 4))).toBe(3);
+    expect(hardCrystals(9999)).toBe(3);
   });
 });

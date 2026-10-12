@@ -1,0 +1,266 @@
+---
+/**
+ * Banco de receitas: todas as receitas vêm renderizadas no HTML (o Google lê e a
+ * página funciona sem JavaScript). O script só esconde o que não passa no filtro e
+ * abre o painel de um item: receita, árvore até os materiais brutos e "usado em".
+ * Dados: src/data/crafting.json (Shugo.GG). Contas: src/lib/recipes.ts.
+ */
+import data from '../data/crafting.json';
+import { flatten, isUpgrade, type Profession } from '../lib/recipes';
+import type { Lang } from '../i18n';
+
+interface Props { lang: Lang }
+const { lang } = Astro.props;
+
+const copy = {
+  pt: {
+    locale: 'pt-BR', search: 'Buscar item ou material', searchPh: 'ex.: Orichalcum, Balaur, poção',
+    profession: 'Profissão', all: 'Todas', faction: 'Facção', both: 'Ambas', elyos: 'Elyos', asmodian: 'Asmodiano',
+    mastery: 'Maestria', from: 'de', to: 'até', upgrade: 'Evolução', upgradeHint: 'Maestria 0 = receitas de evolução, que sobem uma peça que você já tem de degrau e não pedem maestria.',
+    success: 'sucesso', count: '{n} receitas', none: 'Nenhuma receita com esses filtros.', clear: 'Limpar filtros',
+    close: 'Fechar', makes: 'Como fabricar', usedIn: 'Usado em', usedNone: 'Nenhuma receita pede este item.',
+    raw: 'Não tem receita: vem de coleta, drop de monstro, loja ou evento.',
+    combo: 'Não tem receita própria: sai no combo (grande sucesso) ao fabricar {base}.',
+    tree: 'Árvore de materiais', totals: 'Materiais brutos', craft: 'Fabricar', crafts: '{n}× fabricação',
+    cycle: 'volta para cima na árvore', pick: 'Toque num material para ver de onde vem e onde é usado.',
+    upgradeNote: 'Evolução: além dos materiais abaixo, consome a peça do degrau anterior.',
+    output: 'rende', open: 'Abrir',
+  },
+  en: {
+    locale: 'en', search: 'Search item or material', searchPh: 'e.g. Orichalcum, Balaur, potion',
+    profession: 'Profession', all: 'All', faction: 'Faction', both: 'Both', elyos: 'Elyos', asmodian: 'Asmodian',
+    mastery: 'Mastery', from: 'from', to: 'to', upgrade: 'Upgrade', upgradeHint: 'Mastery 0 = upgrade recipes, which take a piece you already own up one tier and need no mastery.',
+    success: 'success', count: '{n} recipes', none: 'No recipe matches these filters.', clear: 'Clear filters',
+    close: 'Close', makes: 'How to craft', usedIn: 'Used in', usedNone: 'No recipe uses this item.',
+    raw: 'No recipe: it comes from gathering, monster drops, a shop or an event.',
+    combo: 'No recipe of its own: it comes from a combo (great success) when crafting {base}.',
+    tree: 'Material tree', totals: 'Raw materials', craft: 'Craft', crafts: '{n}× craft',
+    cycle: 'loops back up the tree', pick: 'Tap a material to see where it comes from and where it is used.',
+    upgradeNote: 'Upgrade: besides the materials below, it consumes the piece from the previous tier.',
+    output: 'makes', open: 'Open',
+  },
+}[lang];
+
+const professions = data.professions as Profession[];
+const rows = flatten(professions);
+const profName = Object.fromEntries(professions.map((p) => [p.id, p.name[lang]]));
+const pct = (n: number) => n.toLocaleString(copy.locale, { maximumFractionDigits: 1 });
+const factionLabel = { both: '', elyos: copy.elyos, asmodian: copy.asmodian } as const;
+const payload = { copy, lang, profName, rows };
+---
+<div class="rb" data-rb>
+  <script type="application/json" data-payload set:html={JSON.stringify(payload)} />
+  <form class="rb-filters panel" data-filters onsubmit="return false">
+    <label class="rb-search"><span class="small muted">{copy.search}</span>
+      <input type="search" name="q" placeholder={copy.searchPh} autocomplete="off" data-q /></label>
+    <label><span class="small muted">{copy.profession}</span>
+      <select name="prof" data-prof>
+        <option value="">{copy.all}</option>
+        {professions.map((p) => <option value={p.id}>{p.name[lang]}</option>)}
+      </select></label>
+    <div class="rb-range"><span class="small muted">{copy.mastery}</span>
+      <span class="rb-range-in">
+        <input type="number" min="0" max="100" value="0" inputmode="numeric" aria-label={`${copy.mastery} ${copy.from}`} data-min />
+        <span class="muted">–</span>
+        <input type="number" min="0" max="100" value="100" inputmode="numeric" aria-label={`${copy.mastery} ${copy.to}`} data-max />
+      </span></div>
+    <div><span class="small muted">{copy.faction}</span>
+      <div class="seg" role="group" aria-label={copy.faction} data-faction>
+        <button type="button" data-v="both" aria-pressed="true">{copy.both}</button>
+        <button type="button" data-v="elyos" aria-pressed="false">{copy.elyos}</button>
+        <button type="button" data-v="asmodian" aria-pressed="false">{copy.asmodian}</button>
+      </div></div>
+    <p class="hint small muted">{copy.upgradeHint}</p>
+  </form>
+
+  <div class="rb-bar"><span class="muted small num" data-count aria-live="polite">{copy.count.replace('{n}', String(rows.length))}</span>
+    <button type="button" class="ghost" data-reset>{copy.clear}</button></div>
+
+  <div class="rb-grid">
+    <aside class="rb-detail panel" data-detail hidden aria-live="polite"></aside>
+    <div class="rb-list" data-list>
+      <p class="muted small rb-pick">{copy.pick}</p>
+      {rows.map((r) => (
+        <article class="rc" data-rc={r.id}>
+          <div class="rc-head">
+            <button type="button" class="rc-name" data-item={r.product}>{r.product}</button>
+            {r.qty > 1 && <span class="num muted small">×{r.qty}</span>}
+          </div>
+          <div class="rc-meta small">
+            <span class="pill gold">{profName[r.profession]}</span>
+            {isUpgrade(r)
+              ? <span class="pill warn">{copy.upgrade}</span>
+              : <span class="muted">{copy.mastery} <span class="num">{r.mastery}</span></span>}
+            {r.success && <span class="muted num">{pct(r.success.min)}–{pct(r.success.max)}% {copy.success}</span>}
+            {r.faction !== 'both' && <span class="pill lock">{factionLabel[r.faction]}</span>}
+          </div>
+          <ul class="rc-mats">
+            {r.materials.map((m) => (
+              <li><button type="button" class="chip" data-item={m.name}><span class="num">{m.qty}×</span> {m.name}</button></li>
+            ))}
+          </ul>
+        </article>
+      ))}
+      <p class="muted" data-empty hidden>{copy.none}</p>
+    </div>
+  </div>
+</div>
+
+<script>
+  import {
+    comboBase, expand, filterRecipes, isUpgrade, pickRecipe, rawMaterials, recipesFor, usedIn,
+    type Faction, type RecipeRow, type TreeNode,
+  } from '../lib/recipes';
+
+  const esc = (s: string) => s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+
+  document.querySelectorAll<HTMLElement>('[data-rb]').forEach((root) => {
+    const { copy, profName, rows } = JSON.parse(root.querySelector('[data-payload]')!.textContent || '{}') as {
+      copy: Record<string, string>; profName: Record<string, string>; rows: RecipeRow[];
+    };
+    const fmt = (n: number) => n.toLocaleString(copy.locale);
+    const pct = (n: number) => n.toLocaleString(copy.locale, { maximumFractionDigits: 1 });
+    const fill = (tpl: string, v: Record<string, string | number>) => tpl.replace(/\{(\w+)\}/g, (_, k) => String(v[k] ?? ''));
+
+    const q = root.querySelector<HTMLInputElement>('[data-q]')!;
+    const prof = root.querySelector<HTMLSelectElement>('[data-prof]')!;
+    const minEl = root.querySelector<HTMLInputElement>('[data-min]')!;
+    const maxEl = root.querySelector<HTMLInputElement>('[data-max]')!;
+    const countEl = root.querySelector<HTMLElement>('[data-count]')!;
+    const emptyEl = root.querySelector<HTMLElement>('[data-empty]')!;
+    const detail = root.querySelector<HTMLElement>('[data-detail]')!;
+    const cards = new Map([...root.querySelectorAll<HTMLElement>('[data-rc]')].map((el) => [el.dataset.rc!, el]));
+    let faction: Faction = 'both';
+    let current: { name: string; count: number } | null = null;
+
+    const num = (el: HTMLInputElement, dflt: number) => {
+      const v = Math.floor(Number(el.value));
+      return Number.isFinite(v) && el.value !== '' ? Math.min(100, Math.max(0, v)) : dflt;
+    };
+
+    function applyFilter() {
+      const shown = new Set(filterRecipes(rows, {
+        text: q.value, profession: prof.value || undefined, faction,
+        minMastery: num(minEl, 0), maxMastery: num(maxEl, 100),
+      }).map((r) => r.id));
+      cards.forEach((el, id) => { el.hidden = !shown.has(id); });
+      countEl.textContent = fill(copy.count, { n: fmt(shown.size) });
+      emptyEl.hidden = shown.size > 0;
+    }
+
+    /* ---------- painel do item ---------- */
+    const chip = (name: string, qty?: number) =>
+      `<button type="button" class="chip" data-item="${esc(name)}">${qty !== undefined ? `<span class="num">${fmt(qty)}×</span> ` : ''}${esc(name)}</button>`;
+
+    function meta(r: RecipeRow): string {
+      return `<span class="pill gold">${esc(profName[r.profession])}</span>`
+        + (isUpgrade(r) ? `<span class="pill warn">${copy.upgrade}</span>` : `<span class="muted">${copy.mastery} <span class="num">${r.mastery}</span></span>`)
+        + (r.success ? `<span class="muted num">${pct(r.success.min)}–${pct(r.success.max)}% ${copy.success}</span>` : '')
+        + (r.qty > 1 ? `<span class="muted">${copy.output} <span class="num">${r.qty}</span></span>` : '')
+        + (r.faction !== 'both' ? `<span class="pill lock">${copy[r.faction]}</span>` : '');
+    }
+
+    function treeHtml(n: TreeNode, root = false): string {
+      const label = `${root ? '' : `<span class="num">${fmt(n.qty)}×</span> `}<button type="button" class="linkish" data-item="${esc(n.name)}">${esc(n.name)}</button>`
+        + (n.crafts && !root ? ` <span class="muted small">(${fill(copy.crafts, { n: fmt(n.crafts) })})</span>` : '')
+        + (n.cycle ? ` <span class="pill warn">${copy.cycle}</span>` : '');
+      const kids = n.children.length ? `<ul class="tree">${n.children.map((c) => `<li>${treeHtml(c)}</li>`).join('')}</ul>` : '';
+      return root ? kids : `${label}${kids}`;
+    }
+
+    /** árvore e total de brutos para N fabricações */
+    function treeBlock(name: string, count: number, perCraft: number, f: Faction | undefined): string {
+      const tree = expand(rows, name, count * perCraft, { faction: f });
+      const deep = tree.children.some((c) => c.children.length);
+      const totals = Object.entries(rawMaterials(tree)).sort((a, b) => b[1] - a[1]);
+      return (deep ? `<h4>${copy.tree}</h4>${treeHtml(tree, true)}` : '')
+        + `<h4>${copy.totals}</h4><ul class="rc-mats">${totals.map(([n, qty]) => `<li>${chip(n, qty)}</li>`).join('')}</ul>`;
+    }
+
+    function openItem(name: string, count = 1, scroll = true) {
+      current = { name, count };
+      const f = faction === 'both' ? undefined : faction;
+      const makes = recipesFor(rows, name, f);
+      const picked = pickRecipe(rows, name, f);
+      const base = makes.length ? undefined : comboBase(rows, name);
+      const uses = usedIn(rows, name, f);
+
+      let how = '';
+      if (makes.length) {
+        how = `<h4>${copy.makes}</h4>` + makes.map((r) => `<div class="rb-recipe">
+            <div class="rc-meta small">${meta(r)}</div>
+            ${isUpgrade(r) ? `<p class="small muted">${copy.upgradeNote}</p>` : ''}
+            <ul class="rc-mats">${r.materials.map((m) => `<li>${chip(m.name, m.qty)}</li>`).join('')}</ul></div>`).join('');
+        how += `<div class="craft-actions"><label class="field small">${copy.craft} ×<input type="number" min="1" max="999" value="${count}" inputmode="numeric" data-times></label></div>
+          <div data-tree>${treeBlock(name, count, picked?.qty ?? 1, f)}</div>`;
+      } else if (base) {
+        how = `<p class="note small">${fill(copy.combo, { base: `<button type="button" class="linkish" data-item="${esc(base)}">${esc(base)}</button>` })}</p>`;
+      } else {
+        how = `<p class="small muted">${copy.raw}</p>`;
+      }
+
+      const seen = new Set<string>();
+      const useList = uses.filter((r) => !seen.has(r.product) && seen.add(r.product)).map((r) => {
+        const qty = r.materials.find((m) => m.name.toLowerCase() === name.toLowerCase())?.qty ?? 0;
+        return `<li><button type="button" class="linkish" data-item="${esc(r.product)}">${esc(r.product)}</button>
+          <span class="muted small">· ${esc(profName[r.profession])} · <span class="num">${fmt(qty)}×</span></span></li>`;
+      }).join('');
+
+      detail.innerHTML = `<div class="panel-head"><h3>${esc(name)}</h3><button type="button" class="ghost" data-close>${copy.close}</button></div>
+        ${how}
+        <h4>${copy.usedIn} <span class="muted num">(${seen.size})</span></h4>
+        ${seen.size ? `<ul class="rb-uses">${useList}</ul>` : `<p class="small muted">${copy.usedNone}</p>`}`;
+      detail.hidden = false;
+      try { history.replaceState(null, '', `#i=${encodeURIComponent(name)}`); } catch { /* sem history */ }
+      // no celular o painel fica acima da lista; no computador ele é fixo ao lado
+      const stacked = matchMedia('(max-width: 860px)').matches;
+      if (scroll && (stacked || detail.getBoundingClientRect().top < 0)) detail.scrollIntoView({ block: 'start', behavior: 'smooth' });
+      else detail.scrollTop = 0;
+    }
+
+    function closeItem() {
+      current = null;
+      detail.hidden = true;
+      detail.innerHTML = '';
+      try { history.replaceState(null, '', location.pathname + location.search); } catch { /* idem */ }
+    }
+
+    /* ---------- eventos ---------- */
+    root.addEventListener('click', (ev) => {
+      const el = (ev.target as HTMLElement).closest<HTMLElement>('button');
+      if (!el) return;
+      if (el.dataset.item) openItem(el.dataset.item);
+      else if (el.hasAttribute('data-close')) closeItem();
+      else if (el.closest('[data-faction]') && el.dataset.v) {
+        faction = el.dataset.v as Faction;
+        root.querySelectorAll<HTMLButtonElement>('[data-faction] button').forEach((b) => b.setAttribute('aria-pressed', String(b.dataset.v === faction)));
+        applyFilter();
+        if (current) openItem(current.name, current.count, false);
+      } else if (el.hasAttribute('data-reset')) {
+        q.value = ''; prof.value = ''; minEl.value = '0'; maxEl.value = '100';
+        faction = 'both';
+        root.querySelectorAll<HTMLButtonElement>('[data-faction] button').forEach((b) => b.setAttribute('aria-pressed', String(b.dataset.v === 'both')));
+        applyFilter();
+      }
+    });
+    root.addEventListener('input', (ev) => {
+      const el = ev.target as HTMLInputElement;
+      if (el.hasAttribute('data-times') && current) {
+        current.count = Math.min(999, Math.max(1, Math.floor(Number(el.value) || 1)));
+        const f = faction === 'both' ? undefined : faction;
+        const box = detail.querySelector<HTMLElement>('[data-tree]');
+        if (box) box.innerHTML = treeBlock(current.name, current.count, pickRecipe(rows, current.name, f)?.qty ?? 1, f);
+      } else if (el.closest('[data-filters]')) applyFilter();
+    });
+    root.addEventListener('change', (ev) => {
+      if ((ev.target as HTMLElement).closest('[data-filters]')) applyFilter();
+    });
+
+    applyFilter();
+    const hash = location.hash.match(/^#i=(.+)$/);
+    if (hash) {
+      const name = decodeURIComponent(hash[1]);
+      if (rows.some((r) => r.product === name || r.materials.some((m) => m.name === name))) openItem(name, 1, true);
+    }
+  });
+</script>

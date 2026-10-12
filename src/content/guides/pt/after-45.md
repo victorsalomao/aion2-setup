@@ -23,6 +23,8 @@ Nada aqui depende de sorte ou de grupo.
 
 ## 1.150 a 1.400: primeiras Conquistas
 
+Krao Cave e Draupnir abrem com 700 de item level, mas antes de 1.150 a run é lenta e o cubo rende pouco.
+
 Krao Cave e Draupnir em Conquista dão peças de nível 54. Mate os chefes intermediários antes do final: eles aumentam a recompensa do cubo.
 
 ## 1.400 a 1.600: masmorras de grupo

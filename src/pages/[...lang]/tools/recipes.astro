@@ -1,0 +1,61 @@
+---
+import Base from '../../../layouts/Base.astro';
+import RecipeBrowser from '../../../components/RecipeBrowser.astro';
+import data from '../../../data/crafting.json';
+import { href, langParams, t, type Lang } from '../../../i18n';
+
+export function getStaticPaths() {
+  return langParams();
+}
+interface Props { lang: Lang }
+const { lang } = Astro.props;
+const tt = t(lang);
+const total = data.professions.reduce((n, p) => n + p.recipes.length, 0);
+const c = {
+  pt: {
+    lead: `Todas as ${total} receitas de craft do AION 2 nas cinco profissões, com maestria, chance de sucesso e materiais. Busque um item, filtre por profissão e faixa de maestria e toque num material para ver de onde ele vem, onde é usado e a árvore até os materiais brutos.`,
+    links: 'Quer o passo a passo do equipamento Dragon Lord, com lista de compras? Use o <a href="{craft}">menu de craft Dragon Lord</a>. Para entender profissões, maestria e o que vale fabricar, leia o <a href="{guide}">guia de craft</a>.',
+    notesTitle: 'Como ler esta lista',
+    notes: [
+      '<b>Facção.</b> Receita sem etiqueta vale para os dois lados. As marcadas Elyos ou Asmodiano têm uma irmã na outra facção, com outro nome e os mesmos números (True e Star Dragon Lord, Yggdrasil e Asvata).',
+      '<b>Sucesso.</b> O primeiro número é a chance na maestria exata da receita; o segundo, o teto quando sua maestria passa bem da exigida.',
+      '<b>Evolução.</b> Receitas de evolução aparecem com maestria 0. Elas pegam uma peça que você já tem e sobem o degrau; a peça consumida não aparece na lista de materiais.',
+      '<b>Splendent.</b> Fora da linha Dragon Lord, as peças Splendent não têm receita: saem no combo (grande sucesso) ao fabricar a versão normal. O painel do item aponta qual receita fabricar.',
+      '<b>Lote.</b> Várias receitas de material têm uma versão em lote, que rende 10 ou 30 de uma vez com a mesma conta por unidade. A árvore usa a versão de menor maestria.',
+    ],
+    names: 'Nomes dos itens em inglês, como no banco de dados de origem.',
+    data: 'Receitas',
+  },
+  en: {
+    lead: `All ${total} AION 2 crafting recipes across the five professions, with mastery, success chance and materials. Search an item, filter by profession and mastery range, and tap a material to see where it comes from, where it is used and the tree down to raw materials.`,
+    links: 'Want the step-by-step for Dragon Lord gear, with a shopping list? Use the <a href="{craft}">Dragon Lord crafting menu</a>. To understand professions, mastery and what is worth crafting, read the <a href="{guide}">crafting guide</a>.',
+    notesTitle: 'How to read this list',
+    notes: [
+      '<b>Faction.</b> Recipes with no tag work for both sides. Those tagged Elyos or Asmodian have a twin on the other side with another name and the same numbers (True and Star Dragon Lord, Yggdrasil and Asvata).',
+      '<b>Success.</b> The first number is the chance at the recipe\'s exact mastery; the second is the ceiling once your mastery is well past it.',
+      '<b>Upgrade.</b> Upgrade recipes show mastery 0. They take a piece you already own up one tier; the consumed piece is not in the material list.',
+      '<b>Splendent.</b> Outside the Dragon Lord line, Splendent pieces have no recipe: they come from a combo (great success) when crafting the normal version. The item panel points to the recipe to craft.',
+      '<b>Batch.</b> Many material recipes have a batch version that makes 10 or 30 at once at the same cost per unit. The tree uses the lowest-mastery version.',
+    ],
+    names: 'Item names in English, as in the source database.',
+    data: 'Recipes',
+  },
+}[lang];
+const links = c.links.replace('{craft}', href(lang, '/tools/craft/')).replace('{guide}', href(lang, '/guides/crafting/'));
+---
+<Base lang={lang} title={tt('tools.recipes.title')} description={tt('tools.recipes.desc')}>
+  <section class="block">
+    <h1>{tt('tools.recipes.title')}</h1>
+    <p class="lead">{c.lead}</p>
+    <p class="small" set:html={links} />
+  </section>
+
+  <RecipeBrowser lang={lang} />
+
+  <section class="block">
+    <h2>{c.notesTitle}</h2>
+    <ol class="seq">{c.notes.map((s) => <li><span set:html={s} /></li>)}</ol>
+    <p class="muted small">{c.names}</p>
+    <p class="muted small">{c.data}: <a href={data.source}>Shugo.GG</a> · <span class="num">{data.checkedAt}</span></p>
+  </section>
+</Base>

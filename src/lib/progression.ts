@@ -8,7 +8,8 @@ export interface Gate {
 }
 
 export const GATES: Gate[] = [
-  { gs: 1000, what: { pt: 'Conquista: Krao Cave e Draupnir', en: 'Conquest: Krao Cave and Draupnir' } },
+  // Abertura das Conquistas: dados do cliente, https://metabot.gg/en/aion-2/content-unlocks
+  { gs: 700, what: { pt: 'Conquista: Krao Cave e Draupnir (vale a pena a partir de ~1.150)', en: 'Conquest: Krao Cave and Draupnir (worth it from ~1,150)' } },
   { gs: 1400, what: { pt: 'Conquista: Urugugu Canyon e Vakron Sky Island (peças de nível 70)', en: 'Conquest: Urugugu Canyon and Vakron Sky Island (item level 70 gear)' } },
   { gs: 1500, what: { pt: 'Rito da Ascensão normal', en: 'Ascension Trial, Normal' }, minor: true },
   { gs: 1600, what: { pt: 'Transcendência estágio 1: primeiras cartas Arcana', en: 'Transcendence stage 1: first Arcana cards' } },
@@ -17,7 +18,7 @@ export const GATES: Gate[] = [
   { gs: 2100, what: { pt: 'Conquista: Fire Temple e Ferocious Horn Den (peças de nível 86)', en: 'Conquest: Fire Temple and Ferocious Horn Den (item level 86 gear)' } },
   { gs: 2200, what: { pt: 'Transcendência estágio 3: cartas de +60', en: 'Transcendence stage 3: +60 cards' } },
   { gs: 2500, what: { pt: 'Transcendência estágio 4 e Rito da Ascensão Challenge', en: 'Transcendence stage 4 and Ascension Trial, Challenge' } },
-  { gs: 2800, what: { pt: 'Santuário: raide de 10 jogadores', en: 'Sanctuary: 10-player raid' } },
+  { gs: 2800, what: { pt: "Conquista: Cradle of Nihility e Dying Dramata's Nest; Santuário (raide de 10)", en: "Conquest: Cradle of Nihility and Dying Dramata's Nest; Sanctuary (10-player raid)" } },
 ];
 
 export function nextGate(gs: number): Gate | undefined {

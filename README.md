@@ -41,12 +41,22 @@ tests/                  testes das contas em src/lib
 
 ## Tarefas comuns
 
-### Publicar uma classe
+### Atualizar uma classe
 
-1. Abra `src/content/classes/<classe>.json` (as 7 em rascunho já existem).
-2. Preencha `actives`, `passives`, `stigmas` e `modes` seguindo o `chanter.json`. Todo texto tem `pt` e `en`.
-3. Coloque as fontes em `sources` e a data em `updated`.
-4. Troque `"status": "draft"` por `"published"`.
+As 9 classes têm um arquivo em `src/content/classes/`. As skills e os Stigmas vêm do Shugo.GG (`/skills/<classe>`). As três builds de cada classe vêm do planejador da MetaBot.GG (`/en/aion-2/classes/<classe>/build`):
+
+- `pve`: o que os jogadores do topo usam, com a % de uso de cada skill (`usage`);
+- `leveling` e `pvp`: builds editoriais, com rotação e motivos (`why`).
+
+Depois de um patch:
+
+1. Confira as duas páginas de origem e ajuste níveis, Stigmas e `stigmaLevels` de cada modo.
+2. Atualize `basis` (quantos jogadores e a data dos dados) e `updated`.
+3. Rode `npm run build`: o esquema acusa id que não existe ou campo com tipo errado.
+
+O Brawler ainda não tem build com fonte. A página mostra só skills e Stigmas, com um aviso em `notice`.
+
+Uma classe com `"status": "draft"` sai só com o aviso de construção.
 
 A página de rascunho sai com `noindex` e fora do sitemap. Isso é de propósito: página vazia indexada pesa contra o site na avaliação do AdSense.
 
@@ -103,11 +113,20 @@ Antes de pedir aprovação:
 
 O menu de craft (`/tools/craft/`) mostra os ícones carregando as imagens direto do CDN do aion2.th.gl, sem copiar os arquivos para o projeto. Se a imagem não carregar, aparece uma sigla no lugar. Antes de pôr o site no ar com anúncio, peça autorização ao aion2.th.gl para usar o CDN deles, ou troque as URLs em `src/data/dragon-lord.json`.
 
-O site não usa nenhum ícone do jogo. As skills aparecem com um quadrado de iniciais colorido por categoria.
+Fora o menu de craft, o site não usa ícone do jogo. As skills aparecem com um quadrado de iniciais colorido por categoria.
 
+Os dados de skills, receitas e builds vêm de dois sites que liberam o uso, com condições:
+
+| Fonte | O que usamos | Condição |
+|---|---|---|
+| [Shugo.GG](https://shugo.gg) | skills das classes, todas as receitas de craft | crédito "Shugo.GG" com link para a página. A pasta `/api/` é proibida no `robots.txt` deles: o importador lê só as páginas públicas |
+| [MetaBot.GG](https://metabot.gg) | builds recomendadas, guia de crafting | link **dofollow** (sem `rel="nofollow"`, `sponsored` ou `ugc`) para a página exata de onde veio o dado |
+
+- As receitas se atualizam com `npm run import:crafting`. As classes são revisadas à mão, porque o texto é traduzido.
 - Os ícones são da NCSOFT. Para usar, peça autorização ou entre no programa de criadores do AION 2.
-- Não puxe dados nem imagens de outros sites de banco de dados sem permissão escrita. Além do risco legal, eles podem bloquear a origem a qualquer momento e derrubar as páginas.
-- Os números vêm de pesquisa manual, com fonte, e parte deles é da versão coreana. Cada página mostra a data da conferência.
+- Não puxe dados de outros sites sem conferir os termos. Além do risco legal, eles podem bloquear a origem a qualquer momento e derrubar as páginas.
+- Antes de ligar anúncio, avise o Shugo.GG e a MetaBot.GG. As condições acima valem para uso gratuito com crédito; anúncio é outra conversa.
+- Parte dos números é da versão coreana. Cada página mostra a data da conferência.
 
 ## Plano de 2 dias
 
@@ -127,7 +146,7 @@ O site não usa nenhum ícone do jogo. As skills aparecem com um quadrado de ini
 
 ## O que falta
 
-- 7 classes em rascunho
+- Build com fonte para o Brawler
 - Páginas institucionais (Sobre, Contato, Privacidade)
 - Aviso de consentimento de cookies
 - Imagem de compartilhamento (`og:image`)

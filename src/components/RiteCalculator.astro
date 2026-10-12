@@ -23,7 +23,7 @@ const copy = {
 </div>
 
 <script>
-  import { riteScore, CRYSTAL_MILESTONES } from '../lib/rite';
+  import { riteScore, hardCrystals } from '../lib/rite';
 
   document.querySelectorAll<HTMLElement>('[data-rite]').forEach((root) => {
     const copy = JSON.parse(root.dataset.copy || '{}');
@@ -35,7 +35,7 @@ const copy = {
     const paint = () => {
       const left = Math.max(0, Number(min.value) || 0) * 60 + Math.max(0, Number(sec.value) || 0);
       const score = riteScore(base, perSecond, left);
-      const crystals = CRYSTAL_MILESTONES.filter((m) => score >= m).length;
+      const crystals = hardCrystals(score);
       out.innerHTML = copy.out
         .replace('{score}', score.toLocaleString(copy.locale))
         .replace('{crystals}', String(crystals));

@@ -1,0 +1,978 @@
+{
+  "name": {
+    "pt": "Spiritmaster",
+    "en": "Spiritmaster"
+  },
+  "order": 6,
+  "status": "published",
+  "archetype": {
+    "pt": "Dano mágico com espíritos",
+    "en": "Magic damage with spirits"
+  },
+  "summary": {
+    "pt": "Build de nível 45 dos jogadores do topo: espíritos de Fogo e Água em campo, Jointstrike: Curse, Dimensional Control e Elemental Fusion como dano, e Summon: Ancient Spirit como o Stigma que quase todos usam.",
+    "en": "Level 45 build from top players: Fire and Water spirits on the field, Jointstrike: Curse, Dimensional Control and Elemental Fusion for damage, and Summon: Ancient Spirit as the Stigma almost everyone runs."
+  },
+  "updated": "2026-10-12",
+  "actives": [
+    {
+      "id": "cs",
+      "name": "Cold Shock",
+      "mono": "CSh",
+      "category": "damage",
+      "level": 7,
+      "usage": 99.3,
+      "role": {
+        "pt": "Preenchimento sem recarga que devolve MP.",
+        "en": "No-cooldown filler that restores MP."
+      },
+      "effect": {
+        "pt": "54 de dano de Água a 20 m e recupera 100 MP. Sem custo e sem recarga.",
+        "en": "54 Water damage at 20 m and restores 100 MP. No cost, no cooldown."
+      }
+    },
+    {
+      "id": "sfi",
+      "name": "Summon: Fire Spirit",
+      "mono": "FiS",
+      "category": "damage",
+      "level": 7,
+      "usage": 99.3,
+      "role": {
+        "pt": "Primeiro espírito: segura o alvo e causa dano em área.",
+        "en": "First spirit: holds the target and deals area damage."
+      },
+      "effect": {
+        "pt": "Invoca o espírito de Fogo. Ele avança e causa 68 de dano em até 4 inimigos a 5 m, e luta com ataques básicos, com 15% de chance de repetir a skill a cada acerto. Cada nível dá +2% de Ataque e Defesa ao espírito. 150 MP, recarga de 15 s.",
+        "en": "Summons the Fire Spirit. It rushes in for 68 damage to up to 4 enemies within 5 m, then fights with basic attacks, with a 15% chance to reuse its skill on each hit. Each level gives the spirit +2% Attack and Defense. 150 MP, 15 s cooldown."
+      }
+    },
+    {
+      "id": "jc",
+      "name": "Jointstrike: Curse",
+      "mono": "JC",
+      "category": "damage",
+      "level": 7,
+      "usage": 99.3,
+      "role": {
+        "pt": "Ataque em dupla com o espírito, recarga curta.",
+        "en": "Short-cooldown joint attack with the spirit."
+      },
+      "effect": {
+        "pt": "74 de dano em até 4 inimigos a 4 m do alvo e Maldição: dano por segundo e −10% do dano que o alvo causa em você, por 5 s. O espírito invocado ataca junto, com um efeito extra que muda conforme o elemento. 80 MP, recarga de 10 s.",
+        "en": "74 damage to up to 4 enemies within 4 m of the target and Curse: damage every second and −10% damage dealt to you, for 5 s. Your summoned spirit joins in, with an extra effect that depends on its element. 80 MP, 10 s cooldown."
+      }
+    },
+    {
+      "id": "dc",
+      "name": "Dimensional Control",
+      "mono": "DC",
+      "category": "control",
+      "level": 7,
+      "usage": 99.3,
+      "role": {
+        "pt": "Dano grátis a cada skill de espírito, com lentidão.",
+        "en": "Free damage after every spirit skill, with a slow."
+      },
+      "effect": {
+        "pt": "Fica disponível por instantes sempre que um espírito usa a skill: 157 de dano em até 4 inimigos a 4 m do alvo, lentidão de 40% por 3 s e recupera 100 MP.",
+        "en": "Becomes available briefly whenever a spirit uses its skill: 157 damage to up to 4 enemies within 4 m of the target, a 40% slow for 3 s, and restores 100 MP."
+      }
+    },
+    {
+      "id": "ef",
+      "name": "Elemental Fusion",
+      "mono": "EF",
+      "category": "damage",
+      "level": 7,
+      "usage": 99.3,
+      "role": {
+        "pt": "Gasta os quatro elementos que os espíritos acumulam.",
+        "en": "Spends the four elements your spirits build up."
+      },
+      "effect": {
+        "pt": "Cada skill de espírito te dá um elemento. Com 4 você entra em Quatro Elementos e libera a Elemental Fusion: 1.075 de dano a 20 m. Usar a skill consome o estado.",
+        "en": "Each spirit skill gives you one element. At 4 you enter Four Elements and unlock Elemental Fusion: 1,075 damage at 20 m. Using it consumes the state."
+      }
+    },
+    {
+      "id": "cb",
+      "name": "Combustion",
+      "mono": "Cb",
+      "category": "damage",
+      "level": 7,
+      "usage": 98.7,
+      "role": {
+        "pt": "Dano em área entre as recargas.",
+        "en": "Area damage between cooldowns."
+      },
+      "effect": {
+        "pt": "63 de dano de Fogo em até 4 inimigos a 4 m do alvo. 120 MP, sem recarga.",
+        "en": "63 Fire damage to up to 4 enemies within 4 m of the target. 120 MP, no cooldown."
+      }
+    },
+    {
+      "id": "swa",
+      "name": "Summon: Water Spirit",
+      "mono": "WaS",
+      "category": "damage",
+      "level": 7,
+      "usage": 98,
+      "role": {
+        "pt": "Segundo espírito. Devolve MP a cada acerto.",
+        "en": "Second spirit. Restores MP on every hit."
+      },
+      "effect": {
+        "pt": "Invoca o espírito de Água: a skill dele causa 143 de dano de Água a 20 m, e cada acerto dele devolve 20 MP a você. Cada nível dá +2% de Ataque e Acerto crítico ao espírito. 150 MP, recarga de 15 s.",
+        "en": "Summons the Water Spirit: its skill deals 143 Water damage at 20 m, and each of its hits restores 20 MP to you. Each level gives the spirit +2% Attack and Critical Hit. 150 MP, 15 s cooldown."
+      }
+    },
+    {
+      "id": "sea",
+      "name": "Summon: Earth Spirit",
+      "mono": "EaS",
+      "category": "control",
+      "level": 7,
+      "usage": 96,
+      "role": {
+        "pt": "Espírito tanque, que puxa o ódio.",
+        "en": "Tank spirit that pulls aggro."
+      },
+      "effect": {
+        "pt": "Invoca o espírito de Terra: a skill dele causa 247 de dano de Terra e muito ódio no alvo, com 30% de chance de provocar um jogador por 2 s. Cada nível dá +2% de Defesa e HP ao espírito. 150 MP, recarga de 15 s.",
+        "en": "Summons the Earth Spirit: its skill deals 247 Earth damage and heavy enmity, with a 30% chance to taunt a player for 2 s. Each level gives the spirit +2% Defense and HP. 150 MP, 15 s cooldown."
+      }
+    },
+    {
+      "id": "rs",
+      "name": "Rapid Scattershot",
+      "mono": "RS",
+      "category": "damage",
+      "level": 7,
+      "usage": 89.4,
+      "role": {
+        "pt": "Só acerta alvo em Stagger.",
+        "en": "Only hits a staggered target."
+      },
+      "effect": {
+        "pt": "464 de dano num alvo em Stagger a 20 m.",
+        "en": "464 damage to a staggered target at 20 m."
+      }
+    },
+    {
+      "id": "sc",
+      "name": "Soul's Cry",
+      "mono": "SC",
+      "category": "control",
+      "level": 7,
+      "usage": 84.8,
+      "role": {
+        "pt": "Controle: medo.",
+        "en": "Control: fear."
+      },
+      "effect": {
+        "pt": "246 de dano a 20 m com 70% de chance de Medo por 5 s (100% em NPC). 150 MP, recarga de 45 s.",
+        "en": "246 damage at 20 m with a 70% chance to Fear for 5 s (100% on NPCs). 150 MP, 45 s cooldown."
+      }
+    },
+    {
+      "id": "swi",
+      "name": "Summon: Wind Spirit",
+      "mono": "WiS",
+      "category": "damage",
+      "level": 7,
+      "usage": 83.4,
+      "role": {
+        "pt": "Espírito de dano em área que também cura você.",
+        "en": "Area-damage spirit that also heals you."
+      },
+      "effect": {
+        "pt": "Invoca o espírito de Vento: a skill dele causa 1.092 de dano de Vento em até 4 inimigos a 5 m e cura você, e cada acerto dele devolve 1,5% do seu HP. Cada nível dá +2% de Precisão e Acerto crítico ao espírito. 150 MP, recarga de 15 s.",
+        "en": "Summons the Wind Spirit: its skill deals 1,092 Wind damage to up to 4 enemies within 5 m and heals you, and each of its hits restores 1.5% of your HP. Each level gives the spirit +2% Accuracy and Critical Hit. 150 MP, 15 s cooldown."
+      }
+    },
+    {
+      "id": "df",
+      "name": "Defiance",
+      "mono": "Df",
+      "category": "heal",
+      "level": 0,
+      "role": {
+        "pt": "Sai de controle de grupo. Não aparece na build do topo.",
+        "en": "Breaks crowd control. Not in the top-player build."
+      },
+      "effect": {
+        "pt": "Remove atordoamento, derrubada, lançamento, agarrão, congelamento e medo e dá Tenacidade (imunidade a efeitos) por 5 s. Recarga de 60 s, que não cai com redução de recarga.",
+        "en": "Removes stun, knockdown, airborne, grab, freeze and fear and grants Tenacity (status immunity) for 5 s. 60 s cooldown, not affected by cooldown reduction."
+      }
+    }
+  ],
+  "passives": [
+    {
+      "id": "ss",
+      "name": "Spirit Strike",
+      "mono": "SS",
+      "category": "passive",
+      "level": 7,
+      "usage": 99.3,
+      "role": {
+        "pt": "Dano seu e do espírito.",
+        "en": "Damage for you and your spirit."
+      },
+      "effect": {
+        "pt": "+6% de dano em PvE, +3% em PvP e +0,4% de chance de Perfeito, para você e para o espírito.",
+        "en": "+6% PvE damage, +3% PvP damage and +0.4% Perfect chance, for you and your spirit."
+      }
+    },
+    {
+      "id": "sp",
+      "name": "Spirit Protection",
+      "mono": "SP",
+      "category": "passive",
+      "level": 7,
+      "usage": 99.3,
+      "role": {
+        "pt": "Defesa sua e do espírito.",
+        "en": "Defense for you and your spirit."
+      },
+      "effect": {
+        "pt": "+2% de Defesa para você e para o espírito.",
+        "en": "+2% Defense for you and your spirit."
+      }
+    },
+    {
+      "id": "sd",
+      "name": "Spirit's Descent",
+      "mono": "SD",
+      "category": "passive",
+      "level": 7,
+      "usage": 99.3,
+      "role": {
+        "pt": "Dano extra logo após invocar.",
+        "en": "Extra damage right after summoning."
+      },
+      "effect": {
+        "pt": "Por 10 s depois de invocar um espírito, 50% de chance de 47 de dano extra a cada acerto seu. Com o espírito ancestral, dura 30 s.",
+        "en": "For 10 s after summoning a spirit, a 50% chance to deal 47 extra damage on each of your hits. Lasts 30 s with the Ancient Spirit."
+      }
+    },
+    {
+      "id": "co",
+      "name": "Corrode",
+      "mono": "Co",
+      "category": "passive",
+      "level": 7,
+      "usage": 99.3,
+      "role": {
+        "pt": "Acerto crítico.",
+        "en": "Critical Hit."
+      },
+      "effect": {
+        "pt": "+100 de Acerto crítico e 50% de chance de 124 de dano extra ao dar crítico.",
+        "en": "+100 Critical Hit and a 50% chance to deal 124 extra damage on a critical hit."
+      }
+    },
+    {
+      "id": "sr",
+      "name": "Spirit Revitalization",
+      "mono": "SR",
+      "category": "passive",
+      "level": 7,
+      "usage": 99.3,
+      "role": {
+        "pt": "Recarga das invocações e vida do espírito.",
+        "en": "Summon cooldowns and spirit health."
+      },
+      "effect": {
+        "pt": "11% de chance de tirar 1 s da recarga das invocações a cada acerto. Cura 12% do HP do espírito quando ele cai a 50% ou menos (recarga de 30 s).",
+        "en": "11% chance to cut 1 s off summon cooldowns on hit. Heals the spirit for 12% HP when it drops to 50% or less (30 s cooldown)."
+      }
+    },
+    {
+      "id": "mf",
+      "name": "Mental Focus",
+      "mono": "MF",
+      "category": "passive",
+      "level": 7,
+      "usage": 99.3,
+      "role": {
+        "pt": "Chance de controle mental.",
+        "en": "Mental control chance."
+      },
+      "effect": {
+        "pt": "+11% de chance de efeitos Mentais e +0,3% de chance de Dano duplo.",
+        "en": "+11% Mental effect chance and +0.3% Double chance."
+      }
+    },
+    {
+      "id": "cc",
+      "name": "Consecutive Countercurrent",
+      "mono": "CC",
+      "category": "passive",
+      "level": 9,
+      "usage": 99.3,
+      "role": {
+        "pt": "Dano extra em alvo com dano contínuo.",
+        "en": "Extra damage on targets taking damage over time."
+      },
+      "effect": {
+        "pt": "50% de chance de 97 de dano extra ao acertar um alvo que está sofrendo dano contínuo.",
+        "en": "50% chance to deal 97 extra damage when hitting a target taking damage over time."
+      }
+    },
+    {
+      "id": "scm",
+      "name": "Spirit Communion",
+      "mono": "SCm",
+      "category": "passive",
+      "level": 7,
+      "usage": 99.3,
+      "role": {
+        "pt": "Precisão e cura leve.",
+        "en": "Accuracy and light healing."
+      },
+      "effect": {
+        "pt": "+100 de Precisão e 10% de chance de curar você e o espírito em 182 a 200 HP ao acertar.",
+        "en": "+100 Accuracy and a 10% chance to heal you and your spirit for 182 to 200 HP on hit."
+      }
+    },
+    {
+      "id": "rv",
+      "name": "Revitalization Contract",
+      "mono": "RvC",
+      "category": "passive",
+      "level": 5,
+      "usage": 99.3,
+      "role": {
+        "pt": "Sobrevivência.",
+        "en": "Survival."
+      },
+      "effect": {
+        "pt": "+17% de resistência a efeitos, mais 10% por 5 s ao apanhar sob controle (até 10 acúmulos). Com HP em 10% ou menos, recupera 35% do HP (recarga de 60 s).",
+        "en": "+17% status resistance, plus 10% for 5 s when hit while controlled (up to 10 stacks). At 10% HP or less, restores 35% HP (60 s cooldown)."
+      }
+    },
+    {
+      "id": "eu",
+      "name": "Element Unification",
+      "mono": "EU",
+      "category": "passive",
+      "level": 9,
+      "usage": 99.3,
+      "role": {
+        "pt": "Dano crítico seu e do espírito.",
+        "en": "Critical damage for you and your spirit."
+      },
+      "effect": {
+        "pt": "+1,1% de dano crítico para você e o espírito por 10 s a cada acerto de skill de espírito, até 5 acúmulos.",
+        "en": "+1.1% critical damage for you and your spirit for 10 s on each spirit skill hit, up to 5 stacks."
+      }
+    }
+  ],
+  "stigmas": [
+    {
+      "id": "sas",
+      "name": "Summon: Ancient Spirit",
+      "mono": "AnS",
+      "category": "damage",
+      "level": {
+        "pt": "7 a 10",
+        "en": "7 to 10"
+      },
+      "description": {
+        "pt": "Invoca o espírito ancestral por 30 s. A skill dele causa 4.328 de dano em até 4 inimigos a 4 m e volta a cada 7 ataques básicos, e cada uso te dá Quatro Elementos. No nível 10, o Spirit's Descent vale 1,5× por 30 s. Recarga de 90 s.",
+        "en": "Summons the Ancient Spirit for 30 s. Its skill deals 4,328 damage to up to 4 enemies within 4 m and comes back every 7 basic attacks, and each use grants you Four Elements. At level 10, Spirit's Descent counts 1.5× for 30 s. 90 s cooldown."
+      },
+      "usage": 96
+    },
+    {
+      "id": "esb",
+      "name": "Enhance: Spirit's Benediction",
+      "mono": "SB",
+      "category": "aura",
+      "level": {
+        "pt": "7",
+        "en": "7"
+      },
+      "description": {
+        "pt": "Por 10 s, para você e o espírito: +20% de dano e +20% de tolerância a dano em PvE, +10% de cada em PvP, e cura a cada segundo. No nível 5 cura 10% do HP ao usar. Recarga de 60 s.",
+        "en": "For 10 s, for you and your spirit: +20% PvE damage and damage tolerance, +10% of each in PvP, and healing every second. At level 5 it heals 10% HP on cast. 60 s cooldown."
+      },
+      "usage": 95.4
+    },
+    {
+      "id": "jco",
+      "name": "Jointstrike: Corrode",
+      "mono": "JCo",
+      "category": "damage",
+      "level": {
+        "pt": "5",
+        "en": "5"
+      },
+      "description": {
+        "pt": "429 de dano em até 4 inimigos a 4 m do alvo e Corrosão por 20 s: o alvo leva 10% a mais de dano do espírito e sofre dano contínuo. O espírito invocado ataca junto, com um efeito extra que muda conforme o elemento. No nível 5, +15% de dano do espírito durante a Corrosão. Recarga de 45 s.",
+        "en": "429 damage to up to 4 enemies within 4 m of the target and Corrode for 20 s: the target takes 10% more damage from the spirit and damage over time. Your summoned spirit joins in, with an extra effect that depends on its element. At level 5, +15% spirit damage during Corrode. 45 s cooldown."
+      },
+      "usage": 83.4
+    },
+    {
+      "id": "fbl",
+      "name": "Flame Blessing",
+      "mono": "FB",
+      "category": "aura",
+      "level": {
+        "pt": "4 a 5",
+        "en": "4 to 5"
+      },
+      "description": {
+        "pt": "Por 10 s, 50% de chance de 234 de dano extra a cada acerto. No nível 5, +100 de Precisão; no 10, +100 de Acerto crítico. Recarga de 60 s.",
+        "en": "For 10 s, a 50% chance to deal 234 extra damage on each hit. +100 Accuracy at level 5, +100 Critical Hit at level 10. 60 s cooldown."
+      },
+      "usage": 74.2
+    },
+    {
+      "id": "jda",
+      "name": "Jointstrike: Destructive Attack",
+      "mono": "JDA",
+      "category": "damage",
+      "level": {
+        "pt": "média de 3,6 no topo",
+        "en": "top-player average 3.6"
+      },
+      "description": {
+        "pt": "Golpe pesado num alvo a 20 m e 50 de dano na barra de Stagger. O espírito invocado ataca junto, com um efeito extra que muda conforme o elemento. No nível 5 vira skill de carga, com até +200% de dano. Recarga de 60 s.",
+        "en": "Heavy hit on a target at 20 m and 50 Stagger damage. Your summoned spirit joins in, with an extra effect that depends on its element. At level 5 it becomes a charge skill with up to +200% damage. 60 s cooldown."
+      },
+      "usage": 29.8
+    },
+    {
+      "id": "si",
+      "name": "Siphon",
+      "mono": "Si",
+      "category": "heal",
+      "level": {
+        "pt": "média de 4 no topo",
+        "en": "top-player average 4"
+      },
+      "description": {
+        "pt": "1.180 de dano e 300 de dano de MP a 20 m. Absorve 10% como HP e recupera 300 MP. Recarga de 30 s.",
+        "en": "1,180 damage and 300 MP damage at 20 m. Absorbs 10% as HP and restores 300 MP. 30 s cooldown."
+      },
+      "usage": 13.9
+    },
+    {
+      "id": "cp",
+      "name": "Command: Proxy",
+      "mono": "CP",
+      "category": "heal",
+      "level": {
+        "pt": "média de 2 no topo",
+        "en": "top-player average 2"
+      },
+      "description": {
+        "pt": "Por 4 s, o espírito ganha +20% de tolerância a dano em PvE e +10% em PvP e passa a dividir com você metade do dano que você leva, se estiver a até 25 m. Recarga de 60 s.",
+        "en": "For 4 s, the spirit gets +20% PvE and +10% PvP damage tolerance and takes half of the damage you take, if it is within 25 m. 60 s cooldown."
+      },
+      "usage": 4.6
+    },
+    {
+      "id": "ct",
+      "name": "Cry of Terror",
+      "mono": "CT",
+      "category": "control",
+      "level": {
+        "pt": "4",
+        "en": "4"
+      },
+      "description": {
+        "pt": "859 de dano em até 4 inimigos a 4 m do alvo, com 50% de chance de Medo por 5 s (100% em NPC). No nível 5, também enraíza por 5 s. 200 MP, recarga de 90 s.",
+        "en": "859 damage to up to 4 enemies within 4 m of the target, with a 50% chance to Fear for 5 s (100% on NPCs). At level 5 it also roots for 5 s. 200 MP, 90 s cooldown."
+      },
+      "usage": 2
+    },
+    {
+      "id": "sm",
+      "name": "Seize Magic",
+      "mono": "SM",
+      "category": "damage",
+      "level": {
+        "pt": "média de 5,5 no topo",
+        "en": "top-player average 5.5"
+      },
+      "description": {
+        "pt": "1.031 de dano em até 4 inimigos a 4 m do alvo e remove até 2 buffs, com dano extra por buff removido. Recarga de 90 s.",
+        "en": "1,031 damage to up to 4 enemies within 4 m of the target and removes up to 2 buffs, with extra damage per buff removed. 90 s cooldown."
+      },
+      "usage": 1.3
+    },
+    {
+      "id": "mb",
+      "name": "Magic Block",
+      "mono": "MB",
+      "category": "control",
+      "level": {
+        "pt": "sem dado suficiente",
+        "en": "not enough data"
+      },
+      "description": {
+        "pt": "1.071 de dano a 20 m com 75% de chance de Selar por 5 s. Recarga de 60 s.",
+        "en": "1,071 damage at 20 m with a 75% chance to Seal for 5 s. 60 s cooldown."
+      },
+      "usage": 0.7
+    },
+    {
+      "id": "kp",
+      "name": "Kaisinel's Power",
+      "mono": "KP",
+      "category": "aura",
+      "level": {
+        "pt": "sem dado suficiente",
+        "en": "not enough data"
+      },
+      "description": {
+        "pt": "+20% de chance de efeitos e +20% de resistência a efeitos por 10 s. Recarga de 60 s.",
+        "en": "+20% status effect chance and +20% status resistance for 10 s. 60 s cooldown."
+      },
+      "usage": 0.7
+    },
+    {
+      "id": "ccl",
+      "name": "Cursed Cloud",
+      "mono": "CCl",
+      "category": "damage",
+      "level": {
+        "pt": "sem dado do topo",
+        "en": "no top-player data"
+      },
+      "description": {
+        "pt": "601 de dano em até 4 inimigos a 4 m do alvo e dano contínuo por 10 s. 200 MP, recarga de 90 s.",
+        "en": "601 damage to up to 4 enemies within 4 m of the target and damage over time for 10 s. 200 MP, 90 s cooldown."
+      }
+    },
+    {
+      "id": "at",
+      "name": "Assault Terror",
+      "mono": "AT",
+      "category": "control",
+      "level": {
+        "pt": "sem dado do topo",
+        "en": "no top-player data"
+      },
+      "description": {
+        "pt": "939 de dano em até 4 inimigos a 4 m do alvo, com 30% de chance de Medo por 5 s (100% em NPC). Dá até 20% de Defesa conforme o número de alvos. Recarga de 120 s.",
+        "en": "939 damage to up to 4 enemies within 4 m of the target, with a 30% chance to Fear for 5 s (100% on NPCs). Up to +20% Defense based on targets hit. 120 s cooldown."
+      }
+    }
+  ],
+  "modes": [
+    {
+      "id": "pve",
+      "name": {
+        "pt": "PvE de endgame",
+        "en": "Endgame PvE"
+      },
+      "lead": {
+        "pt": "O que os Spiritmasters do topo usam no nível 45: espíritos em campo, ataques em dupla e o espírito ancestral como Stigma principal.",
+        "en": "What top Spiritmasters run at level 45: spirits on the field, joint attacks and the Ancient Spirit as the main Stigma."
+      },
+      "basis": {
+        "pt": "Baseado em 151 jogadores do topo (dados de 2026-10-02). Os níveis são os pontos gastos; o Daevanion e o equipamento somam de +1 a +3 por skill.",
+        "en": "Based on 151 top players (data from 2026-10-02). Levels are points spent; Daevanion and gear add +1 to +3 per skill."
+      },
+      "fixed": [
+        "sas",
+        "esb",
+        "jco",
+        "fbl"
+      ],
+      "stigmaLevels": {
+        "sas": 7,
+        "esb": 7,
+        "jco": 5,
+        "fbl": 5
+      },
+      "flex": [
+        {
+          "stigma": "jda",
+          "when": {
+            "pt": "Alternativa mais comum fora dos quatro: 30% do topo usa",
+            "en": "Most common pick outside the four: 30% of top players run it"
+          }
+        },
+        {
+          "stigma": "si",
+          "when": {
+            "pt": "Segunda alternativa: 14% do topo usa",
+            "en": "Second alternative: 14% of top players run it"
+          }
+        }
+      ],
+      "overrides": [],
+      "rotation": [
+        {
+          "pt": "**Summon: Ancient Spirit**.",
+          "en": "**Summon: Ancient Spirit**."
+        },
+        {
+          "pt": "**Summon: Fire Spirit** e **Summon: Water Spirit**.",
+          "en": "**Summon: Fire Spirit** and **Summon: Water Spirit**."
+        },
+        {
+          "pt": "**Enhance: Spirit's Benediction**.",
+          "en": "**Enhance: Spirit's Benediction**."
+        },
+        {
+          "pt": "**Jointstrike: Corrode**, depois **Jointstrike: Curse**.",
+          "en": "**Jointstrike: Corrode**, then **Jointstrike: Curse**."
+        },
+        {
+          "pt": "**Dimensional Control** quando acender.",
+          "en": "**Dimensional Control** when it lights up."
+        },
+        {
+          "pt": "**Elemental Fusion** com os quatro elementos.",
+          "en": "**Elemental Fusion** with all four elements."
+        },
+        {
+          "pt": "**Combustion** e **Cold Shock** para preencher.",
+          "en": "**Combustion** and **Cold Shock** as filler."
+        }
+      ],
+      "rotationNote": {
+        "pt": "Ordem de skills que acompanha a build do topo na MetaBot.GG. A fonte não explica a ordem.",
+        "en": "Skill order that comes with the top-player build on MetaBot.GG. The source does not explain the order."
+      },
+      "why": []
+    },
+    {
+      "id": "leveling",
+      "name": {
+        "pt": "Subida 1–45",
+        "en": "Leveling 1–45"
+      },
+      "lead": {
+        "pt": "Espíritos de Fogo e Água primeiro: eles seguram os monstros e cada skill deles libera o seu dano.",
+        "en": "Fire and Water spirits first: they hold the monsters and each of their skills unlocks your own damage."
+      },
+      "basis": {
+        "pt": "Build editorial da MetaBot.GG",
+        "en": "MetaBot.GG editorial build"
+      },
+      "fixed": [
+        "sas",
+        "esb",
+        "jco",
+        "fbl"
+      ],
+      "stigmaLevels": {
+        "sas": 8,
+        "esb": 7,
+        "jco": 5,
+        "fbl": 4
+      },
+      "flex": [],
+      "overrides": [
+        {
+          "skill": "sfi",
+          "level": 10,
+          "why": {
+            "pt": "Segura os monstros, bate e alimenta o seu dano.",
+            "en": "Tanks, hits and feeds your damage."
+          }
+        },
+        {
+          "skill": "swa",
+          "level": 10,
+          "why": {
+            "pt": "Segura os monstros, bate e alimenta o seu dano.",
+            "en": "Tanks, hits and feeds your damage."
+          }
+        },
+        {
+          "skill": "jc",
+          "level": 10,
+          "why": {
+            "pt": "O seu dano por cima do dano dos espíritos.",
+            "en": "Your own damage on top of the spirits'."
+          }
+        },
+        {
+          "skill": "dc",
+          "level": 10,
+          "why": {
+            "pt": "O seu dano por cima do dano dos espíritos.",
+            "en": "Your own damage on top of the spirits'."
+          }
+        },
+        {
+          "skill": "ef",
+          "level": 10,
+          "why": {
+            "pt": "O seu dano por cima do dano dos espíritos.",
+            "en": "Your own damage on top of the spirits'."
+          }
+        },
+        {
+          "skill": "cb",
+          "level": 10,
+          "why": {
+            "pt": "Dano em área nos grupos.",
+            "en": "Area damage on packs."
+          }
+        },
+        {
+          "skill": "cs",
+          "level": 10,
+          "why": {
+            "pt": "Preenchimento que devolve MP.",
+            "en": "Filler that restores MP."
+          }
+        },
+        {
+          "skill": "ss",
+          "level": 10,
+          "why": {
+            "pt": "Passiva de dano no máximo.",
+            "en": "Damage passive, maxed."
+          }
+        },
+        {
+          "skill": "co",
+          "level": 10,
+          "why": {
+            "pt": "Passiva de crítico no máximo.",
+            "en": "Crit passive, maxed."
+          }
+        },
+        {
+          "skill": "sd",
+          "level": 5,
+          "why": {
+            "pt": "Fica no 5: os pontos vão para o núcleo da build.",
+            "en": "Stays at 5: the points go to the build's core."
+          }
+        }
+      ],
+      "rotation": [
+        {
+          "pt": "**Summon: Fire Spirit**, depois **Summon: Water Spirit**.",
+          "en": "**Summon: Fire Spirit**, then **Summon: Water Spirit**."
+        },
+        {
+          "pt": "**Jointstrike: Curse** no grupo.",
+          "en": "**Jointstrike: Curse** on the pack."
+        },
+        {
+          "pt": "**Dimensional Control** depois de cada skill de espírito.",
+          "en": "**Dimensional Control** after each spirit skill."
+        },
+        {
+          "pt": "**Combustion** para o dano em área.",
+          "en": "**Combustion** for area damage."
+        },
+        {
+          "pt": "**Elemental Fusion** assim que acender.",
+          "en": "**Elemental Fusion** as soon as it lights up."
+        },
+        {
+          "pt": "**Cold Shock** para preencher.",
+          "en": "**Cold Shock** as filler."
+        }
+      ],
+      "note": {
+        "pt": "A build gasta os 203 pontos de skill do nível 45 só nas skills listadas. As que não aparecem aqui ficam no nível 1, que vem de graça.",
+        "en": "The build spends all 203 skill points of level 45 on the listed skills. Anything not shown here stays at level 1, which is free."
+      },
+      "why": [
+        {
+          "pt": "Espíritos de Fogo e Água primeiro: eles seguram os monstros, atacam, e cada skill deles libera o seu **Dimensional Control** e carrega a **Elemental Fusion**.",
+          "en": "Fire and Water spirits first: they tank, they attack, and each of their skills unlocks your **Dimensional Control** and charges **Elemental Fusion**."
+        },
+        {
+          "pt": "**Jointstrike: Curse**, **Dimensional Control** e **Elemental Fusion** ficam no máximo: são o seu dano, somado ao dos espíritos.",
+          "en": "**Jointstrike: Curse**, **Dimensional Control** and **Elemental Fusion** are maxed: they are your own damage on top of the spirits'."
+        },
+        {
+          "pt": "As passivas de dano e de crítico vão ao máximo. O espírito de Terra fica no 7 para trocar de tanque, e o **Spirit's Descent** no 5.",
+          "en": "The damage and crit passives are maxed. The Earth Spirit sits at 7 as the tank swap, and **Spirit's Descent** at 5."
+        },
+        {
+          "pt": "Stigmas: o espírito ancestral no 22 e o buff de dano e tolerância no 27 estão em quase todos os Spiritmasters do topo; **Jointstrike: Corrode** no 32 e **Flame Blessing** no 37 vêm em seguida.",
+          "en": "Stigmas: the Ancient Spirit at 22 and the damage-and-tolerance buff at 27 are on almost every top Spiritmaster; **Jointstrike: Corrode** at 32 and **Flame Blessing** at 37 follow."
+        }
+      ]
+    },
+    {
+      "id": "pvp",
+      "name": {
+        "pt": "PvP",
+        "en": "PvP"
+      },
+      "lead": {
+        "pt": "Medo e corrosão: o Soul's Cry vai ao máximo, e o quarto Stigma troca dano por medo em área.",
+        "en": "Fear and corrode: Soul's Cry goes to max, and the fourth Stigma trades damage for area fear."
+      },
+      "basis": {
+        "pt": "Build editorial da MetaBot.GG",
+        "en": "MetaBot.GG editorial build"
+      },
+      "fixed": [
+        "sas",
+        "esb",
+        "jco",
+        "ct"
+      ],
+      "stigmaLevels": {
+        "sas": 8,
+        "esb": 7,
+        "jco": 5,
+        "ct": 4
+      },
+      "flex": [],
+      "overrides": [
+        {
+          "skill": "sc",
+          "level": 10,
+          "why": {
+            "pt": "O único controle forte da classe sem Stigma.",
+            "en": "The class's only hard control without a Stigma."
+          }
+        },
+        {
+          "skill": "sfi",
+          "level": 10,
+          "why": {
+            "pt": "Espírito que abre a luta e segue batendo.",
+            "en": "The spirit that opens the fight and keeps hitting."
+          }
+        },
+        {
+          "skill": "swa",
+          "level": 10,
+          "why": {
+            "pt": "Segundo espírito no máximo.",
+            "en": "Second spirit, maxed."
+          }
+        },
+        {
+          "skill": "jc",
+          "level": 10,
+          "why": {
+            "pt": "Parte do burst.",
+            "en": "Part of the burst."
+          }
+        },
+        {
+          "skill": "dc",
+          "level": 10,
+          "why": {
+            "pt": "Parte do burst, com lentidão.",
+            "en": "Part of the burst, with a slow."
+          }
+        },
+        {
+          "skill": "ef",
+          "level": 10,
+          "why": {
+            "pt": "Parte do burst.",
+            "en": "Part of the burst."
+          }
+        },
+        {
+          "skill": "cb",
+          "level": 10,
+          "why": {
+            "pt": "Dano entre as recargas.",
+            "en": "Damage between cooldowns."
+          }
+        },
+        {
+          "skill": "cs",
+          "level": 10,
+          "why": {
+            "pt": "Preenchimento que devolve MP.",
+            "en": "Filler that restores MP."
+          }
+        },
+        {
+          "skill": "ss",
+          "level": 10,
+          "why": {
+            "pt": "Passiva de dano no máximo.",
+            "en": "Damage passive, maxed."
+          }
+        },
+        {
+          "skill": "sp",
+          "level": 5,
+          "why": {
+            "pt": "Mantém os espíritos vivos quando o inimigo foca neles.",
+            "en": "Keeps the spirits alive when the enemy focuses them."
+          }
+        }
+      ],
+      "rotation": [
+        {
+          "pt": "**Summon: Fire Spirit**.",
+          "en": "**Summon: Fire Spirit**."
+        },
+        {
+          "pt": "**Soul's Cry** para dar medo no alvo.",
+          "en": "**Soul's Cry** to fear the target."
+        },
+        {
+          "pt": "**Jointstrike: Corrode**, depois **Jointstrike: Curse**.",
+          "en": "**Jointstrike: Corrode**, then **Jointstrike: Curse**."
+        },
+        {
+          "pt": "**Dimensional Control**.",
+          "en": "**Dimensional Control**."
+        },
+        {
+          "pt": "**Combustion**.",
+          "en": "**Combustion**."
+        },
+        {
+          "pt": "**Elemental Fusion**.",
+          "en": "**Elemental Fusion**."
+        },
+        {
+          "pt": "**Cold Shock** enquanto o espírito segue batendo.",
+          "en": "**Cold Shock** while the spirit keeps hitting."
+        }
+      ],
+      "note": {
+        "pt": "A build gasta os 203 pontos de skill do nível 45 só nas skills listadas. As que não aparecem aqui ficam no nível 1, que vem de graça.",
+        "en": "The build spends all 203 skill points of level 45 on the listed skills. Anything not shown here stays at level 1, which is free."
+      },
+      "why": [
+        {
+          "pt": "**Soul's Cry** vai ao máximo: jogador com medo não age, e é o único controle forte do Spiritmaster sem Stigma.",
+          "en": "**Soul's Cry** is maxed: a feared player cannot act, and it is the Spiritmaster's only hard control without a Stigma."
+        },
+        {
+          "pt": "Espírito de Vento no 7 para ter um terceiro corpo em campo; **Spirit Protection** no 5 mantém os espíritos vivos quando focados.",
+          "en": "Wind Spirit at 7 for a third body on the field; **Spirit Protection** at 5 keeps the spirits alive under focus."
+        },
+        {
+          "pt": "**Jointstrike: Corrode** aumenta o dano que o alvo leva de todos: use antes do seu burst e do burst do seu grupo.",
+          "en": "**Jointstrike: Corrode** raises the damage the target takes from everyone: use it before your burst and your team's."
+        },
+        {
+          "pt": "Stigmas: espírito ancestral, o buff de dano e tolerância, **Jointstrike: Corrode** no 32 e o medo em área do **Cry of Terror** no 37 para quebrar um grupo.",
+          "en": "Stigmas: Ancient Spirit, the damage-and-tolerance buff, **Jointstrike: Corrode** at 32 and the area fear of **Cry of Terror** at 37 to break a group."
+        }
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "title": "Shugo.GG: Spiritmaster skills",
+      "url": "https://shugo.gg/skills/elementalist"
+    },
+    {
+      "title": "MetaBot.GG: Spiritmaster build planner",
+      "url": "https://metabot.gg/en/aion-2/classes/spiritmaster/build"
+    }
+  ]
+}

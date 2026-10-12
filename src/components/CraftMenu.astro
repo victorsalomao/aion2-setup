@@ -19,7 +19,9 @@ const copy = {
     clear: 'Limpar lista', remove: 'Remover', itemLevel: 'Nível do item', unique: 'Única', mastery: 'Maestria',
     masteryUnknown: 'não informada', profession: 'Profissão', materials: 'Materiais',
     combo: 'Combo de 25%: sai a versão Splendent, de nível {il}.',
-    splendentNote: 'Esta versão sai no combo (25%) ao fabricar {name}. O banco de dados lista uma receita própria para ela, com os materiais abaixo, mas a função dessa receita não está confirmada.',
+    splendentNote: 'Sai no combo (25%) ao fabricar {name}, ou pela receita de evolução: 1 {name} já fabricado mais os materiais abaixo.',
+    needsPrev: 'Evolução: consome também 1 {prev}, que não aparece na lista abaixo.',
+    masteryUpgrade: 'nenhuma (evolução)',
     needsBase: 'Pede 1 {name}, que só sai no combo ao fabricar a versão de Artesão.',
     seeBase: 'Ver receita da base', back: 'Voltar',
     baseNote: 'Fabrique {recipe} (maestria {m}). Em 25% das vezes sai a versão Splendent, que é a que a receita Dragon Lord pede: em média 4 fabricações por base.',
@@ -33,7 +35,9 @@ const copy = {
     clear: 'Clear list', remove: 'Remove', itemLevel: 'Item level', unique: 'Unique', mastery: 'Mastery',
     masteryUnknown: 'not listed', profession: 'Profession', materials: 'Materials',
     combo: '25% combo: yields the Splendent version, item level {il}.',
-    splendentNote: 'This version comes from the combo (25%) when crafting {name}. The database lists a recipe of its own with the materials below, but what that recipe does is not confirmed.',
+    splendentNote: 'Comes from the combo (25%) when crafting {name}, or from the upgrade recipe: 1 {name} you already crafted plus the materials below.',
+    needsPrev: 'Upgrade: it also consumes 1 {prev}, which is not in the list below.',
+    masteryUpgrade: 'none (upgrade)',
     needsBase: 'Needs 1 {name}, which only comes from a combo when crafting the Artisan version.',
     seeBase: 'See base recipe', back: 'Back',
     baseNote: 'Craft {recipe} (mastery {m}). 25% of the time it comes out Splendent, which is what the Dragon Lord recipe needs: 4 crafts per base on average.',
@@ -175,10 +179,11 @@ const payload = { copy, data, lang };
         const recipeUrl = state.faction === 'asmodian' && t.asmodianRecipeUrl ? t.asmodianRecipeUrl : t.recipeUrl;
         head = `<div class="craft-head">${icon(t.icon, t.names.elyos, 64, true)}
           <div><h3>${esc(tierName(t))}</h3>
-          <p class="muted small"><span class="gold-t">${copy.unique}</span> · ${copy.itemLevel} <span class="num">${t.itemLevel}</span> · ${esc(it.profession[lang])} · ${copy.mastery} ${t.mastery ? `<span class="num">${t.mastery}</span>` : copy.masteryUnknown}</p></div></div>`;
+          <p class="muted small"><span class="gold-t">${copy.unique}</span> · ${copy.itemLevel} <span class="num">${t.itemLevel}</span> · ${esc(it.profession[lang])} · ${copy.mastery} ${t.mastery ? `<span class="num">${t.mastery}</span>` : state.tier > 0 ? copy.masteryUpgrade : copy.masteryUnknown}</p></div></div>`;
         body = (t.splendent
           ? `<p class="note small">${fill(copy.splendentNote, { name: esc(normal ? tierName(normal) : '') })}</p>`
           : `<p class="small">${fill(copy.combo, { il: next?.itemLevel ?? '' })}</p>
+             ${state.tier > 0 ? `<p class="note small">${fill(copy.needsPrev, { prev: esc(tierName(it.tiers[state.tier - 1])) })}</p>` : ''}
              <p class="note small">${fill(copy.needsBase, { name: esc(mats[it.base.material]?.name ?? '') })} <button type="button" class="linkish" data-see-base>${copy.seeBase}</button></p>`)
           + (recipeUrl ? `<p class="small"><a href="${esc(recipeUrl)}" target="_blank" rel="noopener">${copy.recipePage}</a></p>` : '');
       }

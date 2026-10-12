@@ -10,8 +10,11 @@ interface Props {
   spec?: L10n;
   role: L10n;
   changed?: boolean;
+  /** % dos jogadores do topo que usam */
+  usage?: number;
+  effect?: L10n;
 }
-const { lang, name, mono, category, level, spec, role, changed = false } = Astro.props;
+const { lang, name, mono, category, level, spec, role, changed = false, usage, effect } = Astro.props;
 ---
 <article class:list={['skill', { changed }]}>
   <div class:list={['mono', `cat-${category}`]} aria-hidden="true">{mono}</div>
@@ -20,7 +23,9 @@ const { lang, name, mono, category, level, spec, role, changed = false } = Astro
       <span class="skill-name">{name}</span>
       <span class="lv">{t(lang)('class.level')} {level}</span>
     </div>
+    {usage !== undefined && <span class="skill-usage small muted">{t(lang)('class.usage').replace('{n}', String(usage))}</span>}
     {spec && <span class="skill-spec">{tr(spec, lang)}</span>}
     <span class="skill-role">{tr(role, lang)}</span>
+    {effect && <details class="skill-effect small"><summary>{t(lang)('class.effect')}</summary>{tr(effect, lang)}</details>}
   </div>
 </article>

@@ -1,11 +1,20 @@
 ---
+/**
+ * Um 404 só, nos dois idiomas. Com trailingSlash 'always' o Astro gera /en/404/index.html,
+ * que nenhuma hospedagem serve como 404; então a página única fala as duas línguas.
+ */
 import Base from '../layouts/Base.astro';
 import { t } from '../i18n';
-const tt = t('pt');
+const pt = t('pt');
+const en = t('en');
 ---
-<Base lang="pt" title={tt('notfound.title')} description={tt('notfound.title')} noindex hasTranslation={false}>
+<Base lang="pt" title={pt('notfound.title')} description={pt('notfound.title')} noindex hasTranslation={false}>
   <section class="block">
-    <h1>{tt('notfound.title')}</h1>
-    <p><a href="/">{tt('notfound.back')}</a> · <a href="/en/">Back to home</a></p>
+    <h1>{pt('notfound.title')}</h1>
+    <p><a href="/">{pt('notfound.back')}</a></p>
+  </section>
+  <section class="block" lang="en">
+    <h2>{en('notfound.title')}</h2>
+    <p><a href="/en/">{en('notfound.back')}</a></p>
   </section>
 </Base>

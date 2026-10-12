@@ -26,6 +26,17 @@ export const RITE_DIFFICULTIES: RiteDifficulty[] = [
 /** marcos da conquista Tower of Trials que pagam Cristal Misterioso (versão coreana) */
 export const CRYSTAL_MILESTONES = [1000, 3000, 4000, 5000, 6000];
 
+/**
+ * Marcos que dá para bater no Hard. Os de 5.000 e 6.000 pediriam 16 e 21 minutos de
+ * sobra, o que não acontece na prática: eles saem no Challenge (guia unique-arcana).
+ */
+export const HARD_MILESTONES = CRYSTAL_MILESTONES.filter((m) => m <= 4000);
+
+/** cristais que uma pontuação no Hard rende, contando só os marcos alcançáveis nele */
+export function hardCrystals(score: number): number {
+  return HARD_MILESTONES.filter((m) => score >= m).length;
+}
+
 export function riteScore(base: number, perSecond: number, secondsLeft: number): number {
   return base + perSecond * Math.max(0, Math.floor(secondsLeft));
 }

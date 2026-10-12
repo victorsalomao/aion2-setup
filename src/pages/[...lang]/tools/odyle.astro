@@ -10,8 +10,8 @@ interface Props { lang: Lang }
 const { lang } = Astro.props;
 const tt = t(lang);
 const notes = {
-  pt: ['A Energia Odyle regenera 15 a cada 3 horas e não zera no reset semanal.', 'Abrir 2 cubos na mesma run custa o dobro: o gasto por cubo é o mesmo.', 'Os itens de Odyle ficam guardados à parte e não contam para o teto.'],
-  en: ['Odyle Energy regenerates 15 every 3 hours and does not reset weekly.', 'Opening 2 cubes in one run costs double: the cost per cube is the same.', 'Odyle items are stored separately and do not count toward the cap.'],
+  pt: ['A Energia Odyle regenera 15 a cada 3 horas com assinatura (120 por dia) e 10 sem (80 por dia). Ela não zera no reset semanal.', 'Abrir 2 cubos na mesma run custa o dobro: o gasto por cubo é o mesmo.', 'Os itens de Odyle ficam guardados à parte e não contam para o teto.'],
+  en: ['Odyle Energy regenerates 15 every 3 hours with a membership (120 a day) and 10 without (80 a day). It does not reset weekly.', 'Opening 2 cubes in one run costs double: the cost per cube is the same.', 'Odyle items are stored separately and do not count toward the cap.'],
 }[lang];
 ---
 <Base lang={lang} title={tt('tools.odyle.title')} description={tt('tools.odyle.desc')}>

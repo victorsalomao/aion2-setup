@@ -4,13 +4,724 @@
     "en": "Assassin"
   },
   "order": 3,
-  "status": "draft",
+  "status": "published",
   "archetype": {
     "pt": "Dano corpo a corpo",
     "en": "Melee damage"
   },
   "summary": {
-    "pt": "Build em pesquisa. A página abre quando as skills, os Stigmas e a rotação tiverem fonte.",
-    "en": "Build under research. The page opens once skills, Stigmas and rotation are sourced."
-  }
+    "pt": "Build de nível 45 dos jogadores do topo: Quick Slice, Heart Gore e Insignia Explosion como dano, Shadowstrike para abrir pelas costas, e Illusive Clone como o Stigma que quase todos equipam.",
+    "en": "Level 45 build from top players: Quick Slice, Heart Gore and Insignia Explosion for damage, Shadowstrike to open from behind, and Illusive Clone as the Stigma almost everyone equips."
+  },
+  "updated": "2026-10-12",
+  "actives": [
+    {
+      "id": "qs",
+      "name": "Quick Slice",
+      "mono": "QS",
+      "category": "damage",
+      "level": 7,
+      "usage": 99,
+      "role": {
+        "pt": "Ataque básico em área, sem recarga. Devolve MP.",
+        "en": "Basic area attack, no cooldown. Restores MP."
+      },
+      "effect": {
+        "pt": "Dano em até 4 inimigos a 4 m e restaura 100 de MP. Pode ser usada em movimento.",
+        "en": "Damages up to 4 enemies within 4 m and restores 100 MP. Usable while moving."
+      }
+    },
+    {
+      "id": "sst",
+      "name": "Shadowstrike",
+      "mono": "Sh",
+      "category": "control",
+      "level": 7,
+      "usage": 99,
+      "role": {
+        "pt": "Teleporta para as costas do alvo e atordoa. Abre o combo.",
+        "en": "Teleports behind the target and stuns. Opens the combo."
+      },
+      "effect": {
+        "pt": "Vai para as costas de um alvo a até 20 m, causa dano e atordoa por 3 s. 150 de MP, recarga de 20 s.",
+        "en": "Moves behind a target within 20 m, deals damage and stuns for 3 s. 150 MP, 20 s cooldown."
+      }
+    },
+    {
+      "id": "sr",
+      "name": "Savage Roar",
+      "mono": "SR",
+      "category": "damage",
+      "level": 7,
+      "usage": 97,
+      "role": {
+        "pt": "Grava Insígnias nos inimigos para o Insignia Explosion.",
+        "en": "Engraves Insignias on enemies for Insignia Explosion."
+      },
+      "effect": {
+        "pt": "Dano em até 4 inimigos a 4 m e grava 1 Insígnia por 10 s. 120 de MP, sem recarga.",
+        "en": "Damages up to 4 enemies within 4 m and engraves 1 Insignia for 10 s. 120 MP, no cooldown."
+      }
+    },
+    {
+      "id": "am",
+      "name": "Ambush",
+      "mono": "Am",
+      "category": "damage",
+      "level": 7,
+      "usage": 95,
+      "role": {
+        "pt": "Golpe pelas costas. Dano extra quando acerta atrás do alvo.",
+        "en": "Back-attack strike. Extra damage when it lands from behind."
+      },
+      "effect": {
+        "pt": "Dano em um alvo a 4 m, +30% se acertar pelas costas. 100 de MP, recarga de 10 s.",
+        "en": "Damages one target within 4 m, +30% when it lands as a back attack. 100 MP, 10 s cooldown."
+      }
+    },
+    {
+      "id": "hg",
+      "name": "Heart Gore",
+      "mono": "HG",
+      "category": "damage",
+      "level": 7,
+      "usage": 99,
+      "role": {
+        "pt": "Golpe que segue o acerto crítico. Base do dano.",
+        "en": "Follow-up to a critical hit. The core of the damage."
+      },
+      "effect": {
+        "pt": "Liberada ao acertar um crítico: dano em até 4 inimigos a 4 m e restaura 100 de MP. Recarga de 5 s.",
+        "en": "Unlocked by a critical hit: damages up to 4 enemies within 4 m and restores 100 MP. 5 s cooldown."
+      }
+    },
+    {
+      "id": "srp",
+      "name": "Storm Rampage",
+      "mono": "StR",
+      "category": "damage",
+      "level": 7,
+      "usage": 95,
+      "role": {
+        "pt": "Só acerta alvo em Stagger. Dano em chefe.",
+        "en": "Only hits a staggered target. Boss damage."
+      },
+      "effect": {
+        "pt": "Dano alto em um alvo em Stagger a 4 m.",
+        "en": "High damage to a staggered target within 4 m."
+      }
+    },
+    {
+      "id": "ws",
+      "name": "Whirlwind Slice",
+      "mono": "WS",
+      "category": "damage",
+      "level": 7,
+      "usage": 90,
+      "role": {
+        "pt": "Contra-ataque depois de esquivar.",
+        "en": "Counter-attack after an evasion."
+      },
+      "effect": {
+        "pt": "Dano em um alvo a 4 m, com 40% de chance de atordoar por 3 s ao esquivar. Contra NPC o atordoamento é garantido. Recarga de 10 s.",
+        "en": "Damages one target within 4 m, with a 40% chance to stun for 3 s on evasion. Always stuns NPCs. 10 s cooldown."
+      }
+    },
+    {
+      "id": "fs",
+      "name": "Flash Slice",
+      "mono": "FS",
+      "category": "damage",
+      "level": 7,
+      "usage": 99,
+      "role": {
+        "pt": "Atravessa o alvo, causa dano em área e cega.",
+        "en": "Flashes through the target, deals area damage and blinds."
+      },
+      "effect": {
+        "pt": "Vai para o lado oposto do alvo a 4 m, causa dano em até 4 inimigos e tem 40% de chance de cegar por 3 s (garantido em NPC). 50 de MP, recarga de 10 s.",
+        "en": "Moves to the far side of a target within 4 m, damages up to 4 enemies and has a 40% chance to blind for 3 s (always on NPCs). 50 MP, 10 s cooldown."
+      }
+    },
+    {
+      "id": "inf",
+      "name": "Infiltrate",
+      "mono": "In",
+      "category": "move",
+      "level": 7,
+      "usage": 99,
+      "role": {
+        "pt": "Avanço para as costas do alvo depois da esquiva.",
+        "en": "Rush behind the target after a dodge."
+      },
+      "effect": {
+        "pt": "Vai para as costas de um alvo a até 10 m e causa dano. Depois de [Dodge] ou em voo, 50% de chance de cegar por 3 s (garantido em NPC). Recarga de 20 s.",
+        "en": "Moves behind a target within 10 m and deals damage. After [Dodge] or while flying, 50% chance to blind for 3 s (always on NPCs). 20 s cooldown."
+      }
+    },
+    {
+      "id": "sf",
+      "name": "Shadow Fall",
+      "mono": "SF",
+      "category": "control",
+      "level": 7,
+      "usage": 90,
+      "role": {
+        "pt": "Derruba um alvo que já está atordoado.",
+        "en": "Knocks down a target that is already stunned."
+      },
+      "effect": {
+        "pt": "Vai até um alvo atordoado a 10 m, causa dano e derruba por 3 s. 100 de MP, recarga de 20 s.",
+        "en": "Moves to a stunned target within 10 m, deals damage and knocks down for 3 s. 100 MP, 20 s cooldown."
+      }
+    },
+    {
+      "id": "ie",
+      "name": "Insignia Explosion",
+      "mono": "IE",
+      "category": "damage",
+      "level": 7,
+      "usage": 99,
+      "role": {
+        "pt": "Detona as Insígnias. Dano e chance de atordoar sobem com os acúmulos.",
+        "en": "Detonates the Insignias. Damage and stun chance grow with the stacks."
+      },
+      "effect": {
+        "pt": "Mira um alvo a 20 m e causa dano em até 4 inimigos a 4 m. Cada Insígnia aumenta o dano e dá +10% de chance de atordoar por 3 s, até 50% com 5 acúmulos (dobra em NPC). 200 de MP, recarga de 10 s.",
+        "en": "Targets an enemy within 20 m and damages up to 4 enemies within 4 m. Each Insignia raises the damage and adds +10% chance to stun for 3 s, up to 50% at 5 stacks (doubled on NPCs). 200 MP, 10 s cooldown."
+      }
+    },
+    {
+      "id": "df",
+      "name": "Defiance",
+      "mono": "De",
+      "category": "heal",
+      "level": 0,
+      "role": {
+        "pt": "Remove controle de grupo de você. Fora da lista dos jogadores do topo.",
+        "en": "Removes crowd control from yourself. Not in the top players' list."
+      },
+      "effect": {
+        "pt": "Remove atordoamento, derrubada, lançamento, agarrão, congelamento e medo, e dá imunidade a efeitos por 5 s. Recarga de 60 s, não é afetada por redução de recarga.",
+        "en": "Removes Stun, Knockdown, Airborne, Grab, Frost and Fear, and grants status immunity for 5 s. 60 s cooldown, unaffected by cooldown reduction."
+      }
+    }
+  ],
+  "passives": [
+    {
+      "id": "hss",
+      "name": "Heightened Sixth Sense",
+      "mono": "HSS",
+      "category": "passive",
+      "level": 7,
+      "usage": 99,
+      "role": {
+        "pt": "Evasão e HP.",
+        "en": "Evasion and HP."
+      },
+      "effect": {
+        "pt": "+200 de Evasão, +150 de HP e +6% de HP máximo. Cura um pouco ao esquivar (recarga de 3 s).",
+        "en": "+200 Evasion, +150 HP and +6% max HP. Heals a little on evasion (3 s cooldown)."
+      }
+    },
+    {
+      "id": "ew",
+      "name": "Exploit Weakness",
+      "mono": "EW",
+      "category": "passive",
+      "level": 7,
+      "usage": 99,
+      "role": {
+        "pt": "Acerto crítico, Ataque e clones que gravam Insígnias.",
+        "en": "Critical hit, Attack and clones that engrave Insignias."
+      },
+      "effect": {
+        "pt": "+100 de acerto crítico. 25% de chance de +5,5% de Ataque por 10 s e, ao critar, 7% de chance de invocar até 5 clones que gravam Insígnias.",
+        "en": "+100 critical hit. 25% chance of +5.5% Attack for 10 s and, on a critical hit, a 7% chance to summon up to 5 clones that engrave Insignias."
+      }
+    },
+    {
+      "id": "ap",
+      "name": "Apply Poison",
+      "mono": "AP",
+      "category": "passive",
+      "level": 7,
+      "usage": 99,
+      "role": {
+        "pt": "Veneno e menos cura recebida no alvo.",
+        "en": "Poison and lower incoming healing on the target."
+      },
+      "effect": {
+        "pt": "15% de chance, ao acertar, de envenenar por 10 s e reduzir em 12% a cura recebida pelo alvo.",
+        "en": "15% chance on hit to poison for 10 s and cut the target's incoming healing by 12%."
+      }
+    },
+    {
+      "id": "rs",
+      "name": "Rear Smite",
+      "mono": "RS",
+      "category": "passive",
+      "level": 7,
+      "usage": 99,
+      "role": {
+        "pt": "Dano pelas costas e dano em PvE.",
+        "en": "Back-attack damage and PvE damage."
+      },
+      "effect": {
+        "pt": "+3% de dano pelas costas, +3% de dano em PvE e +1,5% em PvP.",
+        "en": "+3% back-attack damage, +3% PvE damage and +1.5% PvP damage."
+      }
+    },
+    {
+      "id": "ast",
+      "name": "Assault Stance",
+      "mono": "ASt",
+      "category": "passive",
+      "level": 7,
+      "usage": 99,
+      "role": {
+        "pt": "Dano crítico.",
+        "en": "Critical damage."
+      },
+      "effect": {
+        "pt": "+6% de dano crítico.",
+        "en": "+6% critical damage."
+      }
+    },
+    {
+      "id": "ih",
+      "name": "Impact Hit",
+      "mono": "IH",
+      "category": "passive",
+      "level": 8,
+      "usage": 99,
+      "role": {
+        "pt": "Chance de efeitos de impacto.",
+        "en": "Impact-type effect chance."
+      },
+      "effect": {
+        "pt": "+11,2% de chance de efeitos do tipo impacto e +0,3% de chance de golpe duplo.",
+        "en": "+11.2% Impact-type chance and +0.3% Double chance."
+      }
+    },
+    {
+      "id": "ams",
+      "name": "Ambush Stance",
+      "mono": "AmS",
+      "category": "passive",
+      "level": 8,
+      "usage": 99,
+      "role": {
+        "pt": "Dano extra depois de avanços.",
+        "en": "Extra damage after rushes."
+      },
+      "effect": {
+        "pt": "Skills de avanço ou movimento dão Ambush Stance por 10 s: 50% de chance de dano extra ao acertar.",
+        "en": "Rush or movement skills grant Ambush Stance for 10 s: 50% chance of extra damage on hit."
+      }
+    },
+    {
+      "id": "db",
+      "name": "Defense Break",
+      "mono": "DB",
+      "category": "passive",
+      "level": 8,
+      "usage": 99,
+      "role": {
+        "pt": "Reduz a Defesa de alvos em Stagger ou sob impacto.",
+        "en": "Lowers the Defense of staggered or impacted targets."
+      },
+      "effect": {
+        "pt": "Ao acertar alvo em Stagger ou sob efeito de impacto: −12% de Defesa e −11% de resistência a efeitos por 10 s. Recarga de 20 s.",
+        "en": "On hitting a staggered or Impact-afflicted target: −12% Defense and −11% status resistance for 10 s. 20 s cooldown."
+      }
+    },
+    {
+      "id": "rc",
+      "name": "Revitalization Contract",
+      "mono": "RC",
+      "category": "passive",
+      "level": 6,
+      "usage": 99,
+      "role": {
+        "pt": "Resistência a efeitos e cura de emergência.",
+        "en": "Status resistance and an emergency heal."
+      },
+      "effect": {
+        "pt": "+17% de resistência a efeitos, que sobe mais quando você apanha sob controle. Com 10% de HP ou menos, recupera 35% do HP máximo (recarga de 60 s).",
+        "en": "+17% status resistance, rising further when hit while crowd controlled. At 10% HP or less, restores 35% max HP (60 s cooldown)."
+      }
+    },
+    {
+      "id": "dt",
+      "name": "Determination",
+      "mono": "Dt",
+      "category": "passive",
+      "level": 8,
+      "usage": 99,
+      "role": {
+        "pt": "Dano extra em alvo com pouca vida.",
+        "en": "Extra damage on low-health targets."
+      },
+      "effect": {
+        "pt": "Dano extra ao acertar alvo com 30% de HP ou menos (recarga de 1 s).",
+        "en": "Extra damage when hitting a target at 30% HP or less (1 s cooldown)."
+      }
+    }
+  ],
+  "stigmas": [
+    {
+      "id": "icl",
+      "name": "Illusive Clone",
+      "mono": "IC",
+      "category": "aura",
+      "level": {
+        "pt": "6 a 8",
+        "en": "6 to 8"
+      },
+      "usage": 95,
+      "description": {
+        "pt": "Zera a recarga do Heart Gore e, por 10 s, causa 20% do dano feito como dano extra. 200 de MP, recarga de 90 s.",
+        "en": "Resets Heart Gore's cooldown and, for 10 s, deals 20% of your damage as extra damage. 200 MP, 90 s cooldown."
+      }
+    },
+    {
+      "id": "sc",
+      "name": "Swift Contract",
+      "mono": "SC",
+      "category": "aura",
+      "level": {
+        "pt": "7",
+        "en": "7"
+      },
+      "usage": 90,
+      "description": {
+        "pt": "+20% de velocidade de combate por 10 s. Recarga de 60 s. No nível 5, −20% de MP gasto durante o efeito.",
+        "en": "+20% combat speed for 10 s. 60 s cooldown. At level 5, −20% MP cost for the duration."
+      }
+    },
+    {
+      "id": "sfg",
+      "name": "Savage Fang",
+      "mono": "SFg",
+      "category": "damage",
+      "level": {
+        "pt": "4 a 5",
+        "en": "4 to 5"
+      },
+      "usage": 77,
+      "description": {
+        "pt": "Dano alto em até 4 inimigos a 4 m e grava 5 Insígnias por 10 s. 50 de dano na barra de Stagger. 200 de MP, recarga de 60 s.",
+        "en": "Heavy damage to up to 4 enemies within 4 m and engraves 5 Insignias for 10 s. 50 Stagger damage. 200 MP, 60 s cooldown."
+      }
+    },
+    {
+      "id": "td",
+      "name": "Triniel's Dagger",
+      "mono": "TD",
+      "category": "damage",
+      "level": {
+        "pt": "4 a 7",
+        "en": "4 to 7"
+      },
+      "usage": 71,
+      "description": {
+        "pt": "Dano em um alvo a 4 m, +30% pelas costas, e aumenta todas as recargas do alvo em 5% da duração. 200 de MP, recarga de 45 s.",
+        "en": "Damages one target within 4 m, +30% from behind, and stretches all of the target's cooldowns by 5% of their duration. 200 MP, 45 s cooldown."
+      }
+    },
+    {
+      "id": "es",
+      "name": "Evasion Stance",
+      "mono": "ES",
+      "category": "aura",
+      "level": {
+        "pt": "média de 3,5 entre os do topo",
+        "en": "top players average 3.5"
+      },
+      "usage": 39,
+      "description": {
+        "pt": "Esquiva garantida de todo dano por um instante. Na primeira esquiva, restaura 110 de MP e Stamina. Recarga de 20 s.",
+        "en": "Guaranteed evasion of all damage for a brief moment. Restores 110 MP and Stamina once on evasion. 20 s cooldown."
+      }
+    },
+    {
+      "id": "tsb",
+      "name": "Throw Shadowblade",
+      "mono": "TS",
+      "category": "damage",
+      "level": {
+        "pt": "média de 5,7 entre os do topo",
+        "en": "top players average 5.7"
+      },
+      "usage": 24,
+      "description": {
+        "pt": "Dano em um alvo a 20 m e lentidão de 40% por 5 s. No nível 5 ganha a skill em cadeia Shadowblade Pursuit. Recarga de 30 s.",
+        "en": "Damages one target within 20 m and slows it by 40% for 5 s. At level 5 it gains the Shadowblade Pursuit chain skill. 30 s cooldown."
+      }
+    },
+    {
+      "id": "swk",
+      "name": "Shadow Walk",
+      "mono": "SW",
+      "category": "move",
+      "level": {
+        "pt": "4",
+        "en": "4"
+      },
+      "usage": 17,
+      "description": {
+        "pt": "Furtividade por 20 s, só fora de combate. No nível 5, o ataque saindo da furtividade é crítico. Recarga de 120 s.",
+        "en": "Stealth for 20 s, out of combat only. At level 5, attacks from stealth are critical hits. 120 s cooldown."
+      }
+    },
+    {
+      "id": "sps",
+      "name": "Spiral Slice",
+      "mono": "SpS",
+      "category": "damage",
+      "level": {
+        "pt": "média de 2,3 entre os do topo",
+        "en": "top players average 2.3"
+      },
+      "usage": 6,
+      "description": {
+        "pt": "Avança até um alvo a 20 m, causa dano e remove 1 buff, com dano extra por buff removido. 200 de MP, recarga de 90 s.",
+        "en": "Rushes to a target within 20 m, deals damage and removes 1 buff, with extra damage per buff removed. 200 MP, 90 s cooldown."
+      }
+    },
+    {
+      "id": "sstp",
+      "name": "Shadowstep",
+      "mono": "SSt",
+      "category": "damage",
+      "level": {
+        "pt": "média de 5 entre os do topo",
+        "en": "top players average 5"
+      },
+      "usage": 2,
+      "description": {
+        "pt": "Dano em um alvo a 4 m; você recua e fica furtivo por 3 s. 100 de MP, recarga de 45 s.",
+        "en": "Damages one target within 4 m; you step back and gain stealth for 3 s. 100 MP, 45 s cooldown."
+      }
+    },
+    {
+      "id": "sb",
+      "name": "Smoke Bomb",
+      "mono": "SB",
+      "category": "control",
+      "level": {
+        "pt": "média de 1,7 entre os do topo",
+        "en": "top players average 1.7"
+      },
+      "usage": 2,
+      "description": {
+        "pt": "Dano em um alvo a 10 m e cegueira por 5 s. 100 de MP, recarga de 30 s.",
+        "en": "Damages one target within 10 m and blinds it for 5 s. 100 MP, 30 s cooldown."
+      }
+    },
+    {
+      "id": "ab",
+      "name": "Aerial Bind",
+      "mono": "AB",
+      "category": "control",
+      "level": {
+        "pt": "sem dados",
+        "en": "no data"
+      },
+      "description": {
+        "pt": "Dano alto em um alvo a 4 m com 50% de chance de lançar ao ar por 3 s; garantido com 5 Insígnias ou em NPC. 150 de MP, recarga de 120 s.",
+        "en": "Heavy damage to one target within 4 m with a 50% chance to launch it Airborne for 3 s; guaranteed at 5 Insignias or on NPCs. 150 MP, 120 s cooldown."
+      }
+    },
+    {
+      "id": "ec",
+      "name": "Evasion Contract",
+      "mono": "EC",
+      "category": "aura",
+      "level": {
+        "pt": "sem dados",
+        "en": "no data"
+      },
+      "description": {
+        "pt": "Remove lentidão e enraizamento, dá imunidade a eles e +200 de Evasão por 10 s. Recarga de 90 s.",
+        "en": "Removes Slow and Root, grants immunity to both and +200 Evasion for 10 s. 90 s cooldown."
+      }
+    },
+    {
+      "id": "aa",
+      "name": "Assault Ambush",
+      "mono": "AA",
+      "category": "control",
+      "level": {
+        "pt": "sem dados",
+        "en": "no data"
+      },
+      "description": {
+        "pt": "Mira um alvo a 20 m e causa dano em até 4 inimigos a 4 m, com 30% de chance de cegar por 5 s (garantido em NPC). Sobe sua Defesa em até 20% conforme os alvos atingidos. Recarga de 120 s.",
+        "en": "Targets an enemy within 20 m and damages up to 4 enemies within 4 m, with a 30% chance to blind for 5 s (always on NPCs). Raises your Defense by up to 20% with the number of targets hit. 120 s cooldown."
+      }
+    }
+  ],
+  "modes": [
+    {
+      "id": "pve",
+      "name": {
+        "pt": "PvE de fim de jogo",
+        "en": "Endgame PvE"
+      },
+      "lead": {
+        "pt": "O que os jogadores do topo usam: todas as skills de dano no 7 e os quatro Stigmas mais equipados.",
+        "en": "What top players run: every damage skill at 7 and the four most equipped Stigmas."
+      },
+      "basis": {
+        "pt": "Baseado em 150 jogadores do topo (dados de 2026-10-02)",
+        "en": "Based on 150 top players (data from 2026-10-02)"
+      },
+      "fixed": ["icl", "sc", "sfg", "td"],
+      "stigmaLevels": {
+        "icl": 6,
+        "sc": 7,
+        "sfg": 4,
+        "td": 7
+      },
+      "flex": [
+        {
+          "stigma": "es",
+          "when": {
+            "pt": "Alternativa mais comum (39% dos do topo)",
+            "en": "Most common alternative (39% of top players)"
+          }
+        },
+        {
+          "stigma": "tsb",
+          "when": {
+            "pt": "Segunda alternativa (24% dos do topo)",
+            "en": "Second alternative (24% of top players)"
+          }
+        }
+      ],
+      "rotation": [],
+      "note": {
+        "pt": "Os níveis mostrados são os pontos treinados. Daevanion e equipamento somam níveis extras: +3 em Quick Slice, Insignia Explosion, Heart Gore, Exploit Weakness, Rear Smite e Assault Stance; +2 em Shadowstrike, Savage Roar, Ambush e Whirlwind Slice; +1 em Flash Slice, Storm Rampage e Impact Hit.",
+        "en": "The levels shown are trained points. Daevanion and gear add extra levels: +3 on Quick Slice, Insignia Explosion, Heart Gore, Exploit Weakness, Rear Smite and Assault Stance; +2 on Shadowstrike, Savage Roar, Ambush and Whirlwind Slice; +1 on Flash Slice, Storm Rampage and Impact Hit."
+      }
+    },
+    {
+      "id": "leveling",
+      "name": {
+        "pt": "Upando do 1 ao 45",
+        "en": "Leveling 1–45"
+      },
+      "lead": {
+        "pt": "Poucos pontos, então tudo vai para o ciclo de dano: atordoar pelas costas, gravar Insígnias e detonar.",
+        "en": "Few points, so everything goes into the damage loop: stun from behind, engrave Insignias and detonate."
+      },
+      "basis": {
+        "pt": "Build editorial da MetaBot.GG",
+        "en": "MetaBot.GG editorial build"
+      },
+      "fixed": ["icl", "sc", "sfg", "td"],
+      "stigmaLevels": {
+        "icl": 8,
+        "sc": 7,
+        "sfg": 5,
+        "td": 4
+      },
+      "overrides": [
+        { "skill": "qs", "level": 10, "why": { "pt": "Ataque de preenchimento, vai ao máximo.", "en": "Filler attack, goes to max." } },
+        { "skill": "sr", "level": 10, "why": { "pt": "Grava as Insígnias do dano em área.", "en": "Engraves the Insignias for area damage." } },
+        { "skill": "sst", "level": 10, "why": { "pt": "Parte do ciclo de dano: sobe primeiro.", "en": "Part of the damage loop: levels first." } },
+        { "skill": "am", "level": 10, "why": { "pt": "Parte do ciclo de dano: sobe primeiro.", "en": "Part of the damage loop: levels first." } },
+        { "skill": "hg", "level": 10, "why": { "pt": "Parte do ciclo de dano: sobe primeiro.", "en": "Part of the damage loop: levels first." } },
+        { "skill": "fs", "level": 10, "why": { "pt": "Dano em área ao atravessar o grupo de monstros.", "en": "Area damage as you flash through the pack." } },
+        { "skill": "ie", "level": 10, "why": { "pt": "Detona as Insígnias: é o seu dano em área.", "en": "Detonates the Insignias: it is your area damage." } },
+        { "skill": "srp", "level": 0, "why": { "pt": "Sem pontos nesta build.", "en": "No points in this build." } },
+        { "skill": "ws", "level": 0, "why": { "pt": "Sem pontos nesta build.", "en": "No points in this build." } },
+        { "skill": "sf", "level": 0, "why": { "pt": "Sem pontos nesta build.", "en": "No points in this build." } }
+      ],
+      "rotation": [
+        { "pt": "**Shadowstrike** para ir às costas do alvo e atordoar.", "en": "**Shadowstrike** to get behind the target and stun." },
+        { "pt": "**Savage Roar** para gravar Insígnias.", "en": "**Savage Roar** to engrave Insignias." },
+        { "pt": "**Ambush** pelas costas.", "en": "**Ambush** from behind." },
+        { "pt": "**Heart Gore** quando o crítico liberar.", "en": "**Heart Gore** when a critical hit unlocks it." },
+        { "pt": "**Insignia Explosion** para detonar as Insígnias.", "en": "**Insignia Explosion** to detonate the Insignias." },
+        { "pt": "**Flash Slice** atravessando o grupo para o dano em área.", "en": "**Flash Slice** through the pack for area damage." },
+        { "pt": "Complete com **Quick Slice**.", "en": "Fill with **Quick Slice**." }
+      ],
+      "why": [
+        { "pt": "**Shadowstrike**, **Ambush** e **Heart Gore** são todo o ciclo de dano. As três vão ao 10 primeiro.", "en": "**Shadowstrike**, **Ambush** and **Heart Gore** are the whole damage loop. All three go to 10 first." },
+        { "pt": "**Savage Roar** e **Insignia Explosion** são o dano em área: grave no grupo e depois exploda.", "en": "**Savage Roar** and **Insignia Explosion** are the area damage: engrave the pack, then blow it up." },
+        { "pt": "As passivas de crítico, de ataque pelas costas e de dano crítico multiplicam cada golpe. **Infiltrate** fica no 7, só como mobilidade.", "en": "The critical hit, back-attack and critical damage passives multiply every hit. **Infiltrate** stays at 7, just for mobility." },
+        { "pt": "Stigmas: **Illusive Clone** no 22 (zera o Heart Gore), **Swift Contract** no 27, **Savage Fang** no 32 e **Triniel's Dagger** no 37. São os quatro mais usados pelos do topo.", "en": "Stigmas: **Illusive Clone** at 22 (resets Heart Gore), **Swift Contract** at 27, **Savage Fang** at 32 and **Triniel's Dagger** at 37. They are the four most used by top players." }
+      ],
+      "note": {
+        "pt": "Passivas nesta build: Exploit Weakness e Rear Smite no 10, Assault Stance no 5. As outras ficam sem pontos.",
+        "en": "Passives in this build: Exploit Weakness and Rear Smite at 10, Assault Stance at 5. The others get no points."
+      }
+    },
+    {
+      "id": "pvp",
+      "name": {
+        "pt": "PvP",
+        "en": "PvP"
+      },
+      "lead": {
+        "pt": "Abrir da furtividade e manter o alvo sem reagir: atordoamento, duas cegueiras e uma derrubada.",
+        "en": "Open from stealth and keep the target from fighting back: a stun, two blinds and a knockdown."
+      },
+      "basis": {
+        "pt": "Build editorial da MetaBot.GG",
+        "en": "MetaBot.GG editorial build"
+      },
+      "fixed": ["icl", "sc", "td", "swk"],
+      "stigmaLevels": {
+        "icl": 8,
+        "sc": 7,
+        "td": 5,
+        "swk": 4
+      },
+      "overrides": [
+        { "skill": "qs", "level": 10, "why": { "pt": "Ataque de preenchimento, vai ao máximo.", "en": "Filler attack, goes to max." } },
+        { "skill": "sr", "level": 10, "why": { "pt": "Grava as Insígnias para a detonação.", "en": "Engraves the Insignias for the detonation." } },
+        { "skill": "sst", "level": 10, "why": { "pt": "O atordoamento que abre o combo.", "en": "The stun that opens the combo." } },
+        { "skill": "am", "level": 10, "why": { "pt": "Golpe pelas costas no meio do combo.", "en": "Back-attack in the middle of the combo." } },
+        { "skill": "hg", "level": 10, "why": { "pt": "Finaliza o combo.", "en": "Finishes the combo." } },
+        { "skill": "fs", "level": 10, "why": { "pt": "Primeira cegueira.", "en": "First blind." } },
+        { "skill": "inf", "level": 10, "why": { "pt": "Segunda cegueira, depois da esquiva.", "en": "Second blind, after a dodge." } },
+        { "skill": "ie", "level": 10, "why": { "pt": "Detona as Insígnias no alvo controlado.", "en": "Detonates the Insignias on the controlled target." } },
+        { "skill": "srp", "level": 0, "why": { "pt": "Sem pontos nesta build.", "en": "No points in this build." } },
+        { "skill": "ws", "level": 0, "why": { "pt": "Sem pontos nesta build.", "en": "No points in this build." } }
+      ],
+      "rotation": [
+        { "pt": "Saia da furtividade (**Shadow Walk**) com **Shadowstrike** para atordoar.", "en": "Come out of stealth (**Shadow Walk**) with **Shadowstrike** to stun." },
+        { "pt": "**Savage Roar** para gravar Insígnias.", "en": "**Savage Roar** to engrave Insignias." },
+        { "pt": "**Triniel's Dagger** para esticar as recargas do alvo.", "en": "**Triniel's Dagger** to stretch the target's cooldowns." },
+        { "pt": "**Ambush** pelas costas.", "en": "**Ambush** from behind." },
+        { "pt": "**Shadow Fall** para derrubar o alvo atordoado.", "en": "**Shadow Fall** to knock down the stunned target." },
+        { "pt": "**Insignia Explosion** para detonar.", "en": "**Insignia Explosion** to detonate." },
+        { "pt": "Finalize com **Heart Gore**.", "en": "Finish with **Heart Gore**." }
+      ],
+      "why": [
+        { "pt": "Duas cegueiras (**Flash Slice** e **Infiltrate** depois da esquiva) e o atordoamento do **Shadowstrike**: três formas de impedir o alvo de reagir.", "en": "Two blinds (**Flash Slice** and **Infiltrate** after a dodge) and the **Shadowstrike** stun: three ways to stop the target from fighting back." },
+        { "pt": "**Shadow Fall** é a peça de PvP do combo. Fica no 7 porque o controle importa mais que o dano dela.", "en": "**Shadow Fall** is the PvP piece of the combo. It stays at 7 because its control matters more than its damage." },
+        { "pt": "Passiva de crítico no máximo e a de ataque pelas costas no 5: em PvP você nem sempre está atrás do alvo.", "en": "Critical hit passive maxed and the back-attack passive at 5: in PvP you will not always be behind the target." },
+        { "pt": "Stigmas: **Illusive Clone**, **Swift Contract**, **Triniel's Dagger** e **Shadow Walk** no 37 para a abertura.", "en": "Stigmas: **Illusive Clone**, **Swift Contract**, **Triniel's Dagger** and **Shadow Walk** at 37 for the opener." }
+      ],
+      "note": {
+        "pt": "Passivas nesta build: Exploit Weakness no 10 e Rear Smite no 5. As outras ficam sem pontos.",
+        "en": "Passives in this build: Exploit Weakness at 10 and Rear Smite at 5. The others get no points."
+      }
+    }
+  ],
+  "sources": [
+    {
+      "title": "Shugo.GG: Assassin skills",
+      "url": "https://shugo.gg/skills/assassin"
+    },
+    {
+      "title": "MetaBot.GG: Assassin build planner",
+      "url": "https://metabot.gg/en/aion-2/classes/assassin/build"
+    }
+  ]
 }

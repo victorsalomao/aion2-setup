@@ -280,7 +280,7 @@
     {
       "id": "rg",
       "name": "Raging Spell",
-      "mono": "RS",
+      "mono": "RgS",
       "category": "passive",
       "level": 1,
       "role": {

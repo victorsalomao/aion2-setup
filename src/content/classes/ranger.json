@@ -4,13 +4,724 @@
     "en": "Ranger"
   },
   "order": 4,
-  "status": "draft",
+  "status": "published",
   "archetype": {
     "pt": "Dano à distância",
     "en": "Ranged damage"
   },
   "summary": {
-    "pt": "Build em pesquisa. A página abre quando as skills, os Stigmas e a rotação tiverem fonte.",
-    "en": "Build under research. The page opens once skills, Stigmas and rotation are sourced."
-  }
+    "pt": "Build de nível 45 dos jogadores do topo: Marking Shot para ganhar Precisão, Deadshot, Gale Arrow e Burst Arrow como dano, e Vaizel's Authority como o Stigma que quase todos equipam.",
+    "en": "Level 45 build from top players: Marking Shot for Precision, Deadshot, Gale Arrow and Burst Arrow for damage, and Vaizel's Authority as the Stigma almost everyone equips."
+  },
+  "updated": "2026-10-12",
+  "actives": [
+    {
+      "id": "sn",
+      "name": "Snipe",
+      "mono": "Sn",
+      "category": "damage",
+      "level": 7,
+      "usage": 99,
+      "role": {
+        "pt": "Tiro básico, sem custo nem recarga. Devolve MP.",
+        "en": "Basic shot, no cost or cooldown. Restores MP."
+      },
+      "effect": {
+        "pt": "Dano de Vento em um alvo a 20 m e restaura 120 de MP. Pode ser usada em movimento.",
+        "en": "Wind damage to one target within 20 m and restores 120 MP. Usable while moving."
+      }
+    },
+    {
+      "id": "ss",
+      "name": "Snare Shot",
+      "mono": "SS",
+      "category": "control",
+      "level": 7,
+      "usage": 96,
+      "role": {
+        "pt": "Lentidão em área. Libera o Burst Arrow.",
+        "en": "Area slow. Unlocks Burst Arrow."
+      },
+      "effect": {
+        "pt": "Mira um alvo a 20 m e causa dano de Terra em até 4 inimigos a 4 m dele, com lentidão de 40% por 5 s. 150 de MP, recarga de 15 s.",
+        "en": "Targets an enemy within 20 m and deals Earth damage to up to 4 enemies within 4 m of it, slowing them by 40% for 5 s. 150 MP, 15 s cooldown."
+      }
+    },
+    {
+      "id": "ts",
+      "name": "Tempest Shot",
+      "mono": "TS",
+      "category": "damage",
+      "level": 7,
+      "usage": 99,
+      "role": {
+        "pt": "Tiro básico em área, sem recarga.",
+        "en": "Basic area shot, no cooldown."
+      },
+      "effect": {
+        "pt": "Mira um alvo a 20 m e causa dano de Vento em até 4 inimigos a 4 m dele. 120 de MP.",
+        "en": "Targets an enemy within 20 m and deals Wind damage to up to 4 enemies within 4 m of it. 120 MP."
+      }
+    },
+    {
+      "id": "ms",
+      "name": "Marking Shot",
+      "mono": "MS",
+      "category": "damage",
+      "level": 7,
+      "usage": 99,
+      "role": {
+        "pt": "Dá Precisão (+300 de acerto crítico) e reposiciona. Abre a janela de dano.",
+        "en": "Grants Precision (+300 critical hit) and repositions. Opens the damage window."
+      },
+      "effect": {
+        "pt": "Dano de Vento em um alvo a 20 m, move você na direção escolhida e dá Precisão por 10 s: +300 de acerto crítico. 50 de MP, recarga de 10 s.",
+        "en": "Wind damage to one target within 20 m, moves you in the input direction and grants Precision for 10 s: +300 critical hit. 50 MP, 10 s cooldown."
+      }
+    },
+    {
+      "id": "dd",
+      "name": "Drill Dart",
+      "mono": "DD",
+      "category": "damage",
+      "level": 7,
+      "usage": 99,
+      "role": {
+        "pt": "Sangramento em área e corte de cura no alvo.",
+        "en": "Area bleed and a healing cut on the target."
+      },
+      "effect": {
+        "pt": "Mira um alvo a 20 m e causa dano de Fogo em até 4 inimigos a 4 m. Sangramento por 6 s com −60% de cura recebida. Restaura 100 de MP ao critar. Recarga de 5 s.",
+        "en": "Targets an enemy within 20 m and deals Fire damage to up to 4 enemies within 4 m. Bleeds for 6 s with −60% incoming healing. Restores 100 MP on a critical hit. 5 s cooldown."
+      }
+    },
+    {
+      "id": "asc",
+      "name": "Arrow Scattershot",
+      "mono": "ASc",
+      "category": "damage",
+      "level": 7,
+      "usage": 75,
+      "role": {
+        "pt": "Só acerta alvo em Stagger. Dano em chefe.",
+        "en": "Only hits a staggered target. Boss damage."
+      },
+      "effect": {
+        "pt": "Dano de Vento alto em um alvo em Stagger a 20 m.",
+        "en": "High Wind damage to a staggered target within 20 m."
+      }
+    },
+    {
+      "id": "ga",
+      "name": "Gale Arrow",
+      "mono": "GA",
+      "category": "damage",
+      "level": 7,
+      "usage": 99,
+      "role": {
+        "pt": "Dano em área e buff de velocidade de combate e dano.",
+        "en": "Area damage plus a combat speed and damage buff."
+      },
+      "effect": {
+        "pt": "Mira um alvo a 20 m e causa dano de Vento em até 4 inimigos a 4 m. Dá Gale por 10 s: +7% de velocidade de combate, +7% de dano em PvE e +3,5% em PvP. 200 de MP, recarga de 20 s.",
+        "en": "Targets an enemy within 20 m and deals Wind damage to up to 4 enemies within 4 m. Grants Gale for 10 s: +7% combat speed, +7% PvE damage and +3.5% PvP damage. 200 MP, 20 s cooldown."
+      }
+    },
+    {
+      "id": "et",
+      "name": "Explosion Trap",
+      "mono": "ET",
+      "category": "control",
+      "level": 7,
+      "usage": 94,
+      "role": {
+        "pt": "Armadilha com dano em área e chance de atordoar.",
+        "en": "Trap with area damage and a stun chance."
+      },
+      "effect": {
+        "pt": "Armadilha no seu lugar por 10 s. Quem pisa toma dano de Terra (até 4 inimigos a 5 m) e tem 40% de chance de ser atordoado por 3 s (garantido em NPC). 200 de MP, recarga de 20 s.",
+        "en": "Trap at your position for 10 s. Stepping on it deals Earth damage (up to 4 enemies within 5 m) with a 40% chance to stun for 3 s (always on NPCs). 200 MP, 20 s cooldown."
+      }
+    },
+    {
+      "id": "ba",
+      "name": "Burst Arrow",
+      "mono": "BA",
+      "category": "damage",
+      "level": 7,
+      "usage": 99,
+      "role": {
+        "pt": "Dano em área em alvos com lentidão ou enraizados.",
+        "en": "Area damage on slowed or rooted targets."
+      },
+      "effect": {
+        "pt": "Mira um alvo com lentidão ou enraizado a 20 m e causa dano de Vento em até 4 inimigos a 4 m. Recarga de 20 s.",
+        "en": "Targets a slowed or rooted enemy within 20 m and deals Wind damage to up to 4 enemies within 4 m. 20 s cooldown."
+      }
+    },
+    {
+      "id": "sa",
+      "name": "Suppressing Arrow",
+      "mono": "SA",
+      "category": "control",
+      "level": 7,
+      "usage": 83,
+      "role": {
+        "pt": "Atordoamento durante a Precisão.",
+        "en": "Stun while Precision is up."
+      },
+      "effect": {
+        "pt": "Dano de Vento em um alvo a 20 m, com 40% de chance de atordoar por 3 s se a Precisão estiver ativa (garantido em NPC). Recarga de 20 s.",
+        "en": "Wind damage to one target within 20 m, with a 40% chance to stun for 3 s while Precision is active (always on NPCs). 20 s cooldown."
+      }
+    },
+    {
+      "id": "ds",
+      "name": "Deadshot",
+      "mono": "DS",
+      "category": "damage",
+      "level": 7,
+      "usage": 99,
+      "role": {
+        "pt": "Tiro carregado, o golpe mais forte. Use com a Precisão ativa.",
+        "en": "Charged shot, the hardest hit. Use it with Precision active."
+      },
+      "effect": {
+        "pt": "Tiro carregado de até 3 níveis: dano de Vento em um alvo a 20 m, +35% com Precisão. 200 de MP, recarga de 20 s.",
+        "en": "Charged shot with up to 3 charge levels: Wind damage to one target within 20 m, +35% with Precision. 200 MP, 20 s cooldown."
+      }
+    },
+    {
+      "id": "df",
+      "name": "Defiance",
+      "mono": "De",
+      "category": "heal",
+      "level": 0,
+      "role": {
+        "pt": "Remove controle de grupo de você. Fora da lista dos jogadores do topo.",
+        "en": "Removes crowd control from yourself. Not in the top players' list."
+      },
+      "effect": {
+        "pt": "Remove atordoamento, derrubada, lançamento, agarrão, congelamento e medo, e dá imunidade a efeitos por 5 s. Recarga de 60 s, não é afetada por redução de recarga.",
+        "en": "Removes Stun, Knockdown, Airborne, Grab, Frost and Fear, and grants status immunity for 5 s. 60 s cooldown, unaffected by cooldown reduction."
+      }
+    }
+  ],
+  "passives": [
+    {
+      "id": "ve",
+      "name": "Vigilant Eye",
+      "mono": "VE",
+      "category": "passive",
+      "level": 7,
+      "usage": 99,
+      "role": {
+        "pt": "Evasão e HP.",
+        "en": "Evasion and HP."
+      },
+      "effect": {
+        "pt": "+200 de Evasão e +6% de HP máximo. Cura um pouco ao esquivar (recarga de 3 s).",
+        "en": "+200 Evasion and +6% max HP. Heals a little on evasion (3 s cooldown)."
+      }
+    },
+    {
+      "id": "cf",
+      "name": "Concentrated Fire",
+      "mono": "CF",
+      "category": "passive",
+      "level": 7,
+      "usage": 99,
+      "role": {
+        "pt": "Dano extra em alvo com dano contínuo.",
+        "en": "Extra damage on targets with damage over time."
+      },
+      "effect": {
+        "pt": "50% de chance de dano de Vento extra em alvo sofrendo dano contínuo (recarga de 1 s).",
+        "en": "50% chance of extra Wind damage on a target taking damage over time (1 s cooldown)."
+      }
+    },
+    {
+      "id": "wv",
+      "name": "Wind Vigor",
+      "mono": "WV",
+      "category": "passive",
+      "level": 7,
+      "usage": 99,
+      "role": {
+        "pt": "Stamina e fuga depois de apanhar.",
+        "en": "Stamina and escape after being hit."
+      },
+      "effect": {
+        "pt": "+15 de Stamina máxima. Ao ser atacado, +10% de velocidade de movimento por 1 s (recarga de 5 s).",
+        "en": "+15 max Stamina. When attacked, +10% movement speed for 1 s (5 s cooldown)."
+      }
+    },
+    {
+      "id": "fe",
+      "name": "Focused Eye",
+      "mono": "FE",
+      "category": "passive",
+      "level": 7,
+      "usage": 99,
+      "role": {
+        "pt": "Precisão e dano.",
+        "en": "Accuracy and damage."
+      },
+      "effect": {
+        "pt": "+100 de Precisão, +1% de dano em PvE, +0,5% em PvP e +0,2% de chance de golpe duplo.",
+        "en": "+100 Accuracy, +1% PvE damage, +0.5% PvP damage and +0.2% Double chance."
+      }
+    },
+    {
+      "id": "hr",
+      "name": "Hunter's Resolve",
+      "mono": "HR",
+      "category": "passive",
+      "level": 7,
+      "usage": 99,
+      "role": {
+        "pt": "Dano crítico.",
+        "en": "Critical damage."
+      },
+      "effect": {
+        "pt": "+6% de dano crítico.",
+        "en": "+6% critical damage."
+      }
+    },
+    {
+      "id": "ur",
+      "name": "Unyielding Resolve",
+      "mono": "UR",
+      "category": "passive",
+      "level": 7,
+      "usage": 99,
+      "role": {
+        "pt": "Resistência a efeitos.",
+        "en": "Status resistance."
+      },
+      "effect": {
+        "pt": "+11,2% de resistência a efeitos dos tipos debilitante e impacto.",
+        "en": "+11.2% Ailment-type and Impact-type resistance."
+      }
+    },
+    {
+      "id": "re",
+      "name": "Rooting Eye",
+      "mono": "RE",
+      "category": "passive",
+      "level": 7,
+      "usage": 99,
+      "role": {
+        "pt": "Dano extra em alvo com lentidão ou enraizado.",
+        "en": "Extra damage on slowed or rooted targets."
+      },
+      "effect": {
+        "pt": "50% de chance de dano de Vento extra ao acertar alvo com lentidão ou enraizado (recarga de 1 s).",
+        "en": "50% chance of extra Wind damage when hitting a slowed or rooted target (1 s cooldown)."
+      }
+    },
+    {
+      "id": "mf",
+      "name": "Melee Fire",
+      "mono": "MF",
+      "category": "passive",
+      "level": 7,
+      "usage": 99,
+      "role": {
+        "pt": "Dano extra e empurrão de perto.",
+        "en": "Extra damage and a close-range knockback."
+      },
+      "effect": {
+        "pt": "25% de chance de dano de Vento extra ao acertar. 5% de chance de empurrar alvo a até 5 m (recarga de 1 s).",
+        "en": "25% chance of extra Wind damage on hit. 5% chance to knock back a target within 5 m (1 s cooldown)."
+      }
+    },
+    {
+      "id": "rc",
+      "name": "Revitalization Contract",
+      "mono": "RC",
+      "category": "passive",
+      "level": 7,
+      "usage": 99,
+      "role": {
+        "pt": "Resistência a efeitos e cura de emergência.",
+        "en": "Status resistance and an emergency heal."
+      },
+      "effect": {
+        "pt": "+17% de resistência a efeitos, que sobe mais quando você apanha sob controle. Com 10% de HP ou menos, recupera 35% do HP máximo (recarga de 60 s).",
+        "en": "+17% status resistance, rising further when hit while crowd controlled. At 10% HP or less, restores 35% max HP (60 s cooldown)."
+      }
+    },
+    {
+      "id": "hs",
+      "name": "Hunter's Soul",
+      "mono": "HS",
+      "category": "passive",
+      "level": 10,
+      "usage": 99,
+      "role": {
+        "pt": "Dano extra no crítico.",
+        "en": "Extra damage on critical hits."
+      },
+      "effect": {
+        "pt": "50% de chance de dano de Vento extra ao critar (recarga de 1 s).",
+        "en": "50% chance of extra Wind damage on a critical hit (1 s cooldown)."
+      }
+    }
+  ],
+  "stigmas": [
+    {
+      "id": "va",
+      "name": "Vaizel's Authority",
+      "mono": "VA",
+      "category": "aura",
+      "level": {
+        "pt": "5 a 8",
+        "en": "5 to 8"
+      },
+      "usage": 93,
+      "description": {
+        "pt": "+20% de Ataque por 10 s. Recarga de 60 s. No nível 5, +10% de chance de Perfeito durante o efeito.",
+        "en": "+20% Attack for 10 s. 60 s cooldown. At level 5, +10% Perfect chance for the duration."
+      }
+    },
+    {
+      "id": "bb",
+      "name": "Bow of Blessing",
+      "mono": "BB",
+      "category": "aura",
+      "level": {
+        "pt": "6 a 7",
+        "en": "6 to 7"
+      },
+      "usage": 87,
+      "description": {
+        "pt": "+200 de acerto crítico e +100 de Precisão por 10 s. Recarga de 120 s. No nível 5, +50% de chance de multi-acerto.",
+        "en": "+200 critical hit and +100 Accuracy for 10 s. 120 s cooldown. At level 5, +50% Multi-Hit chance."
+      }
+    },
+    {
+      "id": "sf",
+      "name": "Supporting Fire",
+      "mono": "SF",
+      "category": "damage",
+      "level": {
+        "pt": "5 a 7",
+        "en": "5 to 7"
+      },
+      "usage": 75,
+      "description": {
+        "pt": "Invoca um orbe por 15 s que tem 25% de chance de atirar (a cada 0,5 s), causando dano de Vento e drenando 1,5% de HP. Recarga de 90 s. No nível 5, +25% de chance de disparo.",
+        "en": "Summons an orb for 15 s with a 25% chance to fire (every 0.5 s), dealing Wind damage and draining 1.5% HP. 90 s cooldown. At level 5, +25% fire chance."
+      }
+    },
+    {
+      "id": "gra",
+      "name": "Griffon Arrow",
+      "mono": "GrA",
+      "category": "damage",
+      "level": {
+        "pt": "4 a 6",
+        "en": "4 to 6"
+      },
+      "usage": 60,
+      "description": {
+        "pt": "Mira um alvo a 20 m e causa dano de Fogo em até 4 inimigos a 4 m, com queimadura por 10 s que piora quando o alvo se move. 200 de MP, recarga de 45 s.",
+        "en": "Targets an enemy within 20 m and deals Fire damage to up to 4 enemies within 4 m, with a 10 s burn that grows when the target moves. 200 MP, 45 s cooldown."
+      }
+    },
+    {
+      "id": "ea",
+      "name": "Explosive Arrow",
+      "mono": "EA",
+      "category": "damage",
+      "level": {
+        "pt": "4",
+        "en": "4"
+      },
+      "usage": 37,
+      "description": {
+        "pt": "Mira um alvo a 20 m e causa dano de Fogo em até 4 inimigos a 4 m, +20% em alvos com lentidão ou enraizados. Recarga de 45 s; no nível 5, −15 s.",
+        "en": "Targets an enemy within 20 m and deals Fire damage to up to 4 enemies within 4 m, +20% on slowed or rooted targets. 45 s cooldown; −15 s at level 5."
+      }
+    },
+    {
+      "id": "ast",
+      "name": "Arrow Storm",
+      "mono": "AS",
+      "category": "control",
+      "level": {
+        "pt": "5",
+        "en": "5"
+      },
+      "usage": 26,
+      "description": {
+        "pt": "Mira um alvo a 20 m e causa dano de Vento em até 4 inimigos a 4 m, com 50% de chance de atordoar por 3 s (garantido em NPC). 50 de dano na barra de Stagger. 200 de MP, recarga de 60 s.",
+        "en": "Targets an enemy within 20 m and deals Wind damage to up to 4 enemies within 4 m, with a 50% chance to stun for 3 s (always on NPCs). 50 Stagger damage. 200 MP, 60 s cooldown."
+      }
+    },
+    {
+      "id": "sea",
+      "name": "Sealing Arrow",
+      "mono": "SeA",
+      "category": "control",
+      "level": {
+        "pt": "média de 3,3 entre os do topo",
+        "en": "top players average 3.3"
+      },
+      "usage": 2,
+      "description": {
+        "pt": "Dano de Vento em um alvo a 20 m com 75% de chance de selar por 5 s (garantido em NPC). 200 de MP, recarga de 60 s.",
+        "en": "Wind damage to one target within 20 m with a 75% chance to Seal for 5 s (always on NPCs). 200 MP, 60 s cooldown."
+      }
+    },
+    {
+      "id": "st",
+      "name": "Stealth",
+      "mono": "St",
+      "category": "move",
+      "level": {
+        "pt": "média de 4 entre os do topo",
+        "en": "top players average 4"
+      },
+      "usage": 2,
+      "description": {
+        "pt": "Furtividade por 10 s, só fora de combate. Recarga de 120 s. No nível 5, o ataque saindo da furtividade é crítico.",
+        "en": "Stealth for 10 s, out of combat only. 120 s cooldown. At level 5, attacks from stealth are critical hits."
+      }
+    },
+    {
+      "id": "mnb",
+      "name": "Mother Nature's Breath",
+      "mono": "MNB",
+      "category": "aura",
+      "level": {
+        "pt": "sem dados",
+        "en": "no data"
+      },
+      "usage": 2,
+      "description": {
+        "pt": "Por 6 s: +20% de tolerância a dano em PvE, +10% em PvP e +200 de resistência a crítico, com 50% de chance de absorver 25% do dano recebido como HP. Recarga de 90 s.",
+        "en": "For 6 s: +20% PvE damage tolerance, +10% PvP damage tolerance and +200 critical hit resistance, with a 50% chance to absorb 25% of damage taken as HP. 90 s cooldown."
+      }
+    },
+    {
+      "id": "ak",
+      "name": "Ambush Kick",
+      "mono": "AK",
+      "category": "control",
+      "level": {
+        "pt": "média de 2,5 entre os do topo",
+        "en": "top players average 2.5"
+      },
+      "usage": 1.3,
+      "description": {
+        "pt": "Vai para as costas de um alvo a 5 m, causa dano de Vento, empurra e você recua. Recarga de 30 s.",
+        "en": "Moves behind a target within 5 m, deals Wind damage and knocks it back, then you step back. 30 s cooldown."
+      }
+    },
+    {
+      "id": "ia",
+      "name": "Illusory Arrow",
+      "mono": "IA",
+      "category": "control",
+      "level": {
+        "pt": "sem dados",
+        "en": "no data"
+      },
+      "description": {
+        "pt": "Dano de Vento em um alvo a 20 m e cegueira por 3 s. 200 de MP, recarga de 30 s.",
+        "en": "Wind damage to one target within 20 m and blinds it for 3 s. 200 MP, 30 s cooldown."
+      }
+    },
+    {
+      "id": "ent",
+      "name": "Ensnaring Trap",
+      "mono": "EnT",
+      "category": "control",
+      "level": {
+        "pt": "sem dados",
+        "en": "no data"
+      },
+      "description": {
+        "pt": "Armadilha no seu lugar por 30 s. Quem pisa toma dano de Terra (até 4 inimigos a 5 m) e é lançado ao ar por 3 s. Recarga de 90 s.",
+        "en": "Trap at your position for 30 s. Stepping on it deals Earth damage (up to 4 enemies within 5 m) and launches them Airborne for 3 s. 90 s cooldown."
+      }
+    },
+    {
+      "id": "asm",
+      "name": "Assault Smite",
+      "mono": "ASm",
+      "category": "control",
+      "level": {
+        "pt": "sem dados",
+        "en": "no data"
+      },
+      "description": {
+        "pt": "Mira um alvo a 20 m e causa dano de Vento em até 4 inimigos a 4 m, com 30% de chance de atordoar por 3 s (garantido em NPC). Sobe sua Defesa em até 20% conforme os alvos atingidos. Recarga de 120 s.",
+        "en": "Targets an enemy within 20 m and deals Wind damage to up to 4 enemies within 4 m, with a 30% chance to stun for 3 s (always on NPCs). Raises your Defense by up to 20% with the number of targets hit. 120 s cooldown."
+      }
+    }
+  ],
+  "modes": [
+    {
+      "id": "pve",
+      "name": {
+        "pt": "PvE de fim de jogo",
+        "en": "Endgame PvE"
+      },
+      "lead": {
+        "pt": "O que os jogadores do topo usam: todas as skills de dano no 7, dois buffs de dano e dois Stigmas de dano passivo.",
+        "en": "What top players run: every damage skill at 7, two damage buffs and two passive-damage Stigmas."
+      },
+      "basis": {
+        "pt": "Baseado em 151 jogadores do topo (dados de 2026-10-02)",
+        "en": "Based on 151 top players (data from 2026-10-02)"
+      },
+      "fixed": ["va", "bb", "sf", "gra"],
+      "stigmaLevels": {
+        "va": 5,
+        "bb": 6,
+        "sf": 7,
+        "gra": 6
+      },
+      "flex": [
+        {
+          "stigma": "ea",
+          "when": {
+            "pt": "Alternativa mais comum (37% dos do topo)",
+            "en": "Most common alternative (37% of top players)"
+          }
+        },
+        {
+          "stigma": "ast",
+          "when": {
+            "pt": "Segunda alternativa (26% dos do topo)",
+            "en": "Second alternative (26% of top players)"
+          }
+        }
+      ],
+      "rotation": [],
+      "note": {
+        "pt": "Os níveis mostrados são os pontos treinados. Daevanion e equipamento somam níveis extras: +3 em Snipe, Tempest Shot, Arrow Scattershot, Vigilant Eye, Melee Fire, Focused Eye e Hunter's Resolve; +2 em Deadshot, Gale Arrow, Drill Dart, Burst Arrow, Suppressing Arrow, Concentrated Fire, Rooting Eye, Wind Vigor e Revitalization Contract; +1 em Marking Shot, Snare Shot e Explosion Trap.",
+        "en": "The levels shown are trained points. Daevanion and gear add extra levels: +3 on Snipe, Tempest Shot, Arrow Scattershot, Vigilant Eye, Melee Fire, Focused Eye and Hunter's Resolve; +2 on Deadshot, Gale Arrow, Drill Dart, Burst Arrow, Suppressing Arrow, Concentrated Fire, Rooting Eye, Wind Vigor and Revitalization Contract; +1 on Marking Shot, Snare Shot and Explosion Trap."
+      }
+    },
+    {
+      "id": "leveling",
+      "name": {
+        "pt": "Upando do 1 ao 45",
+        "en": "Leveling 1–45"
+      },
+      "lead": {
+        "pt": "Poucos pontos, então tudo vai para a Precisão e para os tiros de dano bônus. A lentidão fica só para liberar o Burst Arrow.",
+        "en": "Few points, so everything goes into Precision and the bonus-damage shots. The slow is only there to unlock Burst Arrow."
+      },
+      "basis": {
+        "pt": "Build editorial da MetaBot.GG",
+        "en": "MetaBot.GG editorial build"
+      },
+      "fixed": ["va", "bb", "sf", "gra"],
+      "stigmaLevels": {
+        "va": 8,
+        "bb": 7,
+        "sf": 5,
+        "gra": 4
+      },
+      "overrides": [
+        { "skill": "sn", "level": 10, "why": { "pt": "Tiro gratuito, entre os primeiros a ir ao máximo.", "en": "Free shot, among the first to max." } },
+        { "skill": "ts", "level": 10, "why": { "pt": "Tiro básico, entre os primeiros a ir ao máximo.", "en": "Basic shot, among the first to max." } },
+        { "skill": "ms", "level": 10, "why": { "pt": "Dá Precisão e move você. Vai ao máximo primeiro.", "en": "Grants Precision and moves you. Maxes first." } },
+        { "skill": "dd", "level": 10, "why": { "pt": "Sangramento que alimenta as passivas de dano contínuo.", "en": "Bleed that feeds the damage-over-time passives." } },
+        { "skill": "ga", "level": 10, "why": { "pt": "Tiro de dano bônus.", "en": "Bonus-damage shot." } },
+        { "skill": "ba", "level": 10, "why": { "pt": "Tiro de dano bônus.", "en": "Bonus-damage shot." } },
+        { "skill": "ds", "level": 10, "why": { "pt": "Tiro de dano bônus, carregado com a Precisão ativa.", "en": "Bonus-damage shot, charged while Precision is up." } },
+        { "skill": "et", "level": 0, "why": { "pt": "Sem pontos nesta build.", "en": "No points in this build." } },
+        { "skill": "sa", "level": 0, "why": { "pt": "Sem pontos nesta build.", "en": "No points in this build." } },
+        { "skill": "asc", "level": 0, "why": { "pt": "Sem pontos nesta build.", "en": "No points in this build." } }
+      ],
+      "rotation": [
+        { "pt": "**Marking Shot** para ganhar Precisão.", "en": "**Marking Shot** for Precision." },
+        { "pt": "**Snare Shot** para deixar o grupo lento.", "en": "**Snare Shot** to slow the pack." },
+        { "pt": "**Burst Arrow** nos alvos com lentidão.", "en": "**Burst Arrow** into the slowed targets." },
+        { "pt": "**Gale Arrow**.", "en": "**Gale Arrow**." },
+        { "pt": "**Deadshot** carregado enquanto a Precisão dura.", "en": "Charged **Deadshot** while Precision lasts." },
+        { "pt": "**Drill Dart** e depois os dois tiros básicos, **Snipe** e **Tempest Shot**.", "en": "**Drill Dart**, then the two basic shots, **Snipe** and **Tempest Shot**." }
+      ],
+      "why": [
+        { "pt": "**Marking Shot** dá Precisão e move você. Ela e os dois tiros gratuitos são os primeiros a ir ao máximo.", "en": "**Marking Shot** grants Precision and moves you. It and the two free shots are the first to max." },
+        { "pt": "**Gale Arrow**, **Burst Arrow** e **Deadshot** são os tiros de dano bônus. **Snare Shot** fica no 7 porque só serve para liberar o Burst Arrow.", "en": "**Gale Arrow**, **Burst Arrow** and **Deadshot** are the bonus-damage shots. **Snare Shot** stays at 7 because it only needs to unlock Burst Arrow." },
+        { "pt": "Passivas de Precisão e dano e de dano crítico no máximo. **Concentrated Fire** no 5 dá golpes extras em tudo que está sangrando.", "en": "Accuracy and damage passive and critical damage passive maxed. **Concentrated Fire** at 5 adds free hits on anything bleeding." },
+        { "pt": "Stigmas: **Vaizel's Authority** no 22 e **Bow of Blessing** no 27 são o que os do topo usam. **Supporting Fire** no 32 e **Griffon Arrow** no 37 somam dano passivo.", "en": "Stigmas: **Vaizel's Authority** at 22 and **Bow of Blessing** at 27 are what top Rangers run. **Supporting Fire** at 32 and **Griffon Arrow** at 37 add passive damage." }
+      ],
+      "note": {
+        "pt": "Passivas nesta build: Focused Eye e Hunter's Resolve no 10, Concentrated Fire no 5. As outras ficam sem pontos.",
+        "en": "Passives in this build: Focused Eye and Hunter's Resolve at 10, Concentrated Fire at 5. The others get no points."
+      }
+    },
+    {
+      "id": "pvp",
+      "name": {
+        "pt": "PvP",
+        "en": "PvP"
+      },
+      "lead": {
+        "pt": "Manter distância: lentidão para fugir, atordoamento durante a Precisão e então a janela de dano completa.",
+        "en": "Keep your distance: a slow to kite, a stun while Precision is up, then the full damage window."
+      },
+      "basis": {
+        "pt": "Build editorial da MetaBot.GG",
+        "en": "MetaBot.GG editorial build"
+      },
+      "fixed": ["va", "bb", "ast", "ea"],
+      "stigmaLevels": {
+        "va": 8,
+        "bb": 7,
+        "ast": 5,
+        "ea": 4
+      },
+      "overrides": [
+        { "skill": "sn", "level": 10, "why": { "pt": "Tiro gratuito para atirar fugindo.", "en": "Free shot to fire while kiting." } },
+        { "skill": "ts", "level": 10, "why": { "pt": "Tiro básico para atirar fugindo.", "en": "Basic shot to fire while kiting." } },
+        { "skill": "ss", "level": 10, "why": { "pt": "Ferramenta de fuga. Libera o Burst Arrow e o bônus do Explosive Arrow.", "en": "Kiting tool. Unlocks Burst Arrow and the Explosive Arrow bonus." } },
+        { "skill": "ms", "level": 10, "why": { "pt": "Precisão para o atordoamento e o Deadshot.", "en": "Precision for the stun and Deadshot." } },
+        { "skill": "dd", "level": 10, "why": { "pt": "Corta a cura do alvo.", "en": "Cuts the target's healing." } },
+        { "skill": "ga", "level": 10, "why": { "pt": "Dano e velocidade de combate enquanto foge.", "en": "Damage and combat speed while kiting." } },
+        { "skill": "ba", "level": 10, "why": { "pt": "Dano no alvo com lentidão.", "en": "Damage on the slowed target." } },
+        { "skill": "sa", "level": 10, "why": { "pt": "A adição do PvP: atordoa durante a Precisão.", "en": "The PvP addition: stuns while Precision is up." } },
+        { "skill": "ds", "level": 10, "why": { "pt": "O golpe mais forte da janela de dano.", "en": "The hardest hit of the damage window." } },
+        { "skill": "et", "level": 0, "why": { "pt": "Sem pontos nesta build.", "en": "No points in this build." } },
+        { "skill": "asc", "level": 0, "why": { "pt": "Sem pontos nesta build.", "en": "No points in this build." } }
+      ],
+      "rotation": [
+        { "pt": "**Marking Shot** para ganhar Precisão.", "en": "**Marking Shot** for Precision." },
+        { "pt": "**Snare Shot** para deixar lento.", "en": "**Snare Shot** to slow." },
+        { "pt": "**Suppressing Arrow** para atordoar enquanto a Precisão dura.", "en": "**Suppressing Arrow** to stun while Precision lasts." },
+        { "pt": "**Burst Arrow**.", "en": "**Burst Arrow**." },
+        { "pt": "**Deadshot** carregado.", "en": "Charged **Deadshot**." },
+        { "pt": "**Arrow Storm** se houver mais de um inimigo perto.", "en": "**Arrow Storm** if more than one enemy is close." },
+        { "pt": "**Gale Arrow** e os tiros básicos enquanto foge.", "en": "**Gale Arrow** and the basic shots while kiting." }
+      ],
+      "why": [
+        { "pt": "**Snare Shot** vai ao máximo aqui: é a ferramenta de fuga e libera o Burst Arrow e o dano bônus do **Explosive Arrow**.", "en": "**Snare Shot** is maxed here: it is your kiting tool and unlocks Burst Arrow and the bonus damage on **Explosive Arrow**." },
+        { "pt": "**Suppressing Arrow**, que atordoa com a Precisão ativa, é a adição do PvP: marcar, atordoar e então a janela de dano completa.", "en": "**Suppressing Arrow**, which stuns while Precision is active, is the PvP addition: mark, stun, then the full damage window." },
+        { "pt": "Passiva de dano crítico no máximo. **Wind Vigor** no 5 ajuda a escapar depois de tomar um golpe.", "en": "Critical damage passive maxed. **Wind Vigor** at 5 helps you get away after taking a hit." },
+        { "pt": "Stigmas: **Vaizel's Authority**, **Bow of Blessing**, **Arrow Storm** no 32 e **Explosive Arrow** no 37.", "en": "Stigmas: **Vaizel's Authority**, **Bow of Blessing**, **Arrow Storm** at 32 and **Explosive Arrow** at 37." }
+      ],
+      "note": {
+        "pt": "Passivas na lista da fonte: Focused Eye no 7 e Wind Vigor no 5. O texto fala em passiva de dano crítico no máximo, mas Hunter's Resolve não aparece na lista de skills dessa build.",
+        "en": "Passives in the source's list: Focused Eye at 7 and Wind Vigor at 5. The text mentions the critical damage passive maxed, but Hunter's Resolve does not appear in this build's skill list."
+      }
+    }
+  ],
+  "sources": [
+    {
+      "title": "Shugo.GG: Ranger skills",
+      "url": "https://shugo.gg/skills/ranger"
+    },
+    {
+      "title": "MetaBot.GG: Ranger build planner",
+      "url": "https://metabot.gg/en/aion-2/classes/ranger/build"
+    }
+  ]
 }
