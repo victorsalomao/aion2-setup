@@ -18,6 +18,8 @@
     {
       "id": "fs",
       "name": "Firestorm",
+      "namePt": "Saraivada Flamejante",
+      "icon": "https://metabot.gg/web/aion2/skills/15040000.webp",
       "mono": "FS",
       "category": "damage",
       "level": 7,
@@ -34,6 +36,8 @@
     {
       "id": "fa",
       "name": "Flame Arrow",
+      "namePt": "Flecha Flamejante",
+      "icon": "https://metabot.gg/web/aion2/skills/15210000.webp",
       "mono": "FA",
       "category": "damage",
       "level": 7,
@@ -50,6 +54,8 @@
     {
       "id": "bl",
       "name": "Blaze",
+      "namePt": "Explosão de Chamas",
+      "icon": "https://metabot.gg/web/aion2/skills/15050000.webp",
       "mono": "Bl",
       "category": "damage",
       "level": 7,
@@ -66,6 +72,8 @@
     {
       "id": "hf",
       "name": "Hellfire",
+      "namePt": "Chamas Infernais",
+      "icon": "https://metabot.gg/web/aion2/skills/15060000.webp",
       "mono": "HF",
       "category": "damage",
       "level": 7,
@@ -82,6 +90,8 @@
     {
       "id": "bw",
       "name": "Bittercold Wind",
+      "namePt": "Vento do Frio Intenso",
+      "icon": "https://metabot.gg/web/aion2/skills/15280000.webp",
       "mono": "BW",
       "category": "damage",
       "level": 7,
@@ -98,6 +108,8 @@
     {
       "id": "wc",
       "name": "Wish of Concentration",
+      "namePt": "Súplica de Concentração",
+      "icon": "https://metabot.gg/web/aion2/skills/15310000.webp",
       "mono": "WC",
       "category": "aura",
       "level": 7,
@@ -114,6 +126,8 @@
     {
       "id": "ic",
       "name": "Ice Chain",
+      "namePt": "Corrente de Gelo",
+      "icon": "https://metabot.gg/web/aion2/skills/15090000.webp",
       "mono": "IC",
       "category": "control",
       "level": 7,
@@ -130,6 +144,8 @@
     {
       "id": "ws",
       "name": "Winter's Shackles",
+      "namePt": "Contenção do Inverno",
+      "icon": "https://metabot.gg/web/aion2/skills/15110000.webp",
       "mono": "WS",
       "category": "control",
       "level": 7,
@@ -146,6 +162,8 @@
     {
       "id": "fsc",
       "name": "Flame Scattershot",
+      "namePt": "Rajada de Chamas",
+      "icon": "https://metabot.gg/web/aion2/skills/15010000.webp",
       "mono": "FSc",
       "category": "damage",
       "level": 7,
@@ -162,6 +180,8 @@
     {
       "id": "fb",
       "name": "Frost Burst",
+      "namePt": "Explosão Congelante",
+      "icon": "https://metabot.gg/web/aion2/skills/15220000.webp",
       "mono": "FB",
       "category": "damage",
       "level": 7,
@@ -178,6 +198,8 @@
     {
       "id": "fr",
       "name": "Frost",
+      "namePt": "Congelamento",
+      "icon": "https://metabot.gg/web/aion2/skills/15150000.webp",
       "mono": "Fr",
       "category": "control",
       "level": 7,
@@ -194,6 +216,8 @@
     {
       "id": "df",
       "name": "Defiance",
+      "namePt": "Remoção de Impacto",
+      "icon": "https://metabot.gg/web/aion2/skills/15240000.webp",
       "mono": "Df",
       "category": "heal",
       "level": 0,
@@ -211,6 +235,8 @@
     {
       "id": "fm",
       "name": "Fire Mark",
+      "namePt": "Marca de Fogo",
+      "icon": "https://metabot.gg/web/aion2/skills/15710000.webp",
       "mono": "FM",
       "category": "passive",
       "level": 7,
@@ -227,6 +253,8 @@
     {
       "id": "re",
       "name": "Robe of Earth",
+      "namePt": "Manto da Terra",
+      "icon": "https://metabot.gg/web/aion2/skills/15720000.webp",
       "mono": "RE",
       "category": "passive",
       "level": 7,
@@ -243,6 +271,8 @@
     {
       "id": "cs",
       "name": "Cold Snap",
+      "namePt": "Invocação Gélida",
+      "icon": "https://metabot.gg/web/aion2/skills/15730000.webp",
       "mono": "CS",
       "category": "passive",
       "level": 7,
@@ -259,6 +289,8 @@
     {
       "id": "rf",
       "name": "Robe of Flame",
+      "namePt": "Manto de Chamas",
+      "icon": "https://metabot.gg/web/aion2/skills/15740000.webp",
       "mono": "RF",
       "category": "passive",
       "level": 7,
@@ -275,6 +307,8 @@
     {
       "id": "ae",
       "name": "Absorb Essence",
+      "namePt": "Absorção de Essência",
+      "icon": "https://metabot.gg/web/aion2/skills/15760000.webp",
       "mono": "AE",
       "category": "passive",
       "level": 7,
@@ -291,6 +325,8 @@
     {
       "id": "gr",
       "name": "Grace of Resistance",
+      "namePt": "Graça da Resistência",
+      "icon": "https://metabot.gg/web/aion2/skills/15770000.webp",
       "mono": "GR",
       "category": "passive",
       "level": 6,
@@ -307,6 +343,8 @@
     {
       "id": "rc",
       "name": "Robe of Cold",
+      "namePt": "Manto Gélido",
+      "icon": "https://metabot.gg/web/aion2/skills/15750000.webp",
       "mono": "RC",
       "category": "passive",
       "level": 7,
@@ -323,6 +361,8 @@
     {
       "id": "ge",
       "name": "Grace of Enhancement",
+      "namePt": "Graça do Aprimoramento",
+      "icon": "https://metabot.gg/web/aion2/skills/15780000.webp",
       "mono": "GE",
       "category": "passive",
       "level": 8,
@@ -339,6 +379,8 @@
     {
       "id": "rv",
       "name": "Revitalization Contract",
+      "namePt": "Pacto de Revitalização",
+      "icon": "https://metabot.gg/web/aion2/skills/15790000.webp",
       "mono": "RvC",
       "category": "passive",
       "level": 8,
@@ -355,6 +397,8 @@
     {
       "id": "ve",
       "name": "Vitality Evaporation",
+      "namePt": "Evaporação da Força Vital",
+      "icon": "https://metabot.gg/web/aion2/skills/15800000.webp",
       "mono": "VE",
       "category": "passive",
       "level": 9,
@@ -373,6 +417,8 @@
     {
       "id": "ee",
       "name": "Element Enhancement",
+      "namePt": "Aprimoramento Elemental",
+      "icon": "https://metabot.gg/web/aion2/skills/15400000.webp",
       "mono": "EE",
       "category": "aura",
       "level": {
@@ -388,6 +434,8 @@
     {
       "id": "de",
       "name": "Delayed Explosion",
+      "namePt": "Explosão Tardia",
+      "icon": "https://metabot.gg/web/aion2/skills/15320000.webp",
       "mono": "DE",
       "category": "damage",
       "level": {
@@ -403,6 +451,8 @@
     {
       "id": "fw",
       "name": "Fire Wall",
+      "namePt": "Barreira de Fogo",
+      "icon": "https://metabot.gg/web/aion2/skills/15390000.webp",
       "mono": "FW",
       "category": "damage",
       "level": {
@@ -418,6 +468,8 @@
     {
       "id": "cst",
       "name": "Cold Storm",
+      "namePt": "Tempestade Gélida",
+      "icon": "https://metabot.gg/web/aion2/skills/15200000.webp",
       "mono": "CSt",
       "category": "damage",
       "level": {
@@ -433,6 +485,8 @@
     {
       "id": "sb",
       "name": "Steel Barrier",
+      "namePt": "Escudo Protetivo de Aço",
+      "icon": "https://metabot.gg/web/aion2/skills/15160000.webp",
       "mono": "SB",
       "category": "heal",
       "level": {
@@ -448,6 +502,8 @@
     {
       "id": "db",
       "name": "Divine Burst",
+      "namePt": "Explosão Divina",
+      "icon": "https://metabot.gg/web/aion2/skills/15360000.webp",
       "mono": "DB",
       "category": "damage",
       "level": {
@@ -463,6 +519,8 @@
     {
       "id": "gs",
       "name": "Glacial Smite",
+      "namePt": "Golpe Potente Glacial",
+      "icon": "https://metabot.gg/web/aion2/skills/15120000.webp",
       "mono": "GSm",
       "category": "damage",
       "level": {
@@ -478,6 +536,8 @@
     {
       "id": "aa",
       "name": "Arctic Armor",
+      "namePt": "Armadura Ártica",
+      "icon": "https://metabot.gg/web/aion2/skills/15230000.webp",
       "mono": "AA",
       "category": "heal",
       "level": {
@@ -493,6 +553,8 @@
     {
       "id": "sf",
       "name": "Soul Freeze",
+      "namePt": "Glaciação da Alma",
+      "icon": "https://metabot.gg/web/aion2/skills/15130000.webp",
       "mono": "SF",
       "category": "control",
       "level": {
@@ -508,6 +570,8 @@
     {
       "id": "hb",
       "name": "Hibernation",
+      "namePt": "Hibernação",
+      "icon": "https://metabot.gg/web/aion2/skills/15410000.webp",
       "mono": "Hb",
       "category": "heal",
       "level": {
@@ -523,6 +587,8 @@
     {
       "id": "ct",
       "name": "Curse: Tree",
+      "namePt": "Maldição: Árvore",
+      "icon": "https://metabot.gg/web/aion2/skills/15140000.webp",
       "mono": "CT",
       "category": "control",
       "level": {
@@ -538,6 +604,8 @@
     {
       "id": "ls",
       "name": "Lumiel's Space",
+      "namePt": "Espaço de Lumiel",
+      "icon": "https://metabot.gg/web/aion2/skills/15300000.webp",
       "mono": "LS",
       "category": "control",
       "level": {
@@ -553,6 +621,8 @@
     {
       "id": "ab",
       "name": "Assault Bombardment",
+      "namePt": "Bombardeio Súbito",
+      "icon": "https://metabot.gg/web/aion2/skills/15700000.webp",
       "mono": "AB",
       "category": "control",
       "level": {

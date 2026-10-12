@@ -1,12 +1,20 @@
 ---
 /**
  * Banco de receitas: todas as receitas vêm renderizadas no HTML (o Google lê e a
- * página funciona sem JavaScript). O script só esconde o que não passa no filtro e
- * abre o painel de um item: receita, árvore até os materiais brutos e "usado em".
- * Dados: src/data/crafting.json (Shugo.GG). Contas: src/lib/recipes.ts.
+ * página funciona sem JavaScript). O script só esconde o que não passa no filtro,
+ * põe os ícones e abre o painel de um item: receita, árvore até os materiais
+ * brutos e "usado em".
+ * Dados: src/data/crafting.json (MetaBot.GG + faixa de sucesso do Shugo.GG).
+ * Contas: src/lib/recipes.ts.
+ *
+ * Peso da página: os cards do HTML levam o nome no idioma da página e o id do
+ * item em data-item. O ícone (quadrado de iniciais .ic + imagem) e o nome no
+ * outro idioma entram pelo script, a partir do payload; assim a URL do ícone e o
+ * segundo nome não se repetem milhares de vezes no HTML. As receitas vão no
+ * payload como tuplas (ver `packed`).
  */
 import data from '../data/crafting.json';
-import { flatten, isUpgrade, type Profession } from '../lib/recipes';
+import { flatten, isUpgrade, type ItemDb, type Profession } from '../lib/recipes';
 import type { Lang } from '../i18n';
 
 interface Props { lang: Lang }
@@ -14,41 +22,70 @@ const { lang } = Astro.props;
 
 const copy = {
   pt: {
-    locale: 'pt-BR', search: 'Buscar item ou material', searchPh: 'ex.: Orichalcum, Balaur, poção',
+    locale: 'pt-BR', search: 'Buscar item ou material (português ou inglês)', searchPh: 'ex.: Oricalco, Orichalcum, Balaur, poção',
     profession: 'Profissão', all: 'Todas', faction: 'Facção', both: 'Ambas', elyos: 'Elyos', asmodian: 'Asmodiano',
     mastery: 'Maestria', from: 'de', to: 'até', upgrade: 'Evolução', upgradeHint: 'Maestria 0 = receitas de evolução, que sobem uma peça que você já tem de degrau e não pedem maestria.',
     success: 'sucesso', count: '{n} receitas', none: 'Nenhuma receita com esses filtros.', clear: 'Limpar filtros',
     close: 'Fechar', makes: 'Como fabricar', usedIn: 'Usado em', usedNone: 'Nenhuma receita pede este item.',
     raw: 'Não tem receita: vem de coleta, drop de monstro, loja ou evento.',
-    combo: 'Não tem receita própria: sai no combo (grande sucesso) ao fabricar {base}.',
+    gather: 'Não tem receita: vem da coleta (Extração de Essência).',
+    combo: 'Não tem receita própria: sai no combo (grande sucesso, {pct}%) ao fabricar {base}.',
+    comboAlso: 'Também sai no combo ({pct}%) ao fabricar {base}.',
+    comboGives: 'Combo de {pct}% depois do sucesso: sai {item}.',
+    comboOnly: 'Combo de {pct}% depois do sucesso.',
     tree: 'Árvore de materiais', totals: 'Materiais brutos', craft: 'Fabricar', crafts: '{n}× fabricação',
-    cycle: 'volta para cima na árvore', pick: 'Toque num material para ver de onde vem e onde é usado.',
-    upgradeNote: 'Evolução: além dos materiais abaixo, consome a peça do degrau anterior.',
+    cycle: 'volta para cima na árvore', pick: 'Toque num item para ver de onde vem, onde é usado e a árvore até os materiais brutos.',
+    upgradeNote: 'Evolução Dragon Lord: além dos materiais abaixo, consome a peça do degrau anterior. O passo a passo completo está no <a href="{href}">menu Dragon Lord</a>.',
     output: 'rende', open: 'Abrir',
   },
   en: {
-    locale: 'en', search: 'Search item or material', searchPh: 'e.g. Orichalcum, Balaur, potion',
+    locale: 'en', search: 'Search item or material (English or Portuguese)', searchPh: 'e.g. Orichalcum, Balaur, potion',
     profession: 'Profession', all: 'All', faction: 'Faction', both: 'Both', elyos: 'Elyos', asmodian: 'Asmodian',
     mastery: 'Mastery', from: 'from', to: 'to', upgrade: 'Upgrade', upgradeHint: 'Mastery 0 = upgrade recipes, which take a piece you already own up one tier and need no mastery.',
     success: 'success', count: '{n} recipes', none: 'No recipe matches these filters.', clear: 'Clear filters',
     close: 'Close', makes: 'How to craft', usedIn: 'Used in', usedNone: 'No recipe uses this item.',
     raw: 'No recipe: it comes from gathering, monster drops, a shop or an event.',
-    combo: 'No recipe of its own: it comes from a combo (great success) when crafting {base}.',
+    gather: 'No recipe: it comes from gathering (Essence Extraction).',
+    combo: 'No recipe of its own: it comes from a combo (great success, {pct}%) when crafting {base}.',
+    comboAlso: 'Also comes from the combo ({pct}%) when crafting {base}.',
+    comboGives: '{pct}% combo after a success: yields {item}.',
+    comboOnly: '{pct}% combo after a success.',
     tree: 'Material tree', totals: 'Raw materials', craft: 'Craft', crafts: '{n}× craft',
-    cycle: 'loops back up the tree', pick: 'Tap a material to see where it comes from and where it is used.',
-    upgradeNote: 'Upgrade: besides the materials below, it consumes the piece from the previous tier.',
+    cycle: 'loops back up the tree', pick: 'Tap an item to see where it comes from, where it is used and the tree down to raw materials.',
+    upgradeNote: 'Dragon Lord upgrade: besides the materials below, it consumes the piece from the previous tier. The full step-by-step is in the <a href="{href}">Dragon Lord menu</a>.',
     output: 'makes', open: 'Open',
   },
 }[lang];
 
 const professions = data.professions as Profession[];
+const db = data.items as ItemDb;
 const rows = flatten(professions);
 const profName = Object.fromEntries(professions.map((p) => [p.id, p.name[lang]]));
 const pct = (n: number) => n.toLocaleString(copy.locale, { maximumFractionDigits: 1 });
 const factionLabel = { both: '', elyos: copy.elyos, asmodian: copy.asmodian } as const;
-const payload = { copy, lang, profName, rows };
+const nm = (id: number) => db[id]?.[lang] ?? String(id);
+
+/* payload enxuto: só os itens usados, com nome nos dois idiomas e o arquivo do ícone */
+const used = new Set<number>();
+rows.forEach((r) => { used.add(r.product); r.materials.forEach((m) => used.add(m.id)); if (r.comboResult) used.add(r.comboResult); });
+const items = Object.fromEntries([...used].map((id) => {
+  const it = db[id];
+  return [id, { en: it.en, pt: it.pt, icon: it.icon, ...(it.gather ? { gather: true } : {}) }];
+}));
+/**
+ * receita em tupla: [id, profissão, produto, qtd, maestria, sucesso mín, sucesso máx,
+ * combo, resultado do combo, facção, ...materiais (id, qtd, id, qtd...)]
+ */
+const FACTIONS = ['both', 'elyos', 'asmodian'] as const;
+const profIds = professions.map((p) => p.id);
+const packed = rows.map((r) => [
+  r.id, profIds.indexOf(r.profession), r.product, r.qty, r.mastery, r.success?.min ?? -1, r.success?.max ?? -1,
+  r.combo, r.comboResult ?? 0, FACTIONS.indexOf(r.faction), ...r.materials.flatMap((m) => [m.id, m.qty]),
+]);
+const payload = { copy, lang, iconBase: data.iconBase, profName, profIds, items, rows: packed };
+const craftHref = lang === 'pt' ? '/tools/craft/' : '/en/tools/craft/';
 ---
-<div class="rb" data-rb>
+<div class="rb" data-rb data-craft-href={craftHref}>
   <script type="application/json" data-payload set:html={JSON.stringify(payload)} />
   <form class="rb-filters panel" data-filters onsubmit="return false">
     <label class="rb-search"><span class="small muted">{copy.search}</span>
@@ -83,7 +120,7 @@ const payload = { copy, lang, profName, rows };
       {rows.map((r) => (
         <article class="rc" data-rc={r.id}>
           <div class="rc-head">
-            <button type="button" class="rc-name" data-item={r.product}>{r.product}</button>
+            <button class="rc-name" data-item={r.product}><span class="nm">{nm(r.product)}</span></button>
             {r.qty > 1 && <span class="num muted small">×{r.qty}</span>}
           </div>
           <div class="rc-meta small">
@@ -96,7 +133,7 @@ const payload = { copy, lang, profName, rows };
           </div>
           <ul class="rc-mats">
             {r.materials.map((m) => (
-              <li><button type="button" class="chip" data-item={m.name}><span class="num">{m.qty}×</span> {m.name}</button></li>
+              <li><button class="chip" data-item={m.id}><span class="num">{m.qty}×</span><span class="nm">{nm(m.id)}</span></button></li>
             ))}
           </ul>
         </article>
@@ -106,21 +143,62 @@ const payload = { copy, lang, profName, rows };
   </div>
 </div>
 
+<style is:global>
+  /* ícones e nome no outro idioma (o resto do estilo está em global.css) */
+  .rb .ic { --s: 22px; border-radius: 6px; }
+  .rb .rc-name { display: inline-flex; gap: 8px; align-items: center; }
+  .rb .rc-name .ic { --s: 34px; border-radius: 8px; }
+  .rb .nm { display: inline-flex; flex-direction: column; min-width: 0; line-height: 1.25; }
+  .rb .nm small { font-size: 0.74em; font-weight: 400; color: var(--muted); }
+  .rb .chip { align-items: center; gap: 6px; padding: 3px 10px 3px 3px; border-radius: 10px; }
+  .rb .rb-title { display: flex; gap: 12px; align-items: center; min-width: 0; }
+  .rb .rb-title .ic { --s: 52px; border-radius: 10px; }
+  .rb .tree .ic { --s: 18px; border-radius: 4px; vertical-align: middle; margin-right: 4px; }
+  .rb .rb-uses li { display: flex; gap: 6px; align-items: center; flex-wrap: wrap; }
+</style>
+
 <script>
   import {
-    comboBase, expand, filterRecipes, isUpgrade, pickRecipe, rawMaterials, recipesFor, usedIn,
-    type Faction, type RecipeRow, type TreeNode,
+    comboSource, expand, filterRecipes, findItem, isUpgrade, pickRecipe, rawMaterials, recipesFor, usedIn,
+    type Faction, type ItemDb, type Lang, type RecipeRow, type TreeNode,
   } from '../lib/recipes';
 
   const esc = (s: string) => s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
 
   document.querySelectorAll<HTMLElement>('[data-rb]').forEach((root) => {
-    const { copy, profName, rows } = JSON.parse(root.querySelector('[data-payload]')!.textContent || '{}') as {
-      copy: Record<string, string>; profName: Record<string, string>; rows: RecipeRow[];
+    const { copy, lang, iconBase, profName, profIds, items, rows: packed } = JSON.parse(root.querySelector('[data-payload]')!.textContent || '{}') as {
+      copy: Record<string, string>; lang: Lang; iconBase: string; profName: Record<string, string>; profIds: string[]; items: ItemDb; rows: number[][];
     };
+    const FACTIONS: Faction[] = ['both', 'elyos', 'asmodian'];
+    /** desfaz a tupla do payload (ver `packed` no frontmatter) */
+    const rows: RecipeRow[] = packed.map((t) => {
+      const mats = t.slice(10);
+      return {
+        id: t[0], profession: profIds[t[1]], product: t[2], qty: t[3], mastery: t[4],
+        success: t[5] < 0 ? null : { min: t[5], max: t[6] }, combo: t[7], ...(t[8] ? { comboResult: t[8] } : {}),
+        faction: FACTIONS[t[9]], materials: mats.filter((_, i) => i % 2 === 0).map((id, i) => ({ id, qty: mats[i * 2 + 1] })),
+      };
+    });
+    const other: Lang = lang === 'pt' ? 'en' : 'pt';
+    const craftHref = root.dataset.craftHref || '#';
     const fmt = (n: number) => n.toLocaleString(copy.locale);
     const pct = (n: number) => n.toLocaleString(copy.locale, { maximumFractionDigits: 1 });
     const fill = (tpl: string, v: Record<string, string | number>) => tpl.replace(/\{(\w+)\}/g, (_, k) => String(v[k] ?? ''));
+    const nm = (id: number) => items[id]?.[lang] ?? String(id);
+    const alt = (id: number) => items[id]?.[other] ?? '';
+    const mono = (name: string) => name.replace(/[^\p{L} ]/gu, '').split(' ').filter(Boolean).slice(-2).map((w) => w[0]).join('').toUpperCase();
+    const img = (id: number) => items[id]?.icon
+      ? `<img src="${esc(iconBase + items[id].icon)}" alt="" loading="lazy" decoding="async" referrerpolicy="no-referrer" onerror="this.remove()">` : '';
+    /** ícone com reserva: se a imagem não carregar, fica a sigla por baixo */
+    const icon = (id: number) => `<span class="ic h" aria-hidden="true"><b>${esc(mono(nm(id)))}</b>${img(id)}</span>`;
+    const names = (id: number) => `<span class="nm">${esc(nm(id))}<small lang="${other}">${esc(alt(id))}</small></span>`;
+
+    /* põe ícone e nome no outro idioma nos cards renderizados no servidor */
+    root.querySelectorAll<HTMLElement>('[data-list] [data-item]').forEach((el) => {
+      const id = Number(el.dataset.item);
+      el.insertAdjacentHTML('afterbegin', icon(id));
+      el.querySelector('.nm')?.insertAdjacentHTML('beforeend', `<small lang="${other}">${esc(alt(id))}</small>`);
+    });
 
     const q = root.querySelector<HTMLInputElement>('[data-q]')!;
     const prof = root.querySelector<HTMLSelectElement>('[data-prof]')!;
@@ -129,9 +207,9 @@ const payload = { copy, lang, profName, rows };
     const countEl = root.querySelector<HTMLElement>('[data-count]')!;
     const emptyEl = root.querySelector<HTMLElement>('[data-empty]')!;
     const detail = root.querySelector<HTMLElement>('[data-detail]')!;
-    const cards = new Map([...root.querySelectorAll<HTMLElement>('[data-rc]')].map((el) => [el.dataset.rc!, el]));
+    const cards = new Map([...root.querySelectorAll<HTMLElement>('[data-rc]')].map((el) => [Number(el.dataset.rc), el]));
     let faction: Faction = 'both';
-    let current: { name: string; count: number } | null = null;
+    let current: { id: number; count: number } | null = null;
 
     const num = (el: HTMLInputElement, dflt: number) => {
       const v = Math.floor(Number(el.value));
@@ -142,15 +220,16 @@ const payload = { copy, lang, profName, rows };
       const shown = new Set(filterRecipes(rows, {
         text: q.value, profession: prof.value || undefined, faction,
         minMastery: num(minEl, 0), maxMastery: num(maxEl, 100),
-      }).map((r) => r.id));
+      }, items).map((r) => r.id));
       cards.forEach((el, id) => { el.hidden = !shown.has(id); });
       countEl.textContent = fill(copy.count, { n: fmt(shown.size) });
       emptyEl.hidden = shown.size > 0;
     }
 
     /* ---------- painel do item ---------- */
-    const chip = (name: string, qty?: number) =>
-      `<button type="button" class="chip" data-item="${esc(name)}">${qty !== undefined ? `<span class="num">${fmt(qty)}×</span> ` : ''}${esc(name)}</button>`;
+    const chip = (id: number, qty?: number) =>
+      `<button type="button" class="chip" data-item="${id}">${icon(id)}${qty !== undefined ? `<span class="num">${fmt(qty)}×</span>` : ''}${names(id)}</button>`;
+    const link = (id: number) => `<button type="button" class="linkish" data-item="${id}">${esc(nm(id))}</button>`;
 
     function meta(r: RecipeRow): string {
       return `<span class="pill gold">${esc(profName[r.profession])}</span>`
@@ -161,7 +240,7 @@ const payload = { copy, lang, profName, rows };
     }
 
     function treeHtml(n: TreeNode, root = false): string {
-      const label = `${root ? '' : `<span class="num">${fmt(n.qty)}×</span> `}<button type="button" class="linkish" data-item="${esc(n.name)}">${esc(n.name)}</button>`
+      const label = `${root ? '' : `<span class="num">${fmt(n.qty)}×</span> `}${icon(n.id)}${link(n.id)}`
         + (n.crafts && !root ? ` <span class="muted small">(${fill(copy.crafts, { n: fmt(n.crafts) })})</span>` : '')
         + (n.cycle ? ` <span class="pill warn">${copy.cycle}</span>` : '');
       const kids = n.children.length ? `<ul class="tree">${n.children.map((c) => `<li>${treeHtml(c)}</li>`).join('')}</ul>` : '';
@@ -169,49 +248,52 @@ const payload = { copy, lang, profName, rows };
     }
 
     /** árvore e total de brutos para N fabricações */
-    function treeBlock(name: string, count: number, perCraft: number, f: Faction | undefined): string {
-      const tree = expand(rows, name, count * perCraft, { faction: f });
+    function treeBlock(id: number, count: number, perCraft: number, f: Faction | undefined): string {
+      const tree = expand(rows, id, count * perCraft, { faction: f });
       const deep = tree.children.some((c) => c.children.length);
       const totals = Object.entries(rawMaterials(tree)).sort((a, b) => b[1] - a[1]);
       return (deep ? `<h4>${copy.tree}</h4>${treeHtml(tree, true)}` : '')
-        + `<h4>${copy.totals}</h4><ul class="rc-mats">${totals.map(([n, qty]) => `<li>${chip(n, qty)}</li>`).join('')}</ul>`;
+        + `<h4>${copy.totals}</h4><ul class="rc-mats">${totals.map(([mid, qty]) => `<li>${chip(Number(mid), qty)}</li>`).join('')}</ul>`;
     }
 
-    function openItem(name: string, count = 1, scroll = true) {
-      current = { name, count };
+    function openItem(id: number, count = 1, scroll = true) {
+      current = { id, count };
       const f = faction === 'both' ? undefined : faction;
-      const makes = recipesFor(rows, name, f);
-      const picked = pickRecipe(rows, name, f);
-      const base = makes.length ? undefined : comboBase(rows, name);
-      const uses = usedIn(rows, name, f);
+      const makes = recipesFor(rows, id, f);
+      const picked = pickRecipe(rows, id, f);
+      const src = comboSource(rows, id, f);
+      const uses = usedIn(rows, id, f);
 
       let how = '';
       if (makes.length) {
         how = `<h4>${copy.makes}</h4>` + makes.map((r) => `<div class="rb-recipe">
             <div class="rc-meta small">${meta(r)}</div>
-            ${isUpgrade(r) ? `<p class="small muted">${copy.upgradeNote}</p>` : ''}
-            <ul class="rc-mats">${r.materials.map((m) => `<li>${chip(m.name, m.qty)}</li>`).join('')}</ul></div>`).join('');
+            ${isUpgrade(r) ? `<p class="small muted">${fill(copy.upgradeNote, { href: craftHref })}</p>` : ''}
+            <ul class="rc-mats">${r.materials.map((m) => `<li>${chip(m.id, m.qty)}</li>`).join('')}</ul>
+            ${r.combo ? `<p class="small muted">${r.comboResult ? fill(copy.comboGives, { pct: r.combo, item: link(r.comboResult) }) : fill(copy.comboOnly, { pct: r.combo })}</p>` : ''}
+            </div>`).join('');
+        if (src) how += `<p class="note small">${fill(copy.comboAlso, { pct: src.combo, base: link(src.product) })}</p>`;
         how += `<div class="craft-actions"><label class="field small">${copy.craft} ×<input type="number" min="1" max="999" value="${count}" inputmode="numeric" data-times></label></div>
-          <div data-tree>${treeBlock(name, count, picked?.qty ?? 1, f)}</div>`;
-      } else if (base) {
-        how = `<p class="note small">${fill(copy.combo, { base: `<button type="button" class="linkish" data-item="${esc(base)}">${esc(base)}</button>` })}</p>`;
+          <div data-tree>${treeBlock(id, count, picked?.qty ?? 1, f)}</div>`;
+      } else if (src) {
+        how = `<p class="note small">${fill(copy.combo, { pct: src.combo, base: link(src.product) })}</p>`;
       } else {
-        how = `<p class="small muted">${copy.raw}</p>`;
+        how = `<p class="small muted">${items[id]?.gather ? copy.gather : copy.raw}</p>`;
       }
 
-      const seen = new Set<string>();
+      const seen = new Set<number>();
       const useList = uses.filter((r) => !seen.has(r.product) && seen.add(r.product)).map((r) => {
-        const qty = r.materials.find((m) => m.name.toLowerCase() === name.toLowerCase())?.qty ?? 0;
-        return `<li><button type="button" class="linkish" data-item="${esc(r.product)}">${esc(r.product)}</button>
+        const qty = r.materials.find((m) => m.id === id)?.qty ?? 0;
+        return `<li>${icon(r.product)}${link(r.product)}
           <span class="muted small">· ${esc(profName[r.profession])} · <span class="num">${fmt(qty)}×</span></span></li>`;
       }).join('');
 
-      detail.innerHTML = `<div class="panel-head"><h3>${esc(name)}</h3><button type="button" class="ghost" data-close>${copy.close}</button></div>
+      detail.innerHTML = `<div class="panel-head"><div class="rb-title">${icon(id)}<h3>${names(id)}</h3></div><button type="button" class="ghost" data-close>${copy.close}</button></div>
         ${how}
         <h4>${copy.usedIn} <span class="muted num">(${seen.size})</span></h4>
         ${seen.size ? `<ul class="rb-uses">${useList}</ul>` : `<p class="small muted">${copy.usedNone}</p>`}`;
       detail.hidden = false;
-      try { history.replaceState(null, '', `#i=${encodeURIComponent(name)}`); } catch { /* sem history */ }
+      try { history.replaceState(null, '', `#i=${id}`); } catch { /* sem history */ }
       // no celular o painel fica acima da lista; no computador ele é fixo ao lado
       const stacked = matchMedia('(max-width: 860px)').matches;
       if (scroll && (stacked || detail.getBoundingClientRect().top < 0)) detail.scrollIntoView({ block: 'start', behavior: 'smooth' });
@@ -229,13 +311,13 @@ const payload = { copy, lang, profName, rows };
     root.addEventListener('click', (ev) => {
       const el = (ev.target as HTMLElement).closest<HTMLElement>('button');
       if (!el) return;
-      if (el.dataset.item) openItem(el.dataset.item);
+      if (el.dataset.item) openItem(Number(el.dataset.item));
       else if (el.hasAttribute('data-close')) closeItem();
       else if (el.closest('[data-faction]') && el.dataset.v) {
         faction = el.dataset.v as Faction;
         root.querySelectorAll<HTMLButtonElement>('[data-faction] button').forEach((b) => b.setAttribute('aria-pressed', String(b.dataset.v === faction)));
         applyFilter();
-        if (current) openItem(current.name, current.count, false);
+        if (current) openItem(current.id, current.count, false);
       } else if (el.hasAttribute('data-reset')) {
         q.value = ''; prof.value = ''; minEl.value = '0'; maxEl.value = '100';
         faction = 'both';
@@ -249,7 +331,7 @@ const payload = { copy, lang, profName, rows };
         current.count = Math.min(999, Math.max(1, Math.floor(Number(el.value) || 1)));
         const f = faction === 'both' ? undefined : faction;
         const box = detail.querySelector<HTMLElement>('[data-tree]');
-        if (box) box.innerHTML = treeBlock(current.name, current.count, pickRecipe(rows, current.name, f)?.qty ?? 1, f);
+        if (box) box.innerHTML = treeBlock(current.id, current.count, pickRecipe(rows, current.id, f)?.qty ?? 1, f);
       } else if (el.closest('[data-filters]')) applyFilter();
     });
     root.addEventListener('change', (ev) => {
@@ -257,10 +339,11 @@ const payload = { copy, lang, profName, rows };
     });
 
     applyFilter();
+    // #i=<id>; links antigos usavam o nome em inglês
     const hash = location.hash.match(/^#i=(.+)$/);
     if (hash) {
-      const name = decodeURIComponent(hash[1]);
-      if (rows.some((r) => r.product === name || r.materials.some((m) => m.name === name))) openItem(name, 1, true);
+      const id = findItem(items, decodeURIComponent(hash[1]));
+      if (id !== undefined) openItem(id, 1, true);
     }
   });
 </script>

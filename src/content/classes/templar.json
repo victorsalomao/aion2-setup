@@ -18,6 +18,8 @@
     {
       "id": "vs",
       "name": "Vicious Strike",
+      "namePt": "Golpe Furioso",
+      "icon": "https://metabot.gg/web/aion2/skills/12010000.webp",
       "mono": "VS",
       "category": "damage",
       "level": 7,
@@ -34,6 +36,8 @@
     {
       "id": "pn",
       "name": "Punishment",
+      "namePt": "Punição",
+      "icon": "https://metabot.gg/web/aion2/skills/12090000.webp",
       "mono": "Pn",
       "category": "damage",
       "level": 7,
@@ -50,6 +54,8 @@
     {
       "id": "po",
       "name": "Poach",
+      "namePt": "Captura",
+      "icon": "https://metabot.gg/web/aion2/skills/12130000.webp",
       "mono": "Po",
       "category": "control",
       "level": 7,
@@ -66,6 +72,8 @@
     {
       "id": "ws",
       "name": "Warding Strike",
+      "namePt": "Golpe do Amparo",
+      "icon": "https://metabot.gg/web/aion2/skills/12350000.webp",
       "mono": "WS",
       "category": "heal",
       "level": 7,
@@ -82,6 +90,8 @@
     {
       "id": "sr",
       "name": "Shield Rush",
+      "namePt": "Assalto de Escudo",
+      "icon": "https://metabot.gg/web/aion2/skills/12430000.webp",
       "mono": "SR",
       "category": "move",
       "level": 7,
@@ -98,6 +108,8 @@
     {
       "id": "ju",
       "name": "Judgment",
+      "namePt": "Julgamento",
+      "icon": "https://metabot.gg/web/aion2/skills/12240000.webp",
       "mono": "Ju",
       "category": "damage",
       "level": 7,
@@ -114,6 +126,8 @@
     {
       "id": "an",
       "name": "Annihilate",
+      "namePt": "Erradicação",
+      "icon": "https://metabot.gg/web/aion2/skills/12300000.webp",
       "mono": "An",
       "category": "damage",
       "level": 7,
@@ -130,6 +144,8 @@
     {
       "id": "ssm",
       "name": "Shield Smite",
+      "namePt": "Golpe Potente de Escudo",
+      "icon": "https://metabot.gg/web/aion2/skills/12100000.webp",
       "mono": "SSm",
       "category": "control",
       "level": 7,
@@ -146,6 +162,8 @@
     {
       "id": "pu",
       "name": "Pummel",
+      "namePt": "Agressão Contínua",
+      "icon": "https://metabot.gg/web/aion2/skills/12040000.webp",
       "mono": "Pu",
       "category": "damage",
       "level": 7,
@@ -162,6 +180,8 @@
     {
       "id": "ds",
       "name": "Debilitating Smash",
+      "namePt": "Golpe Feroz do Enfraquecimento",
+      "icon": "https://metabot.gg/web/aion2/skills/12270000.webp",
       "mono": "DS",
       "category": "damage",
       "level": 7,
@@ -178,6 +198,8 @@
     {
       "id": "fr",
       "name": "Flash Rampage",
+      "namePt": "Desenfreio do Clarão",
+      "icon": "https://metabot.gg/web/aion2/skills/12340000.webp",
       "mono": "FR",
       "category": "damage",
       "level": 7,
@@ -194,6 +216,8 @@
     {
       "id": "df",
       "name": "Defiance",
+      "namePt": "Remoção de Impacto",
+      "icon": "https://metabot.gg/web/aion2/skills/12260000.webp",
       "mono": "De",
       "category": "heal",
       "level": 0,
@@ -211,6 +235,8 @@
     {
       "id": "eh",
       "name": "Enhance Health",
+      "namePt": "Aprimoramento da Vitalidade",
+      "icon": "https://metabot.gg/web/aion2/skills/12710000.webp",
       "mono": "EH",
       "category": "passive",
       "level": 7,
@@ -227,6 +253,8 @@
     {
       "id": "wsh",
       "name": "Warding Shield",
+      "namePt": "Escudo do Amparo",
+      "icon": "https://metabot.gg/web/aion2/skills/12720000.webp",
       "mono": "WSh",
       "category": "passive",
       "level": 7,
@@ -243,6 +271,8 @@
     {
       "id": "pb",
       "name": "Punishing Benediction",
+      "namePt": "Bendição da Condenação",
+      "icon": "https://metabot.gg/web/aion2/skills/12730000.webp",
       "mono": "PB",
       "category": "passive",
       "level": 7,
@@ -259,6 +289,8 @@
     {
       "id": "id",
       "name": "Ironclad Defense",
+      "namePt": "Defesa Sólida",
+      "icon": "https://metabot.gg/web/aion2/skills/12740000.webp",
       "mono": "ID",
       "category": "passive",
       "level": 7,
@@ -275,6 +307,8 @@
     {
       "id": "gs",
       "name": "Guarding Seal",
+      "namePt": "Selo da Guarda",
+      "icon": "https://metabot.gg/web/aion2/skills/12750000.webp",
       "mono": "GS",
       "category": "passive",
       "level": 7,
@@ -291,6 +325,8 @@
     {
       "id": "ih",
       "name": "Impact Hit",
+      "namePt": "Acerto de Impacto",
+      "icon": "https://metabot.gg/web/aion2/skills/12760000.webp",
       "mono": "IH",
       "category": "passive",
       "level": 7,
@@ -307,6 +343,8 @@
     {
       "id": "ir",
       "name": "Insulting Roar",
+      "namePt": "Rugido do Insulto",
+      "icon": "https://metabot.gg/web/aion2/skills/12770000.webp",
       "mono": "IR",
       "category": "passive",
       "level": 7,
@@ -323,6 +361,8 @@
     {
       "id": "fu",
       "name": "Fury",
+      "namePt": "Exaltação",
+      "icon": "https://metabot.gg/web/aion2/skills/12780000.webp",
       "mono": "Fu",
       "category": "passive",
       "level": 10,
@@ -339,6 +379,8 @@
     {
       "id": "sw",
       "name": "Survival Willpower",
+      "namePt": "Vontade de Sobreviver",
+      "icon": "https://metabot.gg/web/aion2/skills/12790000.webp",
       "mono": "SW",
       "category": "passive",
       "level": 6,
@@ -355,6 +397,8 @@
     {
       "id": "bp",
       "name": "Block Pain",
+      "namePt": "Bloqueio de Dor",
+      "icon": "https://metabot.gg/web/aion2/skills/12800000.webp",
       "mono": "BP",
       "category": "passive",
       "level": 8,
@@ -373,6 +417,8 @@
     {
       "id": "ta",
       "name": "Taunt",
+      "namePt": "Provocação",
+      "icon": "https://metabot.gg/web/aion2/skills/12120000.webp",
       "mono": "Ta",
       "category": "control",
       "usage": 76,
@@ -388,6 +434,8 @@
     {
       "id": "elp",
       "name": "Empyrean Lord's Punishment",
+      "namePt": "Punição do Senhor Empíreo",
+      "icon": "https://metabot.gg/web/aion2/skills/12310000.webp",
       "mono": "ELP",
       "category": "control",
       "usage": 67,
@@ -403,6 +451,8 @@
     {
       "id": "bb",
       "name": "Battlefield Banner",
+      "namePt": "Bandeira do Campo de Batalha",
+      "icon": "https://metabot.gg/web/aion2/skills/12450000.webp",
       "mono": "BB",
       "category": "aura",
       "usage": 65,
@@ -418,6 +468,8 @@
     {
       "id": "dsh",
       "name": "Doom Shield",
+      "namePt": "Escudo da Perdição",
+      "icon": "https://metabot.gg/web/aion2/skills/12070000.webp",
       "mono": "DSh",
       "category": "move",
       "usage": 61,
@@ -433,6 +485,8 @@
     {
       "id": "sop",
       "name": "Shield of Protection",
+      "namePt": "Escudo da Proteção",
+      "icon": "https://metabot.gg/web/aion2/skills/12110000.webp",
       "mono": "SoP",
       "category": "aura",
       "usage": 61,
@@ -448,6 +502,8 @@
     {
       "id": "na",
       "name": "Noble Armor",
+      "namePt": "Armadura Nobre",
+      "icon": "https://metabot.gg/web/aion2/skills/12230000.webp",
       "mono": "NA",
       "category": "heal",
       "usage": 37,
@@ -463,6 +519,8 @@
     {
       "id": "ns",
       "name": "Nezekan's Shield",
+      "namePt": "Escudo de Nezekan",
+      "icon": "https://metabot.gg/web/aion2/skills/12320000.webp",
       "mono": "NS",
       "category": "heal",
       "usage": 24,
@@ -478,6 +536,8 @@
     {
       "id": "eb",
       "name": "Executing Blade",
+      "namePt": "Espada da Execução",
+      "icon": "https://metabot.gg/web/aion2/skills/12410000.webp",
       "mono": "EB",
       "category": "damage",
       "usage": 19,
@@ -493,6 +553,8 @@
     {
       "id": "sk",
       "name": "Second Skin",
+      "namePt": "Armadura Dupla",
+      "icon": "https://metabot.gg/web/aion2/skills/12190000.webp",
       "mono": "SSk",
       "category": "aura",
       "usage": 9.8,
@@ -508,6 +570,8 @@
     {
       "id": "gr",
       "name": "Grapple",
+      "namePt": "Apreensão",
+      "icon": "https://metabot.gg/web/aion2/skills/12220000.webp",
       "mono": "Gr",
       "category": "control",
       "usage": 7.8,
@@ -523,6 +587,8 @@
     {
       "id": "ab",
       "name": "Armor of Balance",
+      "namePt": "Armadura do Equilíbrio",
+      "icon": "https://metabot.gg/web/aion2/skills/12200000.webp",
       "mono": "AB",
       "category": "aura",
       "level": {
@@ -537,6 +603,8 @@
     {
       "id": "cia",
       "name": "Comrade in Arms",
+      "namePt": "Proteção do Aliado",
+      "icon": "https://metabot.gg/web/aion2/skills/12250000.webp",
       "mono": "CA",
       "category": "aura",
       "level": {
@@ -551,6 +619,8 @@
     {
       "id": "af",
       "name": "Assault Fury",
+      "namePt": "Investida Feroz do Ataque Súbito",
+      "icon": "https://metabot.gg/web/aion2/skills/12700000.webp",
       "mono": "AF",
       "category": "control",
       "level": {

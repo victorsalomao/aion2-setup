@@ -111,7 +111,12 @@ Antes de pedir aprovação:
 
 ## Ícones e dados de terceiros
 
-O menu de craft (`/tools/craft/`) mostra os ícones carregando as imagens direto do CDN do aion2.th.gl, sem copiar os arquivos para o projeto. Se a imagem não carregar, aparece uma sigla no lugar. Antes de pôr o site no ar com anúncio, peça autorização ao aion2.th.gl para usar o CDN deles, ou troque as URLs em `src/data/dragon-lord.json`.
+Os ícones de skills e itens, e os nomes oficiais em português, vêm da MetaBot.GG, que lê o cliente do jogo. As imagens carregam direto de `metabot.gg/web/aion2/...`, sem cópia no projeto. Se uma não carregar, aparece uma sigla no lugar.
+
+- `npm run import:skills`: ícones e nomes em português das skills das classes.
+- `npm run import:crafting`: receitas, ícones e nomes dos itens, e o Dragon Lord.
+
+O aion2.th.gl não é mais usado: o `robots.txt` dele bloqueia agentes de IA.
 
 Fora o menu de craft, o site não usa ícone do jogo. As skills aparecem com um quadrado de iniciais colorido por categoria.
 

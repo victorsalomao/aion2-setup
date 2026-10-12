@@ -1,7 +1,10 @@
 /**
- * Importa todas as receitas de craft do Shugo.GG para src/data/crafting.json.
+ * Lê as receitas de craft do Shugo.GG. Desde a troca para a MetaBot.GG como fonte
+ * principal (scripts/import-metabot-crafting.mjs), este arquivo é só o leitor da
+ * página do Shugo: o importador da MetaBot usa parseCrafting() para trazer a faixa
+ * de sucesso. Rodado sozinho, ele só confere a página e mostra a contagem.
  *
- *   npm run import:crafting
+ *   npm run check:shugo
  *   node scripts/import-shugo-crafting.mjs pagina-salva.html   (lê um HTML já baixado)
  *
  * A página https://shugo.gg/crafting traz um bloco renderizado no servidor
@@ -15,11 +18,10 @@
  * O Shugo pede crédito com link para a página. Não use nenhum caminho /api/
  * (proibido no robots.txt deles): este script só lê a página pública.
  */
-import { readFile, writeFile } from 'node:fs/promises';
+import { readFile } from 'node:fs/promises';
 import { fileURLToPath } from 'node:url';
 
 const SOURCE = 'https://shugo.gg/crafting';
-const OUT = fileURLToPath(new URL('../src/data/crafting.json', import.meta.url));
 
 /** nome da profissão no Shugo -> id e nomes nos dois idiomas */
 const PROFESSIONS = {
@@ -144,16 +146,8 @@ async function main() {
     html = await res.text();
   }
   const { professions, asOf } = parseCrafting(html);
-  const data = {
-    checkedAt: new Date().toISOString().slice(0, 10),
-    sourceDataAsOf: asOf,
-    source: SOURCE,
-    credit: 'Shugo.GG',
-    professions: professions.map(({ rawCount, ...p }) => p),
-  };
-  await writeFile(OUT, JSON.stringify(data, null, 2) + '\n', 'utf8');
   for (const p of professions) console.log(`${p.name.en.padEnd(14)} ${String(p.recipes.length).padStart(4)} receitas (${p.rawCount} linhas na origem)`);
-  console.log(`total: ${professions.reduce((n, p) => n + p.recipes.length, 0)} -> ${OUT}`);
+  console.log(`total: ${professions.reduce((n, p) => n + p.recipes.length, 0)}; dados de ${asOf ?? '?'}. Para gravar o banco, rode npm run import:crafting.`);
 }
 
 if (process.argv[1] && fileURLToPath(import.meta.url) === process.argv[1]) {

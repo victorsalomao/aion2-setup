@@ -18,6 +18,8 @@
     {
       "id": "er",
       "name": "Earth's Retribution",
+      "namePt": "Retribuição da Terra",
+      "icon": "https://metabot.gg/web/aion2/skills/17010000.webp",
       "mono": "ER",
       "category": "damage",
       "level": 7,
@@ -34,6 +36,8 @@
     {
       "id": "jt",
       "name": "Judgment Thunder",
+      "namePt": "Relâmpago do Julgamento",
+      "icon": "https://metabot.gg/web/aion2/skills/17040000.webp",
       "mono": "JT",
       "category": "damage",
       "level": 7,
@@ -50,6 +54,8 @@
     {
       "id": "dm",
       "name": "Debilitating Mark",
+      "namePt": "Marca da Debilitação",
+      "icon": "https://metabot.gg/web/aion2/skills/17080000.webp",
       "mono": "DM",
       "category": "damage",
       "level": 7,
@@ -66,6 +72,8 @@
     {
       "id": "da",
       "name": "Divine Aura",
+      "namePt": "Aura Divina",
+      "icon": "https://metabot.gg/web/aion2/skills/17150000.webp",
       "mono": "DA",
       "category": "damage",
       "level": 7,
@@ -82,6 +90,8 @@
     {
       "id": "ct",
       "name": "Chain of Torment",
+      "namePt": "Corrente de Tormento",
+      "icon": "https://metabot.gg/web/aion2/skills/17070000.webp",
       "mono": "CT",
       "category": "damage",
       "level": 7,
@@ -98,6 +108,8 @@
     {
       "id": "ls",
       "name": "Lightning Strike Scattershot",
+      "namePt": "Rajada de Raios",
+      "icon": "https://metabot.gg/web/aion2/skills/17370000.webp",
       "mono": "LS",
       "category": "damage",
       "level": 7,
@@ -114,6 +126,8 @@
     {
       "id": "lr",
       "name": "Light of Regeneration",
+      "namePt": "Luz da Regeneração",
+      "icon": "https://metabot.gg/web/aion2/skills/17090000.webp",
       "mono": "LR",
       "category": "heal",
       "level": 7,
@@ -130,6 +144,8 @@
     {
       "id": "cd",
       "name": "Condemnation",
+      "namePt": "Condenação",
+      "icon": "https://metabot.gg/web/aion2/skills/17350000.webp",
       "mono": "Cd",
       "category": "damage",
       "level": 7,
@@ -146,6 +162,8 @@
     {
       "id": "hl",
       "name": "Healing Light",
+      "namePt": "Luz da Cura",
+      "icon": "https://metabot.gg/web/aion2/skills/17100000.webp",
       "mono": "HL",
       "category": "heal",
       "level": 7,
@@ -162,6 +180,8 @@
     {
       "id": "rr",
       "name": "Radiant Recovery",
+      "namePt": "Fulgor Restaurador",
+      "icon": "https://metabot.gg/web/aion2/skills/17120000.webp",
       "mono": "RR",
       "category": "heal",
       "level": 7,
@@ -178,6 +198,8 @@
     {
       "id": "bo",
       "name": "Bolt",
+      "namePt": "Trovão",
+      "icon": "https://metabot.gg/web/aion2/skills/17060000.webp",
       "mono": "Bo",
       "category": "damage",
       "level": 7,
@@ -194,6 +216,8 @@
     {
       "id": "df",
       "name": "Defiance",
+      "namePt": "Remoção de Impacto",
+      "icon": "https://metabot.gg/web/aion2/skills/17240000.webp",
       "mono": "De",
       "category": "heal",
       "level": 0,
@@ -224,6 +248,7 @@
     {
       "id": "dc",
       "name": "Discharge",
+      "namePt": "Descarga",
       "mono": "Dc",
       "category": "damage",
       "level": 0,
@@ -239,6 +264,7 @@
     {
       "id": "dp",
       "name": "Divine Punishment",
+      "namePt": "Punição Divina",
       "mono": "DP",
       "category": "damage",
       "level": 0,
@@ -254,6 +280,7 @@
     {
       "id": "br",
       "name": "Blessing of Regeneration",
+      "namePt": "Bênção da Regeneração",
       "mono": "BR",
       "category": "heal",
       "level": 0,
@@ -271,6 +298,8 @@
     {
       "id": "wb",
       "name": "Warm Benediction",
+      "namePt": "Bendição Cálida",
+      "icon": "https://metabot.gg/web/aion2/skills/17710000.webp",
       "mono": "WB",
       "category": "passive",
       "level": 7,
@@ -287,6 +316,8 @@
     {
       "id": "lb",
       "name": "Empyrean Lords' Benediction",
+      "namePt": "Bendição Empírea",
+      "icon": "https://metabot.gg/web/aion2/skills/17720000.webp",
       "mono": "ELB",
       "category": "passive",
       "level": 6,
@@ -303,6 +334,8 @@
     {
       "id": "lg",
       "name": "Empyrean Lord's Grace",
+      "namePt": "Mercê do Empíreo",
+      "icon": "https://metabot.gg/web/aion2/skills/17730000.webp",
       "mono": "ELG",
       "category": "passive",
       "level": 7,
@@ -319,6 +352,8 @@
     {
       "id": "he",
       "name": "Healing Enhancement",
+      "namePt": "Aprimoramento da Cura",
+      "icon": "https://metabot.gg/web/aion2/skills/17740000.webp",
       "mono": "HE",
       "category": "passive",
       "level": 7,
@@ -335,6 +370,8 @@
     {
       "id": "iv",
       "name": "Immortal Veil",
+      "namePt": "Véu da Imortalidade",
+      "icon": "https://metabot.gg/web/aion2/skills/17750000.webp",
       "mono": "IV",
       "category": "passive",
       "level": 8,
@@ -351,6 +388,8 @@
     {
       "id": "hb",
       "name": "Heal Block",
+      "namePt": "Bloqueio de Recuperação",
+      "icon": "https://metabot.gg/web/aion2/skills/17760000.webp",
       "mono": "HB",
       "category": "passive",
       "level": 5,
@@ -367,6 +406,8 @@
     {
       "id": "pc",
       "name": "Prayer of Concentration",
+      "namePt": "Oração de Concentração",
+      "icon": "https://metabot.gg/web/aion2/skills/17770000.webp",
       "mono": "PC",
       "category": "passive",
       "level": 7,
@@ -383,6 +424,8 @@
     {
       "id": "eg",
       "name": "Earth's Grace",
+      "namePt": "Mercê da Terra",
+      "icon": "https://metabot.gg/web/aion2/skills/17780000.webp",
       "mono": "EG",
       "category": "passive",
       "level": 10,
@@ -399,6 +442,8 @@
     {
       "id": "sw",
       "name": "Survival Willpower",
+      "namePt": "Vontade de Sobreviver",
+      "icon": "https://metabot.gg/web/aion2/skills/17790000.webp",
       "mono": "SW",
       "category": "passive",
       "level": 7,
@@ -415,6 +460,8 @@
     {
       "id": "rb",
       "name": "Radiant Benediction",
+      "namePt": "Bendição Radiante",
+      "icon": "https://metabot.gg/web/aion2/skills/17800000.webp",
       "mono": "RB",
       "category": "passive",
       "level": 8,
@@ -433,6 +480,8 @@
     {
       "id": "lp",
       "name": "Light of Protection",
+      "namePt": "Luz da Proteção",
+      "icon": "https://metabot.gg/web/aion2/skills/17410000.webp",
       "mono": "LP",
       "category": "aura",
       "level": {
@@ -448,6 +497,8 @@
     {
       "id": "na",
       "name": "Noble Aura",
+      "namePt": "Aura Nobre",
+      "icon": "https://metabot.gg/web/aion2/skills/17440000.webp",
       "mono": "NA",
       "category": "damage",
       "level": {
@@ -463,6 +514,8 @@
     {
       "id": "ep",
       "name": "Earth Punishment",
+      "namePt": "Punição da Terra",
+      "icon": "https://metabot.gg/web/aion2/skills/17400000.webp",
       "mono": "EP",
       "category": "damage",
       "level": {
@@ -478,6 +531,8 @@
     {
       "id": "sr",
       "name": "Summon Resurrection",
+      "namePt": "Ressurreição por Invocação",
+      "icon": "https://metabot.gg/web/aion2/skills/17390000.webp",
       "mono": "SR",
       "category": "heal",
       "level": {
@@ -493,6 +548,8 @@
     {
       "id": "pa",
       "name": "Prayer of Amplification",
+      "namePt": "Oração da Amplificação",
+      "icon": "https://metabot.gg/web/aion2/skills/17430000.webp",
       "mono": "PA",
       "category": "aura",
       "level": {
@@ -508,6 +565,8 @@
     {
       "id": "ab",
       "name": "Absolution",
+      "namePt": "Absolvição",
+      "icon": "https://metabot.gg/web/aion2/skills/17290000.webp",
       "mono": "Ab",
       "category": "heal",
       "level": {
@@ -523,6 +582,8 @@
     {
       "id": "pb",
       "name": "Power Burst",
+      "namePt": "Explosão da Soberania",
+      "icon": "https://metabot.gg/web/aion2/skills/17280000.webp",
       "mono": "PB",
       "category": "damage",
       "level": {
@@ -538,6 +599,8 @@
     {
       "id": "sa",
       "name": "Salvation",
+      "namePt": "Salvação",
+      "icon": "https://metabot.gg/web/aion2/skills/17270000.webp",
       "mono": "Sa",
       "category": "heal",
       "level": {
@@ -553,6 +616,8 @@
     {
       "id": "be",
       "name": "Benevolence",
+      "namePt": "Soberania da Vida",
+      "icon": "https://metabot.gg/web/aion2/skills/17160000.webp",
       "mono": "Be",
       "category": "heal",
       "level": {
@@ -568,6 +633,8 @@
     {
       "id": "yp",
       "name": "Yustiel's Power",
+      "namePt": "Soberania de Yustiel",
+      "icon": "https://metabot.gg/web/aion2/skills/17420000.webp",
       "mono": "YP",
       "category": "aura",
       "level": {
@@ -583,6 +650,8 @@
     {
       "id": "ro",
       "name": "Root",
+      "namePt": "Contenção",
+      "icon": "https://metabot.gg/web/aion2/skills/17190000.webp",
       "mono": "Ro",
       "category": "control",
       "level": {
@@ -597,6 +666,8 @@
     {
       "id": "vd",
       "name": "Voice of Doom",
+      "namePt": "Voz da Perdição",
+      "icon": "https://metabot.gg/web/aion2/skills/17300000.webp",
       "mono": "VD",
       "category": "damage",
       "level": {
@@ -611,6 +682,8 @@
     {
       "id": "am",
       "name": "Assault Mark",
+      "namePt": "Marca do Ataque Súbito",
+      "icon": "https://metabot.gg/web/aion2/skills/17700000.webp",
       "mono": "AM",
       "category": "control",
       "level": {

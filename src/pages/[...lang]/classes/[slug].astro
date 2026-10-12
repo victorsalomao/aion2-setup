@@ -72,7 +72,7 @@ const categories = ['damage', 'control', 'heal', 'move', 'aura', 'passive'] as c
           <h2>{tt('class.stigmas')}</h2>
           <div class="skills">
             {c.stigmas.map((s) => (
-              <SkillCard lang={lang} name={s.name} mono={s.mono} category={s.category} level={tr(s.level, lang)} role={s.description} usage={s.usage} />
+              <SkillCard lang={lang} name={s.name} namePt={s.namePt} icon={s.icon} mono={s.mono} category={s.category} level={tr(s.level, lang)} role={s.description} usage={s.usage} />
             ))}
           </div>
         </section>
@@ -90,10 +90,10 @@ const categories = ['damage', 'control', 'heal', 'move', 'aura', 'passive'] as c
             <h3>{tt('class.stigmas')}</h3>
             <div class="skills">
               {m.fixed.map((id) => stigmaById.get(id)).filter((s) => s !== undefined).map((s) => (
-                <SkillCard lang={lang} name={s.name} mono={s.mono} category={s.category} level={m.stigmaLevels[s.id] ?? tr(s.level, lang)} spec={{ pt: tt('class.fixed'), en: tt('class.fixed') }} role={s.description} usage={s.usage} />
+                <SkillCard lang={lang} name={s.name} namePt={s.namePt} icon={s.icon} mono={s.mono} category={s.category} level={m.stigmaLevels[s.id] ?? tr(s.level, lang)} spec={{ pt: tt('class.fixed'), en: tt('class.fixed') }} role={s.description} usage={s.usage} />
               ))}
               {m.flex.map((f) => ({ f, s: stigmaById.get(f.stigma) })).filter((x) => x.s !== undefined).map(({ f, s }) => (
-                <SkillCard lang={lang} name={s!.name} mono={s!.mono} category={s!.category} level={m.stigmaLevels[s!.id] ?? tr(s!.level, lang)} usage={s!.usage} spec={{ pt: `${tt('class.flex')}: ${f.when.pt}`, en: `${tt('class.flex')}: ${f.when.en}` }} role={s!.description} />
+                <SkillCard lang={lang} name={s!.name} namePt={s!.namePt} icon={s!.icon} mono={s!.mono} category={s!.category} level={m.stigmaLevels[s!.id] ?? tr(s!.level, lang)} usage={s!.usage} spec={{ pt: `${tt('class.flex')}: ${f.when.pt}`, en: `${tt('class.flex')}: ${f.when.en}` }} role={s!.description} />
               ))}
             </div>
 
@@ -102,7 +102,7 @@ const categories = ['damage', 'control', 'heal', 'move', 'aura', 'passive'] as c
                 <h3>{tt('class.changed')}</h3>
                 <div class="skills">
                   {m.overrides.map((o) => ({ o, s: activeById.get(o.skill) })).filter((x) => x.s !== undefined).map(({ o, s }) => (
-                    <SkillCard lang={lang} name={s!.name} mono={s!.mono} category={s!.category} level={o.level} spec={o.spec} role={o.why} changed />
+                    <SkillCard lang={lang} name={s!.name} namePt={s!.namePt} icon={s!.icon} mono={s!.mono} category={s!.category} level={o.level} spec={o.spec} role={o.why} changed />
                   ))}
                 </div>
               </>

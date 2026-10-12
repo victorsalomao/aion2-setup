@@ -8,7 +8,10 @@
     "build": "astro build",
     "preview": "astro preview",
     "test": "vitest run",
-    "import:crafting": "node scripts/import-shugo-crafting.mjs"
+    "import:crafting": "node scripts/import-metabot-crafting.mjs && node scripts/build-dragon-lord.mjs",
+    "import:skills": "node scripts/import-skill-icons.mjs",
+    "check:shugo": "node scripts/import-shugo-crafting.mjs",
+    "build:dragon-lord": "node scripts/build-dragon-lord.mjs"
   },
   "dependencies": {
     "@astrojs/sitemap": "^3.7.4",

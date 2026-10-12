@@ -18,6 +18,8 @@
     {
       "id": "sn",
       "name": "Snipe",
+      "namePt": "Tiro de Precisão",
+      "icon": "https://metabot.gg/web/aion2/skills/14020000.webp",
       "mono": "Sn",
       "category": "damage",
       "level": 7,
@@ -34,6 +36,8 @@
     {
       "id": "ss",
       "name": "Snare Shot",
+      "namePt": "Flecha Laçadora",
+      "icon": "https://metabot.gg/web/aion2/skills/14130000.webp",
       "mono": "SS",
       "category": "control",
       "level": 7,
@@ -50,6 +54,8 @@
     {
       "id": "ts",
       "name": "Tempest Shot",
+      "namePt": "Disparo Rápido",
+      "icon": "https://metabot.gg/web/aion2/skills/14340000.webp",
       "mono": "TS",
       "category": "damage",
       "level": 7,
@@ -66,6 +72,8 @@
     {
       "id": "ms",
       "name": "Marking Shot",
+      "namePt": "Flecha de Marcação",
+      "icon": "https://metabot.gg/web/aion2/skills/14090000.webp",
       "mono": "MS",
       "category": "damage",
       "level": 7,
@@ -82,6 +90,8 @@
     {
       "id": "dd",
       "name": "Drill Dart",
+      "namePt": "Flecha Pontiaguda",
+      "icon": "https://metabot.gg/web/aion2/skills/14050000.webp",
       "mono": "DD",
       "category": "damage",
       "level": 7,
@@ -98,6 +108,8 @@
     {
       "id": "asc",
       "name": "Arrow Scattershot",
+      "namePt": "Rajada de Flechas",
+      "icon": "https://metabot.gg/web/aion2/skills/14330000.webp",
       "mono": "ASc",
       "category": "damage",
       "level": 7,
@@ -114,6 +126,8 @@
     {
       "id": "ga",
       "name": "Gale Arrow",
+      "namePt": "Flecha de Vento Tempestuoso",
+      "icon": "https://metabot.gg/web/aion2/skills/14110000.webp",
       "mono": "GA",
       "category": "damage",
       "level": 7,
@@ -130,6 +144,8 @@
     {
       "id": "et",
       "name": "Explosion Trap",
+      "namePt": "Armadilha de Explosão",
+      "icon": "https://metabot.gg/web/aion2/skills/14170000.webp",
       "mono": "ET",
       "category": "control",
       "level": 7,
@@ -146,6 +162,8 @@
     {
       "id": "ba",
       "name": "Burst Arrow",
+      "namePt": "Flecha de Ruptura",
+      "icon": "https://metabot.gg/web/aion2/skills/14080000.webp",
       "mono": "BA",
       "category": "damage",
       "level": 7,
@@ -162,6 +180,8 @@
     {
       "id": "sa",
       "name": "Suppressing Arrow",
+      "namePt": "Flecha de Supressão",
+      "icon": "https://metabot.gg/web/aion2/skills/14070000.webp",
       "mono": "SA",
       "category": "control",
       "level": 7,
@@ -178,6 +198,8 @@
     {
       "id": "ds",
       "name": "Deadshot",
+      "namePt": "Flecha Certeira",
+      "icon": "https://metabot.gg/web/aion2/skills/14010000.webp",
       "mono": "DS",
       "category": "damage",
       "level": 7,
@@ -194,6 +216,8 @@
     {
       "id": "df",
       "name": "Defiance",
+      "namePt": "Remoção de Impacto",
+      "icon": "https://metabot.gg/web/aion2/skills/14260000.webp",
       "mono": "De",
       "category": "heal",
       "level": 0,
@@ -211,6 +235,8 @@
     {
       "id": "ve",
       "name": "Vigilant Eye",
+      "namePt": "Olho de Sentinela",
+      "icon": "https://metabot.gg/web/aion2/skills/14710000.webp",
       "mono": "VE",
       "category": "passive",
       "level": 7,
@@ -227,6 +253,8 @@
     {
       "id": "cf",
       "name": "Concentrated Fire",
+      "namePt": "Tiro Concentrado",
+      "icon": "https://metabot.gg/web/aion2/skills/14720000.webp",
       "mono": "CF",
       "category": "passive",
       "level": 7,
@@ -243,6 +271,8 @@
     {
       "id": "wv",
       "name": "Wind Vigor",
+      "namePt": "Vigor do Vento",
+      "icon": "https://metabot.gg/web/aion2/skills/14730000.webp",
       "mono": "WV",
       "category": "passive",
       "level": 7,
@@ -259,6 +289,8 @@
     {
       "id": "fe",
       "name": "Focused Eye",
+      "namePt": "Olho da Concentração",
+      "icon": "https://metabot.gg/web/aion2/skills/14740000.webp",
       "mono": "FE",
       "category": "passive",
       "level": 7,
@@ -275,6 +307,8 @@
     {
       "id": "hr",
       "name": "Hunter's Resolve",
+      "namePt": "Determinação do Caçador",
+      "icon": "https://metabot.gg/web/aion2/skills/14750000.webp",
       "mono": "HR",
       "category": "passive",
       "level": 7,
@@ -291,6 +325,8 @@
     {
       "id": "ur",
       "name": "Unyielding Resolve",
+      "namePt": "Determinação de Resistência",
+      "icon": "https://metabot.gg/web/aion2/skills/14760000.webp",
       "mono": "UR",
       "category": "passive",
       "level": 7,
@@ -307,6 +343,8 @@
     {
       "id": "re",
       "name": "Rooting Eye",
+      "namePt": "Olho da Contenção",
+      "icon": "https://metabot.gg/web/aion2/skills/14770000.webp",
       "mono": "RE",
       "category": "passive",
       "level": 7,
@@ -323,6 +361,8 @@
     {
       "id": "mf",
       "name": "Melee Fire",
+      "namePt": "Tiro à Queima-roupa",
+      "icon": "https://metabot.gg/web/aion2/skills/14780000.webp",
       "mono": "MF",
       "category": "passive",
       "level": 7,
@@ -339,6 +379,8 @@
     {
       "id": "rc",
       "name": "Revitalization Contract",
+      "namePt": "Pacto de Revitalização",
+      "icon": "https://metabot.gg/web/aion2/skills/14790000.webp",
       "mono": "RC",
       "category": "passive",
       "level": 7,
@@ -355,6 +397,8 @@
     {
       "id": "hs",
       "name": "Hunter's Soul",
+      "namePt": "Alma do Caçador",
+      "icon": "https://metabot.gg/web/aion2/skills/14800000.webp",
       "mono": "HS",
       "category": "passive",
       "level": 10,
@@ -373,6 +417,8 @@
     {
       "id": "va",
       "name": "Vaizel's Authority",
+      "namePt": "Soberania de Vaizel",
+      "icon": "https://metabot.gg/web/aion2/skills/14310000.webp",
       "mono": "VA",
       "category": "aura",
       "level": {
@@ -388,6 +434,8 @@
     {
       "id": "bb",
       "name": "Bow of Blessing",
+      "namePt": "Arco da Bênção",
+      "icon": "https://metabot.gg/web/aion2/skills/14220000.webp",
       "mono": "BB",
       "category": "aura",
       "level": {
@@ -403,6 +451,8 @@
     {
       "id": "sf",
       "name": "Supporting Fire",
+      "namePt": "Fogo de Supressão",
+      "icon": "https://metabot.gg/web/aion2/skills/14380000.webp",
       "mono": "SF",
       "category": "damage",
       "level": {
@@ -418,6 +468,8 @@
     {
       "id": "gra",
       "name": "Griffon Arrow",
+      "namePt": "Flecha de Grifo",
+      "icon": "https://metabot.gg/web/aion2/skills/14060000.webp",
       "mono": "GrA",
       "category": "damage",
       "level": {
@@ -433,6 +485,8 @@
     {
       "id": "ea",
       "name": "Explosive Arrow",
+      "namePt": "Flecha Explosiva",
+      "icon": "https://metabot.gg/web/aion2/skills/14360000.webp",
       "mono": "EA",
       "category": "damage",
       "level": {
@@ -448,6 +502,8 @@
     {
       "id": "ast",
       "name": "Arrow Storm",
+      "namePt": "Tempestade de Flechas",
+      "icon": "https://metabot.gg/web/aion2/skills/14270000.webp",
       "mono": "AS",
       "category": "control",
       "level": {
@@ -463,6 +519,8 @@
     {
       "id": "sea",
       "name": "Sealing Arrow",
+      "namePt": "Flecha de Selagem",
+      "icon": "https://metabot.gg/web/aion2/skills/14160000.webp",
       "mono": "SeA",
       "category": "control",
       "level": {
@@ -478,6 +536,8 @@
     {
       "id": "st",
       "name": "Stealth",
+      "namePt": "Furtividade",
+      "icon": "https://metabot.gg/web/aion2/skills/14190000.webp",
       "mono": "St",
       "category": "move",
       "level": {
@@ -493,6 +553,8 @@
     {
       "id": "mnb",
       "name": "Mother Nature's Breath",
+      "namePt": "Sopro da Mãe Natureza",
+      "icon": "https://metabot.gg/web/aion2/skills/14350000.webp",
       "mono": "MNB",
       "category": "aura",
       "level": {
@@ -508,6 +570,8 @@
     {
       "id": "ak",
       "name": "Ambush Kick",
+      "namePt": "Chute Surpresa",
+      "icon": "https://metabot.gg/web/aion2/skills/14120000.webp",
       "mono": "AK",
       "category": "control",
       "level": {
@@ -523,6 +587,8 @@
     {
       "id": "ia",
       "name": "Illusory Arrow",
+      "namePt": "Flecha Ilusória",
+      "icon": "https://metabot.gg/web/aion2/skills/14150000.webp",
       "mono": "IA",
       "category": "control",
       "level": {
@@ -537,6 +603,8 @@
     {
       "id": "ent",
       "name": "Ensnaring Trap",
+      "namePt": "Armadilha de Aprisionamento",
+      "icon": "https://metabot.gg/web/aion2/skills/14180000.webp",
       "mono": "EnT",
       "category": "control",
       "level": {
@@ -551,6 +619,8 @@
     {
       "id": "asm",
       "name": "Assault Smite",
+      "namePt": "Golpe Potente do Ataque Súbito",
+      "icon": "https://metabot.gg/web/aion2/skills/14700000.webp",
       "mono": "ASm",
       "category": "control",
       "level": {

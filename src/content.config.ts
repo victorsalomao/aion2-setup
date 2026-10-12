@@ -12,6 +12,10 @@ const category = z.enum(['damage', 'control', 'heal', 'move', 'aura', 'passive']
 const skill = z.object({
   id: z.string(),
   name: z.string(),
+  /** nome oficial em português do cliente do jogo (fonte: MetaBot.GG pt_BR) */
+  namePt: z.string().optional(),
+  /** ícone oficial: https://metabot.gg/web/aion2/skills/<id>.webp */
+  icon: z.string().url().optional(),
   mono: z.string().max(3),
   category,
   level: z.number().int().min(0).max(20),
@@ -26,6 +30,10 @@ const skill = z.object({
 const stigma = z.object({
   id: z.string(),
   name: z.string(),
+  /** nome oficial em português do cliente do jogo (fonte: MetaBot.GG pt_BR) */
+  namePt: z.string().optional(),
+  /** ícone oficial: https://metabot.gg/web/aion2/skills/<id>.webp */
+  icon: z.string().url().optional(),
   mono: z.string().max(3),
   category,
   level: l10n,
