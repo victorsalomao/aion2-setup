@@ -63,7 +63,7 @@ const isCurrent = (to: string) => (to === '/' ? path === '/' : path.startsWith(t
     <header class="site-head">
       <div class="wrap">
         <a class="brand" href={href(lang, '/')}>Rota <span>Daeva</span></a>
-        <nav class="nav" aria-label={lang === 'pt' ? 'Principal' : 'Main'}>
+        <nav class="nav" aria-label={tt('nav.label')}>
           {nav.map((n) => (
             <a href={href(lang, n.to)} aria-current={isCurrent(n.to) ? 'page' : undefined}>{tt(n.key)}</a>
           ))}

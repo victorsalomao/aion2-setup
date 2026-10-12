@@ -1,9 +1,11 @@
 ---
 /**
- * Menu de craft no estilo do jogo: lista de receitas à esquerda, detalhe à direita
- * e uma lista de materiais que soma várias receitas.
- * Os dados vêm de src/data/dragon-lord.json; as contas, de src/lib/craft.ts.
- * Os ícones são carregados direto do banco de dados de origem (ver README).
+ * Menu de craft Dragon Lord no estilo do jogo: escolha a peça, veja os 7 passos
+ * (Artisan's Splendent -> True -> Splendent True -> White -> Splendent White ->
+ * Wise -> Splendent Wise), o caminho do zero até o degrau escolhido com o total
+ * de materiais, e uma lista de compras que soma várias receitas.
+ * Dados: src/data/dragon-lord.json (gerado de crafting.json, MetaBot.GG).
+ * Contas: src/lib/craft.ts. Ícones: arquivos estáticos da MetaBot.GG (ver README).
  */
 import data from '../data/dragon-lord.json';
 import type { Lang } from '../i18n';
@@ -13,35 +15,70 @@ const { lang } = Astro.props;
 
 const copy = {
   pt: {
-    locale: 'pt-BR', faction: 'Facção', elyos: 'Elyos', asmodian: 'Asmodiano',
-    craft: 'Fabricar', add: 'Adicionar à lista', have: 'Tenho', need: 'Preciso', missing: 'Falta', done: 'Completo',
-    list: 'Lista de materiais', listEmpty: 'A lista está vazia. Escolha uma receita e toque em Adicionar à lista.',
-    clear: 'Limpar lista', remove: 'Remover', itemLevel: 'Nível do item', unique: 'Única', mastery: 'Maestria',
-    masteryUnknown: 'não informada', profession: 'Profissão', materials: 'Materiais',
-    combo: 'Combo de 25%: sai a versão Splendent, de nível {il}.',
-    splendentNote: 'Esta versão sai no combo (25%) ao fabricar {name}. O banco de dados lista uma receita própria para ela, com os materiais abaixo, mas a função dessa receita não está confirmada.',
-    needsBase: 'Pede 1 {name}, que só sai no combo ao fabricar a versão de Artesão.',
-    seeBase: 'Ver receita da base', back: 'Voltar',
-    baseNote: 'Fabrique {recipe} (maestria {m}). Em 25% das vezes sai a versão Splendent, que é a que a receita Dragon Lord pede: em média 4 fabricações por base.',
-    recipePage: 'Receita no banco de dados', baseSource: 'Combo de 25% ao fabricar a versão de Artesão.',
-    total: 'Total', crafts: 'fabricações', base: 'Base',
+    locale: 'pt-BR', faction: 'Facção', elyos: 'Elyos', asmodian: 'Asmodiano', piece: 'Peça',
+    groups: { weapon: 'Armas', armor: 'Armadura', accessory: 'Acessórios' },
+    step: 'Passo {n}', steps: 'Passos de {name}',
+    craft: 'Fabricar', add: 'Adicionar à lista', have: 'Tenho', done: 'Completo',
+    list: 'Lista de materiais', listEmpty: 'A lista está vazia. Escolha um passo ou um caminho e toque em Adicionar à lista.',
+    clear: 'Limpar lista', remove: 'Remover', itemLevel: 'Nível', unique: 'Único', mastery: 'Maestria',
+    profession: 'Profissão', materials: 'Materiais', success: 'sucesso', other: '{f}: {name}',
+    upgradeNoMastery: 'evolução, sem maestria',
+    artisanNote: 'Fabrique {craft} (maestria {m}). Em {pct}% das vezes sai {item}, que é a peça que o Dragon Lord pede: <b>em média 4 fabricações por peça</b>. As outras saem como {craft} comum.',
+    trueNote: 'Consome 1 {base}. Combo de {pct}%: sai direto {next}, de nível {il}.',
+    upgradeNote: 'Evolução: consome 1 {prev} (o passo anterior){base}. Combo de {pct}%: sai direto {next}, de nível {il}.',
+    upgradeBase: ' e mais 1 {base}',
+    splendentNote: 'Sai no combo ({pct}%) ao fabricar {prev}. Se o combo não vier, use esta evolução: 1 {prev} mais os materiais abaixo.',
+    prevTag: 'peça do passo anterior', baseTag: 'passo 1',
+    goStep: 'Ver passo',
+    pathTitle: 'Do zero até {name}', pathLead: 'O caminho inteiro, na ordem de fabricar. Marque as peças que você já tem e a conta encolhe.',
+    pathCraft: 'Fabrique {item} ×{n}', pathAvg: 'em média, para {k} {result}',
+    pathUp: 'Evolua para {item}', pathTrue: 'Fabrique {item}',
+    pathOwned: 'já tenho', pathConsumes: 'consome {list}',
+    pathNote: '<b>Média, não garantia.</b> O combo tem {pct}% de chance, então cada peça Artisan\'s Splendent custa 4 fabricações em média; pode sair antes ou depois. As fabricações Dragon Lord contam como sucesso (falha não entra na conta) e sem combo: cada uma tem {pct}% de sair Splendent direto, e aí você pula a evolução e economiza os materiais dela.',
+    total: 'Total de materiais', addPath: 'Adicionar caminho à lista', pathItem: 'Caminho: {name}',
+    itemPage: 'Ver o item na MetaBot.GG',
   },
   en: {
-    locale: 'en', faction: 'Faction', elyos: 'Elyos', asmodian: 'Asmodian',
-    craft: 'Craft', add: 'Add to list', have: 'Have', need: 'Need', missing: 'Missing', done: 'Done',
-    list: 'Material list', listEmpty: 'The list is empty. Pick a recipe and tap Add to list.',
-    clear: 'Clear list', remove: 'Remove', itemLevel: 'Item level', unique: 'Unique', mastery: 'Mastery',
-    masteryUnknown: 'not listed', profession: 'Profession', materials: 'Materials',
-    combo: '25% combo: yields the Splendent version, item level {il}.',
-    splendentNote: 'This version comes from the combo (25%) when crafting {name}. The database lists a recipe of its own with the materials below, but what that recipe does is not confirmed.',
-    needsBase: 'Needs 1 {name}, which only comes from a combo when crafting the Artisan version.',
-    seeBase: 'See base recipe', back: 'Back',
-    baseNote: 'Craft {recipe} (mastery {m}). 25% of the time it comes out Splendent, which is what the Dragon Lord recipe needs: 4 crafts per base on average.',
-    recipePage: 'Recipe in the database', baseSource: '25% combo when crafting the Artisan version.',
-    total: 'Total', crafts: 'crafts', base: 'Base',
+    locale: 'en', faction: 'Faction', elyos: 'Elyos', asmodian: 'Asmodian', piece: 'Piece',
+    groups: { weapon: 'Weapons', armor: 'Armor', accessory: 'Accessories' },
+    step: 'Step {n}', steps: '{name} steps',
+    craft: 'Craft', add: 'Add to list', have: 'Have', done: 'Done',
+    list: 'Material list', listEmpty: 'The list is empty. Pick a step or a path and tap Add to list.',
+    clear: 'Clear list', remove: 'Remove', itemLevel: 'Level', unique: 'Unique', mastery: 'Mastery',
+    profession: 'Profession', materials: 'Materials', success: 'success', other: '{f}: {name}',
+    upgradeNoMastery: 'upgrade, no mastery',
+    artisanNote: 'Craft {craft} (mastery {m}). {pct}% of the time it comes out as {item}, the piece the Dragon Lord recipe needs: <b>4 crafts per piece on average</b>. The rest come out as a regular {craft}.',
+    trueNote: 'Consumes 1 {base}. {pct}% combo: yields {next} directly, item level {il}.',
+    upgradeNote: 'Upgrade: consumes 1 {prev} (the previous step){base}. {pct}% combo: yields {next} directly, item level {il}.',
+    upgradeBase: ' plus 1 more {base}',
+    splendentNote: 'Comes from the combo ({pct}%) when crafting {prev}. If the combo does not come, use this upgrade: 1 {prev} plus the materials below.',
+    prevTag: 'previous step piece', baseTag: 'step 1',
+    goStep: 'See step',
+    pathTitle: 'From zero to {name}', pathLead: 'The whole path, in crafting order. Tick the pieces you already own and the bill shrinks.',
+    pathCraft: 'Craft {item} ×{n}', pathAvg: 'on average, for {k} {result}',
+    pathUp: 'Upgrade to {item}', pathTrue: 'Craft {item}',
+    pathOwned: 'I have', pathConsumes: 'consumes {list}',
+    pathNote: '<b>Average, not a guarantee.</b> The combo has a {pct}% chance, so each Artisan\'s Splendent piece costs 4 crafts on average; it may come sooner or later. Dragon Lord crafts are counted as successes (failures are not counted) and without combo: each has a {pct}% chance to come out Splendent directly, which skips the upgrade and saves its materials.',
+    total: 'Total materials', addPath: 'Add path to list', pathItem: 'Path: {name}',
+    itemPage: 'See the item on MetaBot.GG',
   },
 }[lang];
-const payload = { copy, data, lang };
+
+type Item = { name: { pt: string; en: string }; icon: string; slug: string | null };
+const items = data.items as Record<string, Item>;
+const icon = (id: string) => data.iconBase + items[id].icon;
+const groups = (['weapon', 'armor', 'accessory'] as const).map((g) => ({ g, pieces: data.pieces.filter((p) => p.group === g) }));
+/* payload enxuto: origem do material só no idioma da página, sem id de receita */
+const slim = {
+  checkedAt: data.checkedAt, iconBase: data.iconBase, comboChance: data.comboChance,
+  items: Object.fromEntries(Object.entries(items).map(([id, it]) => [id, { name: it.name, icon: it.icon, slug: it.slug, source: (it as { source: { pt: string; en: string } | null }).source?.[lang] ?? null }])),
+  pieces: data.pieces.map((p) => ({ ...p, steps: p.steps.map((s) => ({
+    ...s,
+    elyos: { item: s.elyos.item, materials: s.elyos.materials, ...('craft' in s.elyos ? { craft: s.elyos.craft } : {}) },
+    asmodian: { item: s.asmodian.item, materials: s.asmodian.materials, ...('craft' in s.asmodian ? { craft: s.asmodian.craft } : {}) },
+  })) })),
+};
+const payload = { copy, data: slim, lang };
 ---
 <div class="craft" data-craft>
   <script type="application/json" data-payload set:html={JSON.stringify(payload)} />
@@ -50,103 +87,198 @@ const payload = { copy, data, lang };
       <button type="button" data-v="elyos" aria-pressed="true">{copy.elyos}</button>
       <button type="button" data-v="asmodian" aria-pressed="false">{copy.asmodian}</button>
     </div>
-    <div class="seg" role="group" data-slots></div>
   </div>
+  <nav class="dl-pieces" aria-label={copy.piece} data-pieces>
+    {groups.map(({ g, pieces }) => (
+      <section class="dl-group">
+        <h3 class="dl-group-title">{copy.groups[g]}</h3>
+        <div class="dl-piece-grid">
+          {pieces.map((p) => {
+            const id = p.steps[1].elyos.item;
+            return (
+              <button type="button" class="dl-piece" data-slot={p.slot} aria-pressed={p.slot === 'staff' ? 'true' : 'false'}>
+                <span class="ic gold" style="--s:30px" aria-hidden="true"><b>{p.name.en.slice(0, 2).toUpperCase()}</b><img src={icon(id)} alt="" width="30" height="30" loading="lazy" decoding="async" referrerpolicy="no-referrer" onerror="this.remove()" /></span>
+                <span class="dl-piece-name">{p.name[lang]}<small class="muted">{p.profession[lang]} · {p.unlock}</small></span>
+              </button>
+            );
+          })}
+        </div>
+      </section>
+    ))}
+  </nav>
   <div class="craft-grid">
     <nav class="craft-list" aria-label={copy.materials} data-list></nav>
     <section class="craft-detail panel" data-detail aria-live="polite"></section>
   </div>
+  <section class="panel dl-path" data-path></section>
   <section class="panel craft-plan" data-plan></section>
 </div>
 
+<style is:global>
+  /* seletor de peças e caminho (o resto do estilo do menu está em global.css) */
+  .dl-pieces { display: flex; flex-direction: column; gap: 10px; min-width: 0; }
+  .dl-group { display: flex; flex-direction: column; gap: 6px; min-width: 0; }
+  .dl-group-title { margin: 0; font-family: var(--font-body); font-size: 0.74rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); }
+  .dl-piece-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(150px, 100%), 1fr)); gap: 6px; }
+  .dl-piece { display: flex; gap: 8px; align-items: center; min-width: 0; text-align: left; padding: 6px 8px; border: 1px solid var(--line); border-radius: 10px; background: var(--surface); color: var(--fg); cursor: pointer; }
+  .dl-piece:hover { border-color: var(--muted); }
+  .dl-piece[aria-pressed="true"] { border-color: var(--gold); background: var(--gold-soft); }
+  .dl-piece-name { display: flex; flex-direction: column; min-width: 0; font-weight: 600; font-size: 0.9rem; line-height: 1.25; overflow-wrap: anywhere; }
+  .dl-piece-name small { font-weight: 400; font-size: 0.72rem; }
+  .craft-row-step { font-size: 0.7rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--gold); font-weight: 700; }
+  .craft-row-alt, .dl-alt { font-size: 0.74rem; color: var(--muted); font-weight: 400; overflow-wrap: anywhere; }
+  .craft-head > div { min-width: 0; }
+  .craft-head h3 { overflow-wrap: anywhere; }
+  .dl-steps { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 8px; counter-reset: dl; }
+  .dl-steps > li { display: grid; grid-template-columns: 36px minmax(0, 1fr) auto; gap: 10px; align-items: center; padding: 8px 10px; border: 1px solid var(--line); border-radius: 10px; background: var(--surface); }
+  .dl-steps > li.owned { opacity: 0.6; }
+  .dl-steps .dl-line { display: flex; flex-direction: column; gap: 2px; min-width: 0; }
+  .dl-steps .dl-line b { font-weight: 600; overflow-wrap: anywhere; }
+  .dl-own { display: flex; flex-direction: column; align-items: flex-end; gap: 2px; font-size: 0.72rem; color: var(--muted); }
+  .dl-own input { width: 3.6em; background: var(--raised); border: 1px solid var(--line); border-radius: 6px; padding: 4px 6px; font-family: var(--font-num); }
+  .dl-steps > li.dl-arrow { display: block; border: 0; background: none; padding: 0; text-align: center; color: var(--gold); line-height: 1; margin: -4px 0; }
+  .mat-tag { font-size: 0.7rem; }
+  @media (max-width: 480px) {
+    .dl-piece-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .mat { grid-template-columns: 40px minmax(0, 1fr); }
+    .mat .mat-have { grid-column: 2; flex-direction: row; align-items: center; gap: 8px; justify-content: flex-start; }
+  }
+</style>
+
 <script>
-  import { aggregate, progress } from '../lib/craft';
+  import { aggregate, expandChain, progress, type ChainStep } from '../lib/craft';
 
-  type Ref = { id: string; qty: number };
-  type Mat = { name: string; icon: string | null; url: string | null; source: { pt: string; en: string } | null };
-  type Tier = {
-    tier: string; splendent: boolean; names: { elyos: string; asmodian: string }; itemLevel: number;
-    icon: string | null; itemUrl: string | null; recipeUrl: string | null; asmodianRecipeUrl: string | null;
-    mastery: number | null; materials: Ref[];
+  type Lang = 'pt' | 'en';
+  type F = 'elyos' | 'asmodian';
+  type Ref = { id: string; qty: number; prev?: boolean };
+  type Variant = { item: string; materials: Ref[]; craft?: string };
+  type Step = {
+    tier: string; itemLevel: number; mastery: number | null; upgrade: boolean; viaCombo?: boolean;
+    combo: number; alsoCombo?: number; success: { min: number; max: number } | null; elyos: Variant; asmodian: Variant;
   };
-  type Item = {
-    slot: string; name: { pt: string; en: string }; profession: { pt: string; en: string };
-    base: { material: string; itemUrl: string; recipe: { name: string; recipeUrl: string; mastery: number; materials: Ref[] } };
-    tiers: Tier[];
-  };
-  type PlanEntry = { slot: string; tier: number; count: number }; // tier -1 = base
-  type State = { faction: 'elyos' | 'asmodian'; slot: string; tier: number; view: 'tier' | 'base'; count: number; have: Record<string, number>; plan: PlanEntry[] };
+  type Piece = { slot: string; group: string; name: { pt: string; en: string }; profession: { id: string; pt: string; en: string }; unlock: number; steps: Step[] };
+  type Item = { name: { pt: string; en: string }; icon: string; slug: string | null; source: string | null };
+  type Data = { checkedAt: string; iconBase: string; comboChance: number; items: Record<string, Item>; pieces: Piece[] };
+  /** chain = caminho inteiro do zero até o passo */
+  type PlanEntry = { slot: string; tier: number; count: number; chain?: boolean };
+  type State = { v: 2; faction: F; slot: string; tier: number; count: number; have: Record<string, number>; plan: PlanEntry[] };
 
-  const KEY = 'rota.craft.v1';
+  const KEY = 'rota.craft.v2';
+  const OLD_KEY = 'rota.craft.v1';
   const esc = (s: string) => s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+  const slugify = (s: string) => s.toLowerCase().replace(/['’]/g, '').replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
 
   document.querySelectorAll<HTMLElement>('[data-craft]').forEach((root) => {
     const { copy, data, lang } = JSON.parse(root.querySelector('[data-payload]')!.textContent || '{}') as {
-      copy: Record<string, string>; data: { checkedAt: string; materials: Record<string, Mat>; items: Item[] }; lang: 'pt' | 'en';
+      copy: Record<string, string>; data: Data; lang: Lang;
     };
+    const other: Lang = lang === 'pt' ? 'en' : 'pt';
     const items = data.items;
-    const mats = data.materials;
-    const fmt = (n: number) => n.toLocaleString(copy.locale);
+    const pieces = data.pieces;
+    const pct = Math.round(data.comboChance * 100);
+    const fmt = (n: number) => n.toLocaleString(copy.locale, { maximumFractionDigits: 1 });
     const fill = (tpl: string, v: Record<string, string | number>) => tpl.replace(/\{(\w+)\}/g, (_, k) => String(v[k] ?? ''));
 
-    let state: State = { faction: 'elyos', slot: 'staff', tier: 4, view: 'tier', count: 1, have: {}, plan: [] };
-    try { state = { ...state, ...JSON.parse(localStorage.getItem(KEY) || '{}') }; } catch { /* sem storage */ }
+    /* ---------- estado: v2, com migração do v1 (cajado, anel e guarda) ---------- */
+    let state: State = { v: 2, faction: 'elyos', slot: 'staff', tier: 5, count: 1, have: {}, plan: [] };
+    try {
+      const saved = localStorage.getItem(KEY);
+      if (saved) state = { ...state, ...JSON.parse(saved), v: 2 };
+      else {
+        const old = JSON.parse(localStorage.getItem(OLD_KEY) || 'null');
+        if (old && typeof old === 'object') {
+          // v1: tier 0..5 = True..Splendent Wise, view "base" = Artisan; "tenho" por slug do nome em inglês
+          const bySlug = new Map<string, string[]>();
+          Object.entries(items).forEach(([id, it]) => { const s = slugify(it.name.en); bySlug.set(s, [...(bySlug.get(s) ?? []), id]); });
+          const have: Record<string, number> = {};
+          Object.entries(old.have ?? {}).forEach(([slug, n]) => (bySlug.get(slug) ?? []).forEach((id) => { have[id] = Number(n) || 0; }));
+          state = {
+            ...state,
+            faction: old.faction === 'asmodian' ? 'asmodian' : 'elyos',
+            slot: typeof old.slot === 'string' ? old.slot : 'staff',
+            tier: old.view === 'base' ? 0 : Math.min(6, Math.max(0, Number(old.tier ?? 4) + 1)),
+            count: Number(old.count) || 1,
+            have,
+            plan: Array.isArray(old.plan) ? old.plan.map((p: PlanEntry) => ({ slot: p.slot, tier: p.tier < 0 ? 0 : p.tier + 1, count: p.count })) : [],
+          };
+        }
+      }
+    } catch { /* sem storage */ }
+    if (!pieces.some((p) => p.slot === state.slot)) state.slot = 'staff';
+    state.tier = Math.min(6, Math.max(0, Math.floor(state.tier) || 0));
+    state.plan = state.plan.filter((p) => pieces.some((x) => x.slot === p.slot) && p.tier >= 0 && p.tier <= 6);
     const save = () => { try { localStorage.setItem(KEY, JSON.stringify(state)); } catch { /* idem */ } };
 
-    const itemOf = (slot: string) => items.find((i) => i.slot === slot)!;
-    const tierName = (t: Tier) => t.names[state.faction];
+    const pieceOf = (slot: string) => pieces.find((p) => p.slot === slot)!;
+    const variant = (s: Step) => s[state.faction];
+    const nm = (id: string) => items[id]?.name[lang] ?? id;
+    const alt = (id: string) => items[id]?.name[other] ?? '';
     const mono = (name: string) => name.replace(/[^A-Za-z ]/g, '').split(' ').filter(Boolean).slice(-2).map((w) => w[0]).join('').toUpperCase();
+    const itemUrl = (id: string) => items[id]?.slug ? `https://metabot.gg/${lang === 'pt' ? 'pt_BR' : 'en'}/aion-2/items/${items[id].slug}` : null;
+    const otherFaction = (): F => (state.faction === 'elyos' ? 'asmodian' : 'elyos');
 
     /** ícone com reserva: se a imagem não carregar, fica a sigla por baixo */
-    function icon(src: string | null, name: string, size: number, gold = false): string {
-      const img = src ? `<img src="${esc(src)}" alt="" width="${size}" height="${size}" loading="lazy" decoding="async" referrerpolicy="no-referrer" onerror="this.remove()">` : '';
-      return `<span class="ic${gold ? ' gold' : ''}" style="--s:${size}px" aria-hidden="true"><b>${esc(mono(name))}</b>${img}</span>`;
+    function icon(id: string, size: number, gold = false): string {
+      const it = items[id];
+      const img = it?.icon ? `<img src="${esc(data.iconBase + it.icon)}" alt="" width="${size}" height="${size}" loading="lazy" decoding="async" referrerpolicy="no-referrer" onerror="this.remove()">` : '';
+      return `<span class="ic${gold ? ' gold' : ''}" style="--s:${size}px" aria-hidden="true"><b>${esc(mono(it?.name.en ?? id))}</b>${img}</span>`;
+    }
+    const strong = (id: string) => `<b>${esc(nm(id))}</b>`;
+
+    /** escada da peça na facção atual, no formato de expandChain */
+    const chainOf = (p: Piece): ChainStep[] => p.steps.map((s, i) => ({ item: variant(s).item, materials: variant(s).materials, viaCombo: i === 0 }));
+
+    function recipeOf(entry: PlanEntry): { title: string; materials: { id: string; qty: number }[] } {
+      const p = pieceOf(entry.slot);
+      const s = p.steps[entry.tier];
+      if (entry.chain) {
+        const { total } = expandChain(chainOf(p), entry.tier, { comboChance: data.comboChance });
+        return { title: fill(copy.pathItem, { name: nm(variant(s).item) }), materials: Object.entries(total).map(([id, qty]) => ({ id, qty })) };
+      }
+      // um passo sozinho: a peça do passo anterior fica fora da soma (ela é fabricada, não comprada)
+      const v = variant(s);
+      return { title: nm(entry.tier === 0 ? v.craft! : v.item), materials: v.materials.filter((m) => !m.prev) };
     }
 
-    function recipeOf(entry: { slot: string; tier: number }): { title: string; materials: Ref[] } {
-      const it = itemOf(entry.slot);
-      if (entry.tier < 0) return { title: it.base.recipe.name, materials: it.base.recipe.materials };
-      const t = it.tiers[entry.tier];
-      return { title: tierName(t), materials: t.materials };
-    }
-
-    /* ---------- barra de cima ---------- */
-    const slotsEl = root.querySelector<HTMLElement>('[data-slots]')!;
+    /* ---------- facção e peça ---------- */
     function renderBar() {
       root.querySelectorAll<HTMLButtonElement>('[data-faction] button').forEach((b) => b.setAttribute('aria-pressed', String(b.dataset.v === state.faction)));
-      slotsEl.innerHTML = items.map((it) =>
-        `<button type="button" data-slot="${it.slot}" aria-pressed="${it.slot === state.slot}">${icon(it.tiers[4].icon, it.tiers[4].names.elyos, 22, true)}${esc(it.name[lang])}</button>`).join('');
+      root.querySelectorAll<HTMLButtonElement>('[data-pieces] [data-slot]').forEach((b) => b.setAttribute('aria-pressed', String(b.dataset.slot === state.slot)));
     }
 
-    /* ---------- lista de receitas ---------- */
+    /* ---------- os 7 passos ---------- */
     const listEl = root.querySelector<HTMLElement>('[data-list]')!;
     function renderList() {
-      const it = itemOf(state.slot);
-      listEl.innerHTML = it.tiers.map((t, i) => {
-        const on = state.view === 'tier' && state.tier === i;
-        return `<button type="button" class="craft-row${t.splendent ? ' splendent' : ''}" data-tier="${i}" aria-current="${on}">
-          ${icon(t.icon, t.names.elyos, 40, true)}
-          <span class="craft-row-text"><span class="craft-row-name">${esc(tierName(t))}</span>
-          <span class="muted small">${copy.itemLevel} <span class="num">${t.itemLevel}</span></span></span></button>`;
-      }).join('') + `<button type="button" class="craft-row base" data-tier="-1" aria-current="${state.view === 'base'}">
-          ${icon(mats[it.base.material]?.icon ?? null, it.base.material, 40)}
-          <span class="craft-row-text"><span class="craft-row-name">${copy.base}: ${esc(mats[it.base.material]?.name ?? '')}</span>
-          <span class="muted small">${copy.mastery} <span class="num">${it.base.recipe.mastery}</span></span></span></button>`;
+      const p = pieceOf(state.slot);
+      listEl.innerHTML = `<p class="small muted">${fill(copy.steps, { name: esc(p.name[lang]) })}</p>` + p.steps.map((s, i) => {
+        const v = variant(s);
+        const on = state.tier === i;
+        const splendent = s.tier.startsWith('splendent') || i === 0;
+        return `<button type="button" class="craft-row${splendent ? ' splendent' : ''}${i === 0 ? ' base' : ''}" data-tier="${i}" aria-current="${on}">
+          ${icon(v.item, 40, i > 0)}
+          <span class="craft-row-text"><span class="craft-row-step">${fill(copy.step, { n: i + 1 })}</span>
+          <span class="craft-row-name">${esc(nm(v.item))}</span>
+          <span class="craft-row-alt" lang="${other}">${esc(alt(v.item))}</span>
+          <span class="muted small">${copy.itemLevel} <span class="num">${s.itemLevel}</span> · ${s.upgrade ? copy.upgradeNoMastery : `${copy.mastery} <span class="num">${s.mastery}</span>`}</span></span></button>`;
+      }).join('');
     }
 
-    /* ---------- detalhe ---------- */
+    /* ---------- detalhe de um passo ---------- */
     const detailEl = root.querySelector<HTMLElement>('[data-detail]')!;
-    function matRow(r: Ref, times: number): string {
-      const m = mats[r.id];
+    function matRow(r: Ref, times: number, tag = ''): string {
+      const m = items[r.id];
       const need = r.qty * times;
       const have = state.have[r.id] ?? 0;
       const p = progress(need, have);
-      const src = r.id.startsWith('artisans-splendent') ? copy.baseSource : m?.source?.[lang] ?? '';
+      const url = itemUrl(r.id);
+      const name = esc(nm(r.id));
+      const src = m?.source ?? '';
       return `<li class="mat" data-mat="${r.id}" data-need="${need}">
-        <span class="mat-icon">${icon(m?.icon ?? null, m?.name ?? r.id, 44)}<span class="qty num">${fmt(need)}</span></span>
+        <span class="mat-icon">${icon(r.id, 44)}<span class="qty num">${fmt(need)}</span></span>
         <span class="mat-body">
-          <a href="${esc(m?.url ?? '#')}" target="_blank" rel="noopener" class="mat-name">${esc(m?.name ?? r.id)}</a>
-          ${src ? `<span class="muted small">${esc(src)}</span>` : ''}
+          ${url ? `<a href="${esc(url)}" target="_blank" rel="noopener" class="mat-name">${name}</a>` : `<span class="mat-name">${name}</span>`}
+          <span class="dl-alt" lang="${other}">${esc(alt(r.id))}</span>
+          ${tag}${src ? `<span class="muted small">${esc(src)}</span>` : ''}
           <span class="bar"><i style="width:${(p * 100).toFixed(0)}%"${p >= 1 ? ' class="ok"' : ''}></i></span>
         </span>
         <label class="mat-have"><span class="small muted">${copy.have}</span>
@@ -154,41 +286,88 @@ const payload = { copy, data, lang };
       </li>`;
     }
 
+    function stepMaterials(p: Piece, i: number, times: number): string {
+      const base = variant(p.steps[0]).item;
+      return variant(p.steps[i]).materials.map((m) => {
+        let tag = '';
+        if (m.prev) tag = `<span class="pill warn mat-tag">${copy.prevTag}</span> <button type="button" class="linkish small" data-go="${i - 1}">${copy.goStep} ${i}</button>`;
+        else if (m.id === base && i > 0) tag = `<span class="pill gold mat-tag">${copy.baseTag}</span> <button type="button" class="linkish small" data-go="0">${copy.goStep} 1</button>`;
+        return matRow(m, times, tag);
+      }).join('');
+    }
+
     function renderDetail() {
-      const it = itemOf(state.slot);
+      const p = pieceOf(state.slot);
+      const i = state.tier;
+      const s = p.steps[i];
+      const v = variant(s);
       const times = Math.max(1, state.count);
-      let head: string, body: string, refs: Ref[];
-      if (state.view === 'base') {
-        const b = it.base.recipe;
-        const baseMat = mats[it.base.material];
-        refs = b.materials;
-        head = `<div class="craft-head">${icon(baseMat?.icon ?? null, baseMat?.name ?? '', 64)}
-          <div><h3>${esc(baseMat?.name ?? '')}</h3>
-          <p class="muted small">${copy.profession}: ${esc(it.profession[lang])} · ${copy.mastery} <span class="num">${b.mastery}</span></p></div></div>`;
-        body = `<p class="note small">${fill(copy.baseNote, { recipe: esc(b.name), m: b.mastery })}</p>
-          <p class="small"><a href="${esc(b.recipeUrl)}" target="_blank" rel="noopener">${copy.recipePage}</a> · <button type="button" class="linkish" data-back>${copy.back}</button></p>`;
-      } else {
-        const t = it.tiers[state.tier];
-        const normal = t.splendent ? it.tiers[state.tier - 1] : null;
-        const next = !t.splendent ? it.tiers[state.tier + 1] : null;
-        refs = t.materials;
-        const recipeUrl = state.faction === 'asmodian' && t.asmodianRecipeUrl ? t.asmodianRecipeUrl : t.recipeUrl;
-        head = `<div class="craft-head">${icon(t.icon, t.names.elyos, 64, true)}
-          <div><h3>${esc(tierName(t))}</h3>
-          <p class="muted small"><span class="gold-t">${copy.unique}</span> · ${copy.itemLevel} <span class="num">${t.itemLevel}</span> · ${esc(it.profession[lang])} · ${copy.mastery} ${t.mastery ? `<span class="num">${t.mastery}</span>` : copy.masteryUnknown}</p></div></div>`;
-        body = (t.splendent
-          ? `<p class="note small">${fill(copy.splendentNote, { name: esc(normal ? tierName(normal) : '') })}</p>`
-          : `<p class="small">${fill(copy.combo, { il: next?.itemLevel ?? '' })}</p>
-             <p class="note small">${fill(copy.needsBase, { name: esc(mats[it.base.material]?.name ?? '') })} <button type="button" class="linkish" data-see-base>${copy.seeBase}</button></p>`)
-          + (recipeUrl ? `<p class="small"><a href="${esc(recipeUrl)}" target="_blank" rel="noopener">${copy.recipePage}</a></p>` : '');
-      }
-      detailEl.innerHTML = `${head}${body}
+      const base = variant(p.steps[0]).item;
+      const next = p.steps[i + 1];
+      const prev = p.steps[i - 1];
+      const of = otherFaction();
+      const otherName = s[of]?.item;
+      let note = '';
+      if (i === 0) note = fill(copy.artisanNote, { craft: strong(v.craft!), m: s.mastery ?? '', pct: s.combo || pct, item: strong(v.item) });
+      else if (i === 1) note = fill(copy.trueNote, { base: strong(base), pct: s.combo || pct, next: strong(variant(next).item), il: next.itemLevel });
+      else if (s.tier.startsWith('splendent')) note = fill(copy.splendentNote, { pct: s.alsoCombo ?? pct, prev: strong(variant(prev).item) });
+      else note = fill(copy.upgradeNote, {
+        prev: strong(variant(prev).item), base: fill(copy.upgradeBase, { base: strong(base) }),
+        pct: s.combo || pct, next: strong(variant(next).item), il: next.itemLevel,
+      });
+      const shown = i === 0 ? v.craft! : v.item;
+      const head = `<div class="craft-head">${icon(v.item, 64, i > 0)}
+        <div><p class="craft-row-step">${fill(copy.step, { n: i + 1 })}</p><h3>${esc(nm(v.item))}</h3>
+        <p class="dl-alt" lang="${other}">${esc(alt(v.item))}</p>
+        ${otherName ? `<p class="dl-alt">${esc(fill(copy.other, { f: copy[of], name: nm(otherName) }))}</p>` : ''}
+        <p class="muted small"><span class="gold-t">${copy.unique}</span> · ${copy.itemLevel} <span class="num">${s.itemLevel}</span> · ${esc(p.profession[lang])} · ${s.upgrade ? copy.upgradeNoMastery : `${copy.mastery} <span class="num">${s.mastery}</span>`}${s.success ? ` · <span class="num">${fmt(s.success.min)}–${fmt(s.success.max)}%</span> ${copy.success}` : ''}</p></div></div>`;
+      const url = itemUrl(shown);
+      detailEl.innerHTML = `${head}
+        <p class="note small">${note}</p>
+        ${url ? `<p class="small"><a href="${esc(url)}" target="_blank" rel="noopener">${copy.itemPage}</a></p>` : ''}
         <div class="craft-actions">
           <label class="field">${copy.craft} ×<input type="number" min="1" max="99" value="${times}" data-count inputmode="numeric"></label>
           <button type="button" class="btn" data-add>${copy.add}</button>
         </div>
         <h3>${copy.materials}</h3>
-        <ul class="mats">${refs.map((r) => matRow(r, times)).join('')}</ul>`;
+        <ul class="mats">${stepMaterials(p, i, times)}</ul>`;
+    }
+
+    /* ---------- caminho do zero até o passo escolhido ---------- */
+    const pathEl = root.querySelector<HTMLElement>('[data-path]')!;
+    function renderPath() {
+      const p = pieceOf(state.slot);
+      const chain = chainOf(p);
+      const target = variant(p.steps[state.tier]).item;
+      const { lines, total } = expandChain(chain, state.tier, { comboChance: data.comboChance, owned: state.have });
+      const steps = p.steps.slice(0, state.tier + 1).map((s, i) => {
+        const v = variant(s);
+        const line = lines.find((l) => l.index === i);
+        const owned = state.have[v.item] ?? 0;
+        let text: string;
+        if (!line) text = `<b>${esc(nm(v.item))}</b><span class="muted small">${copy.pathOwned}</span>`;
+        else if (i === 0) {
+          text = `<b>${fill(copy.pathCraft, { item: esc(nm(v.craft!)), n: fmt(line.crafts) })}</b>
+            <span class="muted small">${fill(copy.pathAvg, { k: fmt(line.need), result: esc(nm(v.item)) })} · ${copy.mastery} ${s.mastery}</span>`;
+        } else {
+          const tpl = s.upgrade ? copy.pathUp : copy.pathTrue;
+          const cons = line.consumes.map((c) => `${fmt(c.qty)}× ${esc(nm(c.id))}`).join(', ');
+          text = `<b>${fill(tpl, { item: esc(nm(v.item)) })}${line.need > 1 ? ` ×${fmt(line.need)}` : ''}</b>
+            <span class="muted small">${s.upgrade ? copy.upgradeNoMastery : `${copy.mastery} ${s.mastery}`}${cons ? ` · ${fill(copy.pathConsumes, { list: cons })}` : ''}</span>`;
+        }
+        return `${i ? '<li class="dl-arrow" aria-hidden="true">↓</li>' : ''}<li class="${line ? '' : 'owned'}">
+          ${icon(v.item, 36, i > 0)}
+          <span class="dl-line"><span class="craft-row-step">${fill(copy.step, { n: i + 1 })}</span>${text}</span>
+          <label class="dl-own">${copy.pathOwned}<input type="number" min="0" inputmode="numeric" value="${owned}" data-have="${v.item}" data-owned></label></li>`;
+      }).join('');
+      const ids = Object.keys(total).sort((a, b) => total[b] - total[a]);
+      pathEl.innerHTML = `<div class="panel-head"><h3>${fill(copy.pathTitle, { name: esc(nm(target)) })}</h3>
+          <button type="button" class="btn" data-add-path>${copy.addPath}</button></div>
+        <p class="small muted">${copy.pathLead}</p>
+        <ol class="dl-steps">${steps}</ol>
+        <p class="note small">${fill(copy.pathNote, { pct })}</p>
+        <h3>${copy.total}</h3>
+        <ul class="mats">${ids.map((id) => matRow({ id, qty: total[id] }, 1)).join('')}</ul>`;
     }
 
     /* ---------- lista somada ---------- */
@@ -200,13 +379,13 @@ const payload = { copy, data, lang };
       }
       const lines = state.plan.map((p) => ({ ...p, ...recipeOf(p) }));
       const total = aggregate(lines);
-      const ids = Object.keys(total);
+      const ids = Object.keys(total).sort((a, b) => total[b] - total[a]);
       planEl.innerHTML = `<div class="panel-head"><h3>${copy.list}</h3><button type="button" class="ghost" data-clear>${copy.clear}</button></div>
         <ul class="plan-lines">${lines.map((l, i) => `<li><span>${esc(l.title)} <span class="num muted">×${l.count}</span></span><button type="button" class="ghost" data-remove="${i}">${copy.remove}</button></li>`).join('')}</ul>
         <ul class="mats">${ids.map((id) => matRow({ id, qty: total[id] }, 1)).join('')}</ul>`;
     }
 
-    /** atualiza barras de progresso e campos "tenho" sem redesenhar (não perde o foco) */
+    /** atualiza barras e campos "tenho" sem redesenhar (não perde o foco) */
     function refreshProgress(changed: string, source: HTMLInputElement) {
       root.querySelectorAll<HTMLElement>(`[data-mat="${changed}"]`).forEach((row) => {
         const need = Number(row.dataset.need);
@@ -219,24 +398,22 @@ const payload = { copy, data, lang };
       });
     }
 
-    function renderAll() { renderBar(); renderList(); renderDetail(); renderPlan(); save(); }
+    function renderAll() { renderBar(); renderList(); renderDetail(); renderPath(); renderPlan(); save(); }
 
     root.addEventListener('click', (ev) => {
       const el = (ev.target as HTMLElement).closest<HTMLElement>('button');
       if (!el) return;
-      if (el.closest('[data-faction]') && el.dataset.v) { state.faction = el.dataset.v as State['faction']; renderAll(); }
-      else if (el.dataset.slot) { state.slot = el.dataset.slot; state.view = 'tier'; renderAll(); }
-      else if (el.dataset.tier !== undefined) {
-        const i = Number(el.dataset.tier);
-        if (i < 0) state.view = 'base'; else { state.view = 'tier'; state.tier = i; }
-        renderAll();
-      } else if (el.hasAttribute('data-see-base')) { state.view = 'base'; renderAll(); }
-      else if (el.hasAttribute('data-back')) { state.view = 'tier'; renderAll(); }
-      else if (el.hasAttribute('data-add')) {
-        const tier = state.view === 'base' ? -1 : state.tier;
-        const found = state.plan.find((p) => p.slot === state.slot && p.tier === tier);
-        if (found) found.count += state.count; else state.plan.push({ slot: state.slot, tier, count: state.count });
+      if (el.closest('[data-faction]') && el.dataset.v) { state.faction = el.dataset.v as F; renderAll(); }
+      else if (el.dataset.slot) { state.slot = el.dataset.slot; renderAll(); listEl.scrollIntoView({ block: 'nearest', behavior: 'smooth' }); }
+      else if (el.dataset.tier !== undefined) { state.tier = Number(el.dataset.tier); renderAll(); }
+      else if (el.dataset.go !== undefined) { state.tier = Number(el.dataset.go); renderAll(); detailEl.scrollIntoView({ block: 'start', behavior: 'smooth' }); }
+      else if (el.hasAttribute('data-add') || el.hasAttribute('data-add-path')) {
+        const chain = el.hasAttribute('data-add-path');
+        const count = chain ? 1 : state.count;
+        const found = state.plan.find((p) => p.slot === state.slot && p.tier === state.tier && !!p.chain === chain);
+        if (found) found.count += count; else state.plan.push({ slot: state.slot, tier: state.tier, count, ...(chain ? { chain: true } : {}) });
         renderPlan(); save();
+        planEl.scrollIntoView({ block: 'nearest', behavior: 'smooth' });
       } else if (el.dataset.remove !== undefined) { state.plan.splice(Number(el.dataset.remove), 1); renderPlan(); save(); }
       else if (el.hasAttribute('data-clear')) { state.plan = []; renderPlan(); save(); }
     });
@@ -245,16 +422,22 @@ const payload = { copy, data, lang };
       const el = ev.target as HTMLInputElement;
       if (el.dataset.have) {
         state.have[el.dataset.have] = Math.max(0, Math.floor(Number(el.value) || 0));
+        if (el.hasAttribute('data-owned')) {
+          // peça da escada: muda o caminho inteiro; redesenha e devolve o foco ao campo
+          const id = el.dataset.have;
+          renderPath(); save();
+          const again = pathEl.querySelector<HTMLInputElement>(`[data-owned][data-have="${id}"]`);
+          if (again) { again.focus(); const n = again.value.length; try { again.setSelectionRange(n, n); } catch { /* number */ } }
+          return;
+        }
         refreshProgress(el.dataset.have, el);
+        // "tenho" de uma peça da escada no detalhe também muda o caminho
+        if (chainOf(pieceOf(state.slot)).some((c) => c.item === el.dataset.have)) renderPath();
         save();
       } else if (el.hasAttribute('data-count')) {
         state.count = Math.min(99, Math.max(1, Math.floor(Number(el.value) || 1)));
         const ul = detailEl.querySelector('.mats');
-        if (ul) {
-          const it = itemOf(state.slot);
-          const refs = state.view === 'base' ? it.base.recipe.materials : it.tiers[state.tier].materials;
-          ul.innerHTML = refs.map((r) => matRow(r, state.count)).join('');
-        }
+        if (ul) ul.innerHTML = stepMaterials(pieceOf(state.slot), state.tier, state.count);
         save();
       }
     });

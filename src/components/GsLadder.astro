@@ -4,14 +4,14 @@
  * está sem JavaScript); o script só repinta os estados quando o número muda.
  */
 import { GATES } from '../lib/progression';
-import { formatNumber, t, tr, type Lang } from '../i18n';
+import { formatNumber, HTML_LANG, t, tr, type Lang } from '../i18n';
 
 interface Props { lang: Lang }
 const { lang } = Astro.props;
 const tt = t(lang);
 const labels = {
   open: tt('home.gs.open'), locked: tt('home.gs.locked'), next: tt('home.gs.next'),
-  left: lang === 'pt' ? 'faltam {n}' : '{n} to go', done: tt('home.gs.done'), locale: lang === 'pt' ? 'pt-BR' : 'en',
+  left: tt('home.gs.left'), done: tt('home.gs.done'), locale: HTML_LANG[lang],
 };
 ---
 <div class="panel" data-gs-ladder data-labels={JSON.stringify(labels)}>

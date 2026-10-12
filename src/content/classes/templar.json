@@ -4,13 +4,1192 @@
     "en": "Templar"
   },
   "order": 2,
-  "status": "draft",
+  "status": "published",
   "archetype": {
     "pt": "Tanque",
     "en": "Tank"
   },
   "summary": {
-    "pt": "Build em pesquisa. A página abre quando as skills, os Stigmas e a rotação tiverem fonte.",
-    "en": "Build under research. The page opens once skills, Stigmas and rotation are sourced."
-  }
+    "pt": "Build de endgame dos Templários do topo: Shield Smite e Judgment no ciclo de atordoamento, Punishment como dano principal, e Taunt como o Stigma mais usado para segurar o chefe.",
+    "en": "Endgame build from top Templars: Shield Smite and Judgment in the stun loop, Punishment as the main damage, and Taunt as the most used Stigma to hold the boss."
+  },
+  "updated": "2026-10-12",
+  "actives": [
+    {
+      "id": "vs",
+      "name": "Vicious Strike",
+      "namePt": "Golpe Furioso",
+      "icon": "https://metabot.gg/web/aion2/skills/12010000.webp",
+      "mono": "VS",
+      "category": "damage",
+      "level": 7,
+      "usage": 98,
+      "role": {
+        "pt": "Ataque básico em área que devolve MP e gera ameaça.",
+        "en": "Basic area attack that restores MP and generates enmity."
+      },
+      "effect": {
+        "pt": "Causa 79 de dano em até 4 inimigos a 4 m e gera ameaça. Recupera 100 MP. Pode ser usada em movimento.",
+        "en": "Deals 79 damage to up to 4 enemies within 4 m and generates enmity. Restores 100 MP. Usable while moving."
+      }
+    },
+    {
+      "id": "pn",
+      "name": "Punishment",
+      "namePt": "Punição",
+      "icon": "https://metabot.gg/web/aion2/skills/12090000.webp",
+      "mono": "Pn",
+      "category": "damage",
+      "level": 7,
+      "usage": 98,
+      "role": {
+        "pt": "Dano principal à distância. Dá o buff Executor.",
+        "en": "Main ranged damage. Grants the Executor buff."
+      },
+      "effect": {
+        "pt": "200 MP, recarga de 30 s, carregável em 3 níveis. Escolhe um alvo a 20 m e causa 1394–4184 de dano em até 4 inimigos a 4 m dele. Dá Executor por 20 s: +200 de Precisão, +20% de dano em PvE e +10% em PvP. 20–35 de dano de Stagger.",
+        "en": "200 MP, 30 s cooldown, charges up to 3 levels. Picks a target within 20 m and deals 1394–4184 damage to up to 4 enemies within 4 m of it. Grants Executor for 20 s: +200 Accuracy, +20% PvE damage and +10% PvP damage. 20–35 Stagger damage."
+      }
+    },
+    {
+      "id": "po",
+      "name": "Poach",
+      "namePt": "Captura",
+      "icon": "https://metabot.gg/web/aion2/skills/12130000.webp",
+      "mono": "Po",
+      "category": "control",
+      "level": 7,
+      "usage": 98,
+      "role": {
+        "pt": "Puxa o alvo para a sua frente. Abre a luta.",
+        "en": "Pulls the target in front of you. Opens the fight."
+      },
+      "effect": {
+        "pt": "Recarga de 15 s. Causa 49 de dano a 20 m, puxa o alvo para a sua frente e tem 75% de chance de enraizar por 2 s (100% em NPC). 10 de dano de Stagger.",
+        "en": "15 s cooldown. Deals 49 damage within 20 m, pulls the target in front of you and has a 75% chance to root for 2 s (100% on NPCs). 10 Stagger damage."
+      }
+    },
+    {
+      "id": "ws",
+      "name": "Warding Strike",
+      "namePt": "Golpe do Amparo",
+      "icon": "https://metabot.gg/web/aion2/skills/12350000.webp",
+      "mono": "WS",
+      "category": "heal",
+      "level": 7,
+      "usage": 98,
+      "role": {
+        "pt": "Dano em área, cura e redução de dano.",
+        "en": "Area damage, a heal and damage reduction."
+      },
+      "effect": {
+        "pt": "200 MP, recarga de 30 s. Causa 388 de dano em até 4 inimigos a 5 m, recupera 180–198 de HP e dá Warding por 10 s (+20% de tolerância a dano em PvE e +10% em PvP). Libera o Judgment por 2 s.",
+        "en": "200 MP, 30 s cooldown. Deals 388 damage to up to 4 enemies within 5 m, restores 180–198 HP and grants Warding for 10 s (+20% PvE and +10% PvP damage tolerance). Enables Judgment for 2 s."
+      }
+    },
+    {
+      "id": "sr",
+      "name": "Shield Rush",
+      "namePt": "Assalto de Escudo",
+      "icon": "https://metabot.gg/web/aion2/skills/12430000.webp",
+      "mono": "SR",
+      "category": "move",
+      "level": 7,
+      "usage": 98,
+      "role": {
+        "pt": "Avanço curto. Atordoa depois de uma esquiva ou em voo.",
+        "en": "Short dash. Stuns after a dodge or while flying."
+      },
+      "effect": {
+        "pt": "Recarga de 20 s. Avança até um alvo a 10 m e causa 258 de dano depois de [Dodge] ou em voo, com 30% de chance de atordoar por 3 s (100% em NPC). Libera o Judgment por 2 s. 20 de dano de Stagger.",
+        "en": "20 s cooldown. Rushes to a target within 10 m and deals 258 damage after [Dodge] or while flying, with a 30% chance to stun for 3 s (100% on NPCs). Enables Judgment for 2 s. 20 Stagger damage."
+      }
+    },
+    {
+      "id": "ju",
+      "name": "Judgment",
+      "namePt": "Julgamento",
+      "icon": "https://metabot.gg/web/aion2/skills/12240000.webp",
+      "mono": "Ju",
+      "category": "damage",
+      "level": 7,
+      "usage": 98,
+      "role": {
+        "pt": "Golpe de seguimento liberado pelas skills de escudo.",
+        "en": "Follow-up hit enabled by the shield skills."
+      },
+      "effect": {
+        "pt": "Recarga de 5 s. Causa 227 de dano a 4 m e gera ameaça. 5 de dano de Stagger. Pode ser usada em movimento.",
+        "en": "5 s cooldown. Deals 227 damage within 4 m and generates enmity. 5 Stagger damage. Usable while moving."
+      }
+    },
+    {
+      "id": "an",
+      "name": "Annihilate",
+      "namePt": "Erradicação",
+      "icon": "https://metabot.gg/web/aion2/skills/12300000.webp",
+      "mono": "An",
+      "category": "damage",
+      "level": 7,
+      "usage": 97,
+      "role": {
+        "pt": "Golpe forte em alvo atordoado ou derrubado.",
+        "en": "Heavy hit on a stunned or knocked-down target."
+      },
+      "effect": {
+        "pt": "200 MP, recarga de 20 s. Causa 791 de dano em alvo atordoado ou derrubado a 4 m, com 30% de chance de derrubar por 3 s (100% em NPC). Contra alvo imune a incapacitação, 5% de chance de ativar. 10 de dano de Stagger.",
+        "en": "200 MP, 20 s cooldown. Deals 791 damage to a stunned or knocked-down target within 4 m with a 30% chance to knock down for 3 s (100% on NPCs). 5% chance to trigger against a target with incapacitation immunity. 10 Stagger damage."
+      }
+    },
+    {
+      "id": "ssm",
+      "name": "Shield Smite",
+      "namePt": "Golpe Potente de Escudo",
+      "icon": "https://metabot.gg/web/aion2/skills/12100000.webp",
+      "mono": "SSm",
+      "category": "control",
+      "level": 7,
+      "usage": 96,
+      "role": {
+        "pt": "Atordoa e libera o Judgment.",
+        "en": "Stuns and enables Judgment."
+      },
+      "effect": {
+        "pt": "100 MP, recarga de 10 s. Causa 173 de dano em até 4 inimigos a 4 m, com 60% de chance de atordoar por 3 s (100% em NPC). Libera o Judgment por 2 s. 10 de dano de Stagger.",
+        "en": "100 MP, 10 s cooldown. Deals 173 damage to up to 4 enemies within 4 m with a 60% chance to stun for 3 s (100% on NPCs). Enables Judgment for 2 s. 10 Stagger damage."
+      }
+    },
+    {
+      "id": "pu",
+      "name": "Pummel",
+      "namePt": "Agressão Contínua",
+      "icon": "https://metabot.gg/web/aion2/skills/12040000.webp",
+      "mono": "Pu",
+      "category": "damage",
+      "level": 7,
+      "usage": 95,
+      "role": {
+        "pt": "Ataque em área sem recarga. Segura a ameaça.",
+        "en": "Area attack with no cooldown. Holds enmity."
+      },
+      "effect": {
+        "pt": "120 MP. Causa 279 de dano em até 4 inimigos a 4 m e gera ameaça. 3 de dano de Stagger. Pode ser usada em movimento.",
+        "en": "120 MP. Deals 279 damage to up to 4 enemies within 4 m and generates enmity. 3 Stagger damage. Usable while moving."
+      }
+    },
+    {
+      "id": "ds",
+      "name": "Debilitating Smash",
+      "namePt": "Golpe Feroz do Enfraquecimento",
+      "icon": "https://metabot.gg/web/aion2/skills/12270000.webp",
+      "mono": "DS",
+      "category": "damage",
+      "level": 7,
+      "usage": 94,
+      "role": {
+        "pt": "Dano em área. Reduz a Defesa do alvo quando você bloqueia.",
+        "en": "Area damage. Lowers the target's Defense when you block."
+      },
+      "effect": {
+        "pt": "Recarga de 10 s. Causa 336 de dano em até 4 inimigos a 4 m. Ao bloquear, aplica Debilitate por 5 s (−25% de Defesa). 10 de dano de Stagger.",
+        "en": "10 s cooldown. Deals 336 damage to up to 4 enemies within 4 m. On Block, applies Debilitate for 5 s (−25% Defense). 10 Stagger damage."
+      }
+    },
+    {
+      "id": "fr",
+      "name": "Flash Rampage",
+      "namePt": "Desenfreio do Clarão",
+      "icon": "https://metabot.gg/web/aion2/skills/12340000.webp",
+      "mono": "FR",
+      "category": "damage",
+      "level": 7,
+      "usage": 88,
+      "role": {
+        "pt": "Dano extra quando o alvo está em Stagger.",
+        "en": "Extra damage while the target is staggered."
+      },
+      "effect": {
+        "pt": "Causa 608 de dano em alvo em Stagger a 4 m e gera ameaça.",
+        "en": "Deals 608 damage to a staggered target within 4 m and generates enmity."
+      }
+    },
+    {
+      "id": "df",
+      "name": "Defiance",
+      "namePt": "Remoção de Impacto",
+      "icon": "https://metabot.gg/web/aion2/skills/12260000.webp",
+      "mono": "De",
+      "category": "heal",
+      "level": 0,
+      "role": {
+        "pt": "Remove controle de você. Não aparece nas builds da fonte.",
+        "en": "Removes crowd control from yourself. Not in the source's builds."
+      },
+      "effect": {
+        "pt": "Recarga de 60 s. Remove atordoamento, derrubada, lançamento, agarrão, congelamento e medo de você e dá Tenacity (imunidade a efeitos) por 5 s. Não é afetada por redução de recarga.",
+        "en": "60 s cooldown. Removes Stun, Knockdown, Airborne, Grab, Frost and Fear from you and grants Tenacity (status immunity) for 5 s. Unaffected by cooldown reduction."
+      }
+    }
+  ],
+  "passives": [
+    {
+      "id": "eh",
+      "name": "Enhance Health",
+      "namePt": "Aprimoramento da Vitalidade",
+      "icon": "https://metabot.gg/web/aion2/skills/12710000.webp",
+      "mono": "EH",
+      "category": "passive",
+      "level": 7,
+      "usage": 98,
+      "role": {
+        "pt": "HP e cura recebida.",
+        "en": "HP and incoming healing."
+      },
+      "effect": {
+        "pt": "+250 de HP, +7,5% de HP máximo e +6% de cura recebida.",
+        "en": "+250 HP, +7.5% max HP and +6% incoming heal."
+      }
+    },
+    {
+      "id": "wsh",
+      "name": "Warding Shield",
+      "namePt": "Escudo do Amparo",
+      "icon": "https://metabot.gg/web/aion2/skills/12720000.webp",
+      "mono": "WSh",
+      "category": "passive",
+      "level": 7,
+      "usage": 98,
+      "role": {
+        "pt": "Bloqueio e cura ao bloquear.",
+        "en": "Block and healing on Block."
+      },
+      "effect": {
+        "pt": "+200 de Bloqueio. Recupera 53–64 de HP ao bloquear (recarga de 3 s).",
+        "en": "+200 Block. Restores 53–64 HP on Block (3 s cooldown)."
+      }
+    },
+    {
+      "id": "pb",
+      "name": "Punishing Benediction",
+      "namePt": "Bendição da Condenação",
+      "icon": "https://metabot.gg/web/aion2/skills/12730000.webp",
+      "mono": "PB",
+      "category": "passive",
+      "level": 7,
+      "usage": 98,
+      "role": {
+        "pt": "Acerto crítico e dano extra ao acertar.",
+        "en": "Critical Hit and extra damage on hit."
+      },
+      "effect": {
+        "pt": "+100 de Acerto crítico. Ao acertar, ganha Punishing Benediction por 10 s: 50% de chance de causar 69 de dano extra (recarga de 1 s).",
+        "en": "+100 Critical Hit. On hit, grants Punishing Benediction for 10 s: 50% chance to deal 69 extra damage (1 s cooldown)."
+      }
+    },
+    {
+      "id": "id",
+      "name": "Ironclad Defense",
+      "namePt": "Defesa Sólida",
+      "icon": "https://metabot.gg/web/aion2/skills/12740000.webp",
+      "mono": "ID",
+      "category": "passive",
+      "level": 7,
+      "usage": 98,
+      "role": {
+        "pt": "Defesa.",
+        "en": "Defense."
+      },
+      "effect": {
+        "pt": "+7% de Defesa e +1% de Endurance.",
+        "en": "+7% Defense and +1% Endurance."
+      }
+    },
+    {
+      "id": "gs",
+      "name": "Guarding Seal",
+      "namePt": "Selo da Guarda",
+      "icon": "https://metabot.gg/web/aion2/skills/12750000.webp",
+      "mono": "GS",
+      "category": "passive",
+      "level": 7,
+      "usage": 98,
+      "role": {
+        "pt": "Escudo quando o HP cai.",
+        "en": "A shield when your HP drops."
+      },
+      "effect": {
+        "pt": "Com 50% de HP ou menos, ganha um escudo que absorve dano igual a 21% do HP máximo por 30 s (recarga de 60 s).",
+        "en": "At 50% HP or less, grants a shield that absorbs damage equal to 21% max HP for 30 s (60 s cooldown)."
+      }
+    },
+    {
+      "id": "ih",
+      "name": "Impact Hit",
+      "namePt": "Acerto de Impacto",
+      "icon": "https://metabot.gg/web/aion2/skills/12760000.webp",
+      "mono": "IH",
+      "category": "passive",
+      "level": 7,
+      "usage": 98,
+      "role": {
+        "pt": "Chance de efeitos de Impacto.",
+        "en": "Impact-type effect chance."
+      },
+      "effect": {
+        "pt": "+11,2% de chance de efeitos do tipo Impacto e +0,3% de chance de Duplo.",
+        "en": "+11.2% Impact-type chance and +0.3% Double chance."
+      }
+    },
+    {
+      "id": "ir",
+      "name": "Insulting Roar",
+      "namePt": "Rugido do Insulto",
+      "icon": "https://metabot.gg/web/aion2/skills/12770000.webp",
+      "mono": "IR",
+      "category": "passive",
+      "level": 7,
+      "usage": 98,
+      "role": {
+        "pt": "Geração de ameaça e Ataque.",
+        "en": "Enmity generation and Attack."
+      },
+      "effect": {
+        "pt": "+100% de geração de ameaça. Ao acertar um ataque frontal, +5,5% de Ataque por 5 s (recarga de 5 s).",
+        "en": "+100% Enmity Boost. On a front attack hit, +5.5% Attack for 5 s (5 s cooldown)."
+      }
+    },
+    {
+      "id": "fu",
+      "name": "Fury",
+      "namePt": "Exaltação",
+      "icon": "https://metabot.gg/web/aion2/skills/12780000.webp",
+      "mono": "Fu",
+      "category": "passive",
+      "level": 10,
+      "usage": 98,
+      "role": {
+        "pt": "Buff de dano para o grupo quando você bloqueia.",
+        "en": "Party damage buff when you block."
+      },
+      "effect": {
+        "pt": "+0,3% de dano em ataque frontal. Ao bloquear, +5,5% de dano em PvE e +2,75% em PvP por 20 s para você e o grupo (recarga de 1 s). Não acumula com o Experienced Counterstrike do Gladiador.",
+        "en": "+0.3% front attack damage. On Block, +5.5% PvE damage and +2.75% PvP damage for 20 s for you and the party (1 s cooldown). Does not stack with the Gladiator's Experienced Counterstrike."
+      }
+    },
+    {
+      "id": "sw",
+      "name": "Survival Willpower",
+      "namePt": "Vontade de Sobreviver",
+      "icon": "https://metabot.gg/web/aion2/skills/12790000.webp",
+      "mono": "SW",
+      "category": "passive",
+      "level": 6,
+      "usage": 98,
+      "role": {
+        "pt": "Resistência a efeitos e tolerância quando você sofre controle.",
+        "en": "Status resist and damage tolerance while crowd controlled."
+      },
+      "effect": {
+        "pt": "+17% de resistência a efeitos. Sob atordoamento, derrubada, lançamento, congelamento ou medo: +12% de tolerância a dano em PvE e +6% em PvP por 5 s (recarga de 60 s), e +10% de resistência a efeitos por 5 s a cada golpe sofrido (até 10 acúmulos).",
+        "en": "+17% status resist. While stunned, knocked down, airborne, frozen or feared: +12% PvE and +6% PvP damage tolerance for 5 s (60 s cooldown), and +10% status resist for 5 s per hit taken (up to 10 stacks)."
+      }
+    },
+    {
+      "id": "bp",
+      "name": "Block Pain",
+      "namePt": "Bloqueio de Dor",
+      "icon": "https://metabot.gg/web/aion2/skills/12800000.webp",
+      "mono": "BP",
+      "category": "passive",
+      "level": 8,
+      "usage": 98,
+      "role": {
+        "pt": "Tolerância a dano quando você apanha.",
+        "en": "Damage tolerance when you get hit."
+      },
+      "effect": {
+        "pt": "Ao ser atingido, ganha Block Pain por 10 s: +11% de tolerância a dano em PvE e +5,5% em PvP (recarga de 20 s).",
+        "en": "When struck, grants Block Pain for 10 s: +11% PvE and +5.5% PvP damage tolerance (20 s cooldown)."
+      }
+    }
+  ],
+  "stigmas": [
+    {
+      "id": "ta",
+      "name": "Taunt",
+      "namePt": "Provocação",
+      "icon": "https://metabot.gg/web/aion2/skills/12120000.webp",
+      "mono": "Ta",
+      "category": "control",
+      "usage": 76,
+      "level": {
+        "pt": "5 a 8",
+        "en": "5 to 8"
+      },
+      "description": {
+        "pt": "Recarga de 30 s. Causa 888 de dano a 20 m e gera ameaça. Aplica Shrink por 15 s (−200 de Precisão e −10% de Ataque) e, contra jogador, 50% de chance de provocar por 3 s. No nível 5, o Shrink também reduz a tolerância a dano do alvo.",
+        "en": "30 s cooldown. Deals 888 damage within 20 m and generates enmity. Applies Shrink for 15 s (−200 Accuracy and −10% Attack) and, against a player, a 50% chance to Taunt for 3 s. At level 5, Shrink also lowers the target's damage tolerance."
+      }
+    },
+    {
+      "id": "elp",
+      "name": "Empyrean Lord's Punishment",
+      "namePt": "Punição do Senhor Empíreo",
+      "icon": "https://metabot.gg/web/aion2/skills/12310000.webp",
+      "mono": "ELP",
+      "category": "control",
+      "usage": 67,
+      "level": {
+        "pt": "5 a 7",
+        "en": "5 to 7"
+      },
+      "description": {
+        "pt": "200 MP, recarga de 60 s. Escolhe um alvo a 20 m e causa 2817 de dano em até 4 inimigos a 4 m dele, com 50% de chance de atordoar por 3 s (100% em NPC). 50 de dano de Stagger. No nível 5, até +20% de dano com menos alvos.",
+        "en": "200 MP, 60 s cooldown. Picks a target within 20 m and deals 2817 damage to up to 4 enemies within 4 m of it, with a 50% chance to stun for 3 s (100% on NPCs). 50 Stagger damage. At level 5, up to +20% damage with fewer targets."
+      }
+    },
+    {
+      "id": "bb",
+      "name": "Battlefield Banner",
+      "namePt": "Bandeira do Campo de Batalha",
+      "icon": "https://metabot.gg/web/aion2/skills/12450000.webp",
+      "mono": "BB",
+      "category": "aura",
+      "usage": 65,
+      "level": {
+        "pt": "5 a 8",
+        "en": "5 to 8"
+      },
+      "description": {
+        "pt": "Recarga de 90 s. Aumenta o Ataque em proporção à sua Defesa por 10 s. No nível 5, +10% de chance de Multi-Hit; no 10, +10% de dano de arma.",
+        "en": "90 s cooldown. Raises Attack in proportion to your Defense for 10 s. At level 5, +10% Multi-Hit chance; at 10, +10% weapon damage."
+      }
+    },
+    {
+      "id": "dsh",
+      "name": "Doom Shield",
+      "namePt": "Escudo da Perdição",
+      "icon": "https://metabot.gg/web/aion2/skills/12070000.webp",
+      "mono": "DSh",
+      "category": "move",
+      "usage": 61,
+      "level": {
+        "pt": "4 a 8",
+        "en": "4 to 8"
+      },
+      "description": {
+        "pt": "Recarga de 30 s. Avança até um alvo a 20 m, causa 1254 de dano e tem 75% de chance de derrubar por 3 s (100% em NPC). Ao acertar, ganha um escudo de 5% do HP máximo por 5 s. Libera o Judgment por 3 s. No nível 5, reinicia a recarga do Annihilate.",
+        "en": "30 s cooldown. Rushes to a target within 20 m, deals 1254 damage and has a 75% chance to knock down for 3 s (100% on NPCs). On hit, grants a shield of 5% max HP for 5 s. Enables Judgment for 3 s. At level 5, resets Annihilate's cooldown."
+      }
+    },
+    {
+      "id": "sop",
+      "name": "Shield of Protection",
+      "namePt": "Escudo da Proteção",
+      "icon": "https://metabot.gg/web/aion2/skills/12110000.webp",
+      "mono": "SoP",
+      "category": "aura",
+      "usage": 61,
+      "level": {
+        "pt": "5",
+        "en": "5"
+      },
+      "description": {
+        "pt": "Recarga de 20 s, sustentada. +100% de redução de dano no bloqueio e bloqueio garantido. Recupera 110 de MP e Stamina uma vez ao bloquear. No nível 5, +1 uso consecutivo.",
+        "en": "20 s cooldown, sustained. +100% Block damage reduction and guaranteed Block. Restores 110 MP and Stamina once on Block. At level 5, +1 consecutive use."
+      }
+    },
+    {
+      "id": "na",
+      "name": "Noble Armor",
+      "namePt": "Armadura Nobre",
+      "icon": "https://metabot.gg/web/aion2/skills/12230000.webp",
+      "mono": "NA",
+      "category": "heal",
+      "usage": 37,
+      "level": {
+        "pt": "5 a 7",
+        "en": "5 to 7"
+      },
+      "description": {
+        "pt": "Recarga de 120 s. +5,4% de HP máximo por 120 s e cura imediata de 5,4% do HP máximo. Não é removido por dispel. No nível 5, +5% de Defesa durante o efeito.",
+        "en": "120 s cooldown. +5.4% max HP for 120 s and an instant heal of 5.4% max HP. Cannot be dispelled. At level 5, +5% Defense for the duration."
+      }
+    },
+    {
+      "id": "ns",
+      "name": "Nezekan's Shield",
+      "namePt": "Escudo de Nezekan",
+      "icon": "https://metabot.gg/web/aion2/skills/12320000.webp",
+      "mono": "NS",
+      "category": "heal",
+      "usage": 24,
+      "level": {
+        "pt": "5",
+        "en": "5"
+      },
+      "description": {
+        "pt": "Recarga de 60 s. Escudo que absorve dano igual a 41% do HP máximo por 3 s, para você e o grupo a 40 m. No nível 5, +20% de tolerância a todos os elementos durante o escudo.",
+        "en": "60 s cooldown. A shield that absorbs damage equal to 41% max HP for 3 s, for you and the party within 40 m. At level 5, +20% all-element tolerance while shielded."
+      }
+    },
+    {
+      "id": "eb",
+      "name": "Executing Blade",
+      "namePt": "Espada da Execução",
+      "icon": "https://metabot.gg/web/aion2/skills/12410000.webp",
+      "mono": "EB",
+      "category": "damage",
+      "usage": 19,
+      "level": {
+        "pt": "5",
+        "en": "5"
+      },
+      "description": {
+        "pt": "100 MP, recarga de 45 s. Causa 1335 de dano em até 4 inimigos a 4 m e reduz a Defesa em 30% por 5 s. +20% de dano contra alvo com status de Impacto. No nível 5, −15 s de recarga.",
+        "en": "100 MP, 45 s cooldown. Deals 1335 damage to up to 4 enemies within 4 m and lowers Defense by 30% for 5 s. +20% damage against a target under an Impact-type status. At level 5, −15 s cooldown."
+      }
+    },
+    {
+      "id": "sk",
+      "name": "Second Skin",
+      "namePt": "Armadura Dupla",
+      "icon": "https://metabot.gg/web/aion2/skills/12190000.webp",
+      "mono": "SSk",
+      "category": "aura",
+      "usage": 9.8,
+      "level": {
+        "pt": "3 a 4",
+        "en": "3 to 4"
+      },
+      "description": {
+        "pt": "Recarga de 90 s. +30% de tolerância a dano em PvE e +15% em PvP por 10 s. No nível 5, +10% de tolerância a todos os elementos.",
+        "en": "90 s cooldown. +30% PvE and +15% PvP damage tolerance for 10 s. At level 5, +10% all-element tolerance."
+      }
+    },
+    {
+      "id": "gr",
+      "name": "Grapple",
+      "namePt": "Apreensão",
+      "icon": "https://metabot.gg/web/aion2/skills/12220000.webp",
+      "mono": "Gr",
+      "category": "control",
+      "usage": 7.8,
+      "level": {
+        "pt": "2 a 4",
+        "en": "2 to 4"
+      },
+      "description": {
+        "pt": "200 MP, recarga de 90 s. Escolhe um alvo a 20 m, causa 1045 de dano em até 4 inimigos a 7 m dele, puxa todos para a sua frente e enraíza por 3 s. No nível 5, 50% de chance de atordoar por 3 s.",
+        "en": "200 MP, 90 s cooldown. Picks a target within 20 m, deals 1045 damage to up to 4 enemies within 7 m of it, pulls them in front of you and roots for 3 s. At level 5, 50% chance to stun for 3 s."
+      }
+    },
+    {
+      "id": "ab",
+      "name": "Armor of Balance",
+      "namePt": "Armadura do Equilíbrio",
+      "icon": "https://metabot.gg/web/aion2/skills/12200000.webp",
+      "mono": "AB",
+      "category": "aura",
+      "level": {
+        "pt": "sem dado nas fontes",
+        "en": "no data in the sources"
+      },
+      "description": {
+        "pt": "Recarga de 90 s. +50% de resistência a efeitos de Impacto por 10 s. No nível 5, +20% de resistência a efeitos de Aflição e Mentais.",
+        "en": "90 s cooldown. +50% Impact-type resist for 10 s. At level 5, +20% Ailment-type and Mental-type resist."
+      }
+    },
+    {
+      "id": "cia",
+      "name": "Comrade in Arms",
+      "namePt": "Proteção do Aliado",
+      "icon": "https://metabot.gg/web/aion2/skills/12250000.webp",
+      "mono": "CA",
+      "category": "aura",
+      "level": {
+        "pt": "sem dado nas fontes",
+        "en": "no data in the sources"
+      },
+      "description": {
+        "pt": "Recarga de 120 s. +20% de tolerância a dano em PvE e +10% em PvP. Por 6 s, metade do dano que um aliado a 40 m recebe passa para você. No nível 5, recupera 25% do HP máximo uma vez se você for atingido com 25% de HP ou menos.",
+        "en": "120 s cooldown. +20% PvE and +10% PvP damage tolerance. For 6 s, half the damage a party member within 40 m takes is redirected to you. At level 5, restores 25% max HP once if you are hit at 25% HP or less."
+      }
+    },
+    {
+      "id": "af",
+      "name": "Assault Fury",
+      "namePt": "Investida Feroz do Ataque Súbito",
+      "icon": "https://metabot.gg/web/aion2/skills/12700000.webp",
+      "mono": "AF",
+      "category": "control",
+      "level": {
+        "pt": "sem dado nas fontes",
+        "en": "no data in the sources"
+      },
+      "description": {
+        "pt": "Recarga de 120 s. Escolhe um alvo a 20 m e causa 951 de dano em até 4 inimigos a 4 m, com 30% de chance de atordoar por 3 s (100% em NPC). Aumenta sua Defesa em até 20% conforme o número de alvos atingidos.",
+        "en": "120 s cooldown. Picks a target within 20 m and deals 951 damage to up to 4 enemies within 4 m, with a 30% chance to stun for 3 s (100% on NPCs). Raises your Defense by up to 20% based on targets hit."
+      }
+    }
+  ],
+  "modes": [
+    {
+      "id": "pve",
+      "name": {
+        "pt": "PvE de endgame",
+        "en": "Endgame PvE"
+      },
+      "lead": {
+        "pt": "O que os Templários do topo usam: todas as skills treinadas no 7, Taunt para segurar o chefe e Battlefield Banner para transformar Defesa em Ataque.",
+        "en": "What top Templars run: every skill trained to 7, Taunt to hold the boss and Battlefield Banner to turn Defense into Attack."
+      },
+      "basis": {
+        "pt": "Baseado em 153 jogadores do topo (dados de 2026-10-02)",
+        "en": "Based on 153 top players (data from 2026-10-02)"
+      },
+      "fixed": [
+        "ta",
+        "elp",
+        "bb",
+        "dsh"
+      ],
+      "stigmaLevels": {
+        "ta": 5,
+        "elp": 5,
+        "bb": 8,
+        "dsh": 6
+      },
+      "flex": [
+        {
+          "stigma": "sop",
+          "when": {
+            "pt": "Tão comum quanto o Doom Shield: 61% dos jogadores do topo usam",
+            "en": "As common as Doom Shield: 61% of top players run it"
+          }
+        },
+        {
+          "stigma": "na",
+          "when": {
+            "pt": "Próxima alternativa mais vista (37%)",
+            "en": "Next most seen alternative (37%)"
+          }
+        }
+      ],
+      "rotation": [
+        {
+          "pt": "Puxe com **Poach**.",
+          "en": "Pull with **Poach**."
+        },
+        {
+          "pt": "**Shield Smite** para atordoar e **Judgment** logo em seguida.",
+          "en": "**Shield Smite** to stun, then **Judgment** right after."
+        },
+        {
+          "pt": "**Annihilate** no alvo atordoado.",
+          "en": "**Annihilate** on the stunned target."
+        },
+        {
+          "pt": "**Punishment** e **Empyrean Lord's Punishment**.",
+          "en": "**Punishment** and **Empyrean Lord's Punishment**."
+        },
+        {
+          "pt": "**Warding Strike** para curar e reduzir o dano recebido.",
+          "en": "**Warding Strike** to heal and reduce damage taken."
+        },
+        {
+          "pt": "**Taunt**, e **Vicious Strike** entre as recargas. O Vicious Strike devolve MP.",
+          "en": "**Taunt**, then **Vicious Strike** between cooldowns. Vicious Strike restores MP."
+        }
+      ],
+      "rotationNote": {
+        "pt": "Ordem de skills da build de endgame da MetaBot.GG.",
+        "en": "Skill order from MetaBot.GG's endgame build."
+      },
+      "note": {
+        "pt": "Os níveis são os treinados com pontos. Daevanion e equipamento somam de +1 a +3 em quase todas as skills (por exemplo, +3 em Vicious Strike, Judgment, Punishing Benediction e Ironclad Defense), então o nível em jogo fica maior.",
+        "en": "Levels are the ones trained with points. Daevanion and gear add +1 to +3 to almost every skill (for example +3 to Vicious Strike, Judgment, Punishing Benediction and Ironclad Defense), so the in-game level is higher."
+      }
+    },
+    {
+      "id": "leveling",
+      "name": {
+        "pt": "Upando (1–45)",
+        "en": "Leveling (1–45)"
+      },
+      "lead": {
+        "pt": "Puxar o grupo de monstros, atordoar e curar batendo. O Poach sobe primeiro.",
+        "en": "Pull the pack, stun it and heal by hitting. Poach goes up first."
+      },
+      "basis": {
+        "pt": "Build editorial da MetaBot.GG",
+        "en": "MetaBot.GG editorial build"
+      },
+      "fixed": [
+        "ta",
+        "elp",
+        "bb",
+        "dsh"
+      ],
+      "stigmaLevels": {
+        "ta": 8,
+        "elp": 7,
+        "bb": 5,
+        "dsh": 4
+      },
+      "overrides": [
+        {
+          "skill": "po",
+          "level": 10,
+          "why": {
+            "pt": "Primeira a maximizar: você escolhe onde lutar.",
+            "en": "First to max: you choose where to fight."
+          }
+        },
+        {
+          "skill": "ssm",
+          "level": 10,
+          "why": {
+            "pt": "Atordoamento que abre o ciclo.",
+            "en": "The stun that opens the loop."
+          }
+        },
+        {
+          "skill": "ju",
+          "level": 10,
+          "why": {
+            "pt": "Seguimento liberado pelo escudo.",
+            "en": "Follow-up enabled by the shield."
+          }
+        },
+        {
+          "skill": "ws",
+          "level": 10,
+          "why": {
+            "pt": "Sua cura enquanto bate.",
+            "en": "Your heal while you hit."
+          }
+        },
+        {
+          "skill": "pn",
+          "level": 10,
+          "why": {
+            "pt": "Dano em área à distância.",
+            "en": "Ranged area damage."
+          }
+        },
+        {
+          "skill": "vs",
+          "level": 10,
+          "why": {
+            "pt": "Ataque básico e fonte de MP.",
+            "en": "Basic attack and MP source."
+          }
+        },
+        {
+          "skill": "pu",
+          "level": 10,
+          "why": {
+            "pt": "Ataque básico em área.",
+            "en": "Basic area attack."
+          }
+        },
+        {
+          "skill": "sr",
+          "level": 0,
+          "why": {
+            "pt": "Sem pontos nesta build.",
+            "en": "No points in this build."
+          }
+        },
+        {
+          "skill": "ds",
+          "level": 0,
+          "why": {
+            "pt": "Sem pontos nesta build.",
+            "en": "No points in this build."
+          }
+        },
+        {
+          "skill": "fr",
+          "level": 0,
+          "why": {
+            "pt": "Sem pontos nesta build.",
+            "en": "No points in this build."
+          }
+        },
+        {
+          "skill": "eh",
+          "level": 10,
+          "why": {
+            "pt": "HP antes de mais uma ativa.",
+            "en": "HP before another active."
+          }
+        },
+        {
+          "skill": "wsh",
+          "level": 0,
+          "why": {
+            "pt": "Sem pontos nesta build.",
+            "en": "No points in this build."
+          }
+        },
+        {
+          "skill": "pb",
+          "level": 10,
+          "why": {
+            "pt": "Crítico e dano extra em todo golpe.",
+            "en": "Crit and extra damage on every hit."
+          }
+        },
+        {
+          "skill": "id",
+          "level": 5,
+          "why": {
+            "pt": "Defesa barata.",
+            "en": "Cheap Defense."
+          }
+        },
+        {
+          "skill": "gs",
+          "level": 0,
+          "why": {
+            "pt": "Sem pontos nesta build.",
+            "en": "No points in this build."
+          }
+        },
+        {
+          "skill": "ih",
+          "level": 0,
+          "why": {
+            "pt": "Sem pontos nesta build.",
+            "en": "No points in this build."
+          }
+        },
+        {
+          "skill": "ir",
+          "level": 0,
+          "why": {
+            "pt": "Sem pontos nesta build.",
+            "en": "No points in this build."
+          }
+        },
+        {
+          "skill": "fu",
+          "level": 0,
+          "why": {
+            "pt": "Sem pontos nesta build.",
+            "en": "No points in this build."
+          }
+        },
+        {
+          "skill": "sw",
+          "level": 0,
+          "why": {
+            "pt": "Sem pontos nesta build.",
+            "en": "No points in this build."
+          }
+        },
+        {
+          "skill": "bp",
+          "level": 0,
+          "why": {
+            "pt": "Sem pontos nesta build.",
+            "en": "No points in this build."
+          }
+        }
+      ],
+      "rotation": [
+        {
+          "pt": "Puxe o grupo com **Poach**.",
+          "en": "Pull the pack with **Poach**."
+        },
+        {
+          "pt": "**Shield Smite** para atordoar.",
+          "en": "**Shield Smite** to stun."
+        },
+        {
+          "pt": "**Judgment**, liberado pelo escudo.",
+          "en": "**Judgment**, enabled by the shield."
+        },
+        {
+          "pt": "**Annihilate** no alvo atordoado.",
+          "en": "**Annihilate** on the stunned target."
+        },
+        {
+          "pt": "**Punishment** para o dano em área à distância.",
+          "en": "**Punishment** for the ranged area hit."
+        },
+        {
+          "pt": "**Warding Strike** para curar.",
+          "en": "**Warding Strike** to heal."
+        },
+        {
+          "pt": "Preencha com **Pummel** e **Vicious Strike**.",
+          "en": "Fill with **Pummel** and **Vicious Strike**."
+        }
+      ],
+      "why": [
+        {
+          "pt": "O **Poach** sobe primeiro: você decide onde lutar com cada grupo e traz os conjuradores para o seu dano em área.",
+          "en": "**Poach** goes up first: you decide where to fight each pack and bring casters into your area damage."
+        },
+        {
+          "pt": "**Shield Smite**, o **Judgment** que ele libera e o **Warding Strike**, que cura ao acertar, são o seu dano e a sua sustentação num só ciclo.",
+          "en": "**Shield Smite**, the **Judgment** it enables and **Warding Strike**, which heals on hit, are your damage and sustain in one loop."
+        },
+        {
+          "pt": "Passivas de HP, crítico e defesa vêm antes do **Annihilate**, que fica no 7: ele só acerta alvo controlado.",
+          "en": "HP, crit and defense passives come before **Annihilate**, which stays at 7: it only lands on controlled targets."
+        },
+        {
+          "pt": "Stigmas na ordem dos slots: Taunt no 22 para masmorras, o atordoamento em área à distância no 27, o estandarte que converte Defesa em Ataque no 32 e o avanço com escudo no 37.",
+          "en": "Stigmas in slot order: Taunt at 22 for dungeons, the ranged area stun at 27, the banner that turns Defense into Attack at 32 and the shield dash at 37."
+        }
+      ]
+    },
+    {
+      "id": "pvp",
+      "name": {
+        "pt": "PvP",
+        "en": "PvP"
+      },
+      "lead": {
+        "pt": "Três formas de pegar o alvo e dois atordoamentos para encadear. Você vence aguentando mais.",
+        "en": "Three ways to catch a target and two stuns to chain. You win by outlasting."
+      },
+      "basis": {
+        "pt": "Build editorial da MetaBot.GG",
+        "en": "MetaBot.GG editorial build"
+      },
+      "fixed": [
+        "dsh",
+        "elp",
+        "na",
+        "gr"
+      ],
+      "stigmaLevels": {
+        "dsh": 8,
+        "elp": 7,
+        "na": 5,
+        "gr": 4
+      },
+      "overrides": [
+        {
+          "skill": "sr",
+          "level": 10,
+          "why": {
+            "pt": "Avanço depois da esquiva, com chance de atordoar.",
+            "en": "Dash after a dodge, with a stun chance."
+          }
+        },
+        {
+          "skill": "an",
+          "level": 10,
+          "why": {
+            "pt": "No PvP você mesmo cria as janelas de controle.",
+            "en": "In PvP you create the control windows yourself."
+          }
+        },
+        {
+          "skill": "po",
+          "level": 10,
+          "why": {
+            "pt": "Puxão para pegar o alvo.",
+            "en": "Pull to catch the target."
+          }
+        },
+        {
+          "skill": "ssm",
+          "level": 10,
+          "why": {
+            "pt": "Primeiro atordoamento da cadeia.",
+            "en": "First stun in the chain."
+          }
+        },
+        {
+          "skill": "ju",
+          "level": 10,
+          "why": {
+            "pt": "Seguimento liberado pelo escudo.",
+            "en": "Follow-up enabled by the shield."
+          }
+        },
+        {
+          "skill": "pn",
+          "level": 10,
+          "why": {
+            "pt": "Dano antes de o controle acabar.",
+            "en": "Damage before the control wears off."
+          }
+        },
+        {
+          "skill": "vs",
+          "level": 10,
+          "why": {
+            "pt": "Ataque básico e fonte de MP.",
+            "en": "Basic attack and MP source."
+          }
+        },
+        {
+          "skill": "pu",
+          "level": 10,
+          "why": {
+            "pt": "Ataque básico em área.",
+            "en": "Basic area attack."
+          }
+        },
+        {
+          "skill": "ws",
+          "level": 0,
+          "why": {
+            "pt": "Sem pontos nesta build.",
+            "en": "No points in this build."
+          }
+        },
+        {
+          "skill": "ds",
+          "level": 0,
+          "why": {
+            "pt": "Sem pontos nesta build.",
+            "en": "No points in this build."
+          }
+        },
+        {
+          "skill": "fr",
+          "level": 0,
+          "why": {
+            "pt": "Sem pontos nesta build.",
+            "en": "No points in this build."
+          }
+        },
+        {
+          "skill": "eh",
+          "level": 10,
+          "why": {
+            "pt": "HP para aguentar mais.",
+            "en": "HP to outlast."
+          }
+        },
+        {
+          "skill": "wsh",
+          "level": 0,
+          "why": {
+            "pt": "Sem pontos nesta build.",
+            "en": "No points in this build."
+          }
+        },
+        {
+          "skill": "pb",
+          "level": 0,
+          "why": {
+            "pt": "Sem pontos nesta build.",
+            "en": "No points in this build."
+          }
+        },
+        {
+          "skill": "gs",
+          "level": 5,
+          "why": {
+            "pt": "Escudo com HP baixo, no lugar da passiva de crítico.",
+            "en": "Low-HP shield, instead of the crit passive."
+          }
+        },
+        {
+          "skill": "ih",
+          "level": 0,
+          "why": {
+            "pt": "Sem pontos nesta build.",
+            "en": "No points in this build."
+          }
+        },
+        {
+          "skill": "ir",
+          "level": 0,
+          "why": {
+            "pt": "Sem pontos nesta build.",
+            "en": "No points in this build."
+          }
+        },
+        {
+          "skill": "fu",
+          "level": 0,
+          "why": {
+            "pt": "Sem pontos nesta build.",
+            "en": "No points in this build."
+          }
+        },
+        {
+          "skill": "sw",
+          "level": 0,
+          "why": {
+            "pt": "Sem pontos nesta build.",
+            "en": "No points in this build."
+          }
+        },
+        {
+          "skill": "bp",
+          "level": 0,
+          "why": {
+            "pt": "Sem pontos nesta build.",
+            "en": "No points in this build."
+          }
+        }
+      ],
+      "rotation": [
+        {
+          "pt": "Esquive e entre com **Shield Rush**.",
+          "en": "Dodge, then rush in with **Shield Rush**."
+        },
+        {
+          "pt": "**Shield Smite** para atordoar.",
+          "en": "**Shield Smite** to stun."
+        },
+        {
+          "pt": "**Annihilate** no alvo atordoado.",
+          "en": "**Annihilate** on the stunned target."
+        },
+        {
+          "pt": "**Empyrean Lord's Punishment** para atordoar o grupo à distância.",
+          "en": "**Empyrean Lord's Punishment** to stun the group at range."
+        },
+        {
+          "pt": "**Judgment**, **Punishment** e **Doom Shield** antes de o controle acabar.",
+          "en": "**Judgment**, **Punishment** and **Doom Shield** before the control wears off."
+        },
+        {
+          "pt": "**Pummel** para preencher.",
+          "en": "**Pummel** to fill."
+        }
+      ],
+      "why": [
+        {
+          "pt": "**Poach**, **Shield Smite** e o **Shield Rush** depois da esquiva dão três formas de pegar o alvo e dois atordoamentos para encadear.",
+          "en": "**Poach**, **Shield Smite** and **Shield Rush** after a dodge give three ways to catch a target and two stuns to chain."
+        },
+        {
+          "pt": "O **Annihilate**, que só acerta alvo atordoado ou derrubado, vai ao 10: no PvP é você quem cria essas janelas.",
+          "en": "**Annihilate**, which only lands on stunned or downed targets, goes to 10: in PvP you create those windows."
+        },
+        {
+          "pt": "Ironclad Defense no 7 e Guarding Seal no 5 no lugar da passiva de crítico: você vence aguentando mais.",
+          "en": "Ironclad Defense at 7 and Guarding Seal at 5 instead of the crit passive: you win by outlasting."
+        },
+        {
+          "pt": "Stigmas: o avanço com escudo, o atordoamento em área à distância, a cura de HP máximo no 32 e o puxão em área com enraizamento no 37 para lutas em grupo.",
+          "en": "Stigmas: the shield dash, the ranged area stun, the max-HP heal at 32 and the area pull-and-root at 37 for group fights."
+        }
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "title": "Shugo.GG: Templar skills",
+      "url": "https://shugo.gg/skills/templar"
+    },
+    {
+      "title": "MetaBot.GG: Templar build planner",
+      "url": "https://metabot.gg/en/aion-2/classes/templar/build"
+    }
+  ]
 }

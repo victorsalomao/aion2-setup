@@ -4,13 +4,1051 @@
     "en": "Sorcerer"
   },
   "order": 5,
-  "status": "draft",
+  "status": "published",
   "archetype": {
     "pt": "Dano mágico",
     "en": "Magic damage"
   },
   "summary": {
-    "pt": "Build em pesquisa. A página abre quando as skills, os Stigmas e a rotação tiverem fonte.",
-    "en": "Build under research. The page opens once skills, Stigmas and rotation are sourced."
-  }
+    "pt": "Build de nível 45 dos jogadores do topo: Hellfire, Firestorm, Blaze e Flame Arrow como dano, Ice Chain e Bittercold Wind para segurar grupos, e Element Enhancement como o Stigma que quase todos usam.",
+    "en": "Level 45 build from top players: Hellfire, Firestorm, Blaze and Flame Arrow for damage, Ice Chain and Bittercold Wind to hold packs, and Element Enhancement as the Stigma almost everyone runs."
+  },
+  "updated": "2026-10-12",
+  "actives": [
+    {
+      "id": "fs",
+      "name": "Firestorm",
+      "namePt": "Saraivada Flamejante",
+      "icon": "https://metabot.gg/web/aion2/skills/15040000.webp",
+      "mono": "FS",
+      "category": "damage",
+      "level": 7,
+      "usage": 100,
+      "role": {
+        "pt": "Dano principal de recarga curta.",
+        "en": "Main short-cooldown damage."
+      },
+      "effect": {
+        "pt": "570 de dano de Fogo num alvo a 20 m. 250 MP, recarga de 5 s, dá para usar andando.",
+        "en": "570 Fire damage to one target at 20 m. 250 MP, 5 s cooldown, usable while moving."
+      }
+    },
+    {
+      "id": "fa",
+      "name": "Flame Arrow",
+      "namePt": "Flecha Flamejante",
+      "icon": "https://metabot.gg/web/aion2/skills/15210000.webp",
+      "mono": "FA",
+      "category": "damage",
+      "level": 7,
+      "usage": 100,
+      "role": {
+        "pt": "Preenchimento sem recarga que devolve MP.",
+        "en": "No-cooldown filler that restores MP."
+      },
+      "effect": {
+        "pt": "62 de dano de Fogo a 20 m e recupera 100 MP. Sem custo e sem recarga.",
+        "en": "62 Fire damage at 20 m and restores 100 MP. No cost, no cooldown."
+      }
+    },
+    {
+      "id": "bl",
+      "name": "Blaze",
+      "namePt": "Explosão de Chamas",
+      "icon": "https://metabot.gg/web/aion2/skills/15050000.webp",
+      "mono": "Bl",
+      "category": "damage",
+      "level": 7,
+      "usage": 100,
+      "role": {
+        "pt": "Continuação do Fire Mark. Também devolve MP.",
+        "en": "Fire Mark follow-up. Also restores MP."
+      },
+      "effect": {
+        "pt": "198 de dano de Fogo num alvo com Fire Mark a 20 m e recupera 100 MP. Recarga de 5 s.",
+        "en": "198 Fire damage to a target with Fire Mark at 20 m and restores 100 MP. 5 s cooldown."
+      }
+    },
+    {
+      "id": "hf",
+      "name": "Hellfire",
+      "namePt": "Chamas Infernais",
+      "icon": "https://metabot.gg/web/aion2/skills/15060000.webp",
+      "mono": "HF",
+      "category": "damage",
+      "level": 7,
+      "usage": 100,
+      "role": {
+        "pt": "A maior explosão em área. Skill de carga.",
+        "en": "The biggest area nuke. Charge skill."
+      },
+      "effect": {
+        "pt": "Skill de carga com 3 níveis: 1.137 a 6.824 de dano de Fogo em até 4 inimigos a 4 m do alvo. 200 MP, recarga de 45 s.",
+        "en": "Charge skill with 3 levels: 1,137 to 6,824 Fire damage to up to 4 enemies within 4 m of the target. 200 MP, 45 s cooldown."
+      }
+    },
+    {
+      "id": "bw",
+      "name": "Bittercold Wind",
+      "namePt": "Vento do Frio Intenso",
+      "icon": "https://metabot.gg/web/aion2/skills/15280000.webp",
+      "mono": "BW",
+      "category": "damage",
+      "level": 7,
+      "usage": 100,
+      "role": {
+        "pt": "Explosão em área que ainda enraíza.",
+        "en": "Area nuke that also roots."
+      },
+      "effect": {
+        "pt": "Invoca um vento gelado por 2 s no alvo: 1.666 de dano de Água em até 4 inimigos a 4 m, com 60% de chance de enraizar por 3 s (100% em NPC). 150 MP, recarga de 15 s.",
+        "en": "Summons a cold wind on the target for 2 s: 1,666 Water damage to up to 4 enemies within 4 m, with a 60% chance to root for 3 s (100% on NPCs). 150 MP, 15 s cooldown."
+      }
+    },
+    {
+      "id": "wc",
+      "name": "Wish of Concentration",
+      "namePt": "Súplica de Concentração",
+      "icon": "https://metabot.gg/web/aion2/skills/15310000.webp",
+      "mono": "WC",
+      "category": "aura",
+      "level": 7,
+      "usage": 100,
+      "role": {
+        "pt": "Buff de Ataque e Precisão para abrir o burst.",
+        "en": "Attack and Accuracy buff to open the burst."
+      },
+      "effect": {
+        "pt": "Aumenta seu Ataque e sua Precisão por 10 s. 100 MP, recarga de 60 s.",
+        "en": "Raises your Attack and Accuracy for 10 s. 100 MP, 60 s cooldown."
+      }
+    },
+    {
+      "id": "ic",
+      "name": "Ice Chain",
+      "namePt": "Corrente de Gelo",
+      "icon": "https://metabot.gg/web/aion2/skills/15090000.webp",
+      "mono": "IC",
+      "category": "control",
+      "level": 7,
+      "usage": 98,
+      "role": {
+        "pt": "Lentidão em grupo, que ativa o Cold Snap.",
+        "en": "Group slow, which triggers Cold Snap."
+      },
+      "effect": {
+        "pt": "79 de dano de Água em até 4 inimigos a 4 m do alvo e lentidão de 40% por 5 s. 120 MP, sem recarga.",
+        "en": "79 Water damage to up to 4 enemies within 4 m of the target and a 40% slow for 5 s. 120 MP, no cooldown."
+      }
+    },
+    {
+      "id": "ws",
+      "name": "Winter's Shackles",
+      "namePt": "Contenção do Inverno",
+      "icon": "https://metabot.gg/web/aion2/skills/15110000.webp",
+      "mono": "WS",
+      "category": "control",
+      "level": 7,
+      "usage": 98,
+      "role": {
+        "pt": "Segunda lentidão em área.",
+        "en": "Second area slow."
+      },
+      "effect": {
+        "pt": "275 de dano de Água em até 4 inimigos a 4 m do alvo e lentidão por 3 s. 200 MP, recarga de 45 s.",
+        "en": "275 Water damage to up to 4 enemies within 4 m of the target and a slow for 3 s. 200 MP, 45 s cooldown."
+      }
+    },
+    {
+      "id": "fsc",
+      "name": "Flame Scattershot",
+      "namePt": "Rajada de Chamas",
+      "icon": "https://metabot.gg/web/aion2/skills/15010000.webp",
+      "mono": "FSc",
+      "category": "damage",
+      "level": 7,
+      "usage": 98,
+      "role": {
+        "pt": "Só acerta alvo em Stagger.",
+        "en": "Only hits a staggered target."
+      },
+      "effect": {
+        "pt": "480 de dano de Fogo num alvo em Stagger a 20 m.",
+        "en": "480 Fire damage to a staggered target at 20 m."
+      }
+    },
+    {
+      "id": "fb",
+      "name": "Frost Burst",
+      "namePt": "Explosão Congelante",
+      "icon": "https://metabot.gg/web/aion2/skills/15220000.webp",
+      "mono": "FB",
+      "category": "damage",
+      "level": 7,
+      "usage": 97.3,
+      "role": {
+        "pt": "Dano no alvo congelado.",
+        "en": "Damage on a frozen target."
+      },
+      "effect": {
+        "pt": "395 de dano de Água em até 4 inimigos a 4 m de um alvo congelado. Tem 7% de chance de ativar ao atacar um alvo com imunidade a incapacitação. Recarga de 10 s.",
+        "en": "395 Water damage to up to 4 enemies within 4 m of a frozen target. 7% chance to trigger when attacking a target with incapacitation immunity. 10 s cooldown."
+      }
+    },
+    {
+      "id": "fr",
+      "name": "Frost",
+      "namePt": "Congelamento",
+      "icon": "https://metabot.gg/web/aion2/skills/15150000.webp",
+      "mono": "Fr",
+      "category": "control",
+      "level": 7,
+      "usage": 96,
+      "role": {
+        "pt": "Congela e abre o Frost Burst.",
+        "en": "Freezes and opens Frost Burst."
+      },
+      "effect": {
+        "pt": "178 de dano de Água em até 4 inimigos a 4 m do alvo, com 50% de chance de congelar o alvo por 3 s (100% em NPC). 100 MP, recarga de 30 s.",
+        "en": "178 Water damage to up to 4 enemies within 4 m of the target, with a 50% chance to freeze the target for 3 s (100% on NPCs). 100 MP, 30 s cooldown."
+      }
+    },
+    {
+      "id": "df",
+      "name": "Defiance",
+      "namePt": "Remoção de Impacto",
+      "icon": "https://metabot.gg/web/aion2/skills/15240000.webp",
+      "mono": "Df",
+      "category": "heal",
+      "level": 0,
+      "role": {
+        "pt": "Sai de controle de grupo. Não aparece na build do topo.",
+        "en": "Breaks crowd control. Not in the top-player build."
+      },
+      "effect": {
+        "pt": "Remove atordoamento, derrubada, lançamento, agarrão, congelamento e medo e dá Tenacidade (imunidade a efeitos) por 5 s. Recarga de 60 s, que não cai com redução de recarga.",
+        "en": "Removes stun, knockdown, airborne, grab, freeze and fear and grants Tenacity (status immunity) for 5 s. 60 s cooldown, not affected by cooldown reduction."
+      }
+    }
+  ],
+  "passives": [
+    {
+      "id": "fm",
+      "name": "Fire Mark",
+      "namePt": "Marca de Fogo",
+      "icon": "https://metabot.gg/web/aion2/skills/15710000.webp",
+      "mono": "FM",
+      "category": "passive",
+      "level": 7,
+      "usage": 100,
+      "role": {
+        "pt": "Marca que libera o Blaze.",
+        "en": "The mark that enables Blaze."
+      },
+      "effect": {
+        "pt": "Ataque de Fogo aplica Fire Mark por 5 s: o alvo tem 20% de chance de levar 32 de dano extra ao sofrer dano de Fogo.",
+        "en": "Fire attacks apply Fire Mark for 5 s: the target has a 20% chance to take 32 extra damage from Fire damage."
+      }
+    },
+    {
+      "id": "re",
+      "name": "Robe of Earth",
+      "namePt": "Manto da Terra",
+      "icon": "https://metabot.gg/web/aion2/skills/15720000.webp",
+      "mono": "RE",
+      "category": "passive",
+      "level": 7,
+      "usage": 100,
+      "role": {
+        "pt": "MP e Acerto crítico.",
+        "en": "MP and Critical Hit."
+      },
+      "effect": {
+        "pt": "+7% de MP máximo, +5 de regeneração natural de MP e +105 de Acerto crítico com MP em 50% ou mais.",
+        "en": "+7% max MP, +5 natural MP regen and +105 Critical Hit while MP is 50% or more."
+      }
+    },
+    {
+      "id": "cs",
+      "name": "Cold Snap",
+      "namePt": "Invocação Gélida",
+      "icon": "https://metabot.gg/web/aion2/skills/15730000.webp",
+      "mono": "CS",
+      "category": "passive",
+      "level": 7,
+      "usage": 100,
+      "role": {
+        "pt": "Dano extra em alvo com lentidão.",
+        "en": "Extra damage on slowed targets."
+      },
+      "effect": {
+        "pt": "50% de chance de 43 de dano extra ao acertar um alvo com lentidão.",
+        "en": "50% chance to deal 43 extra damage when hitting a slowed target."
+      }
+    },
+    {
+      "id": "rf",
+      "name": "Robe of Flame",
+      "namePt": "Manto de Chamas",
+      "icon": "https://metabot.gg/web/aion2/skills/15740000.webp",
+      "mono": "RF",
+      "category": "passive",
+      "level": 7,
+      "usage": 100,
+      "role": {
+        "pt": "Precisão e dano.",
+        "en": "Accuracy and damage."
+      },
+      "effect": {
+        "pt": "+100 de Precisão, +1% de dano em PvE, +0,5% em PvP e +0,2% de chance de Dano duplo.",
+        "en": "+100 Accuracy, +1% PvE damage, +0.5% PvP damage and +0.2% Double chance."
+      }
+    },
+    {
+      "id": "ae",
+      "name": "Absorb Essence",
+      "namePt": "Absorção de Essência",
+      "icon": "https://metabot.gg/web/aion2/skills/15760000.webp",
+      "mono": "AE",
+      "category": "passive",
+      "level": 7,
+      "usage": 100,
+      "role": {
+        "pt": "Chance de controle e MP por acerto.",
+        "en": "Control chance and MP on hit."
+      },
+      "effect": {
+        "pt": "+10,7% de chance de efeitos de Debilitação e Mentais, e 25 MP a cada acerto.",
+        "en": "+10.7% Ailment and Mental effect chance, and 25 MP on every hit."
+      }
+    },
+    {
+      "id": "gr",
+      "name": "Grace of Resistance",
+      "namePt": "Graça da Resistência",
+      "icon": "https://metabot.gg/web/aion2/skills/15770000.webp",
+      "mono": "GR",
+      "category": "passive",
+      "level": 6,
+      "usage": 100,
+      "role": {
+        "pt": "Resistência a controle.",
+        "en": "Control resistance."
+      },
+      "effect": {
+        "pt": "+11,2% de resistência a efeitos Mentais e de Impacto.",
+        "en": "+11.2% Mental and Impact resistance."
+      }
+    },
+    {
+      "id": "rc",
+      "name": "Robe of Cold",
+      "namePt": "Manto Gélido",
+      "icon": "https://metabot.gg/web/aion2/skills/15750000.webp",
+      "mono": "RC",
+      "category": "passive",
+      "level": 7,
+      "usage": 100,
+      "role": {
+        "pt": "Defesa e lentidão em quem te bate.",
+        "en": "Defense and a slow on whoever hits you."
+      },
+      "effect": {
+        "pt": "+1% de Defesa e +55 de Resistência a crítico. Quem te acerta fica 25% mais lento por 2 s (recarga de 10 s).",
+        "en": "+1% Defense and +55 Critical Hit Resist. Whoever hits you is slowed by 25% for 2 s (10 s cooldown)."
+      }
+    },
+    {
+      "id": "ge",
+      "name": "Grace of Enhancement",
+      "namePt": "Graça do Aprimoramento",
+      "icon": "https://metabot.gg/web/aion2/skills/15780000.webp",
+      "mono": "GE",
+      "category": "passive",
+      "level": 8,
+      "usage": 100,
+      "role": {
+        "pt": "A principal passiva de dano.",
+        "en": "The main damage passive."
+      },
+      "effect": {
+        "pt": "+20% de dano em PvE e +10% em PvP com MP em 25% ou mais, e 50% de chance de 106 de dano extra ao acertar.",
+        "en": "+20% PvE and +10% PvP damage while MP is 25% or more, and a 50% chance to deal 106 extra damage on hit."
+      }
+    },
+    {
+      "id": "rv",
+      "name": "Revitalization Contract",
+      "namePt": "Pacto de Revitalização",
+      "icon": "https://metabot.gg/web/aion2/skills/15790000.webp",
+      "mono": "RvC",
+      "category": "passive",
+      "level": 8,
+      "usage": 100,
+      "role": {
+        "pt": "Sobrevivência.",
+        "en": "Survival."
+      },
+      "effect": {
+        "pt": "+17% de resistência a efeitos, mais 10% por 5 s ao apanhar sob controle (até 10 acúmulos). Com HP em 10% ou menos, recupera 35% do HP (recarga de 60 s).",
+        "en": "+17% status resistance, plus 10% for 5 s when hit while controlled (up to 10 stacks). At 10% HP or less, restores 35% HP (60 s cooldown)."
+      }
+    },
+    {
+      "id": "ve",
+      "name": "Vitality Evaporation",
+      "namePt": "Evaporação da Força Vital",
+      "icon": "https://metabot.gg/web/aion2/skills/15800000.webp",
+      "mono": "VE",
+      "category": "passive",
+      "level": 9,
+      "usage": 100,
+      "role": {
+        "pt": "Dano na abertura da luta.",
+        "en": "Damage at the start of a fight."
+      },
+      "effect": {
+        "pt": "261 de dano extra ao acertar um alvo com HP acima de 70%.",
+        "en": "261 extra damage when hitting a target above 70% HP."
+      }
+    }
+  ],
+  "stigmas": [
+    {
+      "id": "ee",
+      "name": "Element Enhancement",
+      "namePt": "Aprimoramento Elemental",
+      "icon": "https://metabot.gg/web/aion2/skills/15400000.webp",
+      "mono": "EE",
+      "category": "aura",
+      "level": {
+        "pt": "8 a 10",
+        "en": "8 to 10"
+      },
+      "description": {
+        "pt": "+20% de Ataque de Fogo e de Água por 10 s. No nível 5, +200 de Precisão; no 10, o efeito do Robe of Flame vale 1,5×. Recarga de 60 s.",
+        "en": "+20% Fire and Water Attack for 10 s. +200 Accuracy at level 5; at level 10, Robe of Flame counts 1.5×. 60 s cooldown."
+      },
+      "usage": 92.7
+    },
+    {
+      "id": "de",
+      "name": "Delayed Explosion",
+      "namePt": "Explosão Tardia",
+      "icon": "https://metabot.gg/web/aion2/skills/15320000.webp",
+      "mono": "DE",
+      "category": "damage",
+      "level": {
+        "pt": "5 a 7",
+        "en": "5 to 7"
+      },
+      "description": {
+        "pt": "1.116 de dano de Fogo no alvo depois de 4 s; durante a espera ele leva 15% a mais do seu dano. No nível 10 a recarga cai de 30 s para 20 s.",
+        "en": "1,116 Fire damage to the target after 4 s; meanwhile it takes 15% more of your damage. At level 10 the cooldown drops from 30 s to 20 s."
+      },
+      "usage": 82.7
+    },
+    {
+      "id": "fw",
+      "name": "Fire Wall",
+      "namePt": "Barreira de Fogo",
+      "icon": "https://metabot.gg/web/aion2/skills/15390000.webp",
+      "mono": "FW",
+      "category": "damage",
+      "level": {
+        "pt": "5 a 6",
+        "en": "5 to 6"
+      },
+      "description": {
+        "pt": "Parede de fogo de 1 × 10 m por 3 s: dano de Fogo e Embers (dano por segundo por 10 s, maior se o alvo andar) em até 4 inimigos. Recarga de 60 s.",
+        "en": "A 1 × 10 m fire wall for 3 s: Fire damage and Embers (damage every second for 10 s, more if the target moves) on up to 4 enemies. 60 s cooldown."
+      },
+      "usage": 76
+    },
+    {
+      "id": "cst",
+      "name": "Cold Storm",
+      "namePt": "Tempestade Gélida",
+      "icon": "https://metabot.gg/web/aion2/skills/15200000.webp",
+      "mono": "CSt",
+      "category": "damage",
+      "level": {
+        "pt": "4 a 5",
+        "en": "4 to 5"
+      },
+      "description": {
+        "pt": "945 de dano de Água e lentidão em até 4 inimigos a 5 m. Deixa uma tempestade por 7 s que causa Frostbite: 472 de dano por segundo por 10 s, maior se o alvo andar. Recarga de 60 s.",
+        "en": "945 Water damage and a slow on up to 4 enemies within 5 m. Leaves a storm for 7 s that applies Frostbite: 472 damage per second for 10 s, more if the target moves. 60 s cooldown."
+      },
+      "usage": 43.3
+    },
+    {
+      "id": "sb",
+      "name": "Steel Barrier",
+      "namePt": "Escudo Protetivo de Aço",
+      "icon": "https://metabot.gg/web/aion2/skills/15160000.webp",
+      "mono": "SB",
+      "category": "heal",
+      "level": {
+        "pt": "4 a 7",
+        "en": "4 to 7"
+      },
+      "description": {
+        "pt": "Escudo de 16% do HP máximo por 60 s, com +10% de tolerância a dano em PvE e +5% em PvP enquanto durar. Ao acabar, devolve 300 de Stamina. Recarga de 60 s.",
+        "en": "A shield worth 16% max HP for 60 s, with +10% PvE and +5% PvP damage tolerance while it lasts. Restores 300 Stamina when it ends. 60 s cooldown."
+      },
+      "usage": 35.3
+    },
+    {
+      "id": "db",
+      "name": "Divine Burst",
+      "namePt": "Explosão Divina",
+      "icon": "https://metabot.gg/web/aion2/skills/15360000.webp",
+      "mono": "DB",
+      "category": "damage",
+      "level": {
+        "pt": "média de 3 no topo",
+        "en": "top-player average 3"
+      },
+      "description": {
+        "pt": "1.140 de dano de Fogo a 20 m e 50 de dano na barra de Stagger. Recarga de 60 s.",
+        "en": "1,140 Fire damage at 20 m and 50 Stagger damage. 60 s cooldown."
+      },
+      "usage": 34
+    },
+    {
+      "id": "gs",
+      "name": "Glacial Smite",
+      "namePt": "Golpe Potente Glacial",
+      "icon": "https://metabot.gg/web/aion2/skills/15120000.webp",
+      "mono": "GSm",
+      "category": "damage",
+      "level": {
+        "pt": "média de 5 no topo",
+        "en": "top-player average 5"
+      },
+      "description": {
+        "pt": "1.477 de dano de Água em até 4 inimigos a 4 m do alvo e 20 de dano na barra de Stagger. Recarga de 90 s, que cai 30 s no nível 10.",
+        "en": "1,477 Water damage to up to 4 enemies within 4 m of the target and 20 Stagger damage. 90 s cooldown, 30 s shorter at level 10."
+      },
+      "usage": 18
+    },
+    {
+      "id": "aa",
+      "name": "Arctic Armor",
+      "namePt": "Armadura Ártica",
+      "icon": "https://metabot.gg/web/aion2/skills/15230000.webp",
+      "mono": "AA",
+      "category": "heal",
+      "level": {
+        "pt": "média de 4 no topo",
+        "en": "top-player average 4"
+      },
+      "description": {
+        "pt": "Por 10 s: +20% de tolerância a dano em PvE e +10% em PvP e 5% de chance de congelar quem te ataca a até 7 m. Com MP em 50% ou mais, parte do dano vai para o MP. Recarga de 90 s.",
+        "en": "For 10 s: +20% PvE and +10% PvP damage tolerance and a 5% chance to freeze attackers within 7 m. While MP is 50% or more, part of the damage goes to MP. 90 s cooldown."
+      },
+      "usage": 9.3
+    },
+    {
+      "id": "sf",
+      "name": "Soul Freeze",
+      "namePt": "Glaciação da Alma",
+      "icon": "https://metabot.gg/web/aion2/skills/15130000.webp",
+      "mono": "SF",
+      "category": "control",
+      "level": {
+        "pt": "média de 1,5 no topo",
+        "en": "top-player average 1.5"
+      },
+      "description": {
+        "pt": "1.037 de dano de Água a 20 m e 75% de chance de Selar por 5 s (100% em NPC). Recarga de 60 s.",
+        "en": "1,037 Water damage at 20 m and a 75% chance to Seal for 5 s (100% on NPCs). 60 s cooldown."
+      },
+      "usage": 7.3
+    },
+    {
+      "id": "hb",
+      "name": "Hibernation",
+      "namePt": "Hibernação",
+      "icon": "https://metabot.gg/web/aion2/skills/15410000.webp",
+      "mono": "Hb",
+      "category": "heal",
+      "level": {
+        "pt": "média de 3 no topo",
+        "en": "top-player average 3"
+      },
+      "description": {
+        "pt": "5 s imune a dano e a efeitos. Usar Remove Hibernation encerra antes, cura 20% do HP e te joga para trás. Recarga de 180 s.",
+        "en": "5 s of immunity to damage and status effects. Remove Hibernation ends it early, heals 20% HP and moves you back. 180 s cooldown."
+      },
+      "usage": 5.3
+    },
+    {
+      "id": "ct",
+      "name": "Curse: Tree",
+      "namePt": "Maldição: Árvore",
+      "icon": "https://metabot.gg/web/aion2/skills/15140000.webp",
+      "mono": "CT",
+      "category": "control",
+      "level": {
+        "pt": "4",
+        "en": "4"
+      },
+      "description": {
+        "pt": "Transforma o alvo em árvore por 10 s e reduz a tolerância a Fogo dele em 20%; você recua. Qualquer ataque desfaz a transformação. Recarga de 90 s.",
+        "en": "Turns the target into a tree for 10 s and lowers its Fire tolerance by 20% while you step back. Any attack breaks it. 90 s cooldown."
+      },
+      "usage": 3.3
+    },
+    {
+      "id": "ls",
+      "name": "Lumiel's Space",
+      "namePt": "Espaço de Lumiel",
+      "icon": "https://metabot.gg/web/aion2/skills/15300000.webp",
+      "mono": "LS",
+      "category": "control",
+      "level": {
+        "pt": "sem dado do topo",
+        "en": "no top-player data"
+      },
+      "description": {
+        "pt": "998 de dano em até 4 inimigos a 4 m do alvo, com 75% de chance de lançar ao ar por 3 s (100% em NPC). 300 MP, recarga de 90 s.",
+        "en": "998 damage to up to 4 enemies within 4 m of the target, with a 75% chance to launch them airborne for 3 s (100% on NPCs). 300 MP, 90 s cooldown."
+      },
+      "usage": 1.3
+    },
+    {
+      "id": "ab",
+      "name": "Assault Bombardment",
+      "namePt": "Bombardeio Súbito",
+      "icon": "https://metabot.gg/web/aion2/skills/15700000.webp",
+      "mono": "AB",
+      "category": "control",
+      "level": {
+        "pt": "sem dado do topo",
+        "en": "no top-player data"
+      },
+      "description": {
+        "pt": "886 de dano em até 4 inimigos a 4 m, com 30% de chance de congelar por 3 s (100% em NPC). Dá até 20% de Defesa conforme o número de alvos. Recarga de 120 s.",
+        "en": "886 damage to up to 4 enemies within 4 m, with a 30% chance to freeze for 3 s (100% on NPCs). Up to +20% Defense based on targets hit. 120 s cooldown."
+      },
+      "usage": 1.3
+    }
+  ],
+  "modes": [
+    {
+      "id": "pve",
+      "name": {
+        "pt": "PvE de endgame",
+        "en": "Endgame PvE"
+      },
+      "lead": {
+        "pt": "O que os Feiticeiros do topo usam no nível 45: o ciclo de fogo, duas lentidões em área e quatro Stigmas de dano.",
+        "en": "What top Sorcerers run at level 45: the fire loop, two area slows and four damage Stigmas."
+      },
+      "basis": {
+        "pt": "Baseado em 150 jogadores do topo (dados de 2026-10-02). Os níveis são os pontos gastos; o Daevanion e o equipamento somam de +1 a +3 por skill.",
+        "en": "Based on 150 top players (data from 2026-10-02). Levels are points spent; Daevanion and gear add +1 to +3 per skill."
+      },
+      "fixed": [
+        "ee",
+        "de",
+        "fw",
+        "cst"
+      ],
+      "stigmaLevels": {
+        "ee": 8,
+        "de": 6,
+        "fw": 6,
+        "cst": 4
+      },
+      "flex": [
+        {
+          "stigma": "sb",
+          "when": {
+            "pt": "Alternativa comum ao Cold Storm: 35% do topo usa",
+            "en": "Common alternative to Cold Storm: 35% of top players run it"
+          }
+        },
+        {
+          "stigma": "db",
+          "when": {
+            "pt": "Outra alternativa comum: 34% do topo usa",
+            "en": "Another common alternative: 34% of top players run it"
+          }
+        }
+      ],
+      "overrides": [],
+      "rotation": [
+        {
+          "pt": "**Wish of Concentration** e **Element Enhancement** para abrir.",
+          "en": "**Wish of Concentration** and **Element Enhancement** to open."
+        },
+        {
+          "pt": "**Ice Chain** no grupo.",
+          "en": "**Ice Chain** on the pack."
+        },
+        {
+          "pt": "**Delayed Explosion** e **Fire Wall**.",
+          "en": "**Delayed Explosion** and **Fire Wall**."
+        },
+        {
+          "pt": "**Hellfire** carregado.",
+          "en": "Charged **Hellfire**."
+        },
+        {
+          "pt": "**Firestorm** e **Blaze**.",
+          "en": "**Firestorm** and **Blaze**."
+        },
+        {
+          "pt": "**Bittercold Wind**.",
+          "en": "**Bittercold Wind**."
+        },
+        {
+          "pt": "**Flame Arrow** para preencher.",
+          "en": "**Flame Arrow** as filler."
+        }
+      ],
+      "rotationNote": {
+        "pt": "Ordem de skills que acompanha a build do topo na MetaBot.GG. A fonte não explica a ordem.",
+        "en": "Skill order that comes with the top-player build on MetaBot.GG. The source does not explain the order."
+      },
+      "why": []
+    },
+    {
+      "id": "leveling",
+      "name": {
+        "pt": "Subida 1–45",
+        "en": "Leveling 1–45"
+      },
+      "lead": {
+        "pt": "Fogo primeiro: as skills que você usa sem parar sobem ao máximo, e o gelo entra para segurar os grupos de monstros.",
+        "en": "Fire first: the skills you spam go to max, and ice comes in to hold monster packs."
+      },
+      "basis": {
+        "pt": "Build editorial da MetaBot.GG",
+        "en": "MetaBot.GG editorial build"
+      },
+      "fixed": [
+        "ee",
+        "de",
+        "fw",
+        "cst"
+      ],
+      "stigmaLevels": {
+        "ee": 8,
+        "de": 7,
+        "fw": 5,
+        "cst": 4
+      },
+      "flex": [],
+      "overrides": [
+        {
+          "skill": "fa",
+          "level": 10,
+          "why": {
+            "pt": "Parte do ciclo de fogo: sobe ao máximo primeiro.",
+            "en": "Part of the fire loop: maxed first."
+          }
+        },
+        {
+          "skill": "fs",
+          "level": 10,
+          "why": {
+            "pt": "Parte do ciclo de fogo: sobe ao máximo primeiro.",
+            "en": "Part of the fire loop: maxed first."
+          }
+        },
+        {
+          "skill": "bl",
+          "level": 10,
+          "why": {
+            "pt": "Parte do ciclo de fogo: sobe ao máximo primeiro.",
+            "en": "Part of the fire loop: maxed first."
+          }
+        },
+        {
+          "skill": "ic",
+          "level": 10,
+          "why": {
+            "pt": "Lentidão no grupo para ativar o Cold Snap.",
+            "en": "Slows the pack to trigger Cold Snap."
+          }
+        },
+        {
+          "skill": "ws",
+          "level": 10,
+          "why": {
+            "pt": "Lentidão no grupo para ativar o Cold Snap.",
+            "en": "Slows the pack to trigger Cold Snap."
+          }
+        },
+        {
+          "skill": "hf",
+          "level": 10,
+          "why": {
+            "pt": "Explosão em área para limpar grupos.",
+            "en": "Area nuke to clear packs."
+          }
+        },
+        {
+          "skill": "bw",
+          "level": 10,
+          "why": {
+            "pt": "Explosão em área para limpar grupos.",
+            "en": "Area nuke to clear packs."
+          }
+        },
+        {
+          "skill": "fm",
+          "level": 10,
+          "why": {
+            "pt": "Passiva que sobe ao máximo nesta build.",
+            "en": "Passive maxed in this build."
+          }
+        },
+        {
+          "skill": "rf",
+          "level": 10,
+          "why": {
+            "pt": "Precisão e dano: sobe ao máximo.",
+            "en": "Accuracy and damage: maxed."
+          }
+        },
+        {
+          "skill": "fr",
+          "level": 5,
+          "why": {
+            "pt": "Aqui importa o congelamento, não o dano.",
+            "en": "Here the freeze matters, not the damage."
+          }
+        }
+      ],
+      "rotation": [
+        {
+          "pt": "**Wish of Concentration** para o buff.",
+          "en": "**Wish of Concentration** for the buff."
+        },
+        {
+          "pt": "**Ice Chain** para deixar o grupo lento.",
+          "en": "**Ice Chain** to slow the pack."
+        },
+        {
+          "pt": "**Winter's Shackles** no grupo.",
+          "en": "**Winter's Shackles** on the pack."
+        },
+        {
+          "pt": "**Hellfire** carregado.",
+          "en": "Charged **Hellfire**."
+        },
+        {
+          "pt": "**Firestorm**, depois **Blaze** no alvo marcado.",
+          "en": "**Firestorm**, then **Blaze** on the marked target."
+        },
+        {
+          "pt": "**Bittercold Wind**.",
+          "en": "**Bittercold Wind**."
+        },
+        {
+          "pt": "**Flame Arrow** para preencher.",
+          "en": "**Flame Arrow** as filler."
+        }
+      ],
+      "note": {
+        "pt": "A build gasta os 203 pontos de skill do nível 45 só nas skills listadas. As que não aparecem aqui ficam no nível 1, que vem de graça.",
+        "en": "The build spends all 203 skill points of level 45 on the listed skills. Anything not shown here stays at level 1, which is free."
+      },
+      "why": [
+        {
+          "pt": "Fogo primeiro: **Flame Arrow** é grátis, **Firestorm** tem recarga curta e **Blaze** segue o Fire Mark. É o ciclo que você repete, então sobe ao máximo antes de tudo.",
+          "en": "Fire first: **Flame Arrow** is free, **Firestorm** has a short cooldown and **Blaze** follows Fire Mark. That is the loop you repeat, so it is maxed before anything else."
+        },
+        {
+          "pt": "**Ice Chain** e **Winter's Shackles** deixam o grupo lento para a passiva de lentidão; **Hellfire** carregado e **Bittercold Wind** são as explosões em área.",
+          "en": "**Ice Chain** and **Winter's Shackles** slow the pack for the slow passive; charged **Hellfire** and **Bittercold Wind** are the area nukes."
+        },
+        {
+          "pt": "**Fire Mark** e as passivas de precisão e dano ficam no máximo. **Wish of Concentration** para no 7 e **Frost** no 5: você quer o congelamento, não o dano.",
+          "en": "**Fire Mark** and the accuracy and damage passives are maxed. **Wish of Concentration** stops at 7 and **Frost** at 5: you want the freeze, not its damage."
+        },
+        {
+          "pt": "Stigmas: o buff de Fogo e Água no 22 e a **Delayed Explosion** no 27 são os dois mais usados pelo topo; **Fire Wall** no 32 e **Cold Storm** no 37 são as escolhas de área.",
+          "en": "Stigmas: the Fire and Water buff at 22 and **Delayed Explosion** at 27 are the two most used by top players; **Fire Wall** at 32 and **Cold Storm** at 37 are the area picks."
+        }
+      ]
+    },
+    {
+      "id": "pvp",
+      "name": {
+        "pt": "PvP",
+        "en": "PvP"
+      },
+      "lead": {
+        "pt": "Congelar e explodir: o Frost entra no máximo, um escudo garante a sobrevivência e a árvore tira um inimigo da luta.",
+        "en": "Freeze and burst: Frost goes to max, a shield keeps you alive and the tree takes one enemy out of the fight."
+      },
+      "basis": {
+        "pt": "Build editorial da MetaBot.GG",
+        "en": "MetaBot.GG editorial build"
+      },
+      "fixed": [
+        "ee",
+        "sb",
+        "de",
+        "ct"
+      ],
+      "stigmaLevels": {
+        "ee": 8,
+        "sb": 7,
+        "de": 5,
+        "ct": 4
+      },
+      "flex": [],
+      "overrides": [
+        {
+          "skill": "fr",
+          "level": 10,
+          "why": {
+            "pt": "No máximo pela chance de congelar.",
+            "en": "Maxed for the freeze chance."
+          }
+        },
+        {
+          "skill": "fb",
+          "level": 10,
+          "why": {
+            "pt": "Congelar e estourar é o combo que mata em PvP.",
+            "en": "Freeze into burst is the PvP kill combo."
+          }
+        },
+        {
+          "skill": "ic",
+          "level": 10,
+          "why": {
+            "pt": "Mantém o corpo a corpo longe de você.",
+            "en": "Keeps melee off you."
+          }
+        },
+        {
+          "skill": "ws",
+          "level": 10,
+          "why": {
+            "pt": "Mantém o corpo a corpo longe de você.",
+            "en": "Keeps melee off you."
+          }
+        },
+        {
+          "skill": "fa",
+          "level": 10,
+          "why": {
+            "pt": "MP entre as janelas de burst.",
+            "en": "MP between burst windows."
+          }
+        },
+        {
+          "skill": "fs",
+          "level": 10,
+          "why": {
+            "pt": "Dano do burst.",
+            "en": "Burst damage."
+          }
+        },
+        {
+          "skill": "bl",
+          "level": 10,
+          "why": {
+            "pt": "Dano do burst.",
+            "en": "Burst damage."
+          }
+        },
+        {
+          "skill": "hf",
+          "level": 10,
+          "why": {
+            "pt": "Carregado para cair junto com a Delayed Explosion.",
+            "en": "Charged to land with Delayed Explosion."
+          }
+        },
+        {
+          "skill": "bw",
+          "level": 10,
+          "why": {
+            "pt": "Dano e enraizamento.",
+            "en": "Damage and root."
+          }
+        },
+        {
+          "skill": "rc",
+          "level": 5,
+          "why": {
+            "pt": "Fica no 5: cada golpe que você leva deixa o atacante lento.",
+            "en": "Stays at 5: every hit you take slows the attacker."
+          }
+        }
+      ],
+      "rotation": [
+        {
+          "pt": "**Frost** para congelar.",
+          "en": "**Frost** to freeze."
+        },
+        {
+          "pt": "**Frost Burst** no alvo congelado.",
+          "en": "**Frost Burst** on the frozen target."
+        },
+        {
+          "pt": "Plante a **Delayed Explosion**.",
+          "en": "Plant **Delayed Explosion**."
+        },
+        {
+          "pt": "**Winter's Shackles**.",
+          "en": "**Winter's Shackles**."
+        },
+        {
+          "pt": "**Hellfire** carregado para cair dentro do tempo da explosão.",
+          "en": "Charge **Hellfire** so it lands inside the explosion timer."
+        },
+        {
+          "pt": "**Firestorm** e **Blaze**.",
+          "en": "**Firestorm** and **Blaze**."
+        },
+        {
+          "pt": "Guarde **Flame Arrow** para recuperar MP entre as janelas.",
+          "en": "Keep **Flame Arrow** to recover MP between windows."
+        }
+      ],
+      "note": {
+        "pt": "A build gasta os 203 pontos de skill do nível 45 só nas skills listadas. As que não aparecem aqui ficam no nível 1, que vem de graça.",
+        "en": "The build spends all 203 skill points of level 45 on the listed skills. Anything not shown here stays at level 1, which is free."
+      },
+      "why": [
+        {
+          "pt": "**Frost** vai ao máximo pela chance de congelar, e o **Frost Burst**, que precisa de alvo congelado, entra no grupo do nível 10: congelar e estourar é o combo que mata.",
+          "en": "**Frost** is maxed for the freeze chance, and **Frost Burst**, which needs a frozen target, joins the level 10 set: freeze into burst is the kill combo."
+        },
+        {
+          "pt": "As duas lentidões e o **Winter's Shackles** ficam no máximo: Feiticeiro que não segura o corpo a corpo longe morre.",
+          "en": "Both slows and **Winter's Shackles** stay maxed: a Sorcerer who cannot keep melee away dies."
+        },
+        {
+          "pt": "**Robe of Cold** no 5 entra no lugar de uma passiva de dano: cada golpe que você leva deixa o atacante lento.",
+          "en": "**Robe of Cold** at 5 replaces a damage passive: every hit you take slows the attacker."
+        },
+        {
+          "pt": "Stigmas: o buff de elemento, o escudo no 27 para sobreviver, a **Delayed Explosion** no 32 para o burst e a árvore no 37 para tirar um inimigo da luta.",
+          "en": "Stigmas: the element buff, the shield at 27 to survive, **Delayed Explosion** at 32 for burst, and the tree at 37 to take one enemy out of the fight."
+        }
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "title": "Shugo.GG: Sorcerer skills",
+      "url": "https://shugo.gg/skills/sorcerer"
+    },
+    {
+      "title": "MetaBot.GG: Sorcerer build planner",
+      "url": "https://metabot.gg/en/aion-2/classes/sorcerer/build"
+    }
+  ]
 }

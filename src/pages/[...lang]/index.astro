@@ -4,6 +4,7 @@ import Base from '../../layouts/Base.astro';
 import GsLadder from '../../components/GsLadder.astro';
 import ClassCard from '../../components/ClassCard.astro';
 import { href, langParams, t, type Lang } from '../../i18n';
+import { TOOLS, toolKeys } from '../../config/tools';
 
 export function getStaticPaths() {
   return langParams();
@@ -13,12 +14,7 @@ const { lang } = Astro.props;
 const tt = t(lang);
 const classes = (await getCollection('classes')).sort((a, b) => a.data.order - b.data.order);
 const guides = (await getCollection('guides', (g) => g.data.lang === lang)).sort((a, b) => a.data.order - b.data.order);
-const tools = [
-  { to: '/tools/odyle/', title: tt('tools.odyle.title'), desc: tt('tools.odyle.desc') },
-  { to: '/tools/rite/', title: tt('tools.rite.title'), desc: tt('tools.rite.desc') },
-  { to: '/tools/craft/', title: tt('tools.craft.title'), desc: tt('tools.craft.desc') },
-  { to: '/tools/enhance/', title: tt('tools.enhance.title'), desc: tt('tools.enhance.desc') },
-];
+const tools = TOOLS.map((x) => ({ to: x.to, title: tt(toolKeys(x.key).title), desc: tt(toolKeys(x.key).desc) }));
 ---
 <Base lang={lang} title={tt('home.title')} description={tt('site.description')}>
   <section class="block">

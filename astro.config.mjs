@@ -14,6 +14,11 @@ const drafts = readdirSync(classDir)
 export default defineConfig({
   site: process.env.SITE_URL || 'https://example.com',
   trailingSlash: 'always',
+  // Elementalist virou Spiritmaster, o nome do jogo global. Os links antigos continuam valendo.
+  redirects: {
+    '/classes/elementalist/': '/classes/spiritmaster/',
+    '/en/classes/elementalist/': '/en/classes/spiritmaster/',
+  },
   integrations: [
     sitemap({
       i18n: { defaultLocale: 'pt', locales: { pt: 'pt-BR', en: 'en' } },

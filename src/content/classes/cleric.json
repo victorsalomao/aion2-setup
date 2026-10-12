@@ -4,13 +4,1084 @@
     "en": "Cleric"
   },
   "order": 7,
-  "status": "draft",
+  "status": "published",
   "archetype": {
     "pt": "Curandeiro",
     "en": "Healer"
   },
   "summary": {
-    "pt": "Build em pesquisa. A página abre quando as skills, os Stigmas e a rotação tiverem fonte.",
-    "en": "Build under research. The page opens once skills, Stigmas and rotation are sourced."
-  }
+    "pt": "Build de nível 45 dos Clérigos do topo no global: Chain of Torment e Condemnation como dano, Healing Light, Light of Regeneration e Radiant Recovery como cura, e Light of Protection como o Stigma que quase ninguém tira.",
+    "en": "Level 45 build of the top Clerics on global: Chain of Torment and Condemnation for damage, Healing Light, Light of Regeneration and Radiant Recovery for healing, and Light of Protection as the Stigma almost nobody removes."
+  },
+  "updated": "2026-10-12",
+  "actives": [
+    {
+      "id": "er",
+      "name": "Earth's Retribution",
+      "namePt": "Retribuição da Terra",
+      "icon": "https://metabot.gg/web/aion2/skills/17010000.webp",
+      "mono": "ER",
+      "category": "damage",
+      "level": 7,
+      "usage": 99,
+      "role": {
+        "pt": "Ataque básico, sem recarga e sem custo. Devolve MP.",
+        "en": "Basic attack, no cooldown and no cost. Restores MP."
+      },
+      "effect": {
+        "pt": "50 de dano de Terra num alvo a 20 m e restaura 110 MP. Pode ser usada em movimento.",
+        "en": "50 Earth damage to a target at 20 m and restores 110 MP. Usable while moving."
+      }
+    },
+    {
+      "id": "jt",
+      "name": "Judgment Thunder",
+      "namePt": "Relâmpago do Julgamento",
+      "icon": "https://metabot.gg/web/aion2/skills/17040000.webp",
+      "mono": "JT",
+      "category": "damage",
+      "level": 7,
+      "usage": 99,
+      "role": {
+        "pt": "Dano em área para encaixar entre as recargas.",
+        "en": "Area damage to slot in between cooldowns."
+      },
+      "effect": {
+        "pt": "Custa 120 MP. 81 de dano de Vento em até 4 inimigos num raio de 4 m do alvo, a 20 m. 2 de dano na barra de Stagger.",
+        "en": "Costs 120 MP. 81 Wind damage to up to 4 enemies within 4 m of the target, at 20 m. 2 Stagger damage."
+      }
+    },
+    {
+      "id": "dm",
+      "name": "Debilitating Mark",
+      "namePt": "Marca da Debilitação",
+      "icon": "https://metabot.gg/web/aion2/skills/17080000.webp",
+      "mono": "DM",
+      "category": "damage",
+      "level": 7,
+      "usage": 97,
+      "role": {
+        "pt": "Marca o alvo e reduz o dano que ele causa.",
+        "en": "Marks the target and lowers the damage it deals."
+      },
+      "effect": {
+        "pt": "Custa 100 MP, recarga de 10 s. 59 de dano de Vento em até 4 inimigos a 4 m do alvo. Reduz o bônus de dano do inimigo em 5% em PvE e 2,5% em PvP e causa dano contínuo por 10 s. 10 de dano na barra de Stagger.",
+        "en": "Costs 100 MP, 10 s cooldown. 59 Wind damage to up to 4 enemies within 4 m of the target. Lowers the enemy's damage boost by 5% in PvE and 2.5% in PvP and deals damage over time for 10 s. 10 Stagger damage."
+      }
+    },
+    {
+      "id": "da",
+      "name": "Divine Aura",
+      "namePt": "Aura Divina",
+      "icon": "https://metabot.gg/web/aion2/skills/17150000.webp",
+      "mono": "DA",
+      "category": "damage",
+      "level": 7,
+      "usage": 99,
+      "role": {
+        "pt": "Dano de graça a cada 30 s.",
+        "en": "Free damage every 30 s."
+      },
+      "effect": {
+        "pt": "Recarga de 30 s. Invoca uma aura parada perto de você por 5 s, que causa 394 de dano de Terra num alvo a 20 m a intervalos.",
+        "en": "30 s cooldown. Summons a stationary aura near you for 5 s that deals 394 Earth damage to a target at 20 m at intervals."
+      }
+    },
+    {
+      "id": "ct",
+      "name": "Chain of Torment",
+      "namePt": "Corrente de Tormento",
+      "icon": "https://metabot.gg/web/aion2/skills/17070000.webp",
+      "mono": "CT",
+      "category": "damage",
+      "level": 7,
+      "usage": 99,
+      "role": {
+        "pt": "Debuff que libera o Condemnation.",
+        "en": "Debuff that unlocks Condemnation."
+      },
+      "effect": {
+        "pt": "Custa 150 MP, recarga de 20 s. 138 de dano de Terra em até 4 inimigos a 4 m do alvo. Reduz a tolerância a dano do inimigo em 5% em PvE e 2,5% em PvP e causa dano contínuo por 10 s. 10 de dano na barra de Stagger.",
+        "en": "Costs 150 MP, 20 s cooldown. 138 Earth damage to up to 4 enemies within 4 m of the target. Lowers the enemy's damage tolerance by 5% in PvE and 2.5% in PvP and deals damage over time for 10 s. 10 Stagger damage."
+      }
+    },
+    {
+      "id": "ls",
+      "name": "Lightning Strike Scattershot",
+      "namePt": "Rajada de Raios",
+      "icon": "https://metabot.gg/web/aion2/skills/17370000.webp",
+      "mono": "LS",
+      "category": "damage",
+      "level": 7,
+      "usage": 90,
+      "role": {
+        "pt": "Só acerta alvo em Stagger.",
+        "en": "Only hits a staggered target."
+      },
+      "effect": {
+        "pt": "588 de dano num alvo em Stagger a 20 m.",
+        "en": "588 damage to a staggered target at 20 m."
+      }
+    },
+    {
+      "id": "lr",
+      "name": "Light of Regeneration",
+      "namePt": "Luz da Regeneração",
+      "icon": "https://metabot.gg/web/aion2/skills/17090000.webp",
+      "mono": "LR",
+      "category": "heal",
+      "level": 7,
+      "usage": 99,
+      "role": {
+        "pt": "Cura contínua do grupo.",
+        "en": "Party heal over time."
+      },
+      "effect": {
+        "pt": "Recarga de 30 s. Cura a cada 2 s, por 30 s, você e o grupo a 40 m.",
+        "en": "30 s cooldown. Heals you and the party at 40 m every 2 s for 30 s."
+      }
+    },
+    {
+      "id": "cd",
+      "name": "Condemnation",
+      "namePt": "Condenação",
+      "icon": "https://metabot.gg/web/aion2/skills/17350000.webp",
+      "mono": "Cd",
+      "category": "damage",
+      "level": 7,
+      "usage": 99,
+      "role": {
+        "pt": "Dano principal. Recarga de 3 s, só em alvo com Chain of Torment.",
+        "en": "Main damage. 3 s cooldown, only on a target with Chain of Torment."
+      },
+      "effect": {
+        "pt": "Recarga de 3 s. Escolhe um alvo a 20 m com Chain of Torment e causa 325 de dano de Terra em até 4 inimigos a 4 m dele. 7 de dano na barra de Stagger.",
+        "en": "3 s cooldown. Picks a target at 20 m with Chain of Torment and deals 325 Earth damage to up to 4 enemies within 4 m of it. 7 Stagger damage."
+      }
+    },
+    {
+      "id": "hl",
+      "name": "Healing Light",
+      "namePt": "Luz da Cura",
+      "icon": "https://metabot.gg/web/aion2/skills/17100000.webp",
+      "mono": "HL",
+      "category": "heal",
+      "level": 7,
+      "usage": 99,
+      "role": {
+        "pt": "Cura rápida em quem estiver com menos HP.",
+        "en": "Quick heal on whoever is lowest."
+      },
+      "effect": {
+        "pt": "Custa 50 MP, recarga de 6 s. Cura de 192 a 211 de HP em você e no aliado com menos HP a 40 m.",
+        "en": "Costs 50 MP, 6 s cooldown. Heals 192 to 211 HP on you and the lowest-HP party member at 40 m."
+      }
+    },
+    {
+      "id": "rr",
+      "name": "Radiant Recovery",
+      "namePt": "Fulgor Restaurador",
+      "icon": "https://metabot.gg/web/aion2/skills/17120000.webp",
+      "mono": "RR",
+      "category": "heal",
+      "level": 7,
+      "usage": 99,
+      "role": {
+        "pt": "Cura do grupo que remove um debuff.",
+        "en": "Party heal that removes one debuff."
+      },
+      "effect": {
+        "pt": "Recarga de 12 s. Cura de 379 a 417 de HP e remove 1 debuff de você e do grupo a 40 m.",
+        "en": "12 s cooldown. Heals 379 to 417 HP and removes 1 debuff from you and the party at 40 m."
+      }
+    },
+    {
+      "id": "bo",
+      "name": "Bolt",
+      "namePt": "Trovão",
+      "icon": "https://metabot.gg/web/aion2/skills/17060000.webp",
+      "mono": "Bo",
+      "category": "damage",
+      "level": 7,
+      "usage": 97,
+      "role": {
+        "pt": "Golpe carregado de dano em área.",
+        "en": "Charged area hit."
+      },
+      "effect": {
+        "pt": "Custa 300 MP, recarga de 45 s. Carrega em até 3 níveis: de 987 a 2963 de dano de Vento em até 4 inimigos a 4 m do alvo. De 20 a 35 de dano na barra de Stagger.",
+        "en": "Costs 300 MP, 45 s cooldown. Charges up to 3 levels: 987 to 2963 Wind damage to up to 4 enemies within 4 m of the target. 20 to 35 Stagger damage."
+      }
+    },
+    {
+      "id": "df",
+      "name": "Defiance",
+      "namePt": "Remoção de Impacto",
+      "icon": "https://metabot.gg/web/aion2/skills/17240000.webp",
+      "mono": "De",
+      "category": "heal",
+      "level": 0,
+      "role": {
+        "pt": "Remove controle de grupo de você. Não aparece entre as skills treinadas pelo topo.",
+        "en": "Removes crowd control from yourself. Not among the skills the top players train."
+      },
+      "effect": {
+        "pt": "Recarga de 60 s, que não cai com redução de recarga. Remove Stun, Knockdown, Airborne, Grab, Frost e Fear e dá imunidade a efeitos por 5 s.",
+        "en": "60 s cooldown, not affected by cooldown reduction. Removes Stun, Knockdown, Airborne, Grab, Frost and Fear and grants status immunity for 5 s."
+      }
+    },
+    {
+      "id": "tl",
+      "name": "Thunder and Lightning",
+      "mono": "TL",
+      "category": "damage",
+      "level": 0,
+      "role": {
+        "pt": "Skill em cadeia. Não recebe pontos à parte.",
+        "en": "Chain skill. Takes no points of its own."
+      },
+      "effect": {
+        "pt": "52 de dano de Vento num alvo a 20 m e restaura 110 MP.",
+        "en": "52 Wind damage to a target at 20 m and restores 110 MP."
+      }
+    },
+    {
+      "id": "dc",
+      "name": "Discharge",
+      "namePt": "Descarga",
+      "mono": "Dc",
+      "category": "damage",
+      "level": 0,
+      "role": {
+        "pt": "Skill em cadeia do Earth's Retribution.",
+        "en": "Earth's Retribution chain skill."
+      },
+      "effect": {
+        "pt": "131 de dano de Vento num alvo a 20 m e restaura 150 MP.",
+        "en": "131 Wind damage to a target at 20 m and restores 150 MP."
+      }
+    },
+    {
+      "id": "dp",
+      "name": "Divine Punishment",
+      "namePt": "Punição Divina",
+      "mono": "DP",
+      "category": "damage",
+      "level": 0,
+      "role": {
+        "pt": "Skill em cadeia do Judgment Thunder.",
+        "en": "Judgment Thunder chain skill."
+      },
+      "effect": {
+        "pt": "Custa 120 MP. 85 de dano de Vento em até 4 inimigos a 4 m do alvo. 2 de dano na barra de Stagger.",
+        "en": "Costs 120 MP. 85 Wind damage to up to 4 enemies within 4 m of the target. 2 Stagger damage."
+      }
+    },
+    {
+      "id": "br",
+      "name": "Blessing of Regeneration",
+      "namePt": "Bênção da Regeneração",
+      "mono": "BR",
+      "category": "heal",
+      "level": 0,
+      "role": {
+        "pt": "Skill em cadeia que uma especialização do Defiance adiciona.",
+        "en": "Chain skill added by a Defiance specialization."
+      },
+      "effect": {
+        "pt": "Recarga de 120 s. Recupera de 893 a 982 de HP e 40% do MP, só em você.",
+        "en": "120 s cooldown. Restores 893 to 982 HP and 40% MP, self only."
+      }
+    }
+  ],
+  "passives": [
+    {
+      "id": "wb",
+      "name": "Warm Benediction",
+      "namePt": "Bendição Cálida",
+      "icon": "https://metabot.gg/web/aion2/skills/17710000.webp",
+      "mono": "WB",
+      "category": "passive",
+      "level": 7,
+      "usage": 99,
+      "role": {
+        "pt": "HP e MP máximos.",
+        "en": "Max HP and MP."
+      },
+      "effect": {
+        "pt": "+6% de HP máximo e +7 de MP máximo.",
+        "en": "+6% max HP and +7 max MP."
+      }
+    },
+    {
+      "id": "lb",
+      "name": "Empyrean Lords' Benediction",
+      "namePt": "Bendição Empírea",
+      "icon": "https://metabot.gg/web/aion2/skills/17720000.webp",
+      "mono": "ELB",
+      "category": "passive",
+      "level": 6,
+      "usage": 99,
+      "role": {
+        "pt": "Bloqueio e cura ao bloquear.",
+        "en": "Block and healing on block."
+      },
+      "effect": {
+        "pt": "+200 de Bloqueio e cura de 53 a 64 de HP ao bloquear (recarga de 3 s).",
+        "en": "+200 Block and heals 53 to 64 HP on block (3 s cooldown)."
+      }
+    },
+    {
+      "id": "lg",
+      "name": "Empyrean Lord's Grace",
+      "namePt": "Mercê do Empíreo",
+      "icon": "https://metabot.gg/web/aion2/skills/17730000.webp",
+      "mono": "ELG",
+      "category": "passive",
+      "level": 7,
+      "usage": 99,
+      "role": {
+        "pt": "Acerto crítico e dano extra.",
+        "en": "Critical hit and extra damage."
+      },
+      "effect": {
+        "pt": "+100 de Acerto crítico, +0,2% de chance de golpe duplo e 71 de dano extra ao acertar (recarga de 1 s).",
+        "en": "+100 Critical Hit, +0.2% double chance and 71 extra damage on hit (1 s cooldown)."
+      }
+    },
+    {
+      "id": "he",
+      "name": "Healing Enhancement",
+      "namePt": "Aprimoramento da Cura",
+      "icon": "https://metabot.gg/web/aion2/skills/17740000.webp",
+      "mono": "HE",
+      "category": "passive",
+      "level": 7,
+      "usage": 99,
+      "role": {
+        "pt": "Bônus de cura.",
+        "en": "Heal boost."
+      },
+      "effect": {
+        "pt": "Bônus de cura igual a 22,4% do seu Ataque.",
+        "en": "Heal boost equal to 22.4% of your Attack."
+      }
+    },
+    {
+      "id": "iv",
+      "name": "Immortal Veil",
+      "namePt": "Véu da Imortalidade",
+      "icon": "https://metabot.gg/web/aion2/skills/17750000.webp",
+      "mono": "IV",
+      "category": "passive",
+      "level": 8,
+      "usage": 99,
+      "role": {
+        "pt": "Defesa.",
+        "en": "Defense."
+      },
+      "effect": {
+        "pt": "+2% de Defesa e +100 de resistência a acerto crítico.",
+        "en": "+2% Defense and +100 Critical Hit resist."
+      }
+    },
+    {
+      "id": "hb",
+      "name": "Heal Block",
+      "namePt": "Bloqueio de Recuperação",
+      "icon": "https://metabot.gg/web/aion2/skills/17760000.webp",
+      "mono": "HB",
+      "category": "passive",
+      "level": 5,
+      "usage": 99,
+      "role": {
+        "pt": "Corta a cura do inimigo.",
+        "en": "Cuts the enemy's healing."
+      },
+      "effect": {
+        "pt": "7% de chance, ao acertar, de reduzir a cura recebida pelo alvo em 32% por 5 s (recarga de 5 s).",
+        "en": "7% chance on hit to lower the target's incoming healing by 32% for 5 s (5 s cooldown)."
+      }
+    },
+    {
+      "id": "pc",
+      "name": "Prayer of Concentration",
+      "namePt": "Oração de Concentração",
+      "icon": "https://metabot.gg/web/aion2/skills/17770000.webp",
+      "mono": "PC",
+      "category": "passive",
+      "level": 7,
+      "usage": 99,
+      "role": {
+        "pt": "Escudo de emergência com HP baixo.",
+        "en": "Emergency shield at low HP."
+      },
+      "effect": {
+        "pt": "Com HP em 50% ou menos: escudo que bloqueia 424 de dano e +20% de bônus de cura por 30 s (recarga de 60 s).",
+        "en": "At 50% HP or less: a shield that blocks 424 damage and +20% heal boost for 30 s (60 s cooldown)."
+      }
+    },
+    {
+      "id": "eg",
+      "name": "Earth's Grace",
+      "namePt": "Mercê da Terra",
+      "icon": "https://metabot.gg/web/aion2/skills/17780000.webp",
+      "mono": "EG",
+      "category": "passive",
+      "level": 10,
+      "usage": 99,
+      "role": {
+        "pt": "Dano crítico e Precisão.",
+        "en": "Critical damage and Accuracy."
+      },
+      "effect": {
+        "pt": "+10,5% de dano crítico e +100 de Precisão.",
+        "en": "+10.5% critical damage and +100 Accuracy."
+      }
+    },
+    {
+      "id": "sw",
+      "name": "Survival Willpower",
+      "namePt": "Vontade de Sobreviver",
+      "icon": "https://metabot.gg/web/aion2/skills/17790000.webp",
+      "mono": "SW",
+      "category": "passive",
+      "level": 7,
+      "usage": 99,
+      "role": {
+        "pt": "Resistência a efeitos e tolerância a dano quando você sofre controle.",
+        "en": "Status resistance and damage tolerance while crowd controlled."
+      },
+      "effect": {
+        "pt": "+17% de resistência a efeitos. Sob Stun, Knockdown, Airborne, Frost ou Fear: +12% de tolerância a dano em PvE e +6% em PvP por 5 s (recarga de 60 s), e +10% de resistência a efeitos a cada golpe recebido, até 10 acúmulos.",
+        "en": "+17% status resistance. Under Stun, Knockdown, Airborne, Frost or Fear: +12% PvE and +6% PvP damage tolerance for 5 s (60 s cooldown), and +10% status resistance per hit taken, up to 10 stacks."
+      }
+    },
+    {
+      "id": "rb",
+      "name": "Radiant Benediction",
+      "namePt": "Bendição Radiante",
+      "icon": "https://metabot.gg/web/aion2/skills/17800000.webp",
+      "mono": "RB",
+      "category": "passive",
+      "level": 8,
+      "usage": 99,
+      "role": {
+        "pt": "Cura o grupo enquanto você ataca.",
+        "en": "Heals the party while you attack."
+      },
+      "effect": {
+        "pt": "Ao acertar um ataque, cura de 384 a 461 de HP em você e no grupo a 40 m (recarga de 5 s).",
+        "en": "On hit, heals 384 to 461 HP on you and the party at 40 m (5 s cooldown)."
+      }
+    }
+  ],
+  "stigmas": [
+    {
+      "id": "lp",
+      "name": "Light of Protection",
+      "namePt": "Luz da Proteção",
+      "icon": "https://metabot.gg/web/aion2/skills/17410000.webp",
+      "mono": "LP",
+      "category": "aura",
+      "level": {
+        "pt": "7 ou mais",
+        "en": "7 or higher"
+      },
+      "usage": 87,
+      "description": {
+        "pt": "Aura ligada: +10,5% de dano e de tolerância a dano em PvE e +5,25% em PvP para você e o grupo próximo. Não acumula com a Undefeated Mantra do Chanter. No nível 10 dá +100 de Precisão.",
+        "en": "Toggle aura: +10.5% damage and damage tolerance in PvE and +5.25% in PvP for you and the nearby party. Does not stack with the Chanter's Undefeated Mantra. +100 Accuracy at level 10."
+      }
+    },
+    {
+      "id": "na",
+      "name": "Noble Aura",
+      "namePt": "Aura Nobre",
+      "icon": "https://metabot.gg/web/aion2/skills/17440000.webp",
+      "mono": "NA",
+      "category": "damage",
+      "level": {
+        "pt": "5 a 7",
+        "en": "5 to 7"
+      },
+      "usage": 79,
+      "description": {
+        "pt": "Recarga de 60 s. Invoca uma aura que segue você por 300 s e ataca o seu alvo a cada 2 s, com 472 de dano. No nível 5 dá +200 de acerto crítico à aura.",
+        "en": "60 s cooldown. Summons an aura that follows you for 300 s and attacks your target every 2 s for 472 damage. +200 aura Critical Hit at level 5."
+      }
+    },
+    {
+      "id": "ep",
+      "name": "Earth Punishment",
+      "namePt": "Punição da Terra",
+      "icon": "https://metabot.gg/web/aion2/skills/17400000.webp",
+      "mono": "EP",
+      "category": "damage",
+      "level": {
+        "pt": "5 a 7",
+        "en": "5 to 7"
+      },
+      "usage": 65,
+      "description": {
+        "pt": "Custa 200 MP, recarga de 30 s. 1186 de dano de Terra num alvo a 20 m e dano contínuo por 10 s. 20 de dano na barra de Stagger. No nível 5, o Condemnation vira crítico garantido no alvo com Earth Punishment.",
+        "en": "Costs 200 MP, 30 s cooldown. 1186 Earth damage to a target at 20 m plus damage over time for 10 s. 20 Stagger damage. At level 5, Condemnation always crits on a target with Earth Punishment."
+      }
+    },
+    {
+      "id": "sr",
+      "name": "Summon Resurrection",
+      "namePt": "Ressurreição por Invocação",
+      "icon": "https://metabot.gg/web/aion2/skills/17390000.webp",
+      "mono": "SR",
+      "category": "heal",
+      "level": {
+        "pt": "3 a 4",
+        "en": "3 to 4"
+      },
+      "usage": 64,
+      "description": {
+        "pt": "Recarga de 120 s. Ressuscita um aliado caído a 40 m. No nível 5, −1 s de conjuração.",
+        "en": "120 s cooldown. Resurrects a fallen party member at 40 m. −1 s cast time at level 5."
+      }
+    },
+    {
+      "id": "pa",
+      "name": "Prayer of Amplification",
+      "namePt": "Oração da Amplificação",
+      "icon": "https://metabot.gg/web/aion2/skills/17430000.webp",
+      "mono": "PA",
+      "category": "aura",
+      "level": {
+        "pt": "5",
+        "en": "5"
+      },
+      "usage": 50,
+      "description": {
+        "pt": "Recarga de 60 s. +20% de Ataque por 10 s. No nível 5, +20% de dano em PvE e +10% em PvP.",
+        "en": "60 s cooldown. +20% Attack for 10 s. At level 5, +20% PvE and +10% PvP damage boost."
+      }
+    },
+    {
+      "id": "ab",
+      "name": "Absolution",
+      "namePt": "Absolvição",
+      "icon": "https://metabot.gg/web/aion2/skills/17290000.webp",
+      "mono": "Ab",
+      "category": "heal",
+      "level": {
+        "pt": "5 a 7",
+        "en": "5 to 7"
+      },
+      "usage": 23,
+      "description": {
+        "pt": "Recarga de 90 s. Remove até 2 debuffs e cura de 1602 a 1762 de HP em você e no grupo a 40 m. No nível 5, −30 s de recarga.",
+        "en": "90 s cooldown. Removes up to 2 debuffs and heals 1602 to 1762 HP on you and the party at 40 m. −30 s cooldown at level 5."
+      }
+    },
+    {
+      "id": "pb",
+      "name": "Power Burst",
+      "namePt": "Explosão da Soberania",
+      "icon": "https://metabot.gg/web/aion2/skills/17280000.webp",
+      "mono": "PB",
+      "category": "damage",
+      "level": {
+        "pt": "2 a 3",
+        "en": "2 to 3"
+      },
+      "usage": 20,
+      "description": {
+        "pt": "Custa 200 MP, recarga de 60 s. 1154 de dano de Terra num alvo a 20 m. 50 de dano na barra de Stagger. No nível 10, acerto crítico garantido.",
+        "en": "Costs 200 MP, 60 s cooldown. 1154 Earth damage to a target at 20 m. 50 Stagger damage. Guaranteed critical hit at level 10."
+      }
+    },
+    {
+      "id": "sa",
+      "name": "Salvation",
+      "namePt": "Salvação",
+      "icon": "https://metabot.gg/web/aion2/skills/17270000.webp",
+      "mono": "Sa",
+      "category": "heal",
+      "level": {
+        "pt": "2 a 5",
+        "en": "2 to 5"
+      },
+      "usage": 16,
+      "description": {
+        "pt": "Recarga de 150 s. Você fica imune a dano e a efeitos por 3 s. No nível 5, +100% de cura recebida; no 10, recupera 20% do HP máximo no fim.",
+        "en": "150 s cooldown. You are immune to damage and status effects for 3 s. +100% incoming healing at level 5; restores 20% max HP at the end at level 10."
+      }
+    },
+    {
+      "id": "be",
+      "name": "Benevolence",
+      "namePt": "Soberania da Vida",
+      "icon": "https://metabot.gg/web/aion2/skills/17160000.webp",
+      "mono": "Be",
+      "category": "heal",
+      "level": {
+        "pt": "5",
+        "en": "5"
+      },
+      "usage": 13,
+      "description": {
+        "pt": "Recarga de 90 s. Por 20 s, cura de 90 a 100 de HP a cada 2 s em você e no grupo a 40 m. No nível 5, +10 s de duração.",
+        "en": "90 s cooldown. For 20 s, heals 90 to 100 HP every 2 s on you and the party at 40 m. +10 s duration at level 5."
+      }
+    },
+    {
+      "id": "yp",
+      "name": "Yustiel's Power",
+      "namePt": "Soberania de Yustiel",
+      "icon": "https://metabot.gg/web/aion2/skills/17420000.webp",
+      "mono": "YP",
+      "category": "aura",
+      "level": {
+        "pt": "3 a 4",
+        "en": "3 to 4"
+      },
+      "usage": 9.3,
+      "description": {
+        "pt": "Recarga de 60 s. +20% de tolerância a dano em PvE e +10% em PvP por 10 s para você e o grupo a 40 m. No nível 5, escudo de 10% do HP máximo.",
+        "en": "60 s cooldown. +20% PvE and +10% PvP damage tolerance for 10 s for you and the party at 40 m. A shield worth 10% max HP at level 5."
+      }
+    },
+    {
+      "id": "ro",
+      "name": "Root",
+      "namePt": "Contenção",
+      "icon": "https://metabot.gg/web/aion2/skills/17190000.webp",
+      "mono": "Ro",
+      "category": "control",
+      "level": {
+        "pt": "sem dado do topo",
+        "en": "no top-player data"
+      },
+      "description": {
+        "pt": "Custa 200 MP, recarga de 60 s. 939 de dano de Terra em até 4 inimigos a 4 m do alvo e 75% de chance de enraizar por 10 s (100% em NPC). 15 de dano na barra de Stagger.",
+        "en": "Costs 200 MP, 60 s cooldown. 939 Earth damage to up to 4 enemies within 4 m of the target and a 75% chance to root for 10 s (100% on NPCs). 15 Stagger damage."
+      }
+    },
+    {
+      "id": "vd",
+      "name": "Voice of Doom",
+      "namePt": "Voz da Perdição",
+      "icon": "https://metabot.gg/web/aion2/skills/17300000.webp",
+      "mono": "VD",
+      "category": "damage",
+      "level": {
+        "pt": "sem dado do topo",
+        "en": "no top-player data"
+      },
+      "description": {
+        "pt": "Custa 200 MP, recarga de 60 s. 1100 de dano de Terra em até 4 inimigos a 4 m do alvo e −60% de cura recebida e de recuperação por poção por 20 s.",
+        "en": "Costs 200 MP, 60 s cooldown. 1100 Earth damage to up to 4 enemies within 4 m of the target and −60% incoming healing and potion recovery for 20 s."
+      }
+    },
+    {
+      "id": "am",
+      "name": "Assault Mark",
+      "namePt": "Marca do Ataque Súbito",
+      "icon": "https://metabot.gg/web/aion2/skills/17700000.webp",
+      "mono": "AM",
+      "category": "control",
+      "level": {
+        "pt": "sem dado do topo",
+        "en": "no top-player data"
+      },
+      "description": {
+        "pt": "Recarga de 120 s. 891 de dano em até 4 inimigos a 4 m do alvo, com 30% de chance de enraizar (100% em NPC). Dá até +20% de Defesa conforme o número de alvos atingidos.",
+        "en": "120 s cooldown. 891 damage to up to 4 enemies within 4 m of the target, with a 30% chance to root (100% on NPCs). Up to +20% Defense based on targets hit."
+      }
+    }
+  ],
+  "modes": [
+    {
+      "id": "pve",
+      "name": {
+        "pt": "PvE endgame",
+        "en": "Endgame PvE"
+      },
+      "lead": {
+        "pt": "O que os Clérigos do topo usam no 45: quase todas as skills no nível 7, Light of Protection sempre ligada e Noble Aura atacando junto.",
+        "en": "What top Clerics run at 45: almost every skill at level 7, Light of Protection always on and Noble Aura attacking alongside."
+      },
+      "basis": {
+        "pt": "Baseado em 151 jogadores do topo (dados de 2026-10-02)",
+        "en": "Based on 151 top players (data from 2026-10-02)"
+      },
+      "fixed": ["lp", "na", "ep", "sr"],
+      "stigmaLevels": {
+        "lp": 7,
+        "na": 6,
+        "ep": 7,
+        "sr": 3
+      },
+      "flex": [
+        {
+          "stigma": "pa",
+          "when": {
+            "pt": "Alternativa comum: metade do topo usa",
+            "en": "Common alternative: half of the top players run it"
+          }
+        },
+        {
+          "stigma": "ab",
+          "when": {
+            "pt": "Mais cura e limpeza; é a escolha da build de PvP",
+            "en": "More healing and cleansing; it is the PvP build's pick"
+          }
+        }
+      ],
+      "rotation": [
+        {
+          "pt": "Ligue **Light of Protection** antes da luta.",
+          "en": "Turn **Light of Protection** on before the fight."
+        },
+        {
+          "pt": "**Divine Aura** e **Noble Aura** para o dano que roda sozinho.",
+          "en": "**Divine Aura** and **Noble Aura** for the damage that runs on its own."
+        },
+        {
+          "pt": "**Chain of Torment** no alvo e **Condemnation** logo em seguida.",
+          "en": "**Chain of Torment** on the target, then **Condemnation** right after."
+        },
+        {
+          "pt": "**Earth Punishment** e **Judgment Thunder**.",
+          "en": "**Earth Punishment** and **Judgment Thunder**."
+        },
+        {
+          "pt": "**Healing Light** quando alguém precisar.",
+          "en": "**Healing Light** when someone needs it."
+        },
+        {
+          "pt": "**Earth's Retribution** sempre que todo o resto estiver em recarga.",
+          "en": "**Earth's Retribution** whenever everything else is on cooldown."
+        }
+      ],
+      "note": {
+        "pt": "Os níveis são os treinados. Os jogadores do topo somam bônus do Daevanion e do equipamento: +2 na maioria das skills ativas e em Immortal Veil, +3 em Radiant Recovery, Warm Benediction, Empyrean Lord's Grace e Healing Enhancement. A Light of Protection não acumula com a Undefeated Mantra do Chanter: combinem quem usa qual.",
+        "en": "Levels shown are the trained ones. Top players add Daevanion and gear bonuses on top: +2 on most active skills and on Immortal Veil, +3 on Radiant Recovery, Warm Benediction, Empyrean Lord's Grace and Healing Enhancement. Light of Protection does not stack with the Chanter's Undefeated Mantra: agree on who uses which."
+      }
+    },
+    {
+      "id": "leveling",
+      "name": {
+        "pt": "Upando de 1 a 45",
+        "en": "Leveling 1–45"
+      },
+      "lead": {
+        "pt": "Para subir de nível: dano solo primeiro e curas no máximo para segurar uma pull de dungeon.",
+        "en": "For leveling: solo damage first and heals maxed to hold a dungeon pull."
+      },
+      "basis": {
+        "pt": "Build editorial da MetaBot.GG",
+        "en": "MetaBot.GG editorial build"
+      },
+      "fixed": ["lp", "na", "ep", "sr"],
+      "stigmaLevels": {
+        "lp": 8,
+        "na": 7,
+        "ep": 5,
+        "sr": 4
+      },
+      "overrides": [
+        {
+          "skill": "ct",
+          "level": 10,
+          "why": {
+            "pt": "Junto com o Condemnation, é quase todo o dano solo.",
+            "en": "Together with Condemnation, it is almost all of your solo damage."
+          }
+        },
+        {
+          "skill": "cd",
+          "level": 10,
+          "why": {
+            "pt": "Junto com o Chain of Torment, é quase todo o dano solo.",
+            "en": "Together with Chain of Torment, it is almost all of your solo damage."
+          }
+        },
+        {
+          "skill": "da",
+          "level": 10,
+          "why": {
+            "pt": "Dano de graça a cada 30 s.",
+            "en": "Free damage every 30 s."
+          }
+        },
+        {
+          "skill": "hl",
+          "level": 10,
+          "why": {
+            "pt": "No máximo para uma cura só dar conta da pull.",
+            "en": "Maxed so one cast covers the pull."
+          }
+        },
+        {
+          "skill": "lr",
+          "level": 10,
+          "why": {
+            "pt": "No máximo para uma cura só dar conta da pull.",
+            "en": "Maxed so one cast covers the pull."
+          }
+        },
+        {
+          "skill": "er",
+          "level": 10,
+          "why": {
+            "pt": "É o ataque básico que repõe o MP entre as recargas.",
+            "en": "It is the basic attack that refills MP between cooldowns."
+          }
+        },
+        {
+          "skill": "jt",
+          "level": 10,
+          "why": {
+            "pt": "Preenche a rotação entre um Condemnation e outro.",
+            "en": "Fills the rotation between Condemnations."
+          }
+        },
+        {
+          "skill": "rr",
+          "level": 5,
+          "why": {
+            "pt": "A cura com limpeza fica para os chefes.",
+            "en": "The cleanse heal is kept for bosses."
+          }
+        },
+        {
+          "skill": "bo",
+          "level": 0,
+          "why": {
+            "pt": "Fica de fora desta build.",
+            "en": "Left out of this build."
+          }
+        },
+        {
+          "skill": "ls",
+          "level": 0,
+          "why": {
+            "pt": "Fica de fora desta build.",
+            "en": "Left out of this build."
+          }
+        }
+      ],
+      "rotation": [
+        {
+          "pt": "Solte a **Divine Aura**.",
+          "en": "Drop **Divine Aura**."
+        },
+        {
+          "pt": "**Chain of Torment** no alvo.",
+          "en": "**Chain of Torment** on the target."
+        },
+        {
+          "pt": "**Condemnation** a cada 3 s.",
+          "en": "**Condemnation** every 3 s."
+        },
+        {
+          "pt": "**Judgment Thunder** e **Debilitating Mark** nos intervalos.",
+          "en": "**Judgment Thunder** and **Debilitating Mark** in between."
+        },
+        {
+          "pt": "**Earth's Retribution** para recuperar MP.",
+          "en": "**Earth's Retribution** to recover MP."
+        },
+        {
+          "pt": "**Healing Light** só quando a barra de HP cair de verdade.",
+          "en": "**Healing Light** only when the HP bar really drops."
+        }
+      ],
+      "why": [
+        {
+          "pt": "**Chain of Torment** e **Condemnation**, que só acerta alvo com o tormento, sobem primeiro: os dois são quase todo o dano solo do Clérigo.",
+          "en": "**Chain of Torment** and **Condemnation**, which only hits tormented targets, go up first: the pair is almost all of the Cleric's solo damage."
+        },
+        {
+          "pt": "A **Divine Aura** é dano de graça a cada 30 s. **Healing Light** e **Light of Regeneration** ficam no máximo para uma cura só cobrir a pull.",
+          "en": "**Divine Aura** is free damage every 30 s. **Healing Light** and **Light of Regeneration** are maxed so one cast covers the pull."
+        },
+        {
+          "pt": "Nas passivas, crítico e dano crítico vêm antes do bônus de cura: upando, você mata mais do que cura. **Debilitating Mark** no 7 e **Radiant Recovery** no 5 são para os chefes.",
+          "en": "On passives, crit and crit damage come before heal boost: while leveling you kill more than you heal. **Debilitating Mark** at 7 and **Radiant Recovery** at 5 are for bosses."
+        },
+        {
+          "pt": "Stigmas: **Light of Protection** no 22 e **Noble Aura** no 27 são os dois mais usados pelo topo; **Earth Punishment** no 32 e **Summon Resurrection** no 37 fecham o kit de dungeon.",
+          "en": "Stigmas: **Light of Protection** at 22 and **Noble Aura** at 27 are the two most used by top players; **Earth Punishment** at 32 and **Summon Resurrection** at 37 round out the dungeon kit."
+        }
+      ],
+      "note": {
+        "pt": "Nas passivas, esta build sobe só Empyrean Lord's Grace e Earth's Grace, as duas ao nível 10.",
+        "en": "On passives, this build only raises Empyrean Lord's Grace and Earth's Grace, both to level 10."
+      }
+    },
+    {
+      "id": "pvp",
+      "name": {
+        "pt": "PvP",
+        "en": "PvP"
+      },
+      "lead": {
+        "pt": "Em luta de grupo, enfraquecer o inimigo e limpar o controle dos aliados vale mais do que o seu dano.",
+        "en": "In group fights, weakening the enemy and cleansing your allies' control is worth more than your own damage."
+      },
+      "basis": {
+        "pt": "Build editorial da MetaBot.GG",
+        "en": "MetaBot.GG editorial build"
+      },
+      "fixed": ["lp", "ab", "sa", "ep"],
+      "stigmaLevels": {
+        "lp": 8,
+        "ab": 7,
+        "sa": 5,
+        "ep": 4
+      },
+      "overrides": [
+        {
+          "skill": "dm",
+          "level": 10,
+          "why": {
+            "pt": "Corta o dano e a cura do inimigo. Em grupo, vale mais do que o seu dano.",
+            "en": "Cuts the enemy's damage and healing. In a group fight that beats your own damage."
+          }
+        },
+        {
+          "skill": "rr",
+          "level": 10,
+          "why": {
+            "pt": "Tirar um Stun ou um Fear do aliado ganha mais lutas do que qualquer skill de dano.",
+            "en": "Removing a Stun or a Fear from an ally wins more fights than any damage skill."
+          }
+        },
+        {
+          "skill": "hl",
+          "level": 10,
+          "why": {
+            "pt": "As três curas ficam no máximo.",
+            "en": "All three heals are maxed."
+          }
+        },
+        {
+          "skill": "lr",
+          "level": 10,
+          "why": {
+            "pt": "As três curas ficam no máximo.",
+            "en": "All three heals are maxed."
+          }
+        },
+        {
+          "skill": "ct",
+          "level": 10,
+          "why": {
+            "pt": "Parte da sequência no alvo de foco.",
+            "en": "Part of the sequence on the focus target."
+          }
+        },
+        {
+          "skill": "cd",
+          "level": 10,
+          "why": {
+            "pt": "Parte da sequência no alvo de foco.",
+            "en": "Part of the sequence on the focus target."
+          }
+        },
+        {
+          "skill": "jt",
+          "level": 10,
+          "why": {
+            "pt": "Parte da sequência no alvo de foco.",
+            "en": "Part of the sequence on the focus target."
+          }
+        },
+        {
+          "skill": "er",
+          "level": 10,
+          "why": {
+            "pt": "Mantém o MP entre uma cura e outra.",
+            "en": "Keeps your MP up between heals."
+          }
+        },
+        {
+          "skill": "da",
+          "level": 5,
+          "why": {
+            "pt": "Em PvP a aura distrai mais do que causa dano.",
+            "en": "In PvP the aura is a distraction, not a damage source."
+          }
+        },
+        {
+          "skill": "bo",
+          "level": 0,
+          "why": {
+            "pt": "Fica de fora desta build.",
+            "en": "Left out of this build."
+          }
+        },
+        {
+          "skill": "ls",
+          "level": 0,
+          "why": {
+            "pt": "Fica de fora desta build.",
+            "en": "Left out of this build."
+          }
+        }
+      ],
+      "rotation": [
+        {
+          "pt": "**Debilitating Mark** no alvo de foco.",
+          "en": "**Debilitating Mark** on the focus target."
+        },
+        {
+          "pt": "**Chain of Torment** e **Condemnation** em seguida.",
+          "en": "**Chain of Torment**, then **Condemnation**."
+        },
+        {
+          "pt": "**Earth Punishment** e **Judgment Thunder**.",
+          "en": "**Earth Punishment** and **Judgment Thunder**."
+        },
+        {
+          "pt": "**Radiant Recovery** para limpar e **Healing Light** em quem estiver com menos HP.",
+          "en": "**Radiant Recovery** to cleanse and **Healing Light** on whoever is lowest."
+        },
+        {
+          "pt": "**Earth's Retribution** entre as curas para manter o MP.",
+          "en": "**Earth's Retribution** between heals to keep your MP up."
+        }
+      ],
+      "why": [
+        {
+          "pt": "**Debilitating Mark** no máximo: ela corta o dano e a cura do inimigo, o que vale mais do que o seu dano numa luta de grupo.",
+          "en": "**Debilitating Mark** maxed: it cuts the enemy's damage and healing, which is worth more than your own damage in a group fight."
+        },
+        {
+          "pt": "As três curas no máximo, inclusive a que limpa: tirar um Stun ou um Fear do aliado ganha mais lutas do que qualquer skill de dano.",
+          "en": "All three heals maxed, including the cleanse: removing a Stun or a Fear from an ally wins more fights than any damage skill."
+        },
+        {
+          "pt": "A passiva de defesa (**Immortal Veil**) entra no lugar do dano crítico, o bônus de cura fica no 7 e a **Divine Aura** cai para o 5: em PvP ela distrai mais do que causa dano.",
+          "en": "The defense passive (**Immortal Veil**) replaces crit damage, heal boost sits at 7 and **Divine Aura** drops to 5: in PvP it is a distraction, not a damage source."
+        },
+        {
+          "pt": "Stigmas: o buff de grupo, **Absolution** no 27 para limpar e curar, **Salvation** no 32 para a imunidade total e **Earth Punishment** no 37 para a rara janela de abate.",
+          "en": "Stigmas: the party buff, **Absolution** at 27 to cleanse and heal, **Salvation** at 32 for full immunity and **Earth Punishment** at 37 for the rare kill window."
+        }
+      ],
+      "note": {
+        "pt": "Nas passivas, esta build sobe Immortal Veil ao 10 e Healing Enhancement ao 7, e deixa as outras de fora.",
+        "en": "On passives, this build raises Immortal Veil to 10 and Healing Enhancement to 7 and leaves the rest out."
+      }
+    }
+  ],
+  "sources": [
+    {
+      "title": "Shugo.GG: Cleric skills",
+      "url": "https://shugo.gg/skills/cleric"
+    },
+    {
+      "title": "MetaBot.GG: Cleric build planner",
+      "url": "https://metabot.gg/en/aion-2/classes/cleric/build"
+    }
+  ]
 }

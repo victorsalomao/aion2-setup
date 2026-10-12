@@ -18,6 +18,8 @@
     {
       "id": "dc",
       "name": "Dark Crush",
+      "namePt": "Esmagamento Sombrio",
+      "icon": "https://metabot.gg/web/aion2/skills/18100000.webp",
       "mono": "DC",
       "category": "damage",
       "level": 10,
@@ -33,6 +35,8 @@
     {
       "id": "ss",
       "name": "Spinning Strike",
+      "namePt": "Golpe Giratório",
+      "icon": "https://metabot.gg/web/aion2/skills/18290000.webp",
       "mono": "SS",
       "category": "damage",
       "level": 10,
@@ -48,6 +52,8 @@
     {
       "id": "ib",
       "name": "Incandescent Blow",
+      "namePt": "Golpe Incandescente",
+      "icon": "https://metabot.gg/web/aion2/skills/18040000.webp",
       "mono": "IB",
       "category": "damage",
       "level": 10,
@@ -63,6 +69,8 @@
     {
       "id": "re",
       "name": "Recuperation",
+      "namePt": "Feitiço da Convalescença",
+      "icon": "https://metabot.gg/web/aion2/skills/18120000.webp",
       "mono": "Re",
       "category": "heal",
       "level": 10,
@@ -78,6 +86,8 @@
     {
       "id": "rs",
       "name": "Rushing Smash",
+      "namePt": "Esmagamento de Investida",
+      "icon": "https://metabot.gg/web/aion2/skills/18090000.webp",
       "mono": "RS",
       "category": "move",
       "level": 9,
@@ -93,6 +103,8 @@
     {
       "id": "on",
       "name": "Onslaught",
+      "namePt": "Golpe Estilhaçante",
+      "icon": "https://metabot.gg/web/aion2/skills/18010000.webp",
       "mono": "On",
       "category": "damage",
       "level": 8,
@@ -108,6 +120,8 @@
     {
       "id": "ic",
       "name": "Impactful Crush",
+      "namePt": "Golpe Destruidor",
+      "icon": "https://metabot.gg/web/aion2/skills/18060000.webp",
       "mono": "IC",
       "category": "control",
       "level": 8,
@@ -123,6 +137,8 @@
     {
       "id": "tc",
       "name": "Tremor Crush",
+      "namePt": "Esmagamento Vibrante",
+      "icon": "https://metabot.gg/web/aion2/skills/18210000.webp",
       "mono": "TC",
       "category": "move",
       "level": 8,
@@ -138,6 +154,8 @@
     {
       "id": "hw",
       "name": "Heat Wave Blow",
+      "namePt": "Golpe da Onda Abrasadora",
+      "icon": "https://metabot.gg/web/aion2/skills/18150000.webp",
       "mono": "HW",
       "category": "damage",
       "level": 7,
@@ -153,6 +171,8 @@
     {
       "id": "df",
       "name": "Defiance",
+      "namePt": "Remoção de Impacto",
+      "icon": "https://metabot.gg/web/aion2/skills/18200000.webp",
       "mono": "De",
       "category": "heal",
       "level": 7,
@@ -168,6 +188,8 @@
     {
       "id": "gr",
       "name": "Gust Rampage",
+      "namePt": "Vendaval Desenfreado",
+      "icon": "https://metabot.gg/web/aion2/skills/18300000.webp",
       "mono": "GR",
       "category": "damage",
       "level": 1,
@@ -179,6 +201,8 @@
     {
       "id": "wb",
       "name": "Wave Blow",
+      "namePt": "Golpe Ondulante",
+      "icon": "https://metabot.gg/web/aion2/skills/18080000.webp",
       "mono": "WB",
       "category": "control",
       "level": 1,
@@ -192,6 +216,8 @@
     {
       "id": "ap",
       "name": "Attack Preparation",
+      "namePt": "Preparar Ataque",
+      "icon": "https://metabot.gg/web/aion2/skills/18750000.webp",
       "mono": "AP",
       "category": "passive",
       "level": 10,
@@ -203,6 +229,8 @@
     {
       "id": "wp",
       "name": "Wind's Promise",
+      "namePt": "Promessa do Vento",
+      "icon": "https://metabot.gg/web/aion2/skills/18800000.webp",
       "mono": "WP",
       "category": "passive",
       "level": 10,
@@ -214,6 +242,8 @@
     {
       "id": "is",
       "name": "Inspiring Spell",
+      "namePt": "Feitiço da Inspiração",
+      "icon": "https://metabot.gg/web/aion2/skills/18740000.webp",
       "mono": "IS",
       "category": "passive",
       "level": 10,
@@ -225,6 +255,8 @@
     {
       "id": "bl",
       "name": "Blessing of Life",
+      "namePt": "Bênção da Vida",
+      "icon": "https://metabot.gg/web/aion2/skills/18710000.webp",
       "mono": "BL",
       "category": "passive",
       "level": 10,
@@ -236,6 +268,8 @@
     {
       "id": "ep",
       "name": "Earth's Promise",
+      "namePt": "Promessa da Terra",
+      "icon": "https://metabot.gg/web/aion2/skills/18780000.webp",
       "mono": "EP",
       "category": "passive",
       "level": 3,
@@ -247,6 +281,8 @@
     {
       "id": "ih",
       "name": "Impact Hit",
+      "namePt": "Acerto de Impacto",
+      "icon": "https://metabot.gg/web/aion2/skills/18760000.webp",
       "mono": "IH",
       "category": "passive",
       "level": 1,
@@ -258,6 +294,8 @@
     {
       "id": "cg",
       "name": "Crossguard",
+      "namePt": "Defesa Cruzada",
+      "icon": "https://metabot.gg/web/aion2/skills/18720000.webp",
       "mono": "Cg",
       "category": "passive",
       "level": 1,
@@ -269,6 +307,8 @@
     {
       "id": "pc",
       "name": "Protection Circle",
+      "namePt": "Círculo de Proteção",
+      "icon": "https://metabot.gg/web/aion2/skills/18730000.webp",
       "mono": "PC",
       "category": "passive",
       "level": 1,
@@ -280,7 +320,9 @@
     {
       "id": "rg",
       "name": "Raging Spell",
-      "mono": "RS",
+      "namePt": "Feitiço da Ira",
+      "icon": "https://metabot.gg/web/aion2/skills/18770000.webp",
+      "mono": "RgS",
       "category": "passive",
       "level": 1,
       "role": {
@@ -291,6 +333,7 @@
     {
       "id": "sw",
       "name": "Survival Willpower",
+      "namePt": "Vontade de Sobreviver",
       "mono": "SW",
       "category": "passive",
       "level": 1,
@@ -304,6 +347,8 @@
     {
       "id": "um",
       "name": "Undefeated Mantra",
+      "namePt": "Mantra do Imbatível",
+      "icon": "https://metabot.gg/web/aion2/skills/18190000.webp",
       "mono": "UM",
       "category": "aura",
       "level": {
@@ -318,6 +363,8 @@
     {
       "id": "ps",
       "name": "Power of the Storm",
+      "namePt": "Soberania do Vendaval",
+      "icon": "https://metabot.gg/web/aion2/skills/18250000.webp",
       "mono": "PS",
       "category": "aura",
       "level": {
@@ -332,6 +379,8 @@
     {
       "id": "sm",
       "name": "Sprint Mantra",
+      "namePt": "Mantra da Disparada",
+      "icon": "https://metabot.gg/web/aion2/skills/18160000.webp",
       "mono": "SM",
       "category": "aura",
       "level": {
@@ -346,6 +395,8 @@
     {
       "id": "gb",
       "name": "Guardian Blessing",
+      "namePt": "Bênção da Guarda",
+      "icon": "https://metabot.gg/web/aion2/skills/18420000.webp",
       "mono": "GB",
       "category": "heal",
       "level": {
@@ -360,6 +411,8 @@
     {
       "id": "ht",
       "name": "Healing Touch",
+      "namePt": "Toque da Convalescença",
+      "icon": "https://metabot.gg/web/aion2/skills/18170000.webp",
       "mono": "HT",
       "category": "heal",
       "level": {
@@ -374,6 +427,8 @@
     {
       "id": "ob",
       "name": "Obliterate",
+      "namePt": "Extinção Ígnea",
+      "icon": "https://metabot.gg/web/aion2/skills/18220000.webp",
       "mono": "Ob",
       "category": "control",
       "level": {
@@ -388,6 +443,8 @@
     {
       "id": "mw",
       "name": "Marchutan's Wrath",
+      "namePt": "Fúria de Marchutan",
+      "icon": "https://metabot.gg/web/aion2/skills/18330000.webp",
       "mono": "MW",
       "category": "damage",
       "level": {
@@ -402,6 +459,8 @@
     {
       "id": "fb",
       "name": "Fracturing Blow",
+      "namePt": "Golpe Fraturante",
+      "icon": "https://metabot.gg/web/aion2/skills/18130000.webp",
       "mono": "FB",
       "category": "move",
       "level": {
@@ -416,6 +475,8 @@
     {
       "id": "as",
       "name": "Assault Shock",
+      "namePt": "Impacto do Ataque Súbito",
+      "icon": "https://metabot.gg/web/aion2/skills/18700000.webp",
       "mono": "AS",
       "category": "control",
       "level": {

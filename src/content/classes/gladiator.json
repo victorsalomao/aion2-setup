@@ -4,13 +4,1184 @@
     "en": "Gladiator"
   },
   "order": 1,
-  "status": "draft",
+  "status": "published",
   "archetype": {
     "pt": "Dano corpo a corpo",
     "en": "Melee damage"
   },
   "summary": {
-    "pt": "Build em pesquisa. A página abre quando as skills, os Stigmas e a rotação tiverem fonte.",
-    "en": "Build under research. The page opens once skills, Stigmas and rotation are sourced."
-  }
+    "pt": "Build de endgame dos Gladiadores do topo: Ruinous Blow como golpe principal, Mocking Blade e Overhead Slam no ciclo de derrubada, e Lunge Stance com Zikel's Blessing como os Stigmas que quase todos usam.",
+    "en": "Endgame build from top Gladiators: Ruinous Blow as the main hit, Mocking Blade and Overhead Slam in the knockdown loop, and Lunge Stance with Zikel's Blessing as the Stigmas almost everyone runs."
+  },
+  "updated": "2026-10-12",
+  "actives": [
+    {
+      "id": "ks",
+      "name": "Keen Strike",
+      "namePt": "Golpe Afiado",
+      "icon": "https://metabot.gg/web/aion2/skills/11020000.webp",
+      "mono": "KS",
+      "category": "damage",
+      "level": 7,
+      "usage": 99,
+      "role": {
+        "pt": "Ataque básico em área que devolve MP.",
+        "en": "Basic area attack that restores MP."
+      },
+      "effect": {
+        "pt": "Causa 51 de dano em até 4 inimigos a 4 m e gera ameaça. Recupera 100 MP. Pode ser usada em movimento.",
+        "en": "Deals 51 damage to up to 4 enemies within 4 m and generates enmity. Restores 100 MP. Usable while moving."
+      }
+    },
+    {
+      "id": "rub",
+      "name": "Ruinous Blow",
+      "namePt": "Golpe Feroz da Perdição",
+      "icon": "https://metabot.gg/web/aion2/skills/11100000.webp",
+      "mono": "RuB",
+      "category": "damage",
+      "level": 7,
+      "usage": 99,
+      "role": {
+        "pt": "Golpe mais forte da classe. Dá o buff Prepare for Battle.",
+        "en": "The class's hardest hit. Grants the Prepare for Battle buff."
+      },
+      "effect": {
+        "pt": "250 MP, recarga de 45 s. Avança até um alvo a 7,5 m, causa 2387 de dano em até 4 inimigos próximos e dá Prepare for Battle por 20 s (mais dano em PvE e PvP, Acerto crítico e chance de efeito). 25 de dano de Stagger.",
+        "en": "250 MP, 45 s cooldown. Rushes to a target within 7.5 m, deals 2387 damage to up to 4 nearby enemies and grants Prepare for Battle for 20 s (more PvE and PvP damage, Critical Hit and status chance). 25 Stagger damage."
+      }
+    },
+    {
+      "id": "rb",
+      "name": "Rending Blow",
+      "namePt": "Golpe Feroz Dilacerante",
+      "icon": "https://metabot.gg/web/aion2/skills/11010000.webp",
+      "mono": "RB",
+      "category": "damage",
+      "level": 7,
+      "usage": 99,
+      "role": {
+        "pt": "Ataque em área sem recarga. Segura a ameaça.",
+        "en": "Area attack with no cooldown. Holds enmity."
+      },
+      "effect": {
+        "pt": "120 MP. Causa 140 de dano em até 4 inimigos a 4 m e gera ameaça. 2 de dano de Stagger.",
+        "en": "120 MP. Deals 140 damage to up to 4 enemies within 4 m and generates enmity. 2 Stagger damage."
+      }
+    },
+    {
+      "id": "ls",
+      "name": "Leaping Slam",
+      "namePt": "Salto Esmagador",
+      "icon": "https://metabot.gg/web/aion2/skills/11190000.webp",
+      "mono": "LS",
+      "category": "move",
+      "level": 7,
+      "usage": 99,
+      "role": {
+        "pt": "Salto até o alvo. Abre a luta.",
+        "en": "Leap to the target. Opens the fight."
+      },
+      "effect": {
+        "pt": "Recarga de 15 s. Salta até um alvo a 20 m e causa 140 de dano. 10 de dano de Stagger.",
+        "en": "15 s cooldown. Leaps to a target within 20 m and deals 140 damage. 10 Stagger damage."
+      }
+    },
+    {
+      "id": "rs",
+      "name": "Rush Strike",
+      "namePt": "Golpe de Investida",
+      "icon": "https://metabot.gg/web/aion2/skills/11360000.webp",
+      "mono": "RS",
+      "category": "move",
+      "level": 7,
+      "usage": 99,
+      "role": {
+        "pt": "Avanço curto. Derruba depois de uma esquiva ou em voo.",
+        "en": "Short dash. Knocks down after a dodge or while flying."
+      },
+      "effect": {
+        "pt": "Recarga de 20 s. Avança até um alvo a 10 m e causa 660 de dano. Depois de [Dodge] ou em voo, 30% de chance de derrubar por 3 s (100% em NPC). 10 de dano de Stagger.",
+        "en": "20 s cooldown. Moves to a target within 10 m and deals 660 damage. After [Dodge] or while flying, 30% chance to knock down for 3 s (100% on NPCs). 10 Stagger damage."
+      }
+    },
+    {
+      "id": "os",
+      "name": "Overhead Slam",
+      "namePt": "Esmagada Descendente",
+      "icon": "https://metabot.gg/web/aion2/skills/11170000.webp",
+      "mono": "OS",
+      "category": "damage",
+      "level": 7,
+      "usage": 99,
+      "role": {
+        "pt": "Golpe forte em alvo derrubado.",
+        "en": "Heavy hit on a knocked-down target."
+      },
+      "effect": {
+        "pt": "Recarga de 5 s. Causa 348 de dano em alvo derrubado a 4 m e gera ameaça. Contra alvo imune a incapacitação, 7% de chance de ativar. 5 de dano de Stagger. Pode ser usada em movimento.",
+        "en": "5 s cooldown. Deals 348 damage to a knocked-down target within 4 m and generates enmity. 7% chance to trigger against a target with incapacitation immunity. 5 Stagger damage. Usable while moving."
+      }
+    },
+    {
+      "id": "mb",
+      "name": "Mocking Blade",
+      "namePt": "Espada do Massacre",
+      "icon": "https://metabot.gg/web/aion2/skills/11290000.webp",
+      "mono": "MB",
+      "category": "control",
+      "level": 7,
+      "usage": 96,
+      "role": {
+        "pt": "Derruba o alvo e abre o Overhead Slam.",
+        "en": "Knocks the target down and opens Overhead Slam."
+      },
+      "effect": {
+        "pt": "200 MP, recarga de 20 s. Causa 621 de dano a 4 m e derruba por 3 s. Muda de animação contra alvo imune a incapacitação. 15 de dano de Stagger.",
+        "en": "200 MP, 20 s cooldown. Deals 621 damage within 4 m and knocks down for 3 s. Changes animation against a target with incapacitation immunity. 15 Stagger damage."
+      }
+    },
+    {
+      "id": "sar",
+      "name": "Sword Aura Rampage",
+      "namePt": "Desenfreio da Aura da Espada",
+      "icon": "https://metabot.gg/web/aion2/skills/11280000.webp",
+      "mono": "SAR",
+      "category": "damage",
+      "level": 7,
+      "usage": 95,
+      "role": {
+        "pt": "Dano extra quando o alvo está em Stagger.",
+        "en": "Extra damage while the target is staggered."
+      },
+      "effect": {
+        "pt": "Causa 496 de dano em alvo em Stagger a 4 m.",
+        "en": "Deals 496 damage to a staggered target within 4 m."
+      }
+    },
+    {
+      "id": "ank",
+      "name": "Ankle Slice",
+      "namePt": "Corte no Tornozelo",
+      "icon": "https://metabot.gg/web/aion2/skills/11200000.webp",
+      "mono": "AS",
+      "category": "control",
+      "level": 7,
+      "usage": 94,
+      "role": {
+        "pt": "Dano em área. Enraíza quando você bloqueia.",
+        "en": "Area damage. Roots when you block."
+      },
+      "effect": {
+        "pt": "Recarga de 10 s. Causa 588 de dano em até 4 inimigos a 4 m. Ao bloquear, 50% de chance de enraizar por 3 s (100% em NPC). 10 de dano de Stagger.",
+        "en": "10 s cooldown. Deals 588 damage to up to 4 enemies within 4 m. On Block, 50% chance to root for 3 s (100% on NPCs). 10 Stagger damage."
+      }
+    },
+    {
+      "id": "cw",
+      "name": "Crushing Wave",
+      "namePt": "Onda Esmagadora",
+      "icon": "https://metabot.gg/web/aion2/skills/11050000.webp",
+      "mono": "CW",
+      "category": "damage",
+      "level": 7,
+      "usage": 93,
+      "role": {
+        "pt": "Dano em área ao seu redor.",
+        "en": "Area damage around you."
+      },
+      "effect": {
+        "pt": "250 MP, recarga de 20 s. Causa 412 de dano em até 4 inimigos a 5 m de você. 5 de dano de Stagger.",
+        "en": "250 MP, 20 s cooldown. Deals 412 damage to up to 4 enemies within 5 m of you. 5 Stagger damage."
+      }
+    },
+    {
+      "id": "ae",
+      "name": "Aerial Snare",
+      "namePt": "Aprisionamento Aéreo",
+      "icon": "https://metabot.gg/web/aion2/skills/11300000.webp",
+      "mono": "AeS",
+      "category": "control",
+      "level": 7,
+      "usage": 89,
+      "role": {
+        "pt": "Lança ao ar um alvo já derrubado.",
+        "en": "Launches a knocked-down target into the air."
+      },
+      "effect": {
+        "pt": "150 MP, recarga de 45 s. Causa 479 de dano em alvo derrubado a 4 m, com 50% de chance de lançá-lo ao ar por 3 s (100% em NPC). Contra alvo imune a incapacitação, 5% de chance de ativar. 20 de dano de Stagger.",
+        "en": "150 MP, 45 s cooldown. Deals 479 damage to a knocked-down target within 4 m with a 50% chance to launch it airborne for 3 s (100% on NPCs). 5% chance to trigger against a target with incapacitation immunity. 20 Stagger damage."
+      }
+    },
+    {
+      "id": "df",
+      "name": "Defiance",
+      "namePt": "Remoção de Impacto",
+      "icon": "https://metabot.gg/web/aion2/skills/11260000.webp",
+      "mono": "De",
+      "category": "heal",
+      "level": 0,
+      "role": {
+        "pt": "Remove controle de você. Não aparece nas builds da fonte.",
+        "en": "Removes crowd control from yourself. Not in the source's builds."
+      },
+      "effect": {
+        "pt": "Recarga de 60 s. Remove atordoamento, derrubada, lançamento, agarrão, congelamento e medo de você e dá Tenacity (imunidade a efeitos) por 5 s. Não é afetada por redução de recarga.",
+        "en": "60 s cooldown. Removes Stun, Knockdown, Airborne, Grab, Frost and Fear from you and grants Tenacity (status immunity) for 5 s. Unaffected by cooldown reduction."
+      }
+    }
+  ],
+  "passives": [
+    {
+      "id": "sst",
+      "name": "Survival Stance",
+      "namePt": "Postura de Sobrevivência",
+      "icon": "https://metabot.gg/web/aion2/skills/11710000.webp",
+      "mono": "SSt",
+      "category": "passive",
+      "level": 7,
+      "usage": 99,
+      "role": {
+        "pt": "HP e tolerância a dano.",
+        "en": "HP and damage tolerance."
+      },
+      "effect": {
+        "pt": "+200 de HP, +7% de HP máximo, +20 de regeneração natural de HP, +5,5% de tolerância a dano em PvE e +2,75% em PvP.",
+        "en": "+200 HP, +7% max HP, +20 natural HP regen, +5.5% PvE damage tolerance and +2.75% PvP damage tolerance."
+      }
+    },
+    {
+      "id": "pa",
+      "name": "Protection Armor",
+      "namePt": "Armadura da Proteção",
+      "icon": "https://metabot.gg/web/aion2/skills/11720000.webp",
+      "mono": "PA",
+      "category": "passive",
+      "level": 7,
+      "usage": 99,
+      "role": {
+        "pt": "Bloqueio e cura ao bloquear.",
+        "en": "Block and healing on Block."
+      },
+      "effect": {
+        "pt": "+200 de Bloqueio. Recupera 53–64 de HP ao bloquear (recarga de 1 s).",
+        "en": "+200 Block. Restores 53–64 HP on Block (1 s cooldown)."
+      }
+    },
+    {
+      "id": "ba",
+      "name": "Blood Absorption",
+      "namePt": "Absorção de Sangue",
+      "icon": "https://metabot.gg/web/aion2/skills/11730000.webp",
+      "mono": "BA",
+      "category": "passive",
+      "level": 7,
+      "usage": 99,
+      "role": {
+        "pt": "Roubo de vida e cura de emergência.",
+        "en": "Lifesteal and an emergency heal."
+      },
+      "effect": {
+        "pt": "50% de chance de recuperar 20–24 de HP e 1,6% do HP máximo ao acertar (recarga de 1 s). Ao cair para 50% de HP ou menos, recupera 26% do HP máximo na hora (recarga de 60 s).",
+        "en": "50% chance to restore 20–24 HP and 1.6% max HP on hit (1 s cooldown). When HP drops to 50% or less, instantly restores 26% max HP (60 s cooldown)."
+      }
+    },
+    {
+      "id": "iw",
+      "name": "Identify Weakness",
+      "namePt": "Detecção de Fraqueza",
+      "icon": "https://metabot.gg/web/aion2/skills/11740000.webp",
+      "mono": "IW",
+      "category": "passive",
+      "level": 7,
+      "usage": 99,
+      "role": {
+        "pt": "Acerto crítico e chance de Perfeito.",
+        "en": "Critical Hit and Perfect chance."
+      },
+      "effect": {
+        "pt": "+100 de Acerto crítico e +0,5% de chance de Perfeito.",
+        "en": "+100 Critical Hit and +0.5% Perfect chance."
+      }
+    },
+    {
+      "id": "ap",
+      "name": "Attack Preparation",
+      "namePt": "Preparar Ataque",
+      "icon": "https://metabot.gg/web/aion2/skills/11750000.webp",
+      "mono": "AP",
+      "category": "passive",
+      "level": 7,
+      "usage": 99,
+      "role": {
+        "pt": "Dano em PvE, Defesa e Precisão.",
+        "en": "PvE damage, Defense and Accuracy."
+      },
+      "effect": {
+        "pt": "+5,5% de dano em PvE, +2,75% em PvP, +2% de Defesa e +100 de Precisão.",
+        "en": "+5.5% PvE damage, +2.75% PvP damage, +2% Defense and +100 Accuracy."
+      }
+    },
+    {
+      "id": "ih",
+      "name": "Impact Hit",
+      "namePt": "Acerto de Impacto",
+      "icon": "https://metabot.gg/web/aion2/skills/11760000.webp",
+      "mono": "IH",
+      "category": "passive",
+      "level": 7,
+      "usage": 99,
+      "role": {
+        "pt": "Chance de efeitos de Impacto.",
+        "en": "Impact-type effect chance."
+      },
+      "effect": {
+        "pt": "+11,2% de chance de efeitos do tipo Impacto e +0,3% de chance de Duplo.",
+        "en": "+11.2% Impact-type chance and +0.3% Double chance."
+      }
+    },
+    {
+      "id": "di",
+      "name": "Destructive Impulse",
+      "namePt": "Ímpeto Destrutivo",
+      "icon": "https://metabot.gg/web/aion2/skills/11770000.webp",
+      "mono": "DI",
+      "category": "passive",
+      "level": 7,
+      "usage": 99,
+      "role": {
+        "pt": "Dano extra em alvo em Stagger ou sob Impacto.",
+        "en": "Extra damage on staggered or impacted targets."
+      },
+      "effect": {
+        "pt": "Causa 146 de dano extra em alvos em Stagger ou com status do tipo Impacto.",
+        "en": "Deals 146 extra damage to targets that are staggered or under an Impact-type status."
+      }
+    },
+    {
+      "id": "ec",
+      "name": "Experienced Counterstrike",
+      "namePt": "Contra-ataque Hábil",
+      "icon": "https://metabot.gg/web/aion2/skills/11780000.webp",
+      "mono": "EC",
+      "category": "passive",
+      "level": 7,
+      "usage": 99,
+      "role": {
+        "pt": "Buff de dano para o grupo quando você bloqueia.",
+        "en": "Party damage buff when you block."
+      },
+      "effect": {
+        "pt": "+0,4% de dano em ataque frontal. Ao bloquear, +5,4% de dano em PvE e +2,7% em PvP por 20 s para você e o grupo. Não acumula com o Fury do Templário.",
+        "en": "+0.4% front attack damage. On Block, +5.4% PvE damage and +2.7% PvP damage for 20 s for you and the party. Does not stack with the Templar's Fury."
+      }
+    },
+    {
+      "id": "sw",
+      "name": "Survival Willpower",
+      "namePt": "Vontade de Sobreviver",
+      "icon": "https://metabot.gg/web/aion2/skills/11790000.webp",
+      "mono": "SW",
+      "category": "passive",
+      "level": 8,
+      "usage": 99,
+      "role": {
+        "pt": "Resistência a efeitos e tolerância quando você sofre controle.",
+        "en": "Status resist and damage tolerance while crowd controlled."
+      },
+      "effect": {
+        "pt": "+17% de resistência a efeitos. Sob atordoamento, derrubada, lançamento, congelamento ou medo: +12% de tolerância a dano em PvE e +6% em PvP por 5 s (recarga de 60 s), e +10% de resistência a efeitos por 5 s a cada golpe sofrido (até 10 acúmulos).",
+        "en": "+17% status resist. While stunned, knocked down, airborne, frozen or feared: +12% PvE and +6% PvP damage tolerance for 5 s (60 s cooldown), and +10% status resist for 5 s per hit taken (up to 10 stacks)."
+      }
+    },
+    {
+      "id": "mub",
+      "name": "Murderous Burst",
+      "namePt": "Ruptura da Intenção Assassina",
+      "icon": "https://metabot.gg/web/aion2/skills/11800000.webp",
+      "mono": "MuB",
+      "category": "passive",
+      "level": 9,
+      "usage": 99,
+      "role": {
+        "pt": "Explosão em área a cada 5 acertos.",
+        "en": "Area burst every 5 hits."
+      },
+      "effect": {
+        "pt": "Cada acerto dá 1 acúmulo de Menace por 3 s. Com 5 acúmulos, causa 539 de dano em até 4 inimigos a 5 m e dá +5,5% de dano crítico por 3 s.",
+        "en": "Each hit grants a Menace stack for 3 s. At 5 stacks, deals 539 damage to up to 4 enemies within 5 m and grants +5.5% critical damage for 3 s."
+      }
+    }
+  ],
+  "stigmas": [
+    {
+      "id": "lst",
+      "name": "Lunge Stance",
+      "namePt": "Postura de Assalto",
+      "icon": "https://metabot.gg/web/aion2/skills/11400000.webp",
+      "mono": "LSt",
+      "category": "aura",
+      "usage": 91,
+      "level": {
+        "pt": "5 a 7",
+        "en": "5 to 7"
+      },
+      "description": {
+        "pt": "Recarga de 60 s. +20% de velocidade de combate por 10 s. No nível 5, +5% de chance de Duplo durante o efeito.",
+        "en": "60 s cooldown. +20% combat speed for 10 s. At level 5, +5% Double chance for the duration."
+      }
+    },
+    {
+      "id": "zb",
+      "name": "Zikel's Blessing",
+      "namePt": "Bênção de Zikel",
+      "icon": "https://metabot.gg/web/aion2/skills/11250000.webp",
+      "mono": "ZB",
+      "category": "aura",
+      "usage": 91,
+      "level": {
+        "pt": "8",
+        "en": "8"
+      },
+      "description": {
+        "pt": "Recarga de 120 s. Aumenta seu Ataque e dá +100 de Precisão por 10 s. No nível 5, +50% de dano de Stagger; no 10, +10% de dano em PvE e +5% em PvP.",
+        "en": "120 s cooldown. Raises your Attack and gives +100 Accuracy for 10 s. At level 5, +50% Stagger damage; at 10, +10% PvE damage and +5% PvP damage."
+      }
+    },
+    {
+      "id": "rgb",
+      "name": "Rage Burst",
+      "namePt": "Explosão de Ira",
+      "icon": "https://metabot.gg/web/aion2/skills/11390000.webp",
+      "mono": "RgB",
+      "category": "damage",
+      "usage": 73,
+      "level": {
+        "pt": "4 a 6",
+        "en": "4 to 6"
+      },
+      "description": {
+        "pt": "100 MP, recarga de 45 s. Causa 6635 de dano a 4 m e aplica Wounded por 10 s (−10% de Ataque no alvo). Você ganha +10% de dano em PvE e +5% em PvP por 10 s, e o Overhead Slam fica liberado no alvo por 10 s. No nível 5, −15 s de recarga.",
+        "en": "100 MP, 45 s cooldown. Deals 6635 damage within 4 m and applies Wounded for 10 s (−10% target Attack). You gain +10% PvE and +5% PvP damage for 10 s, and Overhead Slam is enabled on the target for 10 s. At level 5, −15 s cooldown."
+      }
+    },
+    {
+      "id": "fb",
+      "name": "Focused Block",
+      "namePt": "Bloqueio Concentrado",
+      "icon": "https://metabot.gg/web/aion2/skills/11110000.webp",
+      "mono": "FB",
+      "category": "aura",
+      "usage": 62,
+      "level": {
+        "pt": "5",
+        "en": "5"
+      },
+      "description": {
+        "pt": "Recarga de 20 s, sustentada. +100% de redução de dano no bloqueio e Aparar garantido. Recupera 110 de MP e Stamina uma vez ao aparar. No nível 5, +1 uso consecutivo.",
+        "en": "20 s cooldown, sustained. +100% Block damage reduction and guaranteed Parry. Restores 110 MP and Stamina once on Parry. At level 5, +1 consecutive use."
+      }
+    },
+    {
+      "id": "lb",
+      "name": "Lifestealing Blade",
+      "namePt": "Espada Vampírica",
+      "icon": "https://metabot.gg/web/aion2/skills/11340000.webp",
+      "mono": "LB",
+      "category": "damage",
+      "usage": 42,
+      "level": {
+        "pt": "5 a 6",
+        "en": "5 to 6"
+      },
+      "description": {
+        "pt": "200 MP, recarga de 90 s. Causa 1522 de dano em até 4 inimigos a 4 m e absorve 10% de HP. No nível 10, efeito Predation no grupo por 20 s; no 15, −30 s de recarga.",
+        "en": "200 MP, 90 s cooldown. Deals 1522 damage to up to 4 enemies within 4 m and absorbs 10% HP. At level 10, Predation on party members for 20 s; at 15, −30 s cooldown."
+      }
+    },
+    {
+      "id": "ww",
+      "name": "Wrath Wave",
+      "namePt": "Onda da Fúria",
+      "icon": "https://metabot.gg/web/aion2/skills/11240000.webp",
+      "mono": "WW",
+      "category": "control",
+      "usage": 26,
+      "level": {
+        "pt": "3 a 4",
+        "en": "3 to 4"
+      },
+      "description": {
+        "pt": "200 MP, recarga de 60 s. Causa 1068 de dano em até 4 inimigos a 5 m, com 50% de chance de derrubar por 3 s (100% em NPC). 50 de dano de Stagger. No nível 10, −20% de Ataque nos alvos por 5 s.",
+        "en": "200 MP, 60 s cooldown. Deals 1068 damage to up to 4 enemies within 5 m with a 50% chance to knock down for 3 s (100% on NPCs). 50 Stagger damage. At level 10, −20% Attack on targets for 5 s."
+      }
+    },
+    {
+      "id": "te",
+      "name": "Tenaciousness",
+      "namePt": "Perseverança",
+      "icon": "https://metabot.gg/web/aion2/skills/11380000.webp",
+      "mono": "Te",
+      "category": "aura",
+      "usage": 17,
+      "level": {
+        "pt": "1 a 5",
+        "en": "1 to 5"
+      },
+      "description": {
+        "pt": "Recarga de 150 s. Imunidade a dano e a efeitos por 3 s; ao fim, +50% de tolerância a dano em PvE e +25% em PvP por 3 s. Não bloqueia certos ataques poderosos. No nível 5, +100% de cura recebida; no 10, recupera 20% do HP máximo ao fim.",
+        "en": "150 s cooldown. Immune to damage and status effects for 3 s; when it ends, +50% PvE and +25% PvP damage tolerance for 3 s. Cannot block certain powerful attacks. At level 5, +100% incoming heal; at 10, restores 20% max HP when it ends."
+      }
+    },
+    {
+      "id": "bt",
+      "name": "Blade Toss",
+      "namePt": "Arremesso de Lâmina",
+      "icon": "https://metabot.gg/web/aion2/skills/11080000.webp",
+      "mono": "BT",
+      "category": "damage",
+      "usage": 11,
+      "level": {
+        "pt": "2 a 3",
+        "en": "2 to 3"
+      },
+      "description": {
+        "pt": "Recarga de 20 s. Causa 534 de dano a 20 m e reduz a Defesa do alvo em 30% e a cura recebida em 50% por 10 s. No nível 10, aplica Lentidão por 5 s; no 15, quebra escudos.",
+        "en": "20 s cooldown. Deals 534 damage within 20 m and lowers the target's Defense by 30% and incoming healing by 50% for 10 s. At level 10, applies Slow for 5 s; at 15, breaks protective shields."
+      }
+    },
+    {
+      "id": "wa",
+      "name": "Wave Armor",
+      "namePt": "Armadura da Onda",
+      "icon": "https://metabot.gg/web/aion2/skills/11410000.webp",
+      "mono": "WA",
+      "category": "damage",
+      "usage": 5.3,
+      "level": {
+        "pt": "5 a 6",
+        "en": "5 to 6"
+      },
+      "description": {
+        "pt": "200 MP, recarga de 60 s. Causa 207 de dano contínuo em até 4 inimigos a 3 m por 10 s. No nível 5, absorve 2% de HP; no 10, Experienced Counterstrike ×1,5 durante o efeito.",
+        "en": "200 MP, 60 s cooldown. Deals 207 damage over time to up to 4 enemies within 3 m for 10 s. At level 5, absorbs 2% HP; at 10, Experienced Counterstrike ×1.5 for the duration."
+      }
+    },
+    {
+      "id": "fr",
+      "name": "Forced Restraint",
+      "namePt": "Aprisionamento Forçado",
+      "icon": "https://metabot.gg/web/aion2/skills/11430000.webp",
+      "mono": "FR",
+      "category": "control",
+      "usage": 3.3,
+      "level": {
+        "pt": "3",
+        "en": "3"
+      },
+      "description": {
+        "pt": "100 MP, recarga de 60 s. Causa 1059 de dano a 4 m, com 75% de chance de Selar por 5 s (100% em NPC). No nível 5, 50% de chance de enraizar por 5 s.",
+        "en": "100 MP, 60 s cooldown. Deals 1059 damage within 4 m with a 75% chance to Seal for 5 s (100% on NPCs). At level 5, 50% chance to root for 5 s."
+      }
+    },
+    {
+      "id": "ab",
+      "name": "Armor of Balance",
+      "namePt": "Armadura do Equilíbrio",
+      "icon": "https://metabot.gg/web/aion2/skills/11130000.webp",
+      "mono": "AB",
+      "category": "aura",
+      "level": {
+        "pt": "sem dado nas fontes",
+        "en": "no data in the sources"
+      },
+      "description": {
+        "pt": "Recarga de 90 s. +50% de resistência a efeitos de Impacto por 10 s. No nível 5, +20% de resistência a efeitos de Aflição e Mentais.",
+        "en": "90 s cooldown. +50% Impact-type resist for 10 s. At level 5, +20% Ailment-type and Mental-type resist."
+      }
+    },
+    {
+      "id": "frr",
+      "name": "Fracturing Rush",
+      "namePt": "Investida Fraturante",
+      "icon": "https://metabot.gg/web/aion2/skills/11450000.webp",
+      "mono": "FrR",
+      "category": "move",
+      "level": {
+        "pt": "sem dado nas fontes",
+        "en": "no data in the sources"
+      },
+      "description": {
+        "pt": "100 MP, recarga de 90 s. Avança 10 m e causa 974 de dano em até 4 inimigos no caminho, com 60% de chance de enraizar por 3 s (100% em NPC). 20 de dano de Stagger. No nível 10, ganha a skill em cadeia Destructive Rush.",
+        "en": "100 MP, 90 s cooldown. Rushes forward 10 m and deals 974 damage to up to 4 enemies in the path with a 60% chance to root for 3 s (100% on NPCs). 20 Stagger damage. At level 10, adds the Destructive Rush chain skill."
+      }
+    },
+    {
+      "id": "ast",
+      "name": "Assault Strike",
+      "namePt": "Golpe do Ataque Súbito",
+      "icon": "https://metabot.gg/web/aion2/skills/11700000.webp",
+      "mono": "ASt",
+      "category": "control",
+      "level": {
+        "pt": "sem dado nas fontes",
+        "en": "no data in the sources"
+      },
+      "description": {
+        "pt": "Recarga de 120 s. Escolhe um alvo a 20 m e causa 998 de dano em até 4 inimigos a 4 m dele, com 30% de chance de derrubar por 3 s (100% em NPC). Aumenta sua Defesa em até 20% conforme o número de alvos atingidos.",
+        "en": "120 s cooldown. Picks a target within 20 m and deals 998 damage to up to 4 enemies within 4 m of it, with a 30% chance to knock down for 3 s (100% on NPCs). Raises your Defense by up to 20% based on targets hit."
+      }
+    }
+  ],
+  "modes": [
+    {
+      "id": "pve",
+      "name": {
+        "pt": "PvE de endgame",
+        "en": "Endgame PvE"
+      },
+      "lead": {
+        "pt": "O que os Gladiadores do topo usam: todas as skills treinadas no 7 e Lunge Stance com Zikel's Blessing como base.",
+        "en": "What top Gladiators run: every skill trained to 7, with Lunge Stance and Zikel's Blessing as the core."
+      },
+      "basis": {
+        "pt": "Baseado em 151 jogadores do topo (dados de 2026-10-02)",
+        "en": "Based on 151 top players (data from 2026-10-02)"
+      },
+      "fixed": [
+        "lst",
+        "zb",
+        "rgb",
+        "fb"
+      ],
+      "stigmaLevels": {
+        "lst": 5,
+        "zb": 8,
+        "rgb": 6,
+        "fb": 5
+      },
+      "flex": [
+        {
+          "stigma": "lb",
+          "when": {
+            "pt": "Alternativa mais comum fora dos quatro: 42% dos jogadores do topo usam",
+            "en": "Most common pick outside the four: 42% of top players run it"
+          }
+        },
+        {
+          "stigma": "ww",
+          "when": {
+            "pt": "Segunda alternativa mais vista (26%), com derrubada em área",
+            "en": "Second most seen alternative (26%), with area knockdown"
+          }
+        }
+      ],
+      "rotation": [
+        {
+          "pt": "Entre com **Leaping Slam**.",
+          "en": "Open with **Leaping Slam**."
+        },
+        {
+          "pt": "**Ruinous Blow** para o dano alto e o buff Prepare for Battle.",
+          "en": "**Ruinous Blow** for the big hit and the Prepare for Battle buff."
+        },
+        {
+          "pt": "**Mocking Blade** para derrubar.",
+          "en": "**Mocking Blade** to knock down."
+        },
+        {
+          "pt": "**Overhead Slam** com o alvo no chão.",
+          "en": "**Overhead Slam** while the target is down."
+        },
+        {
+          "pt": "**Rage Burst**, que também libera o Overhead Slam por 10 s.",
+          "en": "**Rage Burst**, which also enables Overhead Slam for 10 s."
+        },
+        {
+          "pt": "Preencha com **Rending Blow** e **Keen Strike**. O Keen Strike devolve MP.",
+          "en": "Fill with **Rending Blow** and **Keen Strike**. Keen Strike restores MP."
+        }
+      ],
+      "rotationNote": {
+        "pt": "Ordem de skills da build de endgame da MetaBot.GG.",
+        "en": "Skill order from MetaBot.GG's endgame build."
+      },
+      "note": {
+        "pt": "Os níveis são os treinados com pontos. Daevanion e equipamento somam de +1 a +3 em quase todas as skills (por exemplo, +3 em Ruinous Blow, Rending Blow, Overhead Slam e Mocking Blade), então o nível em jogo fica maior.",
+        "en": "Levels are the ones trained with points. Daevanion and gear add +1 to +3 to almost every skill (for example +3 to Ruinous Blow, Rending Blow, Overhead Slam and Mocking Blade), so the in-game level is higher."
+      }
+    },
+    {
+      "id": "leveling",
+      "name": {
+        "pt": "Upando (1–45)",
+        "en": "Leveling (1–45)"
+      },
+      "lead": {
+        "pt": "Poucas skills no 10: o salto, os ataques básicos e o ciclo de derrubada. Stigmas para bater forte e sobreviver sozinho.",
+        "en": "A few skills at 10: the leap, the basic attacks and the knockdown loop. Stigmas to hit hard and survive solo."
+      },
+      "basis": {
+        "pt": "Build editorial da MetaBot.GG",
+        "en": "MetaBot.GG editorial build"
+      },
+      "fixed": [
+        "zb",
+        "lst",
+        "lb",
+        "rgb"
+      ],
+      "stigmaLevels": {
+        "zb": 8,
+        "lst": 7,
+        "lb": 5,
+        "rgb": 4
+      },
+      "overrides": [
+        {
+          "skill": "ks",
+          "level": 10,
+          "why": {
+            "pt": "Fonte de MP enquanto upa.",
+            "en": "Your MP source while leveling."
+          }
+        },
+        {
+          "skill": "rb",
+          "level": 10,
+          "why": {
+            "pt": "Ataque básico em área, usado o tempo todo.",
+            "en": "Basic area attack, used all the time."
+          }
+        },
+        {
+          "skill": "ls",
+          "level": 10,
+          "why": {
+            "pt": "Único avanço antes do nível 10.",
+            "en": "Your only gap-closer before level 10."
+          }
+        },
+        {
+          "skill": "os",
+          "level": 10,
+          "why": {
+            "pt": "Metade do ciclo de dano: bate no alvo derrubado.",
+            "en": "Half of the damage loop: hits the downed target."
+          }
+        },
+        {
+          "skill": "rs",
+          "level": 10,
+          "why": {
+            "pt": "Segundo avanço, liberado a partir do nível 10.",
+            "en": "Second gap-closer, available from level 10."
+          }
+        },
+        {
+          "skill": "rub",
+          "level": 10,
+          "why": {
+            "pt": "Golpe mais forte e o buff de dano.",
+            "en": "Hardest hit and the damage buff."
+          }
+        },
+        {
+          "skill": "mb",
+          "level": 5,
+          "why": {
+            "pt": "Basta para derrubar; os pontos vão para outras skills.",
+            "en": "Enough to knock down; points go elsewhere."
+          }
+        },
+        {
+          "skill": "sar",
+          "level": 0,
+          "why": {
+            "pt": "Sem pontos nesta build.",
+            "en": "No points in this build."
+          }
+        },
+        {
+          "skill": "ank",
+          "level": 0,
+          "why": {
+            "pt": "Sem pontos nesta build.",
+            "en": "No points in this build."
+          }
+        },
+        {
+          "skill": "ae",
+          "level": 0,
+          "why": {
+            "pt": "Sem pontos nesta build.",
+            "en": "No points in this build."
+          }
+        },
+        {
+          "skill": "sst",
+          "level": 10,
+          "why": {
+            "pt": "HP para upar sozinho.",
+            "en": "HP to level solo."
+          }
+        },
+        {
+          "skill": "pa",
+          "level": 0,
+          "why": {
+            "pt": "Sem pontos nesta build.",
+            "en": "No points in this build."
+          }
+        },
+        {
+          "skill": "ba",
+          "level": 0,
+          "why": {
+            "pt": "Sem pontos nesta build.",
+            "en": "No points in this build."
+          }
+        },
+        {
+          "skill": "iw",
+          "level": 10,
+          "why": {
+            "pt": "Crítico melhora todo golpe.",
+            "en": "Crit improves every hit."
+          }
+        },
+        {
+          "skill": "ap",
+          "level": 10,
+          "why": {
+            "pt": "Dano melhora todo golpe.",
+            "en": "Damage improves every hit."
+          }
+        },
+        {
+          "skill": "ih",
+          "level": 0,
+          "why": {
+            "pt": "Sem pontos nesta build.",
+            "en": "No points in this build."
+          }
+        },
+        {
+          "skill": "di",
+          "level": 0,
+          "why": {
+            "pt": "Sem pontos nesta build.",
+            "en": "No points in this build."
+          }
+        },
+        {
+          "skill": "ec",
+          "level": 0,
+          "why": {
+            "pt": "Sem pontos nesta build.",
+            "en": "No points in this build."
+          }
+        },
+        {
+          "skill": "sw",
+          "level": 0,
+          "why": {
+            "pt": "Sem pontos nesta build.",
+            "en": "No points in this build."
+          }
+        },
+        {
+          "skill": "mub",
+          "level": 0,
+          "why": {
+            "pt": "Sem pontos nesta build.",
+            "en": "No points in this build."
+          }
+        }
+      ],
+      "rotation": [
+        {
+          "pt": "Entre com **Leaping Slam**.",
+          "en": "Open with **Leaping Slam**."
+        },
+        {
+          "pt": "**Mocking Blade** para derrubar.",
+          "en": "**Mocking Blade** to knock down."
+        },
+        {
+          "pt": "**Overhead Slam** enquanto o alvo está no chão.",
+          "en": "**Overhead Slam** while the target is down."
+        },
+        {
+          "pt": "**Ruinous Blow** para o buff de dano.",
+          "en": "**Ruinous Blow** for the damage buff."
+        },
+        {
+          "pt": "Termine com **Rending Blow**, **Crushing Wave** e **Keen Strike**.",
+          "en": "Finish with **Rending Blow**, **Crushing Wave** and **Keen Strike**."
+        }
+      ],
+      "why": [
+        {
+          "pt": "Os ataques básicos e o salto sobem primeiro: são a sua fonte de MP e o único avanço antes do nível 10.",
+          "en": "The basic attacks and the leap go up first: they are your MP source and your only gap-closer before level 10."
+        },
+        {
+          "pt": "O ciclo de dano da classe é derrubar com **Mocking Blade** e bater com **Overhead Slam**, que só acerta alvo no chão.",
+          "en": "The class's damage loop is knocking down with **Mocking Blade** and hitting with **Overhead Slam**, which only lands on downed targets."
+        },
+        {
+          "pt": "Três passivas (HP, crítico e dano) custam menos que mais uma ativa e melhoram todo golpe.",
+          "en": "Three passives (HP, crit and damage) cost less than another active and improve every hit."
+        },
+        {
+          "pt": "Stigmas: os buffs de Ataque e de velocidade de combate nos slots 22 e 27 são os mais usados pelos Gladiadores do topo. A lâmina com roubo de vida no 32 segura quem joga sozinho.",
+          "en": "Stigmas: the Attack and combat speed buffs in slots 22 and 27 are the most used by top Gladiators. The lifesteal blade at 32 keeps a solo player alive."
+        }
+      ]
+    },
+    {
+      "id": "pvp",
+      "name": {
+        "pt": "PvP",
+        "en": "PvP"
+      },
+      "lead": {
+        "pt": "Dois avanços para grudar no alvo e uma cadeia de derrubar, lançar e bater na queda.",
+        "en": "Two gap-closers to stick to the target and a chain of knockdown, launch and a hit on the landing."
+      },
+      "basis": {
+        "pt": "Build editorial da MetaBot.GG",
+        "en": "MetaBot.GG editorial build"
+      },
+      "fixed": [
+        "zb",
+        "lst",
+        "te",
+        "ww"
+      ],
+      "stigmaLevels": {
+        "zb": 8,
+        "lst": 7,
+        "te": 5,
+        "ww": 4
+      },
+      "overrides": [
+        {
+          "skill": "ks",
+          "level": 10,
+          "why": {
+            "pt": "Fonte de MP.",
+            "en": "MP source."
+          }
+        },
+        {
+          "skill": "rb",
+          "level": 10,
+          "why": {
+            "pt": "Ataque básico usado o tempo todo.",
+            "en": "Basic attack used all the time."
+          }
+        },
+        {
+          "skill": "ls",
+          "level": 10,
+          "why": {
+            "pt": "Um dos dois avanços para alcançar quem foge.",
+            "en": "One of the two gap-closers to catch a kiting target."
+          }
+        },
+        {
+          "skill": "rs",
+          "level": 10,
+          "why": {
+            "pt": "O outro avanço, que derruba depois da esquiva.",
+            "en": "The other gap-closer, which knocks down after a dodge."
+          }
+        },
+        {
+          "skill": "mb",
+          "level": 10,
+          "why": {
+            "pt": "Abre a cadeia de controle.",
+            "en": "Opens the control chain."
+          }
+        },
+        {
+          "skill": "os",
+          "level": 10,
+          "why": {
+            "pt": "Dano no alvo derrubado.",
+            "en": "Damage on the downed target."
+          }
+        },
+        {
+          "skill": "rub",
+          "level": 10,
+          "why": {
+            "pt": "Burst depois do controle.",
+            "en": "Burst after the control."
+          }
+        },
+        {
+          "skill": "sar",
+          "level": 0,
+          "why": {
+            "pt": "Sem pontos nesta build.",
+            "en": "No points in this build."
+          }
+        },
+        {
+          "skill": "ank",
+          "level": 0,
+          "why": {
+            "pt": "Sem pontos nesta build.",
+            "en": "No points in this build."
+          }
+        },
+        {
+          "skill": "cw",
+          "level": 0,
+          "why": {
+            "pt": "Sem pontos nesta build.",
+            "en": "No points in this build."
+          }
+        },
+        {
+          "skill": "sst",
+          "level": 10,
+          "why": {
+            "pt": "HP para aguentar a troca.",
+            "en": "HP to survive the trade."
+          }
+        },
+        {
+          "skill": "pa",
+          "level": 0,
+          "why": {
+            "pt": "Sem pontos nesta build.",
+            "en": "No points in this build."
+          }
+        },
+        {
+          "skill": "ba",
+          "level": 0,
+          "why": {
+            "pt": "Sem pontos nesta build.",
+            "en": "No points in this build."
+          }
+        },
+        {
+          "skill": "iw",
+          "level": 10,
+          "why": {
+            "pt": "Crítico no burst.",
+            "en": "Crit on the burst."
+          }
+        },
+        {
+          "skill": "ap",
+          "level": 0,
+          "why": {
+            "pt": "Sem pontos nesta build.",
+            "en": "No points in this build."
+          }
+        },
+        {
+          "skill": "ih",
+          "level": 0,
+          "why": {
+            "pt": "Sem pontos nesta build.",
+            "en": "No points in this build."
+          }
+        },
+        {
+          "skill": "di",
+          "level": 0,
+          "why": {
+            "pt": "Sem pontos nesta build.",
+            "en": "No points in this build."
+          }
+        },
+        {
+          "skill": "ec",
+          "level": 0,
+          "why": {
+            "pt": "Sem pontos nesta build.",
+            "en": "No points in this build."
+          }
+        },
+        {
+          "skill": "sw",
+          "level": 5,
+          "why": {
+            "pt": "Entra no lugar da passiva de dano: menos tempo sob controle.",
+            "en": "Replaces the damage passive: less time controlled."
+          }
+        },
+        {
+          "skill": "mub",
+          "level": 0,
+          "why": {
+            "pt": "Sem pontos nesta build.",
+            "en": "No points in this build."
+          }
+        }
+      ],
+      "rotation": [
+        {
+          "pt": "Esquive e entre com **Rush Strike**.",
+          "en": "Dodge, then rush in with **Rush Strike**."
+        },
+        {
+          "pt": "**Mocking Blade** para derrubar.",
+          "en": "**Mocking Blade** to knock down."
+        },
+        {
+          "pt": "**Aerial Snare** para lançar ao ar.",
+          "en": "**Aerial Snare** to launch."
+        },
+        {
+          "pt": "**Overhead Slam** na queda.",
+          "en": "**Overhead Slam** on the landing."
+        },
+        {
+          "pt": "**Ruinous Blow** e **Wrath Wave** antes que o alvo consiga agir.",
+          "en": "**Ruinous Blow** and **Wrath Wave** before the target can act."
+        },
+        {
+          "pt": "**Rending Blow** para preencher.",
+          "en": "**Rending Blow** to fill."
+        }
+      ],
+      "why": [
+        {
+          "pt": "Os dois avanços no 10: o salto e o **Rush Strike** depois da esquiva mantêm você colado em quem foge.",
+          "en": "Both gap-closers at 10: the leap and **Rush Strike** after a dodge keep you on a kiting target."
+        },
+        {
+          "pt": "Derrubar, bater e lançar se encadeiam. O **Aerial Snare** fica no 7 porque a recarga é longa.",
+          "en": "Knockdown, slam and launch chain into each other. **Aerial Snare** stays at 7 because its cooldown is long."
+        },
+        {
+          "pt": "A passiva de resistência a efeitos entra no lugar da de dano: no PvP ganha quem sofre menos controle.",
+          "en": "The status resist passive replaces the damage passive: PvP is won by whoever gets controlled less."
+        },
+        {
+          "pt": "Stigmas: buff de Ataque, velocidade de combate, a imunidade total no 32 e a derrubada em área no 37 para lutas em grupo.",
+          "en": "Stigmas: Attack buff, combat speed, the full immunity at 32 and the area knockdown at 37 for group fights."
+        }
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "title": "Shugo.GG: Gladiator skills",
+      "url": "https://shugo.gg/skills/gladiator"
+    },
+    {
+      "title": "MetaBot.GG: Gladiator build planner",
+      "url": "https://metabot.gg/en/aion-2/classes/gladiator/build"
+    }
+  ]
 }

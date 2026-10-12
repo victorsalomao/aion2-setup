@@ -24,8 +24,9 @@ const draft = c.status !== 'published';
 const name = tr(c.name, lang);
 const title = lang === 'pt' ? `Build de ${name}` : `${name} build`;
 const stigmaById = new Map(c.stigmas.map((s) => [s.id, s]));
-const activeById = new Map(c.actives.map((s) => [s.id, s]));
-const categories = ['damage', 'control', 'heal', 'move', 'aura'] as const;
+// overrides podem mudar o nível de ativas e de passivas
+const activeById = new Map([...c.actives, ...c.passives].map((s) => [s.id, s]));
+const categories = ['damage', 'control', 'heal', 'move', 'aura', 'passive'] as const;
 ---
 <Base lang={lang} title={title} description={tr(c.summary, lang)} noindex={draft}>
   <section class="block">
@@ -33,6 +34,7 @@ const categories = ['damage', 'control', 'heal', 'move', 'aura'] as const;
     <h1>{title}</h1>
     <p class="lead">{tr(c.summary, lang)}</p>
     {c.updated && <p class="muted small">{tt('guide.updated')} <span class="num">{c.updated}</span></p>}
+    {c.notice && <div class="note"><p>{tr(c.notice, lang)}</p></div>}
   </section>
 
   {draft ? (
@@ -65,20 +67,33 @@ const categories = ['damage', 'control', 'heal', 'move', 'aura'] as const;
         </div>
       </section>
 
+      {c.stigmas.length > 0 && (
+        <section class="block">
+          <h2>{tt('class.stigmas')}</h2>
+          <div class="skills">
+            {c.stigmas.map((s) => (
+              <SkillCard lang={lang} name={s.name} namePt={s.namePt} icon={s.icon} mono={s.mono} category={s.category} level={tr(s.level, lang)} role={s.description} usage={s.usage} />
+            ))}
+          </div>
+        </section>
+      )}
+
+      {c.modes.length > 0 && (
       <section class="block">
         <h2>{tt('class.modes')}</h2>
         {c.modes.map((m) => (
           <div class="panel" id={m.id}>
             <h3>{tr(m.name, lang)}</h3>
             <p class="muted">{tr(m.lead, lang)}</p>
+            {m.basis && <p class="muted small">{tr(m.basis, lang)}</p>}
 
             <h3>{tt('class.stigmas')}</h3>
             <div class="skills">
               {m.fixed.map((id) => stigmaById.get(id)).filter((s) => s !== undefined).map((s) => (
-                <SkillCard lang={lang} name={s.name} mono={s.mono} category={s.category} level={tr(s.level, lang)} spec={{ pt: tt('class.fixed'), en: tt('class.fixed') }} role={s.description} />
+                <SkillCard lang={lang} name={s.name} namePt={s.namePt} icon={s.icon} mono={s.mono} category={s.category} level={m.stigmaLevels[s.id] ?? tr(s.level, lang)} spec={{ pt: tt('class.fixed'), en: tt('class.fixed') }} role={s.description} usage={s.usage} />
               ))}
               {m.flex.map((f) => ({ f, s: stigmaById.get(f.stigma) })).filter((x) => x.s !== undefined).map(({ f, s }) => (
-                <SkillCard lang={lang} name={s!.name} mono={s!.mono} category={s!.category} level={tr(s!.level, lang)} spec={{ pt: `${tt('class.flex')}: ${f.when.pt}`, en: `${tt('class.flex')}: ${f.when.en}` }} role={s!.description} />
+                <SkillCard lang={lang} name={s!.name} namePt={s!.namePt} icon={s!.icon} mono={s!.mono} category={s!.category} level={m.stigmaLevels[s!.id] ?? tr(s!.level, lang)} usage={s!.usage} spec={{ pt: `${tt('class.flex')}: ${f.when.pt}`, en: `${tt('class.flex')}: ${f.when.en}` }} role={s!.description} />
               ))}
             </div>
 
@@ -87,24 +102,40 @@ const categories = ['damage', 'control', 'heal', 'move', 'aura'] as const;
                 <h3>{tt('class.changed')}</h3>
                 <div class="skills">
                   {m.overrides.map((o) => ({ o, s: activeById.get(o.skill) })).filter((x) => x.s !== undefined).map(({ o, s }) => (
-                    <SkillCard lang={lang} name={s!.name} mono={s!.mono} category={s!.category} level={o.level} spec={o.spec} role={o.why} changed />
+                    <SkillCard lang={lang} name={s!.name} namePt={s!.namePt} icon={s!.icon} mono={s!.mono} category={s!.category} level={o.level} spec={o.spec} role={o.why} changed />
                   ))}
                 </div>
               </>
             )}
 
-            <h3>{tt('class.rotation')}</h3>
-            <ol class="seq">
-              {m.rotation.map((step) => <li><span set:html={emphasize(tr(step, lang))} /></li>)}
-            </ol>
+            {m.rotation.length > 0 && (
+              <>
+                <h3>{tt('class.rotation')}</h3>
+                <ol class="seq">
+                  {m.rotation.map((step) => <li><span set:html={emphasize(tr(step, lang))} /></li>)}
+                </ol>
+              </>
+            )}
             {m.rotationNote && <p class="muted small">{tr(m.rotationNote, lang)}</p>}
 
-            <h3>{tt('class.stats')}</h3>
-            <p>{tr(m.stats, lang)}</p>
+            {m.why.length > 0 && (
+              <>
+                <h3>{tt('class.why')}</h3>
+                <ul class="prose">{m.why.map((w) => <li><span set:html={emphasize(tr(w, lang))} /></li>)}</ul>
+              </>
+            )}
+
+            {m.stats && (
+              <>
+                <h3>{tt('class.stats')}</h3>
+                <p>{tr(m.stats, lang)}</p>
+              </>
+            )}
             {m.note && <p class="muted small">{tr(m.note, lang)}</p>}
           </div>
         ))}
       </section>
+      )}
 
       {c.sources.length > 0 && (
         <section class="block">

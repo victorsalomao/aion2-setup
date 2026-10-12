@@ -1,7 +1,7 @@
 ---
 import Base from '../../../layouts/Base.astro';
 import RiteCalculator from '../../../components/RiteCalculator.astro';
-import { RITE_DIFFICULTIES, CRYSTAL_MILESTONES, secondsNeeded, formatClock } from '../../../lib/rite';
+import { RITE_DIFFICULTIES, HARD_MILESTONES, CRYSTAL_MILESTONES, secondsNeeded, formatClock } from '../../../lib/rite';
 import { formatNumber, langParams, t, type Lang } from '../../../i18n';
 
 export function getStaticPaths() {
@@ -17,15 +17,20 @@ const c = {
     thScore: 'Marco', thTime: 'Tempo que precisa sobrar', thCrystal: 'Cristais acumulados', always: 'qualquer clear sem morte',
     diffs: 'Dificuldades', thDiff: 'Dificuldade', thGs: 'Gear score', thDeaths: 'Limite de mortes',
     caveat: 'A fórmula vem de relatos da versão coreana e só tem números para o Hard. Confira o resumo no fim da sua run.',
+    challenge: 'Os marcos de {rest} são do Challenge, que pede 2.500 de gear score. No Hard o teto prático é 3 cristais.',
+    names: { easy: 'Fácil', normal: 'Normal', hard: 'Difícil (Hard)', challenge: 'Desafio (Challenge)', insane: 'Insano (Insane)', hell: 'Inferno (Hell)' },
   },
   en: {
     formula: `On Hard, the score is ${formatNumber(hard.base!, 'en')} for a deathless clear, plus ${hard.perSecond} points per second left on the clock. The achievement counts your best run, not the sum.`,
     thScore: 'Milestone', thTime: 'Time that must be left', thCrystal: 'Crystals so far', always: 'any deathless clear',
     diffs: 'Difficulties', thDiff: 'Difficulty', thGs: 'Gear score', thDeaths: 'Death limit',
     caveat: 'The formula comes from Korean-version reports and only has numbers for Hard. Check the summary at the end of your run.',
+    challenge: 'The {rest} milestones belong to Challenge, which needs 2,500 gear score. On Hard the practical ceiling is 3 crystals.',
+    names: { easy: 'Easy', normal: 'Normal', hard: 'Hard', challenge: 'Challenge', insane: 'Insane', hell: 'Hell' },
   },
 }[lang];
-const rows = CRYSTAL_MILESTONES.map((target, i) => {
+const rest = CRYSTAL_MILESTONES.filter((m) => !HARD_MILESTONES.includes(m)).map((m) => formatNumber(m, lang)).join(lang === 'pt' ? ' e ' : ' and ');
+const rows = HARD_MILESTONES.map((target, i) => {
   const s = secondsNeeded(target, hard.base!, hard.perSecond!);
   return { target, time: s === 0 ? c.always : formatClock(s), crystals: i + 1 };
 });
@@ -47,6 +52,7 @@ const rows = CRYSTAL_MILESTONES.map((target, i) => {
           </tbody>
         </table>
       </div>
+      <p class="muted small">{c.challenge.replace('{rest}', rest)}</p>
     </div>
     <RiteCalculator lang={lang} />
   </div>
@@ -57,7 +63,7 @@ const rows = CRYSTAL_MILESTONES.map((target, i) => {
         <thead><tr><th>{c.thDiff}</th><th class="num">{c.thGs}</th><th class="num">{c.thDeaths}</th></tr></thead>
         <tbody>
           {RITE_DIFFICULTIES.map((d) => (
-            <tr><td style="text-transform:capitalize">{d.id}</td><td class="num">{formatNumber(d.gearScore, lang)}</td><td class="num">{d.deathLimit}</td></tr>
+            <tr><td>{c.names[d.id]}</td><td class="num">{formatNumber(d.gearScore, lang)}</td><td class="num">{d.deathLimit}</td></tr>
           ))}
         </tbody>
       </table>

@@ -3,24 +3,42 @@ import { t, tr, type Lang, type L10n } from '../i18n';
 
 interface Props {
   lang: Lang;
+  /** nome em inglês, como nos dados do cliente */
   name: string;
+  /** nome oficial em português do cliente do jogo */
+  namePt?: string;
+  /** ícone oficial (MetaBot.GG); sem ele, ou se não carregar, ficam as iniciais */
+  icon?: string;
   mono: string;
   category: string;
   level: number | string;
   spec?: L10n;
   role: L10n;
   changed?: boolean;
+  /** % dos jogadores do topo que usam */
+  usage?: number;
+  effect?: L10n;
 }
-const { lang, name, mono, category, level, spec, role, changed = false } = Astro.props;
+const { lang, name, namePt, icon, mono, category, level, spec, role, changed = false, usage, effect } = Astro.props;
+// nome principal no idioma da página; o outro vem menor embaixo, para conferir
+const main = lang === 'pt' && namePt ? namePt : name;
+const alt = lang === 'pt' ? name : namePt;
+const altLang = lang === 'pt' ? 'en' : 'pt-BR';
 ---
 <article class:list={['skill', { changed }]}>
-  <div class:list={['mono', `cat-${category}`]} aria-hidden="true">{mono}</div>
+  <div class:list={['mono', `cat-${category}`, { 'has-icon': icon }]} aria-hidden="true">
+    {mono}
+    {icon && <img src={icon} alt="" width="44" height="44" loading="lazy" decoding="async" referrerpolicy="no-referrer" onerror="this.parentElement.classList.remove('has-icon');this.remove()" />}
+  </div>
   <div class="skill-body">
     <div class="skill-head">
-      <span class="skill-name">{name}</span>
+      <span class="skill-name">{main}</span>
       <span class="lv">{t(lang)('class.level')} {level}</span>
     </div>
+    {alt && alt !== main && <span class="skill-alt small muted" lang={altLang}>{alt}</span>}
+    {usage !== undefined && <span class="skill-usage small muted">{t(lang)('class.usage').replace('{n}', String(usage))}</span>}
     {spec && <span class="skill-spec">{tr(spec, lang)}</span>}
     <span class="skill-role">{tr(role, lang)}</span>
+    {effect && <details class="skill-effect small"><summary>{t(lang)('class.effect')}</summary>{tr(effect, lang)}</details>}
   </div>
 </article>

@@ -23,6 +23,8 @@ Nothing here depends on luck or on a group.
 
 ## 1,150 to 1,400: first Conquests
 
+Krao Cave and Draupnir open at item level 700, but before 1,150 the run is slow and the cube pays little.
+
 Krao Cave and Draupnir on Conquest drop item level 54 gear. Kill the mid bosses before the last one: they improve the cube reward.
 
 ## 1,400 to 1,600: group dungeons

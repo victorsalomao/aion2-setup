@@ -1,6 +1,7 @@
 ---
 import Base from '../../../layouts/Base.astro';
 import { href, langParams, t, type Lang } from '../../../i18n';
+import { TOOLS, toolKeys } from '../../../config/tools';
 
 export function getStaticPaths() {
   return langParams();
@@ -8,12 +9,7 @@ export function getStaticPaths() {
 interface Props { lang: Lang }
 const { lang } = Astro.props;
 const tt = t(lang);
-const tools = [
-  { to: '/tools/odyle/', title: tt('tools.odyle.title'), desc: tt('tools.odyle.desc') },
-  { to: '/tools/rite/', title: tt('tools.rite.title'), desc: tt('tools.rite.desc') },
-  { to: '/tools/craft/', title: tt('tools.craft.title'), desc: tt('tools.craft.desc') },
-  { to: '/tools/enhance/', title: tt('tools.enhance.title'), desc: tt('tools.enhance.desc') },
-];
+const tools = TOOLS.map((x) => ({ to: x.to, title: tt(toolKeys(x.key).title), desc: tt(toolKeys(x.key).desc) }));
 ---
 <Base lang={lang} title={tt('tools.title')} description={tt('tools.lead')}>
   <section class="block">

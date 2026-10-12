@@ -1,0 +1,31 @@
+{
+  "name": {
+    "pt": "Brawler",
+    "en": "Brawler"
+  },
+  "order": 9,
+  "status": "draft",
+  "archetype": {
+    "pt": "Lutador corpo a corpo",
+    "en": "Melee fighter"
+  },
+  "summary": {
+    "pt": "Classe nova de manoplas, por enquanto só nos servidores da Coreia e de Taiwan. A página abre quando houver nomes de skills em inglês e uma build com fonte.",
+    "en": "New gauntlet class, for now only on the Korean and Taiwanese servers. The page opens once there are English skill names and a sourced build."
+  },
+  "updated": "2026-10-12",
+  "notice": {
+    "pt": "O Brawler é uma classe nova e ainda não chegou ao global: segundo o Shugo.GG, só a Coreia e Taiwan rodam a versão com ele. O Shugo.GG já lista 40 skills ativas, 10 passivas e 13 Stigmas, mas sem nome nem efeito em inglês, e ainda não existe build com dados de jogadores do topo. Esta página volta quando os nomes saírem.",
+    "en": "The Brawler is a new class and has not reached global yet: according to Shugo.GG, only Korea and Taiwan run the version that has it. Shugo.GG already lists 40 active skills, 10 passives and 13 Stigmas, but without English names or effects, and there is no build with top-player data yet. This page comes back once the names are out."
+  },
+  "sources": [
+    {
+      "title": "Shugo.GG: Brawler skills",
+      "url": "https://shugo.gg/skills/fighter"
+    },
+    {
+      "title": "Shugo.GG: FAQ",
+      "url": "https://shugo.gg/faq"
+    }
+  ]
+}

@@ -2,7 +2,7 @@
 import Base from '../../../layouts/Base.astro';
 import CraftMenu from '../../../components/CraftMenu.astro';
 import data from '../../../data/dragon-lord.json';
-import { langParams, t, type Lang } from '../../../i18n';
+import { href, langParams, t, type Lang } from '../../../i18n';
 
 export function getStaticPaths() {
   return langParams();
@@ -12,42 +12,58 @@ const { lang } = Astro.props;
 const tt = t(lang);
 const c = {
   pt: {
-    lead: 'O melhor equipamento do jogo é fabricado. Este guia cobre o cajado, o anel e a guarda da linha Dragon Lord. Escolha a receita no menu, diga quanto você já tem de cada material e monte a lista do que falta.',
+    lead: 'O melhor equipamento do jogo é fabricado. Este menu cobre todas as {n} peças Dragon Lord do jogo: nove armas (contando a guarda), os sete espaços de armadura, colar, brinco e anel. Escolha a peça e o degrau, veja o caminho do zero até ele com o total de materiais, diga quanto você já tem e monte a lista do que falta.',
+    more: 'Procurando outra receita? O <a href="{href}">banco de receitas</a> tem todas as profissões, com "usado em" e a árvore de materiais.',
     howTitle: 'Como funciona',
     steps: [
-      '<b>Profissão.</b> Cajado e anel saem do Artesanato; a guarda sai da Ferraria. A mesa fica na Base da Legião da Aurora ou na Vila Zumion, em Verteron (lado Elyos).',
-      '<b>Maestria.</b> A versão de Artesão pede 30 (guarda: 35). O Dragon Lord pede 55 no cajado e no anel e 60 na guarda. A maestria trava em 50 até você fazer a missão de avanço da profissão.',
-      '<b>A base.</b> Toda receita Dragon Lord consome 1 peça "Artisan\'s Splendent". Ela só sai no combo, em 25% das vezes que você fabrica a versão de Artesão: em média 4 fabricações por base.',
-      '<b>Os degraus.</b> True (62), White (78) e Wise (94) são fabricados direto da base, sem precisar do degrau anterior. Cada um tem 25% de combo para sair Splendent, com 8 níveis a mais.',
-      '<b>Qual mirar.</b> O White (78) perde para a Fire Temple (86), e só o Splendent White empata. O Wise (94) já passa, e o Splendent Wise (102) é o topo. A meta é o Wise; até lá, Fire Temple.',
-      '<b>O gargalo.</b> O Wise pede 20 Wrathful Ego no cajado e na guarda. Ele cai da Kromede e da Nuakum (3,6%) e da raide Ludra (10%), e a loja da temporada vende por 8.750 Moedas do Juramento, até 10 por conta até 16/12. As escamas e chifres Durable pedem maestria 80 para fabricar.',
+      '<b>Profissão.</b> A Armaria faz espada longa, montante, adaga, maça e guarda; o Artesanato faz arco, cajado, colar, brinco e anel; a Alquimia faz grimório e orbe; a Armoraria faz as sete peças de armadura. As mesas ficam na Base da Legião da Aurora e na Vila Zumion, em Verteron (Elyos), e em Safe Haven e Nornir Assembly, em Altgard (Asmodianos).',
+      '<b>Maestria.</b> A versão de Artesão pede de 30 a 40, conforme a peça. O True Dragon Lord pede 55 nas armas, no anel, no peitoral, nas grevas, no elmo e nas espaldeiras, e 60 na guarda, no colar, no brinco, nas luvas, nas botas e na capa. A maestria trava em 50 até você fazer a missão de avanço da profissão. As evoluções não pedem maestria.',
+      '<b>Passo 1, a base.</b> Toda escada Dragon Lord começa com uma peça "Artisan\'s Splendent" (nível 44). Ela não tem receita: sai no combo, em 25% das vezes que você fabrica a versão de Artesão. São 4 fabricações por base, em média.',
+      '<b>Passos 2 e 3.</b> O True (62) consome 1 base. O Splendent True (70) sai no combo de 25% ao fabricar o True, ou pela evolução: 1 True e mais materiais.',
+      '<b>Passos 4 a 7.</b> O White (78) é uma evolução: consome 1 Splendent True e mais 1 base. O Splendent White (86) sai no combo do White ou pela evolução dele. O Wise (94) consome 1 Splendent White e mais 1 base, e o Splendent Wise (102) sai no combo do Wise ou pela evolução. Do zero ao topo são 3 bases, ou 12 fabricações de Artesão em média. Guarde todo Splendent: ele é a entrada do degrau seguinte.',
+      '<b>Qual mirar.</b> O White (78) perde para a Fire Temple (86), e só o Splendent White empata. O Wise (94) já passa, e o Splendent Wise (102) é o topo: para armadura e acessório, é o único 102 fora da raide Ludra. A meta é o Wise; até lá, Fire Temple.',
+      '<b>O gargalo.</b> Os degraus de cima pedem material de masmorra: Artisan\'s Ultimate Refining Stone e a linha Wrathful (Mind, Will e Ego) não caem no campo. As escamas, chifres e couros Balaur do Wise (Durable) pedem maestria 80 para fabricar.',
     ],
-    caveats: 'O banco de dados não mostra a maestria dos degraus White e Wise, nem a chance de combo do anel e da guarda. As versões Splendent aparecem lá com uma receita própria, mas o que ela faz não está confirmado. Nomes dos itens em inglês, como no banco de dados.',
+    caveats: 'O cliente não lista na receita de evolução a peça que está sendo evoluída; o menu acrescenta essa peça, marcada como "peça do passo anterior", conforme o guia de crafting da MetaBot.GG. Os níveis de item também vêm desse guia. A conta do caminho usa média para o combo da base e trata as fabricações Dragon Lord como sucesso e sem combo. Nomes em português e inglês, oficiais do cliente.',
     tableTitle: 'Todas as receitas',
-    thItem: 'Item', thIl: 'Nível', thMats: 'Materiais',
+    thItem: 'Item (Elyos / Asmodiano)', thIl: 'Nível', thMats: 'Materiais (Elyos)',
+    prev: 'peça anterior',
+    sources: 'Receitas, nomes e ícones: <a href="{crafting}">calculadora de crafting da MetaBot.GG</a>. Escada e níveis de item: <a href="{guide}">guia de crafting da MetaBot.GG</a>. Faixa de sucesso: <a href="{shugo}">Shugo.GG</a>.',
   },
   en: {
-    lead: 'The best gear in the game is crafted. This guide covers the Dragon Lord staff, ring and guard. Pick a recipe in the menu, enter how much of each material you have, and build the list of what is missing.',
+    lead: 'The best gear in the game is crafted. This menu covers all {n} Dragon Lord pieces in the game: nine weapons (counting the guard), all seven armor slots, necklace, earrings and ring. Pick the piece and the tier, see the path from zero with the total materials, enter how much you already have and build the list of what is missing.',
+    more: 'Looking for another recipe? The <a href="{href}">recipe database</a> has every profession, with "used in" and the material tree.',
     howTitle: 'How it works',
     steps: [
-      '<b>Profession.</b> Staff and ring come from Handicrafting; the guard from Blacksmithing. The table is in Dawn Legion Base or Zumion Village, Verteron (Elyos side).',
-      '<b>Mastery.</b> The Artisan version needs 30 (guard: 35). Dragon Lord needs 55 for staff and ring and 60 for the guard. Mastery stops at 50 until you complete the profession upgrade quest.',
-      '<b>The base.</b> Every Dragon Lord recipe consumes 1 "Artisan\'s Splendent" piece. It only comes from the combo, 25% of the times you craft the Artisan version: 4 crafts per base on average.',
-      '<b>The tiers.</b> True (62), White (78) and Wise (94) are crafted straight from the base, without the previous tier. Each has a 25% combo to come out Splendent, 8 item levels higher.',
-      '<b>What to aim for.</b> White (78) loses to Fire Temple (86), and only Splendent White ties. Wise (94) beats it, and Splendent Wise (102) is the top. Aim for Wise; use Fire Temple until then.',
-      '<b>The bottleneck.</b> Wise needs 20 Wrathful Ego for the staff and guard. It drops from Kromede and Nuakum (3.6%) and the Ludra raid (10%), and the Season Shop sells it for 8,750 Oath Coin, up to 10 per account until 2026-12-16. Durable scales and horns need mastery 80 to craft.',
+      '<b>Profession.</b> Blacksmithing makes the longsword, greatsword, dagger, mace and guard; Handicrafting makes the bow, staff, necklace, earrings and ring; Alchemy makes the spellbook and orb; Armorsmithing makes the seven armor pieces. The tables are in Dawn Legion Base and Zumion Village, Verteron (Elyos), and Safe Haven and Nornir Assembly, Altgard (Asmodians).',
+      '<b>Mastery.</b> The Artisan version needs 30 to 40, depending on the piece. True Dragon Lord needs 55 for weapons, ring, breastplate, greaves, helm and pauldrons, and 60 for the guard, necklace, earrings, gloves, boots and cloak. Mastery stops at 50 until you complete the profession upgrade quest. Upgrades need no mastery.',
+      '<b>Step 1, the base.</b> Every Dragon Lord ladder starts with an "Artisan\'s Splendent" piece (item level 44). It has no recipe: it comes from the combo, 25% of the times you craft the Artisan version. That is 4 crafts per base on average.',
+      '<b>Steps 2 and 3.</b> True (62) consumes 1 base. Splendent True (70) comes from the 25% combo when crafting True, or from the upgrade: 1 True plus materials.',
+      '<b>Steps 4 to 7.</b> White (78) is an upgrade: it consumes 1 Splendent True plus 1 more base. Splendent White (86) comes from White\'s combo or its upgrade. Wise (94) consumes 1 Splendent White plus 1 more base, and Splendent Wise (102) comes from Wise\'s combo or its upgrade. From zero to the top that is 3 bases, or 12 Artisan crafts on average. Keep every Splendent: it feeds the next tier.',
+      '<b>What to aim for.</b> White (78) loses to Fire Temple (86), and only Splendent White ties. Wise (94) beats it, and Splendent Wise (102) is the top: for armor and accessories it is the only 102 outside the Ludra raid. Aim for Wise; use Fire Temple until then.',
+      '<b>The bottleneck.</b> The upper tiers need dungeon materials: Artisan\'s Ultimate Refining Stone and the Wrathful line (Mind, Will and Ego) do not drop in the field. The Durable Balaur scales, horns and leather for Wise need mastery 80 to craft.',
     ],
-    caveats: 'The database does not show mastery for the White and Wise tiers, nor the combo chance for the ring and guard. Splendent versions are listed with a recipe of their own, but what it does is not confirmed.',
+    caveats: 'The client\'s upgrade recipes leave out the piece being upgraded; the menu adds it, tagged "previous step piece", following the MetaBot.GG crafting guide. Item levels come from that guide too. The path math uses an average for the base combo and treats Dragon Lord crafts as successes without combo. Names in English and Portuguese, both official from the client.',
     tableTitle: 'All recipes',
-    thItem: 'Item', thIl: 'Level', thMats: 'Materials',
+    thItem: 'Item (Elyos / Asmodian)', thIl: 'Level', thMats: 'Materials (Elyos)',
+    prev: 'previous piece',
+    sources: 'Recipes, names and icons: <a href="{crafting}">MetaBot.GG crafting calculator</a>. Ladder and item levels: <a href="{guide}">MetaBot.GG crafting guide</a>. Success ranges: <a href="{shugo}">Shugo.GG</a>.',
   },
 }[lang];
-const mats = data.materials as Record<string, { name: string }>;
+type Item = { name: { pt: string; en: string } };
+const items = data.items as Record<string, Item>;
+const nm = (id: string) => items[id]?.name[lang] ?? id;
+// crédito: link dofollow para as páginas exatas usadas
+const sources = c.sources
+  .replace('{crafting}', data.sources.crafting[lang])
+  .replace('{guide}', data.sources.guide[lang])
+  .replace('{shugo}', data.sources.shugo ?? 'https://shugo.gg/crafting');
 ---
 <Base lang={lang} title={tt('tools.craft.title')} description={tt('tools.craft.desc')}>
   <section class="block">
     <h1>{tt('tools.craft.title')}</h1>
-    <p class="lead">{c.lead}</p>
+    <p class="lead">{c.lead.replace('{n}', String(data.pieces.length))}</p>
+    <p class="small" set:html={c.more.replace('{href}', href(lang, '/tools/recipes/'))} />
   </section>
 
   <CraftMenu lang={lang} />
@@ -61,21 +77,26 @@ const mats = data.materials as Record<string, { name: string }>;
   <section class="block">
     <details>
       <summary><h2 style="display:inline">{c.tableTitle}</h2></summary>
-      <div class="tablewrap">
-        <table>
-          <thead><tr><th>{c.thItem}</th><th class="num">{c.thIl}</th><th>{c.thMats}</th></tr></thead>
-          <tbody>
-            {data.items.flatMap((it) => it.tiers.map((tier) => (
-              <tr>
-                <td>{tier.names.elyos} / {tier.names.asmodian}</td>
-                <td class="num">{tier.itemLevel}</td>
-                <td>{tier.materials.map((m) => `${m.qty}× ${mats[m.id].name}`).join(', ')}</td>
-              </tr>
-            )))}
-          </tbody>
-        </table>
-      </div>
+      {data.pieces.map((p) => (
+        <>
+          <h3>{p.name[lang]} · <span class="muted small">{p.profession[lang]}</span></h3>
+          <div class="tablewrap">
+            <table>
+              <thead><tr><th>{c.thItem}</th><th class="num">{c.thIl}</th><th>{c.thMats}</th></tr></thead>
+              <tbody>
+                {p.steps.map((s) => (
+                  <tr>
+                    <td>{nm(s.elyos.item)}{s.asmodian.item !== s.elyos.item && ` / ${nm(s.asmodian.item)}`}</td>
+                    <td class="num">{s.itemLevel}</td>
+                    <td>{s.elyos.materials.map((m) => `${m.qty}× ${nm(m.id)}${'prev' in m && m.prev ? ` (${c.prev})` : ''}`).join(', ')}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </>
+      ))}
     </details>
-    <p class="muted small">Dados e ícones: <a href={data.source} rel="noopener">aion2.th.gl</a> · <span class="num">{data.checkedAt}</span></p>
+    <p class="muted small"><span set:html={sources} /> · <span class="num">{data.checkedAt}</span></p>
   </section>
 </Base>
